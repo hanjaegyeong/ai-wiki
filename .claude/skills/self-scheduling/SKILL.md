@@ -1,4 +1,11 @@
-AI Wiki 키워드 일일 자동 업데이트.
+---
+name: self-scheduling
+description: AI Wiki 키워드 일일 자동 업데이트 (트렌드 수집 → 키워드 추가 → HOT 표식 → 커밋)
+---
+
+# /self-scheduling
+
+AI Wiki 키워드 일일 자동 업데이트. `.claude/prompts/daily-keyword.md`와 동일한 동작.
 
 ## 검색 기간
 - 모든 검색은 **최근 48시간** 이내의 콘텐츠를 대상으로 한다.

@@ -128,10 +128,13 @@
     margin: 24px auto 0;
     padding: 0 32px;
   }
-  .sort-label {
-    font-size: 12px;
-    color: #a09888;
+  .grid-header { display:flex; align-items:center; gap:8px; }
+  .sort-btn {
+    font-size: 12px; font-weight: 400; color: #a09888; background: none; border: none;
+    padding: 0; cursor: pointer;
   }
+  .sort-btn.on { font-weight: 700; }
+  .sort-sep { font-size: 12px; color: #d0c9c0; }
 
   /* Pagination */
   .pagination {
@@ -229,6 +232,7 @@
   .modal-videos .vid-lang { font-size:10px; color:#a09888; background:#F3F0EB; padding:1px 6px; border-radius:4px; }
 
   .card-new { position:absolute; bottom:16px; right:18px; font-size:10px; font-weight:900; color:#C4613A; letter-spacing:0.5px; }
+  .card-hot { position:absolute; top:16px; right:18px; font-size:10px; font-weight:900; color:#C4613A; letter-spacing:0.5px; }
   .modal-born { font-size:12px; color:#a09888; margin-bottom:12px; }
 
   @media (max-width:700px) {
@@ -252,7 +256,9 @@
 </header>
 
 <div class="grid-header">
-  <span class="sort-label" id="sort-label"></span>
+  <button class="sort-btn on" id="sort-newest"></button>
+  <span class="sort-sep">|</span>
+  <button class="sort-btn" id="hot-btn">HOT</button>
 </div>
 <div class="grid" id="grid"></div>
 <div class="pagination" id="pagination"></div>
@@ -269,25 +275,25 @@ document.documentElement.lang = LANG;
 
 const I18N = {
   ko: {
-    search:'검색...', all:'전체', noResults:'검색 결과 없음', loadMore:'더 보기', newest:'최신순',
+    search:'검색...', all:'전체', hot:'HOT', noResults:'검색 결과 없음', loadMore:'더 보기', newest:'최신순',
     refs:'레퍼런스', videos:'영상', related:'관련 키워드',
     born:(y,m)=> m&&+m ? y+'년 '+(+m)+'월 등장' : y+'년 등장',
     cats:{prompting:'프롬프팅',model:'모델',tooling:'도구',data:'데이터',agent:'에이전트',infra:'인프라',safety:'안전',application:'응용'}
   },
   en: {
-    search:'Search...', all:'All', noResults:'No results found', loadMore:'Load more', newest:'Newest',
+    search:'Search...', all:'All', hot:'HOT', noResults:'No results found', loadMore:'Load more', newest:'Newest',
     refs:'References', videos:'Videos', related:'Related',
     born:(y,m)=> m&&+m ? `Appeared ${y}-${String(+m).padStart(2,'0')}` : `Appeared ${y}`,
     cats:{prompting:'Prompting',model:'Model',tooling:'Tooling',data:'Data',agent:'Agent',infra:'Infra',safety:'Safety',application:'Application'}
   },
   zh: {
-    search:'搜索...', all:'全部', noResults:'未找到结果', loadMore:'加载更多', newest:'最新',
+    search:'搜索...', all:'全部', hot:'HOT', noResults:'未找到结果', loadMore:'加载更多', newest:'最新',
     refs:'参考资料', videos:'视频', related:'相关关键词',
     born:(y,m)=> m&&+m ? `${y}年${+m}月出现` : `${y}年出现`,
     cats:{prompting:'提示工程',model:'模型',tooling:'工具',data:'数据',agent:'智能体',infra:'基础设施',safety:'安全',application:'应用'}
   },
   ja: {
-    search:'検索...', all:'すべて', noResults:'結果が見つかりません', loadMore:'もっと見る', newest:'新しい順',
+    search:'検索...', all:'すべて', hot:'HOT', noResults:'結果が見つかりません', loadMore:'もっと見る', newest:'新しい順',
     refs:'参考資料', videos:'動画', related:'関連キーワード',
     born:(y,m)=> m&&+m ? `${y}年${+m}月登場` : `${y}年登場`,
     cats:{prompting:'プロンプト',model:'モデル',tooling:'ツール',data:'データ',agent:'エージェント',infra:'インフラ',safety:'安全性',application:'応用'}
@@ -296,6 +302,8 @@ const I18N = {
 const L = I18N[LANG];
 const CATS = L.cats;
 document.getElementById('q').placeholder = L.search;
+
+const HOT_IDS = ['harness-engineering','multi-agent','claude-code','ai-supply-chain-attack','claude-dispatch','self-improving-agent','gemma','copilot-sdk','skills'];
 
 const D = [
   {id:'harness-engineering',t:'하네스 엔지니어링',en:'Harness Engineering',c:'prompting',h:4,born:'2026-02',tags:['시스템설계','오케스트레이션'],
@@ -2674,6 +2682,7 @@ let cat = 'all', q = '', page = 1;
 
 function render() {
   let list = D.filter(e => {
+    if (cat === 'hot') return HOT_IDS.includes(e.id);
     if (cat !== 'all' && e.c !== cat) return false;
     if (!q) return true;
     const s = q.toLowerCase();
@@ -2684,7 +2693,7 @@ function render() {
 
   const g = document.getElementById('grid');
   const pg = document.getElementById('pagination');
-  document.getElementById('sort-label').textContent = L.newest;
+  document.getElementById('sort-newest').textContent = L.newest;
   if (!list.length) { g.innerHTML = `<div class="empty">${L.noResults}</div>`; pg.innerHTML = ''; return; }
 
   const total = list.length;
@@ -2699,8 +2708,10 @@ function render() {
     const secondary = LANG==='ko' ? e.en : (!/[\uAC00-\uD7AF]/.test(e.t)&&e.t!==primary ? e.t : '');
     const sub = secondary ? `<div class="card-sub">${secondary}</div>` : '';
     const isNew = e.born && e.born >= cutoff;
+    const isHot = HOT_IDS.includes(e.id);
     return `<div class="card" onclick="open_m('${e.id}')">
       <div class="card-cat">${CATS[e.c]}</div>
+      ${isHot ? '<div class="card-hot">▲</div>' : ''}
       ${isNew ? '<div class="card-new">NEW</div>' : ''}
       <div class="card-keyword">${primary}</div>
       ${sub}
@@ -2738,12 +2749,29 @@ function goPage(n) {
     if (!b) return;
     f.querySelectorAll('.f').forEach(x=>x.classList.remove('on'));
     b.classList.add('on');
+    document.getElementById('hot-btn').classList.remove('on');
     cat = b.dataset.c;
     page = 1;
     render();
   });
 })();
 
+// Sort toggle (최신순 / HOT)
+(function(){
+  const newest = document.getElementById('sort-newest');
+  const hot = document.getElementById('hot-btn');
+  if (!HOT_IDS.length) hot.style.display='none';
+  function toggle(mode) {
+    cat = mode === 'hot' ? 'hot' : 'all';
+    newest.classList.toggle('on', mode !== 'hot');
+    hot.classList.toggle('on', mode === 'hot');
+    document.querySelectorAll('.f').forEach(x => x.classList.toggle('on', mode !== 'hot' && x.dataset.c === 'all'));
+    page = 1;
+    render();
+  }
+  newest.addEventListener('click', () => toggle('newest'));
+  hot.addEventListener('click', () => toggle(cat === 'hot' ? 'newest' : 'hot'));
+})();
 
 // Search
 document.getElementById('q').addEventListener('input', e => { q = e.target.value.trim(); page = 1; render(); });
