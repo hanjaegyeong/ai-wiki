@@ -190,6 +190,7 @@
   }
   .sort-btn.on { font-weight: 700; }
   .sort-sep { font-size: 12px; color: #d0c9c0; }
+  .search-count { font-size: 12px; color: #a09888; margin-left: auto; }
 
   /* Pagination */
   .pagination {
@@ -314,6 +315,7 @@
   <button class="sort-btn on" id="sort-newest"></button>
   <span class="sort-sep">|</span>
   <button class="sort-btn" id="hot-btn">HOT</button>
+  <span class="search-count" id="search-count"></span>
 </div>
 <div class="grid" id="grid"></div>
 <div class="pagination" id="pagination"></div>
@@ -359,26 +361,57 @@ const L = I18N[LANG];
 const CATS = L.cats;
 document.getElementById('q').placeholder = L.search;
 
+// 초성 검색
+const CHO='ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ';
+function getCho(s){return[...s].map(c=>{const n=c.charCodeAt(0);return n>=0xAC00&&n<=0xD7A3?CHO[Math.floor((n-0xAC00)/588)]:c}).join('')}
+function isChoQ(s){return s.length>0&&[...s].every(c=>CHO.includes(c))}
 
+function searchScore(e,raw){
+  let sc=0;
+  if(isChoQ(raw)){
+    if(getCho(e.t).includes(raw))sc+=100;
+    if(e.tags.some(t=>getCho(t).includes(raw)))sc+=30;
+    if(getCho(e.sum||'').includes(raw))sc+=10;
+  }else{
+    const s=raw.toLowerCase();
+    if(e.t.toLowerCase().includes(s))sc+=100;
+    if(e.en.toLowerCase().includes(s))sc+=80;
+    if(e.id.includes(s))sc+=60;
+    if(e.tags.some(t=>t.toLowerCase().includes(s)))sc+=40;
+    if((e.sum||'').toLowerCase().includes(s))sc+=20;
+  }
+  return sc;
+}
 
 // State
 const PAGE_SIZE = 20;
 let cat = 'all', q = '', page = 1;
 
 function render() {
-  let list = D.filter(e => {
-    if (cat === 'hot') return HOT_IDS.includes(e.id);
-    if (cat !== 'all' && e.c !== cat) return false;
-    if (!q) return true;
-    const s = q.toLowerCase();
-    return e.t.toLowerCase().includes(s) || e.en.toLowerCase().includes(s) || e.tags.some(t=>t.includes(s));
-  }).sort((a,b) => {
-    return (b.born||'').localeCompare(a.born||'');
-  });
+  let list;
+  if (!q) {
+    list = D.filter(e => {
+      if (cat === 'hot') return HOT_IDS.includes(e.id);
+      return cat === 'all' || e.c === cat;
+    });
+    list.sort((a,b) => (b.born||'').localeCompare(a.born||''));
+  } else {
+    const scored = [];
+    for (const e of D) {
+      if (cat !== 'all' && cat !== 'hot' && e.c !== cat) continue;
+      if (cat === 'hot' && !HOT_IDS.includes(e.id)) continue;
+      const sc = searchScore(e, q);
+      if (sc > 0) scored.push({e, sc});
+    }
+    scored.sort((a,b) => b.sc - a.sc || (b.e.born||'').localeCompare(a.e.born||''));
+    list = scored.map(x => x.e);
+  }
 
   const g = document.getElementById('grid');
   const pg = document.getElementById('pagination');
+  const countEl = document.getElementById('search-count');
   document.getElementById('sort-newest').textContent = L.newest;
+  countEl.textContent = q ? list.length + '건' : '';
   if (!list.length) { g.innerHTML = `<div class="empty">${L.noResults}</div>`; pg.innerHTML = ''; return; }
 
   const total = list.length;
@@ -458,8 +491,12 @@ function goPage(n) {
   hot.addEventListener('click', () => toggle(cat === 'hot' ? 'newest' : 'hot'));
 })();
 
-// Search
-document.getElementById('q').addEventListener('input', e => { q = e.target.value.trim(); page = 1; render(); });
+// Search (debounced)
+let _dt;
+document.getElementById('q').addEventListener('input', e => {
+  clearTimeout(_dt);
+  _dt = setTimeout(() => { q = e.target.value.trim(); page = 1; render(); }, 150);
+});
 
 // Modal
 function open_m(id, pushState) {
@@ -502,6 +539,10 @@ window.addEventListener('popstate', () => {
 
 // 페이지 로드 시 해시가 있으면 모달 오픈
 if (location.hash) { const id = location.hash.slice(1); if (D.find(x=>x.id===id)) open_m(id, false); }
+
+// URL ?q= 파라미터 검색
+const _qq = new URLSearchParams(location.search).get('q');
+if (_qq) { q = _qq; document.getElementById('q').value = _qq; }
 
 render();
 
