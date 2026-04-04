@@ -1,0 +1,24 @@
+AI Wiki 키워드 일일 자동 업데이트.
+
+## 검색 기간
+- 모든 검색은 **최근 48시간** 이내의 콘텐츠를 대상으로 한다.
+- WebSearch 쿼리에 오늘 날짜를 포함한다 (예: "AI agent 2026-04-04").
+- GeekNews MCP는 get_articles(type:'new')로 최신순 수집.
+
+## 실행 순서
+
+1. 아래 소스에서 최근 48시간 내 AI 핫 토픽을 수집한다:
+   - GeekNews MCP: get_articles(type:'new', limit:30) + get_weekly_news()
+   - WebSearch: "AI news today site:news.ycombinator.com" (최근 48시간)
+   - WebSearch: "AI machine learning new" site:reddit.com (최근 48시간)
+   - WebSearch: "AI 최신 뉴스 오늘" (TechCrunch, The Verge, GeekNews 등)
+   - WebSearch: "AI latest papers site:arxiv.org" (최근 48시간)
+
+2. index.html의 D 배열과 대조하여 아직 없는 키워드를 선정한다.
+   - 선정 기준: AI 기술 키워드에 해당, 고유한 개념이 있을 것, 1회성 뉴스 제외
+   - 개수 제한 없음 — 다룰 만한 키워드가 있으면 전부 추가
+   - 새로 다룰 만한 키워드가 없으면 기존 항목 중 det이 부실한 것을 보강
+
+3. 선정된 키워드마다 /add-keyword 실행
+
+4. /commit 실행

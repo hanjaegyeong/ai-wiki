@@ -262,7 +262,7 @@ const CATS = {
   safety:'안전', application:'응용'
 };
 
-const HEAT = ['','Cool','Mild','Warm','Hot','Blazing'];
+const IMP = ['','참고','기초','보통','중요','필수'];
 
 const D = [
   {id:'harness-engineering',t:'하네스 엔지니어링',en:'Harness Engineering',c:'prompting',h:5,born:'2026-02',tags:['시스템설계','오케스트레이션'],
@@ -752,7 +752,7 @@ function render() {
 (function(){
   const wrap = document.createElement('div');
   wrap.className = 'sort-toggle';
-  wrap.innerHTML = `<button class="f on" data-s="newest">최신순</button><button class="f" data-s="heat">Heat순</button>`;
+  wrap.innerHTML = `<button class="f on" data-s="newest">최신순</button><button class="f" data-s="heat">중요도순</button>`;
   document.querySelector('header').appendChild(wrap);
   wrap.addEventListener('click', e => {
     const b = e.target.closest('.f');
@@ -780,9 +780,9 @@ function open_m(id, pushState) {
     <div class="modal-en">${e.en}</div>
     ${e.born ? `<div class="modal-born">${(()=>{const[y,m]=e.born.split('-');return m&&+m?y+'년 '+(+m)+'월 등장':y+'년 등장';})()}</div>` : ''}
     <div class="modal-heat">
-      <span>Heat</span>
+      <span>중요도</span>
       <div class="pips">${[1,2,3,4,5].map(i=>`<div class="pip${i<=e.h?' on':''}"></div>`).join('')}</div>
-      <span>${HEAT[e.h]}</span>
+      <span>${IMP[e.h]}</span>
     </div>
     <div class="modal-body"><p>${e.sum}</p>${e.det}</div>
     ${e.tags.length?`<div class="modal-tags">${e.tags.map(t=>`<span onclick="document.getElementById('q').value='${t}';q='${t}';close_m();render()">#${t}</span>`).join('')}</div>`:''}
