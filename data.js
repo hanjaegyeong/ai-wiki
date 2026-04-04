@@ -728,7 +728,7 @@ refs:[],videos:[],updated:'2026-04-04'},
   {id:'knowledge-graph',t:'지식 그래프',en:'Knowledge Graph',c:'data',h:3,born:'2012-05',tags:['그래프DB','관계추출','Neo4j'],
 sum:'엔티티와 그 관계를 그래프 구조로 표현한 데이터베이스. AI에서는 RAG의 검색 정확도를 높이거나, LLM의 사실 기반 추론을 보강하는 데 활용된다.',
 det:`<h4>개념 설명</h4><p>\"스티브 잡스는 Apple의 공동창업자이고, Apple은 아이폰을 만들었다\"처럼 엔티티(사람, 회사, 제품)와 관계(창업, 제조)를 노드와 엣지로 표현하는 것이 지식 그래프다. 구글의 Knowledge Graph(2012)가 검색 결과의 \"Knowledge Panel\"에 쓰이면서 유명해졌다. 관계형 데이터베이스가 테이블로 데이터를 표현한다면, 지식 그래프는 연결로 의미를 표현한다.</p><p>LLM과 결합할 때 강점이 드러난다. LLM은 지식 그래프에서 필요한 사실을 정확하게 검색하고, 그래프의 관계를 따라 다단계 추론을 수행한다. Graph RAG가 이 결합의 대표적인 패턴이다.</p><h4>사용 예시</h4><p>Neo4j나 Amazon Neptune에 도메인 지식을 그래프로 저장하고, LangChain의 <code>GraphCypherQAChain</code>으로 자연어 질문을 Cypher 쿼리로 변환해 답변하는 파이프라인을 구성할 수 있다. 기업 내부의 조직도, 제품 의존성, 규정 관계를 그래프로 모델링하면 복잡한 관계 질의에 LLM이 정확히 답할 수 있다.</p>`,
-rel:['graph-rag','rag','embedding','vector-db'],
+rel:['graph-rag','rag','embedding','vector-db','ontology'],
 refs:[],videos:[],updated:'2026-04-04'},
 
   {id:'hybrid-search',t:'하이브리드 검색',en:'Hybrid Search',c:'data',h:3,born:'2023-01',tags:['키워드검색','의미검색','BM25'],
@@ -746,7 +746,7 @@ refs:[],videos:[],updated:'2026-04-04'},
   {id:'graph-rag',t:'그래프 RAG',en:'Graph RAG',c:'data',h:3,born:'2024-04',tags:['지식그래프','RAG','관계추론'],
 sum:'지식 그래프를 RAG에 결합해 단순 유사도 검색을 넘어 엔티티 간 관계를 탐색하며 답변하는 방식. Microsoft가 2024년 발표하며 주목받았다.',
 det:`<h4>개념 설명</h4><p>표준 RAG는 쿼리와 유사한 텍스트 청크를 찾는다. \"A와 B의 공통점은?\"처럼 여러 엔티티에 걸친 질문이나 전체 문서에 분산된 정보를 종합해야 하는 질문에는 약하다. Graph RAG는 문서에서 엔티티와 관계를 추출해 지식 그래프를 만들고, 커뮤니티 감지로 관련 노드들을 그룹화한다. 질문에 답할 때 그래프를 탐색해 연결된 정보들을 수집한다.</p><p>Microsoft의 GraphRAG(2024)는 Local 검색(특정 엔티티 주변)과 Global 검색(전체 그래프 요약)을 제공해 기존 RAG가 못하는 글로벌 질의(\"이 보고서의 주요 테마는?\")에도 답한다.</p><h4>사용 예시</h4><p><code>graphrag</code> 패키지로 문서 컬렉션에 Graph RAG를 구성할 수 있다. 학술 논문 데이터베이스, 기업 문서, 의료 기록처럼 엔티티 간 관계가 중요한 도메인에서 표준 RAG 대비 답변 품질이 크게 향상된다.</p>`,
-rel:['rag','knowledge-graph','embedding','vector-db','chunking'],
+rel:['rag','knowledge-graph','embedding','vector-db','chunking','ontology'],
 refs:[],videos:[],updated:'2026-04-04'},
 
   {id:'multimodal-rag',t:'멀티모달 RAG',en:'Multimodal RAG',c:'data',h:3,born:'2024-01',tags:['이미지검색','멀티모달','문서이해'],
@@ -1551,6 +1551,25 @@ refs:[
   {title:'OWASP ML Security Top 10 — ML06',url:'https://owasp.org/www-project-machine-learning-security-top-10/docs/ML06_2023-AI_Supply_Chain_Attacks',type:'official'}
 ],videos:[],updated:'2026-04-04'},
 
+  {id:'ontology',t:'온톨로지',en:'Ontology',c:'data',h:3,born:'1993-01',tags:['지식표현','OWL','지식그래프'],
+   sum:'도메인의 개념과 관계를 기계가 이해할 수 있도록 형식적으로 정의한 지식 구조. AI가 단순히 데이터를 저장하는 것을 넘어 의미를 이해하고 추론할 수 있게 해준다.',
+   det:`<h4>온톨로지란 무엇인가</h4><p>온톨로지는 쉽게 말해 개념들 사이의 규칙을 적어둔 설계도다. 예를 들어 '자동차는 탈것이다', '테슬라 모델3은 자동차다'처럼 개념의 계층과 관계를 명시적으로 정의해 놓으면, AI 시스템은 '테슬라 모델3은 탈것이다'라는 사실을 직접 입력받지 않아도 스스로 추론해낼 수 있다. 1993년 Tom Gruber가 이를 '개념화의 명시적 명세(explicit specification of a conceptualization)'라고 정의한 이래, 온톨로지는 지식 표현 분야의 핵심 개념이 되었다.</p>
+<h4>지식 그래프와의 관계</h4><p>온톨로지와 지식 그래프는 자주 혼동되지만 역할이 다르다. 온톨로지는 '어떤 종류의 노드와 엣지가 존재할 수 있는지'를 정의하는 스키마(설계도)이고, 지식 그래프는 그 설계도대로 실제 데이터를 채워 넣은 결과물이다. 건물로 치면 온톨로지는 설계 도면이고, 지식 그래프는 그 도면으로 지은 실제 건물이다.</p>
+<h4>개발자가 실제로 쓰는 방식</h4><p>GraphRAG 시스템을 구축할 때 온톨로지는 LLM의 정보 추출을 안내하는 가이드레일 역할을 한다. 온톨로지 없이 LLM에게 의료 문서를 분석시키면 'John Doe, 45'와 'John Doe, age 45'를 서로 다른 환자로 인식하거나, '제2형 당뇨병'과 'T2D'를 별개 질환으로 처리하는 오류가 발생한다. 온톨로지로 Patient, Condition, Medication 같은 클래스와 그 관계를 미리 정의해 두면 LLM이 그 구조에 맞게 정보를 추출하므로 일관성이 유지된다.</p>
+<p>Python 환경에서는 <code>rdflib</code> 라이브러리로 RDF/OWL 온톨로지를 읽고 쓸 수 있고, Protégé는 온톨로지를 시각적으로 설계하는 대표적인 오픈소스 툴이다. LLM 파이프라인에서는 온톨로지를 시스템 프롬프트에 포함시키거나, 그래프 DB(Neo4j 등)의 스키마로 직접 로드해서 활용하는 패턴이 많이 쓰인다.</p>
+<h4>LLM 시대에 온톨로지가 다시 주목받는 이유</h4><p>LLM은 방대한 지식을 갖고 있지만 특정 도메인에서 일관성을 유지하기 어렵다. 온톨로지는 LLM의 '구조화된 기억' 역할을 하며, 특히 의료·법률·제조처럼 정확성이 중요한 분야에서 LLM의 환각을 줄이는 수단으로 활용되고 있다. RAG가 문서를 검색해 LLM에 제공한다면, 온톨로지 기반 GraphRAG는 개념 간 관계까지 함께 제공해 더 정밀한 추론을 가능하게 한다.</p>`,
+   rel:['knowledge-graph','graph-rag','rag','embedding'],
+   refs:[
+  {title:'Ontology in AI (2025 Guide) — Dev.to',url:'https://dev.to/bikashdaga/ontology-in-ai-2025-guide-structure-semantics-applications-in-knowledge-representation-44aa',type:'blog'},
+  {title:'From RAG to GraphRAG: Knowledge Graphs, Ontologies and Smarter AI',url:'https://www.gooddata.com/blog/from-rag-to-graphrag-knowledge-graphs-ontologies-and-smarter-ai/',type:'blog'},
+  {title:'Ontology-Driven Knowledge Graph for GraphRAG — Deepsense.ai',url:'https://deepsense.ai/resource/ontology-driven-knowledge-graph-for-graphrag/',type:'tutorial'},
+  {title:'Amazon Neptune에서 온톨로지를 사용한 지식 그래프 만들기',url:'https://aws.amazon.com/ko/blogs/tech/model-driven-graphs-using-owl-in-amazon-neptune-kr/',type:'official'},
+  {title:'Ontology Learning and Knowledge Graph Construction for RAG',url:'https://arxiv.org/abs/2511.05991',type:'paper'}
+],videos:[
+  {title:'Ontology-driven end-to-end GraphRAG — Neo4j Going Meta',id:'UmP0pFFsMsE',lang:'en'},
+  {title:'KG+LLMs: Ontology Driven RAG Patterns — Neo4j',id:'5_WXr0GtVas',lang:'en'}
+],updated:'2026-04-05'},
+
 ];
 
 const I18N_CONTENT = {en:{
@@ -1824,6 +1843,14 @@ const I18N_CONTENT = {en:{
   'ai-supply-chain-attack': {
     sum: 'An attack that plants malicious code in AI tools and libraries\' distribution channels, stealing API keys and credentials through packages and models that developers already trust.',
     det: `<h4>Concept</h4><p>Software supply chain attacks target weak links in the software development and distribution process. AI supply chain attacks add AI-specific elements — ML frameworks, model hubs, and AI tool packages. PyPI packages installed via <code>pip install</code>, AI SDKs from npm, and model files downloaded from Hugging Face are all potential attack targets.</p><p>What distinguishes these from general supply chain attacks is the <strong>elevated privileges</strong> that AI tools possess. An AI proxy library like LiteLLM aggregates API keys for multiple AI services in one place, and coding agents like Claude Code have direct access to the file system and terminal. When these tools are compromised, the damage goes beyond code execution — API keys, environment variables, and sensitive configuration can all be exfiltrated at once.</p><h4>Usage Examples</h4><p>In March 2026, an attack group called <strong>TeamPCP</strong> executed exactly this kind of attack. They first compromised the GitHub Actions workflow of the open-source security scanner Trivy, then used that access to reach LiteLLM's PyPI publishing pipeline. Malicious code was injected into <code>litellm==1.82.7</code> and <code>litellm==1.82.8</code>. These versions contained <code>.pth</code> files that auto-executed when Python started, stealing credentials and downloading additional malware.</p><p>Around the same time, Claude Code's source was leaked, and within 24 hours attackers uploaded fake Claude Code builds to GitHub claiming to be "unlimited versions built from the leaked source." Users who downloaded these had infostealer malware installed.</p><h4>Deep Dive</h4><p>AI supply chain attacks fall into four main types. First is <strong>package compromise</strong>, where attackers take over CI/CD pipelines to inject malicious code into official packages. Second is <strong>typosquatting</strong>, registering malicious packages with names similar to popular ones. Third is <strong>model file poisoning</strong>, hiding malicious code inside serialized model files on model hubs. Fourth is <strong>tool impersonation</strong>, distributing fake versions of popular AI tools.</p><p>OWASP classifies this as ML06 in the ML Security Top 10 and LLM03 in the LLM security guide.</p><h4>Things to Watch Out For</h4><p>These attacks are hard to detect because they exploit channels developers already trust. Using version pinning (<code>pip freeze</code>, <code>package-lock.json</code>) and including dependency scanning tools in CI are basic defenses. Since AI tools have broad access to API keys and environment variables, applying the principle of least privilege and managing sensitive keys through dedicated secret managers is essential.</p>`
+  },
+  'ontology': {
+    sum: 'A formal knowledge structure that defines domain concepts and their relationships so machines can understand them. It enables AI to go beyond storing data to understanding meaning and performing reasoning.',
+    det: `<h4>What is an Ontology?</h4><p>An ontology is essentially a blueprint that maps out rules between concepts. For example, by explicitly defining hierarchies and relationships like "a car is a vehicle" and "a Tesla Model 3 is a car," an AI system can infer on its own that "a Tesla Model 3 is a vehicle" without being explicitly told. Since Tom Gruber defined this as an "explicit specification of a conceptualization" in 1993, ontology has become a core concept in knowledge representation.</p>
+<h4>Relationship with Knowledge Graphs</h4><p>Ontologies and knowledge graphs are often confused, but they serve different roles. An ontology defines the schema — what kinds of nodes and edges can exist — while a knowledge graph is the actual data populated according to that schema. Think of it this way: the ontology is the architectural blueprint, and the knowledge graph is the actual building constructed from it.</p>
+<h4>How Developers Actually Use It</h4><p>When building GraphRAG systems, ontologies serve as guardrails for LLM information extraction. Without an ontology, an LLM analyzing medical documents might treat "John Doe, 45" and "John Doe, age 45" as different patients, or "Type 2 Diabetes" and "T2D" as separate conditions. By predefining classes like Patient, Condition, and Medication along with their relationships, the LLM extracts information consistently according to that structure.</p>
+<p>In Python, you can read and write RDF/OWL ontologies with <code>rdflib</code>, and Protégé is the go-to open-source tool for visually designing ontologies. In LLM pipelines, common patterns include embedding the ontology in system prompts or loading it directly as a schema in graph databases like Neo4j.</p>
+<h4>Why Ontologies Are Getting Attention Again in the LLM Era</h4><p>LLMs possess vast knowledge but struggle to maintain consistency in specific domains. Ontologies serve as "structured memory" for LLMs, and they're being used to reduce hallucinations especially in domains where accuracy matters — healthcare, legal, manufacturing. While RAG retrieves documents for the LLM, ontology-based GraphRAG provides relationships between concepts as well, enabling more precise reasoning.</p>`
   }
 },zh:{
   'harness-engineering': {
@@ -2096,6 +2123,14 @@ const I18N_CONTENT = {en:{
   'ai-supply-chain-attack': {
     sum: '通过AI工具和库的分发渠道植入恶意代码的攻击，利用开发者信任的包或模型窃取API密钥、凭证并安装后门。',
     det: `<h4>概念说明</h4><p>软件供应链攻击是针对软件开发·分发过程中薄弱环节的攻击。AI供应链攻击在此基础上加入了AI特有的要素——ML框架、模型中心、AI工具包。开发者通过<code>pip install</code>安装的PyPI包、通过npm获取的AI SDK、从Hugging Face下载的模型文件都可能成为攻击目标。</p><p>与普通软件供应链攻击不同的是，AI工具拥有<strong>很高的权限</strong>。LiteLLM这样的AI代理库把多个AI服务的API密钥集中在一处，Claude Code这样的编程agent直接访问文件系统和终端。一旦这些工具被感染，不仅仅是代码执行的问题——API密钥、环境变量、敏感配置信息可能一次性全部泄露。</p><h4>使用示例</h4><p>2026年3月，一个叫<strong>TeamPCP</strong>的攻击组织实施了这类攻击。他们先感染了开源安全扫描器Trivy的GitHub Actions工作流，借此进入LiteLLM的PyPI发布管线。最终<code>litellm==1.82.7</code>和<code>litellm==1.82.8</code>被植入恶意代码并发布到PyPI。这些恶意版本包含Python进程启动时自动执行的<code>.pth</code>文件，负责窃取凭证并下载额外恶意软件。</p><p>同一时期Claude Code源码泄露，攻击者在24小时内就在GitHub上传了所谓"用泄露源码编译的无限制版本"的假冒Claude Code，下载的用户被安装了信息窃取恶意软件。</p><h4>深入内容</h4><p>AI供应链攻击主要分为四种类型。第一是<strong>包感染</strong>，攻击者控制CI/CD管线向官方包注入恶意代码。第二是<strong>域名仿冒（typosquatting）</strong>，注册与热门包名称相似的恶意包。第三是<strong>模型文件感染</strong>，在模型中心的序列化模型文件中隐藏恶意代码。第四是<strong>工具仿冒</strong>，分发热门AI工具的假冒版本。</p><p>OWASP在ML安全威胁Top 10中将其列为ML06，在LLM安全指南中列为LLM03。</p><h4>注意事项</h4><p>AI供应链攻击利用的是开发者已经信任的渠道，因此难以发现。安装包时使用版本锁定（<code>pip freeze</code>、<code>package-lock.json</code>），在CI中加入依赖扫描工具是基本防御手段。AI工具对API密钥和环境变量有广泛的访问权限，应用最小权限原则、用专门的密钥管理器管理敏感密钥尤为重要。</p>`
+  },
+  'ontology': {
+    sum: '领域概念及其关系的形式化知识结构，让机器不仅能存储数据，还能理解语义并进行推理。',
+    det: `<h4>什么是本体</h4><p>本体简单来说就是记录概念之间规则的设计图。比如明确定义"汽车是交通工具"、"特斯拉Model 3是汽车"这样的层级关系后，AI系统不需要被直接告知就能自行推断出"特斯拉Model 3是交通工具"。1993年Tom Gruber将其定义为"概念化的显式规范（explicit specification of a conceptualization）"以来，本体一直是知识表示领域的核心概念。</p>
+<h4>与知识图谱的关系</h4><p>本体和知识图谱经常被混淆，但作用不同。本体定义的是"可以存在哪些类型的节点和边"的模式（设计图），知识图谱则是按照设计图填入实际数据的结果。打个比方：本体是建筑设计图，知识图谱是按图纸建造的实际建筑。</p>
+<h4>开发者的实际用法</h4><p>构建GraphRAG系统时，本体充当LLM信息提取的"护栏"。没有本体的话，让LLM分析医疗文档可能会把"John Doe, 45"和"John Doe, age 45"识别为不同患者，或将"2型糖尿病"和"T2D"当作不同疾病。通过预定义Patient、Condition、Medication等类及其关系，LLM会按照该结构一致地提取信息。</p>
+<p>Python环境中可以用<code>rdflib</code>库读写RDF/OWL本体，Protégé是可视化设计本体的代表性开源工具。在LLM管线中，常见模式是将本体嵌入系统提示词，或直接作为图数据库（Neo4j等）的schema加载使用。</p>
+<h4>LLM时代本体重新受到关注的原因</h4><p>LLM拥有海量知识但难以在特定领域保持一致性。本体充当LLM的"结构化记忆"，特别是在医疗、法律、制造等对准确性要求高的领域，被用作减少LLM幻觉的手段。如果说RAG是检索文档提供给LLM，那么基于本体的GraphRAG还能同时提供概念间的关系，实现更精准的推理。</p>`
   }
 },ja:{
   'harness-engineering': {
@@ -2368,5 +2403,13 @@ const I18N_CONTENT = {en:{
   'ai-supply-chain-attack': {
     sum: 'AIツールやライブラリの配布経路を狙って悪意あるコードを仕込む攻撃。開発者が信頼するパッケージやモデルを通じてAPIキー・認証情報の窃取やバックドアの設置を行う。',
     det: `<h4>概念説明</h4><p>ソフトウェアサプライチェーン攻撃は、ソフトウェアの開発・配布過程の弱いリンクを狙う攻撃だ。AIサプライチェーン攻撃はそこにAI固有の要素――MLフレームワーク、モデルハブ、AIツールパッケージ――が加わったものだ。<code>pip install</code>でインストールするPyPIパッケージ、npmで取得するAI SDK、Hugging Faceからダウンロードするモデルファイルなど、すべてが攻撃対象になり得る。</p><p>一般的なソフトウェアサプライチェーン攻撃と異なるのは、AIツールが持つ<strong>高い権限</strong>だ。LiteLLMのようなAIプロキシライブラリは複数のAIサービスのAPIキーを一箇所に集め、Claude Codeのようなコーディングエージェントはファイルシステムやターミナルに直接アクセスする。これらのツールが感染すると、単なるコード実行にとどまらず、APIキー、環境変数、機密設定情報が一度に流出する恐れがある。</p><h4>使用例</h4><p>2026年3月、<strong>TeamPCP</strong>という攻撃グループがまさにこの手法を実行した。まずオープンソースセキュリティスキャナーTrivyのGitHub Actionsワークフローを感染させ、そこからLiteLLMのPyPI公開パイプラインにアクセスした。結果、<code>litellm==1.82.7</code>と<code>litellm==1.82.8</code>に悪意あるコードが注入されPyPIに公開された。これらにはPythonプロセス起動時に自動実行される<code>.pth</code>ファイルが含まれ、認証情報の窃取と追加マルウェアのダウンロードを行った。</p><p>同時期にClaude Codeのソースが流出し、攻撃者は24時間以内に「流出ソースからビルドした無制限版」と称する偽のClaude CodeをGitHubにアップロードした。ダウンロードしたユーザーにはインフォスティーラーマルウェアがインストールされた。</p><h4>深掘り</h4><p>AIサプライチェーン攻撃は大きく4つのタイプに分かれる。第一は<strong>パッケージ改ざん</strong>で、CI/CDパイプラインを乗っ取り公式パッケージに悪意あるコードを注入する手法。第二は<strong>タイポスクワッティング</strong>で、人気パッケージと似た名前の悪意あるパッケージを登録する手法。第三は<strong>モデルファイル汚染</strong>で、モデルハブのシリアライズされたモデルファイルに悪意あるコードを隠す手法。第四は<strong>ツール偽装</strong>で、人気AIツールの偽バージョンを配布する手法だ。</p><p>OWASPはMLセキュリティ脅威Top 10でML06、LLMセキュリティガイドでLLM03として個別に分類している。</p><h4>注意点</h4><p>AIサプライチェーン攻撃は開発者がすでに信頼している経路を利用するため発見が難しい。パッケージインストール時にバージョン固定（<code>pip freeze</code>、<code>package-lock.json</code>）を使い、CIに依存関係スキャンツールを組み込むのが基本的な防御策だ。AIツールはAPIキーや環境変数に広くアクセスするため、最小権限の原則を適用し、機密キーは専用のシークレットマネージャーで管理することが重要だ。</p>`
+  },
+  'ontology': {
+    sum: 'ドメインの概念と関係を機械が理解できるように形式的に定義した知識構造。AIが単にデータを保存するだけでなく、意味を理解し推論できるようにする。',
+    det: `<h4>オントロジーとは</h4><p>オントロジーは簡単に言えば、概念間のルールを書き留めた設計図だ。例えば「自動車は乗り物である」「テスラModel 3は自動車である」のように概念の階層と関係を明示的に定義しておけば、AIシステムは「テスラModel 3は乗り物である」という事実を直接教えられなくても自ら推論できる。1993年にTom Gruberがこれを「概念化の明示的仕様（explicit specification of a conceptualization）」と定義して以来、オントロジーは知識表現分野の中核概念となった。</p>
+<h4>ナレッジグラフとの関係</h4><p>オントロジーとナレッジグラフはよく混同されるが、役割が異なる。オントロジーは「どんな種類のノードとエッジが存在しうるか」を定義するスキーマ（設計図）であり、ナレッジグラフはその設計図通りに実際のデータを埋め込んだ結果物だ。建物に例えるなら、オントロジーは設計図面で、ナレッジグラフはその図面で建てた実際の建物だ。</p>
+<h4>開発者の実際の使い方</h4><p>GraphRAGシステムを構築する際、オントロジーはLLMの情報抽出を導くガードレールの役割を果たす。オントロジーなしでLLMに医療文書を分析させると、「John Doe, 45」と「John Doe, age 45」を別の患者として認識したり、「2型糖尿病」と「T2D」を別の疾患として処理するエラーが発生する。Patient、Condition、Medicationなどのクラスとその関係をあらかじめ定義しておけば、LLMはその構造に沿って一貫して情報を抽出する。</p>
+<p>Python環境では<code>rdflib</code>ライブラリでRDF/OWLオントロジーを読み書きでき、Protégéはオントロジーを視覚的に設計する代表的なオープンソースツールだ。LLMパイプラインでは、オントロジーをシステムプロンプトに含めるか、グラフDB（Neo4jなど）のスキーマとして直接ロードして活用するパターンが多い。</p>
+<h4>LLM時代にオントロジーが再注目される理由</h4><p>LLMは膨大な知識を持つが、特定ドメインで一貫性を維持するのが難しい。オントロジーはLLMの「構造化された記憶」の役割を果たし、特に医療・法律・製造のように正確性が重要な分野でLLMの幻覚を減らす手段として活用されている。RAGが文書を検索してLLMに提供するなら、オントロジーベースのGraphRAGは概念間の関係まで一緒に提供し、より精密な推論を可能にする。</p>`
   }
 }};
