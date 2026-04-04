@@ -77,3 +77,25 @@
 | 시간 | 작업 내용 |
 |------|----------|
 | 2026-04-04 | 추가 정렬 기준(가나다순 등)은 불필요로 결정, 기본 정렬만 최신순으로 변경 |
+
+---
+
+## 콘텐츠 자동화 (2026-04-04 완료)
+
+- [x] 자동화 아키텍처 결정 — crontab + Claude CLI, 매일 09:00
+- [x] 구현 — daily-keyword.md 프롬프트, importance-analyst 에이전트, run-daily.sh 스크립트
+- [x] 테스트 실행 및 검증 — 수동 실행으로 MoE, 추론 모델 2개 자동 추가 확인
+
+### 주요 결정사항
+- Heat(트렌드 기반) → 중요도(등록 시 1회 평가)로 전환, 주간 갱신 제거
+- trend-analyst → importance-analyst 에이전트 재작성
+- crontab: `0 9 * * *` + `scripts/run-daily.sh`
+
+### 진행 로그
+| 시간 | 작업 내용 |
+|------|----------|
+| 2026-04-04 | 자동화 아키텍처 결정 (crontab + Claude CLI) |
+| 2026-04-04 | daily-keyword.md, weekly-heat.md 프롬프트 작성 |
+| 2026-04-04 | Heat → 중요도 전환: index.html, CLAUDE.md, 에이전트, 문서 전체 반영 |
+| 2026-04-04 | weekly-heat.md 삭제, 스케줄러 단순화 |
+| 2026-04-04 | crontab 등록 + 수동 테스트 성공 (MoE, 추론 모델 추가 확인) |
