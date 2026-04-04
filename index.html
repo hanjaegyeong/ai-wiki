@@ -216,40 +216,48 @@
   .pg.dot { cursor: default; }
   .pg.dot:hover { color: #a09888; }
 
-  /* Modal */
-  .overlay {
-    display:none; position:fixed; inset:0;
-    background: rgba(40,36,32,0.4);
-    backdrop-filter: blur(10px);
-    z-index:100;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 60px 20px;
-    overflow-y: auto;
+  /* Detail Page */
+  .detail-page {
+    display: none;
+    max-width: 640px;
+    margin: 24px auto 48px;
+    padding: 0 32px;
   }
-  .overlay.open { display:flex; }
+  .detail-page.open { display: block; }
+
+  .detail-back {
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #a09888;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 16px;
+  }
+  .detail-back:hover { color: #6a6560; }
+
+  .share-actions { position:absolute; top:20px; right:20px; display:flex; gap:6px; }
+  .share-btn {
+    width:32px; height:32px; display:flex; align-items:center; justify-content:center;
+    border-radius:8px; background:none; border:1px solid #d5d0c8; color:#a09888;
+    cursor:pointer; transition:all 0.15s;
+  }
+  .share-btn:hover { border-color:#b0a898; color:#6a6560; }
+  .share-btn.kakao { background:#F5E6A0; border-color:#E0D08A; color:#5a4a2a; }
+  .share-btn.kakao:hover { background:#EDDC88; border-color:#D4C470; }
+  .share-btn svg { width:16px; height:16px; flex-shrink:0; }
 
   .modal {
+    position: relative;
     background: #fff;
     border: 1px solid #e4dfd8;
     border-radius: 16px;
-    max-width: 640px;
     width: 100%;
     padding: 36px;
-    animation: up 0.15s ease;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
   }
-
-  @keyframes up { from { opacity:0; transform:translateY(12px); } }
-
-  .modal-close {
-    float: right;
-    background: none; border: none;
-    color: #aaa598; font-size: 20px;
-    cursor: pointer;
-    padding: 4px;
-  }
-  .modal-close:hover { color: #6a6560; }
 
   .modal-cat { font-size: 12px; color: #a09888; margin-bottom: 8px; }
   .modal-title { font-size: 30px; font-weight: 900; color: #2d2a26; margin-bottom: 4px; letter-spacing: -0.5px; }
@@ -299,6 +307,8 @@
     .grid { padding:0 12px; margin:8px auto; grid-template-columns:1fr; }
     .card { min-height:160px; padding:24px 20px; }
     .card-keyword { font-size:22px; }
+    .detail-page { padding:0 12px; margin:16px auto 32px; }
+    .share-actions { top:14px; right:14px; }
     .modal { padding:24px 20px; }
   }
 </style>
@@ -320,10 +330,12 @@
 <div class="grid" id="grid"></div>
 <div class="pagination" id="pagination"></div>
 
-<div class="overlay" id="ov">
+<div class="detail-page" id="detail">
+  <button class="detail-back" id="detail-back" onclick="close_m()"></button>
   <div class="modal" id="modal"></div>
 </div>
 
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script src="data.js"></script>
 <script>
 const _ql = new URLSearchParams(location.search).get('lang');
@@ -333,25 +345,25 @@ document.documentElement.lang = LANG;
 
 const I18N = {
   ko: {
-    search:'검색...', all:'전체', hot:'HOT', noResults:'검색 결과 없음', loadMore:'더 보기', newest:'최신순',
+    search:'검색...', all:'전체', hot:'HOT', noResults:'검색 결과 없음', loadMore:'더 보기', newest:'최신순', back:'← 돌아가기', copyLink:'링크 복사', copied:'복사됨!',
     refs:'레퍼런스', videos:'영상', related:'관련 키워드',
     born:(y,m)=> m&&+m ? y+'년 '+(+m)+'월 등장' : y+'년 등장',
     cats:{prompting:'프롬프팅',model:'모델',tooling:'도구',data:'데이터',agent:'에이전트',infra:'인프라',safety:'안전',application:'응용'}
   },
   en: {
-    search:'Search...', all:'All', hot:'HOT', noResults:'No results found', loadMore:'Load more', newest:'Newest',
+    search:'Search...', all:'All', hot:'HOT', noResults:'No results found', loadMore:'Load more', newest:'Newest', back:'← Back', copyLink:'Copy link', copied:'Copied!',
     refs:'References', videos:'Videos', related:'Related',
     born:(y,m)=> m&&+m ? `Appeared ${y}-${String(+m).padStart(2,'0')}` : `Appeared ${y}`,
     cats:{prompting:'Prompting',model:'Model',tooling:'Tooling',data:'Data',agent:'Agent',infra:'Infra',safety:'Safety',application:'Application'}
   },
   zh: {
-    search:'搜索...', all:'全部', hot:'HOT', noResults:'未找到结果', loadMore:'加载更多', newest:'最新',
+    search:'搜索...', all:'全部', hot:'HOT', noResults:'未找到结果', loadMore:'加载更多', newest:'最新', back:'← 返回', copyLink:'复制链接', copied:'已复制!',
     refs:'参考资料', videos:'视频', related:'相关关键词',
     born:(y,m)=> m&&+m ? `${y}年${+m}月出现` : `${y}年出现`,
     cats:{prompting:'提示工程',model:'模型',tooling:'工具',data:'数据',agent:'智能体',infra:'基础设施',safety:'安全',application:'应用'}
   },
   ja: {
-    search:'検索...', all:'すべて', hot:'HOT', noResults:'結果が見つかりません', loadMore:'もっと見る', newest:'新しい順',
+    search:'検索...', all:'すべて', hot:'HOT', noResults:'結果が見つかりません', loadMore:'もっと見る', newest:'新しい順', back:'← 戻る', copyLink:'リンクをコピー', copied:'コピー済み!',
     refs:'参考資料', videos:'動画', related:'関連キーワード',
     born:(y,m)=> m&&+m ? `${y}年${+m}月登場` : `${y}年登場`,
     cats:{prompting:'プロンプト',model:'モデル',tooling:'ツール',data:'データ',agent:'エージェント',infra:'インフラ',safety:'安全性',application:'応用'}
@@ -360,6 +372,7 @@ const I18N = {
 const L = I18N[LANG];
 const CATS = L.cats;
 document.getElementById('q').placeholder = L.search;
+document.getElementById('detail-back').textContent = L.back;
 
 // 초성 검색
 const CHO='ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ';
@@ -498,15 +511,19 @@ document.getElementById('q').addEventListener('input', e => {
   _dt = setTimeout(() => { q = e.target.value.trim(); page = 1; render(); }, 150);
 });
 
-// Modal
+// Detail page
+let _scrollY = 0;
 function open_m(id, pushState) {
   const e = D.find(x=>x.id===id);
   if (!e) return;
-  if (pushState !== false) history.pushState({modal:id}, '', '#'+id);
+  if (pushState !== false) { if (!document.getElementById('detail').classList.contains('open')) _scrollY = window.scrollY; history.pushState({modal:id}, '', '#'+id); }
   const _tr = LANG!=='ko'&&I18N_CONTENT[LANG]&&I18N_CONTENT[LANG][e.id]||null;
   const rels = (e.rel||[]).map(r=>D.find(x=>x.id===r)).filter(Boolean);
   document.getElementById('modal').innerHTML = `
-    <button class="modal-close" onclick="close_m()">✕</button>
+    <div class="share-actions">
+      <button class="share-btn" id="copy-btn" onclick="copyLink('${e.id}')" title="${L.copyLink}"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="8" height="9" rx="1"/><path d="M3 11V3a1 1 0 011-1h6"/></svg></button>
+      <button class="share-btn kakao" onclick="shareKakao('${e.id}',this)" title="KakaoTalk"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1C4.13 1 1 3.53 1 6.6c0 1.97 1.31 3.7 3.28 4.67-.1.56-.65 2.03-.68 2.15 0 0-.01.09.04.12.06.04.12.01.12.01.16-.02 1.87-1.23 2.65-1.81.19.02.38.03.59.03 3.87 0 7-2.53 7-5.6S11.87 1 8 1z"/></svg></button>
+    </div>
     <div class="modal-cat">${CATS[e.c]}</div>
     <div class="modal-title">${LANG==='ko' ? e.t : (e.en||e.t)}</div>
     <div class="modal-en">${LANG==='ko' ? e.en : (!/[\uAC00-\uD7AF]/.test(e.t)&&e.t!==(e.en||e.t) ? e.t : '')}</div>
@@ -518,18 +535,47 @@ function open_m(id, pushState) {
       ${e.videos&&e.videos.length?`<div class="modal-videos"><h4>${L.videos}</h4>${e.videos.map(v=>`<a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><span class="yt-icon">▶</span>${v.title}<span class="vid-lang">${v.lang}</span></a>`).join('')}</div>`:''}</div>`:''}
     ${rels.length?`<div class="modal-related"><h4>${L.related}</h4><div class="rel-links">${rels.map(r=>`<span class="rel-link" onclick="open_m('${r.id}')">${LANG==='ko'?r.t:(r.en||r.t)}</span>`).join('')}</div></div>`:''}
   `;
-  document.getElementById('ov').classList.add('open');
-  document.body.style.overflow='hidden';
+  document.querySelector('.grid-header').style.display='none';
+  document.getElementById('grid').style.display='none';
+  document.getElementById('pagination').style.display='none';
+  document.getElementById('detail').classList.add('open');
+  window.scrollTo({top:0});
 }
 
 function close_m(pushState) {
-  document.getElementById('ov').classList.remove('open');
-  document.body.style.overflow='';
-  if (pushState !== false && location.hash) history.pushState({}, '', location.pathname);
+  document.getElementById('detail').classList.remove('open');
+  document.querySelector('.grid-header').style.display='';
+  document.getElementById('grid').style.display='';
+  document.getElementById('pagination').style.display='';
+  if (pushState !== false && location.hash) history.pushState({}, '', location.pathname+location.search);
+  window.scrollTo({top:_scrollY});
 }
 
-document.getElementById('ov').addEventListener('click', e => { if(e.target===e.currentTarget) close_m(); });
-document.addEventListener('keydown', e => { if(e.key==='Escape') close_m(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape'&&document.getElementById('detail').classList.contains('open')) close_m(); });
+
+const BASE_URL='https://aiword-wiki.github.io/';
+const KAKAO_KEY=location.hostname==='localhost'||location.hostname==='127.0.0.1'?'c5d123be2f7b4ebcf0373e1866870893':'c8a3dc3ebc83691e6d7878d2ce7ee764';
+if(window.Kakao&&KAKAO_KEY&&!Kakao.isInitialized()) Kakao.init(KAKAO_KEY);
+
+function _shareFb(btn){
+  btn.style.opacity='0.3';
+  setTimeout(()=>{btn.style.opacity='';},300);
+}
+function copyLink(id){
+  navigator.clipboard.writeText(BASE_URL+'#'+id).then(()=>_shareFb(document.getElementById('copy-btn')));
+}
+function shareKakao(id,btn){
+  const e=D.find(x=>x.id===id), name=LANG==='ko'?e.t:(e.en||e.t);
+  const url=BASE_URL+'#'+id;
+  if(window.Kakao&&Kakao.isInitialized()){
+    Kakao.Share.sendDefault({
+      objectType:'feed',
+      content:{title:name+' - AI Wiki',description:e.sum||'',imageUrl:'https://aiword-wiki.github.io/favicon.svg',link:{mobileWebUrl:url,webUrl:url}}
+    });
+  } else {
+    navigator.clipboard.writeText(name+' - AI Wiki\n'+url).then(()=>_shareFb(btn));
+  }
+}
 
 window.addEventListener('popstate', () => {
   const id = location.hash.slice(1);
