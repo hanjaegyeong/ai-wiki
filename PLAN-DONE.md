@@ -351,3 +351,24 @@
 | 시간 | 작업 내용 |
 |------|----------|
 | 2026-04-05 | 전체 7개 항목 일괄 구현 완료 |
+
+---
+
+## 최신순/HOT 라인 업데이트 시간 표시 + New Uploaded 필터 (2026-04-05 완료)
+
+- [x] data.js에 `LAST_UPDATED` (UTC ISO) 상수 추가
+- [x] grid-header 우측에 "최근 업데이트: YYYY-MM-DD HH:MM (TZ)" 표시
+- [x] 브라우저 로컬 타임존 자동 변환 + 영문 타임존명 표시
+- [x] 검색 시 "N건"으로 교체, 비검색 시 업데이트 시간 표시
+- [x] scheduling-add 스킬에 `LAST_UPDATED` 갱신 단계 추가
+- [x] `New Uploaded` 필터 버튼 추가 (최신순 | HOT | New Uploaded)
+- [x] `added` 필드 도입 — 위키 추가 날짜 (기존 243개 항목 `2026-03-30` 세팅)
+- [x] New Uploaded 필터: `added` 기준 최근 7일 이내 항목 표시
+- [x] CLAUDE.md, add-keyword SKILL.md에 `added` 필드 문서화
+
+### 진행 로그
+| 시간 | 작업 내용 |
+|------|----------|
+| 2026-04-05 | LAST_UPDATED + fmtLastUpdated() 구현, 타임존 자동 변환 |
+| 2026-04-05 | New Uploaded 필터 추가 (최초 "최근추가" → "NEW" → "New Uploaded") |
+| 2026-04-05 | added 필드 도입, 기존 항목 일괄 세팅, 필터 기준 updated→added 변경 |
