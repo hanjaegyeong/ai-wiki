@@ -1,11 +1,11 @@
 ---
-name: self-scheduling
-description: AI Wiki 키워드 일일 자동 업데이트 (트렌드 수집 → 키워드 추가 → HOT 표식 → 커밋)
+name: scheduling-add
+description: AI Wiki 키워드 일일 자동 업데이트 (트렌드 수집 → 키워드 추가 → HOT 표식 → 로깅 → 커밋)
 ---
 
-# /self-scheduling
+# /scheduling-add
 
-AI Wiki 키워드 일일 자동 업데이트. `.claude/prompts/daily-keyword.md`와 동일한 동작.
+AI Wiki 키워드 일일 자동 업데이트. 수동 실행과 스케줄러 공용.
 
 ## 검색 기간
 - 모든 검색은 **최근 48시간** 이내의 콘텐츠를 대상으로 한다.
@@ -17,11 +17,9 @@ AI Wiki 키워드 일일 자동 업데이트. `.claude/prompts/daily-keyword.md`
 1. 아래 소스에서 최근 48시간 내 AI 핫 토픽을 수집한다:
    - GeekNews MCP: get_articles(type:'new', limit:30) + get_weekly_news()
    - WebSearch: "AI news today site:news.ycombinator.com" (최근 48시간)
-   - WebSearch: "AI machine learning new" site:reddit.com (최근 48시간)
-   - WebSearch: "AI 최신 뉴스 오늘" (TechCrunch, The Verge, GeekNews 등)
-   - WebSearch: "AI latest papers site:arxiv.org" (최근 48시간)
+   - WebSearch: "AI machine learning new site:reddit.com" (최근 48시간)
 
-2. index.html의 D 배열과 대조하여 아직 없는 키워드를 선정한다.
+2. data.js의 D 배열과 대조하여 아직 없는 키워드를 선정한다.
    - 선정 기준:
      1. **독립된 개념인가** — 특정 제품의 하위 기능이 아니라 AI 분야에서 독립적으로 설명할 수 있는 기술·도구·패턴이어야 한다.
      2. **위키에 없는가** — 기존 키워드와 중복되지 않아야 한다.
@@ -36,10 +34,17 @@ AI Wiki 키워드 일일 자동 업데이트. `.claude/prompts/daily-keyword.md`
 3. 선정된 키워드마다 /add-keyword 실행 (번역 단계 포함 — en/zh/ja I18N_CONTENT 반드시 추가)
 
 4. HOT_IDS 갱신
-   - index.html의 `const HOT_IDS = [...]` 배열을 **전체 비우고** 이번 배치에서 트렌딩으로 식별된 키워드 ID로 교체
+   - data.js의 `const HOT_IDS = [...]` 배열을 **전체 비우고** 이번 배치에서 트렌딩으로 식별된 키워드 ID로 교체
    - 새로 추가된 키워드 + 기존 키워드 중 이번 수집에서 화제였던 것 모두 포함
    - 예: `const HOT_IDS = ['mcp','ai-agent','rag'];`
 
 5. `node build.js` 실행하여 키워드 독립 페이지(/k/)와 sitemap.xml 재생성
 
-6. /commit 실행
+6. 로깅 — log.md에 아래 형식으로 추가 (파일 없으면 생성):
+
+   ## YYYY-MM-DD
+   - 추가: keyword-id-1, keyword-id-2, ...
+   - HOT: hot-id-1, hot-id-2, ...
+   - 보강: (보강한 키워드가 있으면 기재, 없으면 "없음")
+
+7. /commit 실행

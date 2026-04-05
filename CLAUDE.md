@@ -167,7 +167,7 @@ JS 배열 `D`의 각 항목:
 ### 항목 추가/수정 시
 - 수동: `D` 배열에 객체 추가
 - 자동: `/add-keyword` 스킬 사용 (서브에이전트가 리서치+검증+수집 처리)
-- 자동/대량: `/self-scheduling` 스킬 사용
+- 자동/대량: `/scheduling-add` 스킬 사용
 
 ---
 
@@ -210,11 +210,10 @@ JS 배열 `D`의 각 항목:
 ├── hooks/
 │   ├── sync-claude-md.sh          # Edit/Write 후 CLAUDE.md 동기화 알림
 │   └── check-plan-update.sh       # Stop 시 PLAN-CURRENT.md 업데이트 알림
-├── prompts/
-│   └── daily-keyword.md           # 일일 키워드 스케줄러 (HOT_IDS 갱신 포함)
+├── prompts/                       # (비어 있음 — scheduling-add 스킬로 통합)
 ├── skills/                        # 스킬 (슬래시 커맨드)
 │   ├── add-keyword/SKILL.md       # /add-keyword — 키워드 1개 추가
-│   ├── self-scheduling/SKILL.md    # /self-scheduling — 일일 자동 키워드 업데이트 + HOT 표식
+│   ├── scheduling-add/SKILL.md     # /scheduling-add — 일일 자동 키워드 업데이트 + HOT 표식 + 로깅
 │   ├── commit/SKILL.md            # /commit — 기능 단위 커밋+푸시
 │   ├── start-phase/SKILL.md       # /start-phase — 플랜 항목 시작
 │   ├── complete-phase/SKILL.md    # /complete-phase — 플랜 항목 완료
@@ -226,9 +225,18 @@ JS 배열 `D`의 각 항목:
 카드 우측상단에 `▲` 표식으로 트렌딩 키워드를 표시한다.
 
 - **데이터**: `index.html`의 `const HOT_IDS = [...]` 배열에 키워드 ID 나열
-- **갱신 주체**: 일일 스케줄러 (`daily-keyword.md`) 및 `/self-scheduling` 스킬
+- **갱신 주체**: `/scheduling-add` 스킬
 - **갱신 규칙**: 매 실행 시 HOT_IDS를 **전체 비우고** 해당 배치 기준으로 재설정
 - **대상**: 해당 배치에서 트렌딩으로 식별된 키워드 (신규 + 기존 모두)
+
+### 로컬 스케줄러 (crontab)
+
+- **스케줄**: 매일 14:00 KST
+- **스크립트**: `scripts/run-daily.sh`
+- **동작**: `/scheduling-add` 스킬 실행 (트렌드 수집 → 키워드 추가 → HOT 갱신 → 빌드 → log.md 로깅 → 커밋)
+- **로그**: `logs/daily.log`
+- **실행 기록**: `log.md` (날짜별 추가/HOT/보강 키워드 기록)
+- **전제**: 맥북이 켜져 있어야 함
 
 ### 키워드 추가 흐름
 ```
