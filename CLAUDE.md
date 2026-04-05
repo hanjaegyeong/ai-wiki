@@ -229,14 +229,20 @@ JS 배열 `D`의 각 항목:
 - **갱신 규칙**: 매 실행 시 HOT_IDS를 **전체 비우고** 해당 배치 기준으로 재설정
 - **대상**: 해당 배치에서 트렌딩으로 식별된 키워드 (신규 + 기존 모두)
 
-### 로컬 스케줄러 (crontab)
+### 로컬 스케줄러 (launchd)
 
 - **스케줄**: 매일 14:00 KST
-- **스크립트**: `scripts/run-daily.sh`
+- **방식**: macOS launchd (crontab 대체 — Desktop 폴더 TCC 권한 문제로 전환)
+- **plist**: `~/Library/LaunchAgents/com.aiwiki.daily.plist`
+- **스크립트**: `~/run-daily.sh` (홈 디렉토리에 위치 — Desktop 접근 전 실행 가능해야 함)
 - **동작**: `/scheduling-add` 스킬 실행 (트렌드 수집 → 키워드 추가 → HOT 갱신 → 빌드 → log.md 로깅 → 커밋)
-- **로그**: `logs/daily.log`
-- **실행 기록**: `log.md` (날짜별 추가/HOT/보강 키워드 기록)
+- **로그**: `logs/daily.log` (디버그 포함), `/tmp/aiwiki-launchd.log` (launchd stderr)
+- **실행 기록**: `log.md` (날짜+시간별 추가/HOT/보강 키워드 기록)
 - **전제**: 맥북이 켜져 있어야 함
+- **관리 명령**:
+  - 등록 확인: `launchctl list com.aiwiki.daily`
+  - 수동 실행: `launchctl start com.aiwiki.daily`
+  - 시간 변경: plist의 `Hour`/`Minute` 수정 후 unload → load
 
 ### 키워드 추가 흐름
 ```
