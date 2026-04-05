@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mastra — AI Wiki</title>
+<meta name="description" content="TypeScript로 AI 에이전트를 만드는 오픈소스 프레임워크. Gatsby 팀이 만들었으며, 에이전트·워크플로우·RAG·MCP를 하나의 스택으로 제공한다.">
+<meta name="keywords" content="TypeScript, 에이전트프레임워크, MCP, AI, Mastra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mastra — AI Wiki">
+<meta property="og:description" content="TypeScript로 AI 에이전트를 만드는 오픈소스 프레임워크. Gatsby 팀이 만들었으며, 에이전트·워크플로우·RAG·MCP를 하나의 스택으로 제공한다.">
+<meta property="og:url" content="https://aiword-wiki.github.io/k/mastra.html">
+<meta property="og:site_name" content="AI Wiki">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mastra — AI Wiki">
+<meta name="twitter:description" content="TypeScript로 AI 에이전트를 만드는 오픈소스 프레임워크. Gatsby 팀이 만들었으며, 에이전트·워크플로우·RAG·MCP를 하나의 스택으로 제공한다.">
+<link rel="canonical" href="https://aiword-wiki.github.io/k/mastra.html">
+<link rel="alternate" hreflang="ko" href="https://aiword-wiki.github.io/k/mastra.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Mastra",
+  "alternateName": "Mastra",
+  "description": "TypeScript로 AI 에이전트를 만드는 오픈소스 프레임워크. Gatsby 팀이 만들었으며, 에이전트·워크플로우·RAG·MCP를 하나의 스택으로 제공한다.",
+  "url": "https://aiword-wiki.github.io/k/mastra.html",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "AI Wiki",
+    "url": "https://aiword-wiki.github.io/"
+  }
+}
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#F3F0EB;color:#4a4540;min-height:100vh;display:flex;justify-content:center;padding:40px 20px}
+  .wrap{max-width:720px;width:100%;background:#fff;border-radius:16px;padding:48px 40px;border:1px solid #e4dfd8}
+  .cat{font-size:11px;color:#a09888;margin-bottom:8px}
+  .title{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
+  .en{font-size:13px;color:#a09888;margin-bottom:24px}
+  .body{color:#5a5550;line-height:1.8;font-size:15px}
+  .body h4{font-size:16px;font-weight:700;color:#2d2a26;margin:24px 0 8px}
+  .body p{margin-bottom:14px}
+  .body code{background:#F3F0EB;padding:2px 6px;border-radius:4px;font-size:13px;color:#C4613A}
+  .body strong{font-weight:700;color:#2d2a26}
+  .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{background:#F3F0EB;color:#a09888;padding:4px 12px;border-radius:20px;font-size:12px}
+  .back{display:inline-block;margin-top:32px;color:#C4613A;text-decoration:none;font-size:14px;font-weight:700}
+  .back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cat">에이전트</div>
+  <div class="title">Mastra</div>
+  <div class="en"></div>
+  <div class="body"><p>TypeScript로 AI 에이전트를 만드는 오픈소스 프레임워크. Gatsby 팀이 만들었으며, 에이전트·워크플로우·RAG·MCP를 하나의 스택으로 제공한다.</p><h4>Mastra란</h4><p>AI 에이전트를 만들려면 보통 Python 생태계의 LangChain이나 CrewAI를 쓴다. 하지만 웹 개발자 대다수는 TypeScript를 쓰고 있고, Next.js 앱에 에이전트를 붙이려면 언어를 바꿔야 하는 문제가 있었다. Mastra는 이 간극을 메운다. Gatsby 웹 프레임워크를 만들었던 팀이 Y Combinator W25 배치를 거쳐 2026년 1월 v1.0을 출시했다.</p>
+<p>핵심은 에이전트 개발에 필요한 모든 요소를 하나의 프레임워크에 담은 것이다. <strong>에이전트</strong>는 LLM과 도구를 연결해 자율적으로 추론하고, <strong>워크플로우</strong>는 멀티스텝 작업을 그래프로 정의하며, <strong>RAG 파이프라인</strong>으로 지식베이스를 붙이고, <strong>Evals</strong>로 품질을 측정한다.</p>
+<h4>사용 예시</h4><p><code>npm create mastra@latest</code>로 프로젝트를 생성하면 에이전트, 도구, 워크플로우를 바로 정의할 수 있다. MCP 지원이 양방향으로 내장되어 있어서, 외부 MCP 서버의 도구를 에이전트에 로드할 수도 있고, 반대로 내가 만든 에이전트를 MCP 서버로 노출해서 Claude Code 같은 클라이언트가 바로 쓸 수 있게 할 수도 있다.</p>
+<h4>주의할 점</h4><p>TypeScript/Node.js 생태계에 최적화되어 있어서, Python 기반 ML 파이프라인과 직접 통합하기는 어렵다. 2026년 1월에 v1.0을 출시한 만큼 프로덕션 사례가 LangChain에 비해 적다.</p></div>
+  <div class="tags"><span>#TypeScript</span><span>#에이전트프레임워크</span><span>#MCP</span></div>
+  <a class="back" href="https://aiword-wiki.github.io/#mastra">← AI Wiki에서 더 보기</a>
+</div>
+</body>
+</html>

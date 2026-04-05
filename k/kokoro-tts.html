@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kokoro TTS (Kokoro Text-to-Speech) — AI Wiki</title>
+<meta name="description" content="82M 파라미터만으로 대형 모델 수준의 자연스러운 음성을 합성하는 초경량 오픈소스 TTS 모델. 로컬 환경에서도 실시간보다 빠르게 돌아가서, 온디바이스 음성 합성의 가능성을 열었다.">
+<meta name="keywords" content="TTS, 온디바이스, 오픈소스, AI, Kokoro TTS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kokoro TTS (Kokoro Text-to-Speech) — AI Wiki">
+<meta property="og:description" content="82M 파라미터만으로 대형 모델 수준의 자연스러운 음성을 합성하는 초경량 오픈소스 TTS 모델. 로컬 환경에서도 실시간보다 빠르게 돌아가서, 온디바이스 음성 합성의 가능성을 열었다.">
+<meta property="og:url" content="https://aiword-wiki.github.io/k/kokoro-tts.html">
+<meta property="og:site_name" content="AI Wiki">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kokoro TTS (Kokoro Text-to-Speech) — AI Wiki">
+<meta name="twitter:description" content="82M 파라미터만으로 대형 모델 수준의 자연스러운 음성을 합성하는 초경량 오픈소스 TTS 모델. 로컬 환경에서도 실시간보다 빠르게 돌아가서, 온디바이스 음성 합성의 가능성을 열었다.">
+<link rel="canonical" href="https://aiword-wiki.github.io/k/kokoro-tts.html">
+<link rel="alternate" hreflang="ko" href="https://aiword-wiki.github.io/k/kokoro-tts.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Kokoro TTS",
+  "alternateName": "Kokoro Text-to-Speech",
+  "description": "82M 파라미터만으로 대형 모델 수준의 자연스러운 음성을 합성하는 초경량 오픈소스 TTS 모델. 로컬 환경에서도 실시간보다 빠르게 돌아가서, 온디바이스 음성 합성의 가능성을 열었다.",
+  "url": "https://aiword-wiki.github.io/k/kokoro-tts.html",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "AI Wiki",
+    "url": "https://aiword-wiki.github.io/"
+  }
+}
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#F3F0EB;color:#4a4540;min-height:100vh;display:flex;justify-content:center;padding:40px 20px}
+  .wrap{max-width:720px;width:100%;background:#fff;border-radius:16px;padding:48px 40px;border:1px solid #e4dfd8}
+  .cat{font-size:11px;color:#a09888;margin-bottom:8px}
+  .title{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
+  .en{font-size:13px;color:#a09888;margin-bottom:24px}
+  .body{color:#5a5550;line-height:1.8;font-size:15px}
+  .body h4{font-size:16px;font-weight:700;color:#2d2a26;margin:24px 0 8px}
+  .body p{margin-bottom:14px}
+  .body code{background:#F3F0EB;padding:2px 6px;border-radius:4px;font-size:13px;color:#C4613A}
+  .body strong{font-weight:700;color:#2d2a26}
+  .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{background:#F3F0EB;color:#a09888;padding:4px 12px;border-radius:20px;font-size:12px}
+  .back{display:inline-block;margin-top:32px;color:#C4613A;text-decoration:none;font-size:14px;font-weight:700}
+  .back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cat">모델</div>
+  <div class="title">Kokoro TTS</div>
+  <div class="en">Kokoro Text-to-Speech</div>
+  <div class="body"><p>82M 파라미터만으로 대형 모델 수준의 자연스러운 음성을 합성하는 초경량 오픈소스 TTS 모델. 로컬 환경에서도 실시간보다 빠르게 돌아가서, 온디바이스 음성 합성의 가능성을 열었다.</p><h4>Kokoro TTS란</h4><p>텍스트를 사람처럼 자연스러운 음성으로 바꿔주는 모델인데, 놀라운 점은 크기다. 파라미터가 8,200만 개밖에 안 된다. MetaVoice 12억, XTTS 4.7억 파라미터인데 Kokoro는 그 모델들보다 자연스러움 평가에서 더 높은 점수를 받았다. TTS Arena 벤치마크에서 1위를 기록했을 정도다. 비결은 <strong>StyleTTS 2</strong>와 <strong>ISTFTNet</strong> 기반의 디코더 전용 아키텍처로, 디퓨전이나 인코더 없이 가볍고 빠른 추론을 가능하게 한 설계에 있다.</p>
+<h4>사용 예시</h4><p>로컬에서 직접 돌리는 게 핵심 사용법이다. <code>pip install kokoro</code>로 설치하고, Hugging Face에서 체크포인트를 받아 Python 몇 줄이면 음성을 생성할 수 있다. GPU에서는 실시간의 약 100배 속도로 생성되고, CPU에서도 실용적인 속도가 나온다.</p>
+<p><code>kokoro-fastapi</code> 프로젝트를 쓰면 OpenAI TTS API와 호환되는 엔드포인트를 로컬에 띄울 수 있다. 기존에 OpenAI TTS를 쓰던 앱에서 엔드포인트만 바꾸면 비용 없이 로컬 TTS로 전환된다. 영어, 프랑스어, 일본어, 한국어 등 8개 언어, 48가지 음성을 지원한다.</p>
+<h4>주의할 점</h4><p>한국어는 아직 영어만큼 완벽하지 않다. 억양이 원어민 수준에는 못 미친다. Apache 2.0 라이선스라 상업적 사용에 제약이 없다.</p></div>
+  <div class="tags"><span>#TTS</span><span>#온디바이스</span><span>#오픈소스</span></div>
+  <a class="back" href="https://aiword-wiki.github.io/#kokoro-tts">← AI Wiki에서 더 보기</a>
+</div>
+</body>
+</html>

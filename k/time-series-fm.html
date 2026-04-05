@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시계열 파운데이션 모델 (Time-Series Foundation Model) — AI Wiki</title>
+<meta name="description" content="대규모 시계열 데이터로 사전 학습해, 별도 훈련 없이 다양한 도메인의 미래 값을 예측하는 특화 파운데이션 모델. LLM이 언어를 범용으로 이해하듯, 시계열의 패턴을 범용으로 이해한다.">
+<meta name="keywords" content="시계열, 예측, Google, AI, 시계열 파운데이션 모델">
+<meta property="og:type" content="article">
+<meta property="og:title" content="시계열 파운데이션 모델 (Time-Series Foundation Model) — AI Wiki">
+<meta property="og:description" content="대규모 시계열 데이터로 사전 학습해, 별도 훈련 없이 다양한 도메인의 미래 값을 예측하는 특화 파운데이션 모델. LLM이 언어를 범용으로 이해하듯, 시계열의 패턴을 범용으로 이해한다.">
+<meta property="og:url" content="https://aiword-wiki.github.io/k/time-series-fm.html">
+<meta property="og:site_name" content="AI Wiki">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="시계열 파운데이션 모델 (Time-Series Foundation Model) — AI Wiki">
+<meta name="twitter:description" content="대규모 시계열 데이터로 사전 학습해, 별도 훈련 없이 다양한 도메인의 미래 값을 예측하는 특화 파운데이션 모델. LLM이 언어를 범용으로 이해하듯, 시계열의 패턴을 범용으로 이해한다.">
+<link rel="canonical" href="https://aiword-wiki.github.io/k/time-series-fm.html">
+<link rel="alternate" hreflang="ko" href="https://aiword-wiki.github.io/k/time-series-fm.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "시계열 파운데이션 모델",
+  "alternateName": "Time-Series Foundation Model",
+  "description": "대규모 시계열 데이터로 사전 학습해, 별도 훈련 없이 다양한 도메인의 미래 값을 예측하는 특화 파운데이션 모델. LLM이 언어를 범용으로 이해하듯, 시계열의 패턴을 범용으로 이해한다.",
+  "url": "https://aiword-wiki.github.io/k/time-series-fm.html",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "AI Wiki",
+    "url": "https://aiword-wiki.github.io/"
+  }
+}
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#F3F0EB;color:#4a4540;min-height:100vh;display:flex;justify-content:center;padding:40px 20px}
+  .wrap{max-width:720px;width:100%;background:#fff;border-radius:16px;padding:48px 40px;border:1px solid #e4dfd8}
+  .cat{font-size:11px;color:#a09888;margin-bottom:8px}
+  .title{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
+  .en{font-size:13px;color:#a09888;margin-bottom:24px}
+  .body{color:#5a5550;line-height:1.8;font-size:15px}
+  .body h4{font-size:16px;font-weight:700;color:#2d2a26;margin:24px 0 8px}
+  .body p{margin-bottom:14px}
+  .body code{background:#F3F0EB;padding:2px 6px;border-radius:4px;font-size:13px;color:#C4613A}
+  .body strong{font-weight:700;color:#2d2a26}
+  .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{background:#F3F0EB;color:#a09888;padding:4px 12px;border-radius:20px;font-size:12px}
+  .back{display:inline-block;margin-top:32px;color:#C4613A;text-decoration:none;font-size:14px;font-weight:700}
+  .back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cat">모델</div>
+  <div class="title">시계열 파운데이션 모델</div>
+  <div class="en">Time-Series Foundation Model</div>
+  <div class="body"><p>대규모 시계열 데이터로 사전 학습해, 별도 훈련 없이 다양한 도메인의 미래 값을 예측하는 특화 파운데이션 모델. LLM이 언어를 범용으로 이해하듯, 시계열의 패턴을 범용으로 이해한다.</p><h4>시계열 파운데이션 모델이란</h4><p>주가, 날씨, 서버 트래픽, 재고량 — 시간에 따라 변하는 데이터를 예측하려면 보통 도메인별로 모델을 따로 학습해야 했다. 시계열 파운데이션 모델은 이 접근을 뒤집는다. 수십억~수천억 개의 시계열 데이터 포인트로 사전 학습해서, 처음 보는 도메인의 데이터도 <strong>제로샷</strong>으로 예측한다.</p>
+<p>대표적인 모델이 Google Research의 <strong>TimesFM</strong>이다. 200M 파라미터의 디코더 전용 트랜스포머로, 1,000억 개의 실제 시계열 데이터 포인트로 학습됐다. TimesFM 2.5에서 컨텍스트 길이가 16,384로 8배 늘어나고, 최대 1,000스텝 앞까지 확률적 분위 예측을 지원하게 됐다.</p>
+<h4>사용 예시</h4><p>Python에서 <code>pip install timesfm</code>으로 설치하고, Hugging Face에서 체크포인트를 받아 몇 줄의 코드로 예측을 돌릴 수 있다. 도메인별 파인튜닝 없이 제로샷으로 ARIMA를 15~25% 이상 능가하는 결과를 보인다.</p>
+<p>Google Cloud에서는 BigQuery ML에 TimesFM이 통합되어 있다. <code>AI.FORECAST</code> 함수에 <code>model => "TimesFM 2.5"</code>를 지정하면 SQL만으로 시계열 예측을 실행할 수 있다.</p>
+<h4>심화 내용</h4><p>TimesFM 외에도 Amazon의 <strong>Chronos</strong>, Salesforce의 <strong>Moirai</strong> 등 시계열 파운데이션 모델이 잇달아 등장하고 있다. LLM 분야의 "하나의 모델이 다양한 태스크를 수행" 패러다임이 시계열에도 퍼지고 있다.</p>
+<h4>주의할 점</h4><p>제로샷 성능이 인상적이지만, 도메인 특화 데이터로 파인튜닝한 모델에 항상 이기는 건 아니다. 시계열 파운데이션 모델은 텍스트를 이해하지 못한다 — 숫자 시퀀스의 패턴만 학습한 특화 모델이다.</p></div>
+  <div class="tags"><span>#시계열</span><span>#예측</span><span>#Google</span></div>
+  <a class="back" href="https://aiword-wiki.github.io/#time-series-fm">← AI Wiki에서 더 보기</a>
+</div>
+</body>
+</html>

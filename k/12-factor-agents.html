@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12-Factor Agents (Twelve-Factor Agents) — AI Wiki</title>
+<meta name="description" content="프로덕션에서 실제로 동작하는 LLM 에이전트를 만들기 위한 12가지 설계 원칙. Heroku의 Twelve-Factor App에서 영감을 받아, 에이전트도 결국 잘 만든 소프트웨어여야 한다는 관점에서 출발한다.">
+<meta name="keywords" content="설계원칙, 프로덕션, HumanLayer, AI, 12-Factor Agents">
+<meta property="og:type" content="article">
+<meta property="og:title" content="12-Factor Agents (Twelve-Factor Agents) — AI Wiki">
+<meta property="og:description" content="프로덕션에서 실제로 동작하는 LLM 에이전트를 만들기 위한 12가지 설계 원칙. Heroku의 Twelve-Factor App에서 영감을 받아, 에이전트도 결국 잘 만든 소프트웨어여야 한다는 관점에서 출발한다.">
+<meta property="og:url" content="https://aiword-wiki.github.io/k/12-factor-agents.html">
+<meta property="og:site_name" content="AI Wiki">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="12-Factor Agents (Twelve-Factor Agents) — AI Wiki">
+<meta name="twitter:description" content="프로덕션에서 실제로 동작하는 LLM 에이전트를 만들기 위한 12가지 설계 원칙. Heroku의 Twelve-Factor App에서 영감을 받아, 에이전트도 결국 잘 만든 소프트웨어여야 한다는 관점에서 출발한다.">
+<link rel="canonical" href="https://aiword-wiki.github.io/k/12-factor-agents.html">
+<link rel="alternate" hreflang="ko" href="https://aiword-wiki.github.io/k/12-factor-agents.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "12-Factor Agents",
+  "alternateName": "Twelve-Factor Agents",
+  "description": "프로덕션에서 실제로 동작하는 LLM 에이전트를 만들기 위한 12가지 설계 원칙. Heroku의 Twelve-Factor App에서 영감을 받아, 에이전트도 결국 잘 만든 소프트웨어여야 한다는 관점에서 출발한다.",
+  "url": "https://aiword-wiki.github.io/k/12-factor-agents.html",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "AI Wiki",
+    "url": "https://aiword-wiki.github.io/"
+  }
+}
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#F3F0EB;color:#4a4540;min-height:100vh;display:flex;justify-content:center;padding:40px 20px}
+  .wrap{max-width:720px;width:100%;background:#fff;border-radius:16px;padding:48px 40px;border:1px solid #e4dfd8}
+  .cat{font-size:11px;color:#a09888;margin-bottom:8px}
+  .title{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
+  .en{font-size:13px;color:#a09888;margin-bottom:24px}
+  .body{color:#5a5550;line-height:1.8;font-size:15px}
+  .body h4{font-size:16px;font-weight:700;color:#2d2a26;margin:24px 0 8px}
+  .body p{margin-bottom:14px}
+  .body code{background:#F3F0EB;padding:2px 6px;border-radius:4px;font-size:13px;color:#C4613A}
+  .body strong{font-weight:700;color:#2d2a26}
+  .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{background:#F3F0EB;color:#a09888;padding:4px 12px;border-radius:20px;font-size:12px}
+  .back{display:inline-block;margin-top:32px;color:#C4613A;text-decoration:none;font-size:14px;font-weight:700}
+  .back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cat">에이전트</div>
+  <div class="title">12-Factor Agents</div>
+  <div class="en">Twelve-Factor Agents</div>
+  <div class="body"><p>프로덕션에서 실제로 동작하는 LLM 에이전트를 만들기 위한 12가지 설계 원칙. Heroku의 Twelve-Factor App에서 영감을 받아, 에이전트도 결국 잘 만든 소프트웨어여야 한다는 관점에서 출발한다.</p><h4>12-Factor Agents란</h4><p>에이전트 프레임워크를 가져다 쓰면 처음에는 금방 70~80%까지 도달한다. 그런데 거기서 막힌다. 에이전트가 단계를 환각하고, 무한 루프에 빠지고, 프로덕션 품질에 도달하지 못한다. Dex Horthy(HumanLayer)는 100명 이상의 AI 엔지니어를 인터뷰한 뒤, 실제로 프로덕션에 나간 에이전트들의 공통점을 12가지 원칙으로 정리했다.</p>
+<p>핵심 통찰은 이것이다. 프로덕션에서 성공하는 에이전트는 대부분 <strong>잘 만든 전통적 소프트웨어에 LLM을 전략적으로 끼워 넣은 것</strong>이지, "프롬프트 + 도구 + 루프" 패턴으로 자율 동작하는 마법이 아니다.</p>
+<h4>12가지 원칙</h4><p>원칙은 크게 세 축으로 나뉜다. 첫째는 프롬프트와 도구다. 자연어를 구조화된 도구 호출로 변환하는 것이 핵심이고, 프롬프트는 프레임워크가 아니라 직접 관리해야 하며, 도구는 결국 JSON 스키마와 코드일 뿐이다. 둘째는 상태와 실행이다. 컨텍스트 윈도우를 명시적으로 관리하고, 비즈니스 상태와 실행 상태를 분리하고, 에이전트를 상태 없는 리듀서로 만들어서 언제든 중단하고 재개할 수 있게 한다. 셋째는 제어 흐름이다. 프레임워크에 제어를 넘기지 말고 직접 소유하며, 사람에게 연락하는 것을 예외가 아닌 일급 도구 호출로 다룬다.</p>
+<h4>사용 예시</h4><p>Claude Code에서 에이전트를 구축할 때 이 원칙들은 자연스럽게 적용된다. <code>CLAUDE.md</code>에 프롬프트를 직접 작성하는 것이 "프롬프트를 직접 소유하라"는 원칙이고, 훅으로 파일 수정 후 린트를 강제하는 것이 "제어 흐름을 직접 소유하라"는 원칙이다. 서브에이전트를 작은 단위로 나눠서 각각 하나의 역할만 맡기는 것이 "작고 집중된 에이전트" 원칙이다.</p>
+<h4>주의할 점</h4><p>12-Factor Agents는 프레임워크나 SDK가 아니라 언어 무관한 설계 원칙이다. 이미 LangChain이나 CrewAI를 쓰고 있다면 프레임워크를 버리라는 뜻이 아니라, 프레임워크 위에서도 이 원칙들을 의식하며 설계하라는 의미다.</p></div>
+  <div class="tags"><span>#설계원칙</span><span>#프로덕션</span><span>#HumanLayer</span></div>
+  <a class="back" href="https://aiword-wiki.github.io/#12-factor-agents">← AI Wiki에서 더 보기</a>
+</div>
+</body>
+</html>

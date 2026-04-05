@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>백그라운드 에이전트 (Background Agent) — AI Wiki</title>
+<meta name="description" content="클라우드 샌드박스에서 비동기로 실행되는 코딩 에이전트. 작업을 던져 놓고 다른 일을 하다가, 끝나면 PR을 리뷰하는 방식으로 개발 생산성을 근본적으로 바꾸는 패턴이다.">
+<meta name="keywords" content="비동기, 클라우드샌드박스, 병렬실행, AI, 백그라운드 에이전트">
+<meta property="og:type" content="article">
+<meta property="og:title" content="백그라운드 에이전트 (Background Agent) — AI Wiki">
+<meta property="og:description" content="클라우드 샌드박스에서 비동기로 실행되는 코딩 에이전트. 작업을 던져 놓고 다른 일을 하다가, 끝나면 PR을 리뷰하는 방식으로 개발 생산성을 근본적으로 바꾸는 패턴이다.">
+<meta property="og:url" content="https://aiword-wiki.github.io/k/background-agent.html">
+<meta property="og:site_name" content="AI Wiki">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="백그라운드 에이전트 (Background Agent) — AI Wiki">
+<meta name="twitter:description" content="클라우드 샌드박스에서 비동기로 실행되는 코딩 에이전트. 작업을 던져 놓고 다른 일을 하다가, 끝나면 PR을 리뷰하는 방식으로 개발 생산성을 근본적으로 바꾸는 패턴이다.">
+<link rel="canonical" href="https://aiword-wiki.github.io/k/background-agent.html">
+<link rel="alternate" hreflang="ko" href="https://aiword-wiki.github.io/k/background-agent.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "백그라운드 에이전트",
+  "alternateName": "Background Agent",
+  "description": "클라우드 샌드박스에서 비동기로 실행되는 코딩 에이전트. 작업을 던져 놓고 다른 일을 하다가, 끝나면 PR을 리뷰하는 방식으로 개발 생산성을 근본적으로 바꾸는 패턴이다.",
+  "url": "https://aiword-wiki.github.io/k/background-agent.html",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "AI Wiki",
+    "url": "https://aiword-wiki.github.io/"
+  }
+}
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#F3F0EB;color:#4a4540;min-height:100vh;display:flex;justify-content:center;padding:40px 20px}
+  .wrap{max-width:720px;width:100%;background:#fff;border-radius:16px;padding:48px 40px;border:1px solid #e4dfd8}
+  .cat{font-size:11px;color:#a09888;margin-bottom:8px}
+  .title{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
+  .en{font-size:13px;color:#a09888;margin-bottom:24px}
+  .body{color:#5a5550;line-height:1.8;font-size:15px}
+  .body h4{font-size:16px;font-weight:700;color:#2d2a26;margin:24px 0 8px}
+  .body p{margin-bottom:14px}
+  .body code{background:#F3F0EB;padding:2px 6px;border-radius:4px;font-size:13px;color:#C4613A}
+  .body strong{font-weight:700;color:#2d2a26}
+  .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{background:#F3F0EB;color:#a09888;padding:4px 12px;border-radius:20px;font-size:12px}
+  .back{display:inline-block;margin-top:32px;color:#C4613A;text-decoration:none;font-size:14px;font-weight:700}
+  .back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cat">에이전트</div>
+  <div class="title">백그라운드 에이전트</div>
+  <div class="en">Background Agent</div>
+  <div class="body"><p>클라우드 샌드박스에서 비동기로 실행되는 코딩 에이전트. 작업을 던져 놓고 다른 일을 하다가, 끝나면 PR을 리뷰하는 방식으로 개발 생산성을 근본적으로 바꾸는 패턴이다.</p><h4>백그라운드 에이전트란</h4><p>기존 AI 코딩 에이전트는 내 터미널이나 IDE에서 동기적으로 돌아갔다. 에이전트가 작업하는 동안 나는 기다려야 했다. 백그라운드 에이전트는 이 제약을 깬다. 작업을 클라우드의 격리된 환경에 던지면, 에이전트가 거기서 독립적으로 코드를 읽고, 수정하고, 테스트를 돌리고, PR까지 만든다. 그동안 나는 다른 작업을 하거나 노트북을 덮어도 된다. 핵심은 <strong>비동기 실행</strong>과 <strong>환경 격리</strong>다.</p>
+<h4>사용 예시</h4><p>Cursor에서는 백그라운드 에이전트를 띄우면 클라우드 VM에서 레포를 클론해 별도 브랜치에서 작업하고, 완료되면 PR을 열어 둔다. 최대 8~20개를 병렬로 돌릴 수 있어서, 각각 다른 기능을 동시에 맡기는 게 가능하다.</p>
+<p>Claude Code에서는 서브에이전트를 백그라운드로 보내고 메인 작업을 계속할 수 있다. Git Worktree와 결합하면 각 백그라운드 에이전트가 코드의 독립된 복사본에서 작업해서 충돌이 생기지 않는다.</p>
+<h4>주의할 점</h4><p>결과를 사후에 리뷰하는 방식이라, 에이전트가 잘못된 방향으로 갔을 때 중간에 잡기 어렵다. 작업 범위를 명확하고 작게 쪼개는 게 중요하다.</p></div>
+  <div class="tags"><span>#비동기</span><span>#클라우드샌드박스</span><span>#병렬실행</span></div>
+  <a class="back" href="https://aiword-wiki.github.io/#background-agent">← AI Wiki에서 더 보기</a>
+</div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-const HOT_IDS = ['harness-engineering','multi-agent','claude-code','ai-supply-chain-attack','claude-dispatch','self-improving-agent','gemma','copilot-sdk','skills'];
+const HOT_IDS = ['goose','emotion-prompting','multi-agent','harness-engineering','gemma','copilot-sdk','claude-code','ai-supply-chain-attack'];
 
 const D = [
   {id:'harness-engineering',t:'하네스 엔지니어링',en:'Harness Engineering',c:'prompting',h:4,born:'2026-02',tags:['시스템설계','오케스트레이션'],
@@ -42,19 +42,20 @@ const D = [
    videos:[{"title": "How We Build Effective Agents – Barry Zhang, Anthropic", "id": "D7_ipDqhtwk", "lang": "en"}],
    updated:'2025-12-01'},
 
-  {id:'multi-agent',t:'멀티 에이전트',en:'Multi-Agent System',c:'agent',h:4,born:'2023-08',tags:['협업','에이전트팀','분업'],
+  {id:'multi-agent',t:'멀티 에이전트',en:'Multi-Agent System',c:'agent',h:4,born:'2023-08',tags:['협업','에이전트팀','오케스트레이션'],
    sum:'여러 AI 에이전트가 역할을 나눠 하나의 작업을 함께 처리하는 시스템. 혼자서는 컨텍스트 한계에 부딪히는 복잡한 작업도 팀으로 나누면 병렬로 해결할 수 있다.',
    det:`<h4>왜 혼자가 아니라 팀인가</h4><p>AI 에이전트 하나가 모든 일을 혼자 하면 어떻게 될까? 조사도 하고, 코드도 짜고, 검증도 하고, 문서도 써야 한다. 컨텍스트 윈도우는 한정되어 있고, 한 가지에 집중하면 다른 걸 놓친다. 사람이 혼자서 기획·디자인·개발·QA를 다 하면 품질이 떨어지는 것과 같다. 멀티 에이전트는 이 문제를 "팀"으로 해결한다. 조사 전문 에이전트, 코드 작성 에이전트, 검증 에이전트가 각자 맡은 일을 하고 결과를 합치는 방식이다.</p>
-<h4>사용 예시</h4><p>Claude Code의 <code>.claude/agents/</code>에 에이전트를 마크다운으로 정의해 두면, Claude가 작업 맥락에 따라 적절한 에이전트를 자동으로 선택해 호출한다. 직접 지정하고 싶으면 프롬프트에 "researcher 에이전트로 조사해"처럼 에이전트 이름을 명시하면 된다.</p>
-<p>외부 API 연동 기능을 만들 때 API 문서를 조사하는 에이전트와 클라이언트 코드를 작성하는 에이전트가 병렬로 돌아가고, 대규모 리팩토링에서는 파일 탐색과 수정을 여러 에이전트가 나눠 처리해서 컨텍스트 한계를 우회할 수 있다. 문서 사이트를 만들 때도 자료 수집, 글 작성, 레퍼런스 검증을 각각 맡기면 혼자서도 팀 단위 작업이 가능하다.</p>
-<p>에이전트 여러 개를 조합할수록 진짜 힘이 나는 건 각 에이전트가 서로 다른 도구를 쓸 수 있을 때다. 한 에이전트는 MCP로 GitHub 이슈를 읽고, 다른 에이전트는 MCP로 DB 스키마를 조회하고, 또 다른 에이전트가 그 결과를 종합해서 코드를 짜는 식이다. 이런 멀티 에이전트 워크플로우를 스킬로 묶어 두면 <code>/deploy</code>처럼 슬래시 커맨드 한 줄로 매번 같은 팀을 소환할 수 있고, 훅을 걸어 두면 어떤 에이전트가 코드를 수정하든 자동으로 린트가 돌아가서 여러 손이 동시에 작업해도 코드가 뒤섞이지 않는다.</p>
-<p>Claude Code 바깥에서 독립적으로 구축하려면 LangGraph나 CrewAI 같은 프레임워크로 에이전트 간 역할과 통신 흐름을 그래프로 설계할 수 있다.</p>
-<h4>어떤 식으로 협업하나</h4><p>가장 흔한 방식은 <strong>감독자(Supervisor) 패턴</strong>이다. 메인 에이전트가 일감을 받으면, "이건 리서치 에이전트가, 이건 코딩 에이전트가" 하고 나눠준 뒤 결과를 모아서 최종 산출물을 만든다. <strong>파이프라인 패턴</strong>은 조립라인처럼 순서대로 넘기는 방식이다. A 에이전트가 요구사항을 정리하면 → B가 구현하고 → C가 테스트하는 식이다. <strong>토론 패턴</strong>은 찬성 에이전트와 반대 에이전트가 논쟁하고 심판 에이전트가 결론을 내리는 구조로, 코드 리뷰나 아키텍처 결정처럼 신중한 판단이 필요할 때 쓴다.</p>
-<h4>주의할 점</h4><p>팀이 크다고 항상 좋은 건 아니다. 에이전트가 4개를 넘어가면 서로 소통하는 비용이 실제 작업보다 커질 수 있다. 회의가 너무 많아서 일이 안 되는 회사처럼. 단순한 작업이라면 에이전트 하나로 충분하고, 정말 역할 분담이 필요한 복잡한 작업에서만 멀티 에이전트를 고려하는 게 좋다.</p>`,
-   rel:['ai-agent','agent-framework','harness-engineering','reasoning-model'],
-   refs:[{"title": "Multi-Agent Workflows – LangChain Blog", "url": "https://blog.langchain.com/langgraph-multi-agent-workflows/", "type": "blog"}, {"title": "Multi-agent network – LangGraph Docs", "url": "https://langchain-ai.github.io/langgraph/tutorials/multi_agent/multi-agent-collaboration/", "type": "official"}, {"title": "Multi-Agent Systems – Hugging Face Agents Course", "url": "https://huggingface.co/learn/agents-course/en/unit2/smolagents/multi_agent_systems", "type": "tutorial"}],
-   videos:[{"title": "LangGraph 멀티에이전트 – 테디노트", "id": "G8jrAA2bPnA", "lang": "ko"}, {"title": "LangGraph Multi-Agent Workflows", "id": "hvAPnpSfSGo", "lang": "en"}],
-   updated:'2025-12-01'},
+<p>2026년 들어 이 접근이 폭발적으로 확산되고 있다. Gartner는 멀티 에이전트 시스템 관련 문의가 2024년 1분기 대비 1,445% 급증했다고 보고했고, 업계에서는 2026년을 "에이전트 팀의 해"라고 부른다. 단일 에이전트로 실험하던 단계를 넘어, 여러 에이전트를 조율해서 실제 업무를 돌리는 프로덕션 단계로 진입한 것이다.</p>
+<h4>사용 예시</h4><p>가장 눈에 띄는 사례는 Stripe의 Minions다. Stripe 엔지니어가 Slack에서 작업을 지시하면, AI 에이전트가 독립된 클라우드 머신에서 코드를 읽고, 수정하고, 테스트를 돌리고, PR을 제출한다. 사람이 작성한 코드가 한 줄도 없는 PR이 매주 1,300건 이상 머지된다. 비결은 "블루프린트" 아키텍처 — 결정론적 단계(린트, 테스트)와 에이전틱 단계(추론, 코드 생성)를 번갈아 배치해서, AI가 창의적으로 코드를 쓰되 검증은 기계적으로 확실히 하는 구조다.</p>
+<p>Claude Code에서도 멀티 에이전트가 일상이 되고 있다. <code>.claude/agents/</code>에 에이전트를 마크다운으로 정의해 두면, Claude가 작업 맥락에 따라 적절한 에이전트를 자동으로 선택해 호출한다. Agent Teams 기능은 한 단계 더 나아간다. 리드 에이전트가 팀원 에이전트를 여러 개 띄워서, 각각 독립된 컨텍스트 윈도우에서 병렬로 작업하면서 서로 메시지를 주고받는다.</p>
+<p>에이전트 여러 개를 조합할수록 진짜 힘이 나는 건 각 에이전트가 서로 다른 도구를 쓸 수 있을 때다. 한 에이전트는 MCP로 GitHub 이슈를 읽고, 다른 에이전트는 MCP로 DB 스키마를 조회하고, 또 다른 에이전트가 그 결과를 종합해서 코드를 짜는 식이다.</p>
+<h4>프레임워크 경쟁</h4><p>직접 멀티 에이전트를 구축하려면 프레임워크 선택이 중요하다. 2026년 현재 세 가지 접근이 경쟁 중이다. <strong>LangGraph</strong>는 에이전트 시스템을 상태 머신으로 본다. 그래프의 노드와 엣지로 워크플로우를 설계하기 때문에 조건 분기나 병렬 실행을 세밀하게 제어할 수 있지만, 코드를 직접 많이 짜야 한다. <strong>CrewAI</strong>는 "역할 기반 팀"이라는 직관적인 모델을 쓴다. 리서처, 라이터, 리뷰어 같은 역할을 정의하고 태스크를 배분하면 되기 때문에 빠르게 시작할 수 있다. MCP와 A2A 프로토콜을 네이티브로 지원한다. <strong>AutoGen</strong>은 에이전트 간 대화를 중심으로 설계되어, 토론이나 협의가 필요한 워크플로우에 적합하다.</p>
+<h4>어떤 식으로 협업하나</h4><p>가장 흔한 방식은 <strong>감독자(Supervisor) 패턴</strong>이다. 메인 에이전트가 일감을 받으면, "이건 리서치 에이전트가, 이건 코딩 에이전트가" 하고 나눠준 뒤 결과를 모아서 최종 산출물을 만든다. <strong>파이프라인 패턴</strong>은 조립라인처럼 순서대로 넘기는 방식이다. A 에이전트가 요구사항을 정리하면 B가 구현하고 C가 테스트하는 식이다. <strong>스웜(Swarm) 패턴</strong>은 2026년 들어 주목받는 방식으로, 중앙 감독자 없이 에이전트들이 자율적으로 태스크를 가져가고 서로 핸드오프하는 구조다.</p>
+<h4>주의할 점</h4><p>팀이 크다고 항상 좋은 건 아니다. 에이전트가 4개를 넘어가면 서로 소통하는 비용이 실제 작업보다 커질 수 있다 — 회의가 너무 많아서 일이 안 되는 회사처럼. 단순한 작업이라면 에이전트 하나로 충분하다. 또한 멀티 에이전트를 프로덕션에 올리면 보안 공격 표면이 넓어지고 거버넌스가 복잡해진다. Stripe처럼 "제출 권한은 있되 머지 권한은 없게" 하는 식으로, 사람이 최종 검토하는 구조를 반드시 유지해야 한다.</p>`,
+   rel:['ai-agent','agent-framework','harness-engineering','claude-code','mcp','a2a'],
+   refs:[{"title":"Minions: Stripe's one-shot coding agents","url":"https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents","type":"blog"},{"title":"Orchestrate teams of Claude Code sessions – Anthropic","url":"https://code.claude.com/docs/en/agent-teams","type":"official"},{"title":"Multiagent Systems in Enterprise AI – Gartner","url":"https://www.gartner.com/en/articles/multiagent-systems","type":"official"},{"title":"How Stripe's Minions Ship 1,300 PRs a Week – ByteByteGo","url":"https://blog.bytebytego.com/p/how-stripes-minions-ship-1300-prs","type":"blog"}],
+   videos:[{"title":"LangGraph 멀티에이전트 – 테디노트","id":"G8jrAA2bPnA","lang":"ko"},{"title":"LangGraph Multi-Agent Workflows","id":"hvAPnpSfSGo","lang":"en"}],
+   updated:'2026-04-05'},
 
   {id:'ai-coding',t:'AI 코딩 어시스턴트',en:'AI Coding Assistant',c:'application',h:4,born:'2021-06',tags:['코딩','IDE','개발도구'],
    sum:'코드 자동 완성, 리뷰, 디버깅을 AI가 실시간으로 지원하는 개발 도구. 자동 완성에서 시작해 코드베이스 전체를 다루는 에이전트형으로 진화하고 있다.',
@@ -1570,6 +1571,213 @@ refs:[
   {title:'KG+LLMs: Ontology Driven RAG Patterns — Neo4j',id:'5_WXr0GtVas',lang:'en'}
 ],updated:'2026-04-05'},
 
+  {id:'agentic-engineering',t:'에이전틱 엔지니어링',en:'Agentic Engineering',c:'application',h:0,tags:['에이전트코딩','구조적감독','바이브코딩진화'],
+   sum:'AI 에이전트가 코드를 짜고, 사람은 설계·검증·품질을 책임지는 소프트웨어 개발 방법론. 바이브 코딩의 \'일단 돌아가면 OK\' 방식에서 벗어나, 테스트와 구조적 감독을 핵심에 둔다.',
+   det:`<h4>개념 설명</h4><p>2025년 초 Andrej Karpathy가 '바이브 코딩'이라는 말을 만들었다. 자연어로 지시하면 AI가 코드를 뱉고, 에러가 나면 에러 메시지를 다시 붙여넣는 — 코드를 직접 읽지도 않는 방식이었다. 1년 뒤인 2026년 초, Karpathy 본인이 "바이브 코딩은 이제 지났다"고 선언하며 내놓은 개념이 에이전틱 엔지니어링이다.</p>
+<p>핵심은 두 단어에 담겨 있다. <strong>에이전틱</strong> — 개발자가 코드를 직접 쓰는 비율이 1% 미만이고, 나머지는 AI 에이전트가 계획·구현·테스트를 자율적으로 수행한다. <strong>엔지니어링</strong> — 이 과정이 되는대로 돌아가는 게 아니라, 아키텍처 설계·품질 관리·시스템 운영이라는 공학적 규율 위에서 돌아간다.</p>
+<p>바이브 코딩과의 결정적 차이는 <strong>테스트</strong>다. 탄탄한 테스트 스위트가 있으면 에이전트가 테스트를 통과할 때까지 스스로 반복 수정할 수 있고, 그래야 신뢰할 수 있는 결과가 나온다.</p>
+<h4>사용 예시</h4><p>실제 워크플로우는 <strong>Plan → Execute → Verify(PEV) 루프</strong>로 돌아간다. 먼저 스펙 문서를 써서 에이전트에게 정확한 목표와 제약을 알려주고, 작업을 에이전트 단위 태스크로 쪼갠다. 에이전트가 코드를 생성하면 사람이 동료의 PR을 리뷰하듯 검토한다. 이 과정에서 <code>CLAUDE.md</code>로 프로젝트 규칙을 전달하고, 훅으로 린트·타입체크 같은 가드레일을 자동 실행하며, 스킬로 반복 워크플로우를 명령 한 줄로 호출하는 것이 전형적인 패턴이다.</p>
+<p>멀티에이전트와 결합하면 위력이 커진다. 한 에이전트는 파일 탐색과 코드 작성을, 다른 에이전트는 테스트 작성과 실행을 동시에 맡기면 컨텍스트 한계를 우회하면서 병렬로 작업이 진행된다.</p>
+<h4>심화 내용</h4><p>Simon Willison은 자신이 매일 쓰는 에이전틱 엔지니어링 패턴 세 가지를 정리했다. <strong>Red/Green TDD</strong> — 실패하는 테스트를 먼저 쓰고 에이전트에게 통과시키라고 넘기는 것, <strong>템플릿</strong> — 반복되는 작업 구조를 마크다운으로 정의해 에이전트에게 재사용시키는 것, <strong>호딩(Hoarding)</strong> — 에이전트가 맥락을 잃지 않도록 관련 정보를 미리 컨텍스트에 쌓아두는 것이다.</p>
+<h4>주의할 점</h4><p>구조적 감독 없이 에이전트에게 코드를 맡기면, 기술 부채가 가치보다 빨리 쌓인다. 에이전틱 엔지니어링은 기존의 소프트웨어 공학 역량 — GitOps, CI/CD, 테스트 자동화, 아키텍처 감독 — 을 증폭시키는 것이지 대체하는 게 아니다.</p>`,
+   rel:['vibe-coding','ai-agent','multi-agent','harness-engineering','ai-coding'],
+   refs:[{"title":"Agentic Engineering – Addy Osmani","url":"https://addyosmani.com/blog/agentic-engineering/","type":"blog"},{"title":"Agentic Engineering Patterns – Simon Willison","url":"https://simonwillison.net/guides/agentic-engineering-patterns/","type":"blog"},{"title":"What is Agentic Engineering? – IBM","url":"https://www.ibm.com/think/topics/agentic-engineering","type":"official"}],
+   videos:[],
+   updated:'2026-04-05'},
+
+  {id:'deepseek',t:'DeepSeek',en:'DeepSeek',c:'model',h:0,tags:['오픈소스','MoE','중국AI','추론모델'],
+   sum:'중국 AI 스타트업이 만든 오픈소스 대규모 언어 모델. Mixture of Experts 아키텍처로 GPT-4 대비 1/10 수준의 비용으로 학습하면서도 최상위 모델들과 대등한 추론 성능을 달성해, 오픈소스 LLM의 가능성을 증명했다.',
+   det:`<h4>DeepSeek이란</h4><p>DeepSeek은 2023년 중국 항저우에서 설립된 AI 기업이 만든 오픈소스 대규모 언어 모델 시리즈다. 핵심은 효율성이다. 671B개의 전체 파라미터 중 토큰당 37B만 활성화하는 <strong>Mixture of Experts(MoE)</strong> 아키텍처를 사용해서, GPT-4가 학습에 1억 달러 이상 썼을 때 DeepSeek-V3는 불과 600만 달러로 비슷한 수준의 성능을 달성했다. MIT 라이선스로 전체 가중치를 공개하기 때문에 누구나 다운받아 로컬에서 돌리거나 상업적으로 활용할 수 있다.</p>
+<p>2025년 1월 발표된 <strong>DeepSeek-R1</strong>은 OpenAI o1에 대응하는 추론 모델이다. 흥미로운 건 DeepSeek-R1-Zero라는 실험 모델인데, 지도학습(SFT) 없이 순수 강화학습만으로 모델이 스스로 사고의 사슬(Chain-of-Thought)을 발전시켰다. 이후 V3.2에서는 국제수학올림피아드(IMO) 금메달 수준의 수학 추론 능력을 달성했다.</p>
+<h4>사용 예시</h4><p>가장 간단한 방법은 API를 호출하는 것이다. DeepSeek API는 OpenAI와 호환되는 형식이라, 기존 OpenAI SDK 코드에서 <code>base_url</code>과 API 키만 바꾸면 바로 전환할 수 있다. 비용도 훨씬 저렴해서, 프로토타이핑이나 비용에 민감한 프로젝트에서 GPT-4 대신 드롭인 교체로 쓰는 경우가 많다.</p>
+<p>로컬 실행도 강점이다. Ollama에서 <code>ollama run deepseek-r1</code> 한 줄이면 증류된 경량 버전을 로컬에서 돌릴 수 있다. 에어갭 환경이나 프라이버시가 중요한 프로젝트에서 특히 유용하다.</p>
+<h4>핵심 기술</h4><p><strong>Multi-head Latent Attention(MLA)</strong>은 KV 캐시의 크기를 대폭 줄여서 추론 시 메모리 효율을 높인다. <strong>GRPO(Group Relative Policy Optimization)</strong>는 기존 RLHF에서 별도의 보상 모델 없이도 강화학습을 수행할 수 있게 한 방법으로, GPU 자원을 크게 절약한다.</p>
+<h4>주의할 점</h4><p>중국 기업이라는 점에서 데이터 프라이버시와 검열 관련 우려가 있다. 민감한 데이터를 다룬다면 API보다 로컬 실행이 안전하다. 한국어 성능은 영어·중국어에 비해 떨어질 수 있다.</p>`,
+   rel:['open-source-llm','moe','reasoning-model','grpo','distillation','llm'],
+   refs:[{"title":"DeepSeek-R1 — GitHub","url":"https://github.com/deepseek-ai/DeepSeek-R1","type":"official"},{"title":"DeepSeek API Docs","url":"https://api-docs.deepseek.com/","type":"official"},{"title":"DeepSeek-V3 Technical Report — arXiv","url":"https://arxiv.org/abs/2412.19437","type":"paper"},{"title":"DeepSeek-R1: Incentivizing Reasoning via RL — arXiv","url":"https://arxiv.org/abs/2501.12948","type":"paper"}],
+   videos:[{"title":"I built a DeepSeek R1 powered VS Code extension — Fireship","id":"clJCDHml2cA","lang":"en"}],
+   updated:'2026-04-05'},
+
+  {id:'n8n',t:'n8n',en:'n8n (nodemation)',c:'tooling',h:0,tags:['워크플로우자동화','노코드','오픈소스','AI에이전트'],
+   sum:'코드 없이 AI 에이전트와 자동화 워크플로우를 시각적으로 구축할 수 있는 오픈소스 플랫폼. 400개 이상의 통합과 LangChain 기반 AI 노드를 제공하며, 셀프호스팅으로 데이터 통제권을 유지할 수 있다.',
+   det:`<h4>n8n이란</h4><p>업무 자동화를 만들려면 보통 코드를 짜거나, Zapier 같은 SaaS에 의존해야 한다. n8n은 이 둘의 장점을 합쳤다. 노드 기반 시각적 빌더로 워크플로우를 드래그 앤 드롭으로 구성하면서, 필요하면 JavaScript나 Python 코드를 노드 안에 직접 넣을 수 있다. fair-code 라이선스라 소스 코드를 볼 수 있고, 셀프호스팅하면 API 키와 데이터가 내 서버를 벗어나지 않는다.</p>
+<h4>사용 예시</h4><p>n8n에서 AI 에이전트를 만드는 과정은 직관적이다. Chat Trigger 노드로 사용자 입력을 받고, AI Agent 노드에 LLM(OpenAI, Claude, Gemini 등)을 연결한 뒤, 도구 노드를 붙이면 된다. 에이전트가 사용자 질문을 받으면 어떤 도구를 쓸지 스스로 판단하고 실행한다. 메모리 노드를 추가하면 이전 대화를 기억하는 챗봇이 된다.</p>
+<p>실무에서 자주 쓰이는 패턴은 이렇다. 이메일이 오면 AI가 내용을 분류하고, 긴급한 건 Slack으로 알리고, 고객 문의는 자동 답변 초안을 만들어 Google Sheets에 기록하는 워크플로우를 하나의 캔버스에서 구성한다. MCP 클라이언트 노드도 내장되어 있어서 MCP 서버에 직접 연결할 수 있다.</p>
+<h4>주의할 점</h4><p>셀프호스팅은 자유도가 높지만, 서버 관리와 업데이트를 직접 해야 한다. LangChain 기반 AI 노드는 강력하지만 복잡한 에이전트 로직을 구현하려면 노드 구성이 많아질 수 있어서, 처음에는 공식 템플릿에서 시작해 점진적으로 확장하는 게 실용적이다.</p>`,
+   rel:['ai-workflow','ai-agent','langchain','mcp','multi-agent'],
+   refs:[{"title":"n8n 공식 사이트","url":"https://n8n.io/","type":"official"},{"title":"n8n Documentation","url":"https://docs.n8n.io/","type":"official"},{"title":"n8n AI Agent 공식 문서","url":"https://n8n.io/ai-agents/","type":"official"},{"title":"n8n GitHub Repository","url":"https://github.com/n8n-io/n8n","type":"official"}],
+   videos:[{"title":"N8N Full Tutorial: Building AI Agents — 2025","id":"ZbIVOy_GPyQ","lang":"en"}],
+   updated:'2026-04-05'},
+
+  {id:'token-economics',t:'토큰 경제학',en:'Token Economics',c:'infra',h:0,tags:['토큰비용','FinOps','추론비용'],
+   sum:'AI 모델이 처리하는 토큰을 비용·생산성의 기본 단위로 보고, 소비량을 추적·최적화·예산화하는 경제적 프레임워크. 토큰 단가는 2년간 280배 떨어졌지만 에이전트 시대의 사용량 폭증으로 전체 비용은 오히려 급증하면서, 토큰을 어떻게 쓰느냐가 엔지니어링의 핵심 제약이 되고 있다.',
+   det:`<h4>토큰이 화폐가 되기까지</h4><p>토큰은 원래 LLM이 텍스트를 처리하는 기술적 단위에 불과했다. 그런데 AI가 단순 대화를 넘어 코드를 짜고, 파일을 탐색하고, 도구를 호출하는 에이전트로 진화하면서, 토큰은 'AI가 일하는 데 드는 연산 비용'의 단위가 됐다. 젠슨 황 엔비디아 CEO는 GTC 2026에서 "연봉 7억 원짜리 엔지니어라면 3.5억 원어치 토큰은 써야 한다"고 말했다.</p>
+<p>흥미로운 건 토큰 단가의 역설이다. GPT-4급 성능의 토큰 비용은 2년 만에 280배 떨어졌다. 그런데 기업의 AI 지출은 같은 기간 320% 늘었다. 단가가 내려가니 더 많이 쓰게 됐고, 특히 AI 에이전트가 작업 하나에 기존 챗봇 대비 5~30배 많은 토큰을 소비하면서 전체 비용은 오히려 폭증한 것이다.</p>
+<h4>사용 예시</h4><p>개발자가 체감하는 토큰 경제학은 Claude Code 같은 코딩 에이전트에서 가장 뚜렷하다. <code>/cost</code> 명령으로 세션별 토큰 소비량을 확인할 수 있고, ccusage 같은 도구로 일별·월별 사용량과 예상 비용을 추적한다.</p>
+<p>프로덕션 환경에서는 <strong>모델 라우팅</strong>이 가장 효과적인 전략이다. 단순 질문은 소형 모델로, 복잡한 추론은 프론티어 모델로 보내면 비용을 60~80% 줄일 수 있다. <strong>프롬프트 캐싱</strong>으로 반복되는 시스템 프롬프트의 처리 비용을 90% 절감하고, <strong>배치 추론</strong>으로 지연을 허용하는 작업의 비용을 50% 낮추는 것도 표준적인 기법이다.</p>
+<h4>소프트웨어 생존과 토큰 효율</h4><p>Steve Yegge의 Software Survival 3.0 논의는 토큰 경제학을 소프트웨어 생태계 전체로 확장한다. 추론에는 토큰이 들고, 토큰에는 에너지가 들고, 에너지에는 돈이 든다. 이 자원 제약이 선택압을 만든다. AI 에이전트가 사용할 때 토큰을 절약해 주는 도구는 살아남고, 토큰을 낭비하게 만드는 도구는 도태된다.</p>
+<h4>주의할 점</h4><p>토큰 비용만 쫓다 보면 정작 중요한 품질을 놓칠 수 있다. 싼 모델로 라우팅하면 비용은 줄지만 정확도가 떨어지고, 프롬프트를 지나치게 압축하면 맥락이 소실된다.</p>`,
+   rel:['cost-optimization','prompt-caching','token-budget','inference-optimization','context-window','ai-agent'],
+   refs:[{"title":"AI tokens: Navigate AI spend dynamics – Deloitte","url":"https://www.deloitte.com/us/en/insights/topics/emerging-technologies/ai-tokens-how-to-navigate-spend-dynamics.html","type":"official"},{"title":"Nvidia's Huang pitches AI tokens on salary – CNBC","url":"https://www.cnbc.com/2026/03/20/nvidia-ai-agents-tokens-human-workers-engineer-jobs-unemployment-jensen-huang.html","type":"blog"},{"title":"Software Survival 3.0 – Steve Yegge","url":"https://steve-yegge.medium.com/software-survival-3-0-97a2a6255f7b","type":"blog"}],
+   videos:[],
+   updated:'2026-04-05'},
+
+  {id:'12-factor-agents',t:'12-Factor Agents',en:'Twelve-Factor Agents',c:'agent',h:0,tags:['설계원칙','프로덕션','HumanLayer'],
+   sum:'프로덕션에서 실제로 동작하는 LLM 에이전트를 만들기 위한 12가지 설계 원칙. Heroku의 Twelve-Factor App에서 영감을 받아, 에이전트도 결국 잘 만든 소프트웨어여야 한다는 관점에서 출발한다.',
+   det:`<h4>12-Factor Agents란</h4><p>에이전트 프레임워크를 가져다 쓰면 처음에는 금방 70~80%까지 도달한다. 그런데 거기서 막힌다. 에이전트가 단계를 환각하고, 무한 루프에 빠지고, 프로덕션 품질에 도달하지 못한다. Dex Horthy(HumanLayer)는 100명 이상의 AI 엔지니어를 인터뷰한 뒤, 실제로 프로덕션에 나간 에이전트들의 공통점을 12가지 원칙으로 정리했다.</p>
+<p>핵심 통찰은 이것이다. 프로덕션에서 성공하는 에이전트는 대부분 <strong>잘 만든 전통적 소프트웨어에 LLM을 전략적으로 끼워 넣은 것</strong>이지, "프롬프트 + 도구 + 루프" 패턴으로 자율 동작하는 마법이 아니다.</p>
+<h4>12가지 원칙</h4><p>원칙은 크게 세 축으로 나뉜다. 첫째는 프롬프트와 도구다. 자연어를 구조화된 도구 호출로 변환하는 것이 핵심이고, 프롬프트는 프레임워크가 아니라 직접 관리해야 하며, 도구는 결국 JSON 스키마와 코드일 뿐이다. 둘째는 상태와 실행이다. 컨텍스트 윈도우를 명시적으로 관리하고, 비즈니스 상태와 실행 상태를 분리하고, 에이전트를 상태 없는 리듀서로 만들어서 언제든 중단하고 재개할 수 있게 한다. 셋째는 제어 흐름이다. 프레임워크에 제어를 넘기지 말고 직접 소유하며, 사람에게 연락하는 것을 예외가 아닌 일급 도구 호출로 다룬다.</p>
+<h4>사용 예시</h4><p>Claude Code에서 에이전트를 구축할 때 이 원칙들은 자연스럽게 적용된다. <code>CLAUDE.md</code>에 프롬프트를 직접 작성하는 것이 "프롬프트를 직접 소유하라"는 원칙이고, 훅으로 파일 수정 후 린트를 강제하는 것이 "제어 흐름을 직접 소유하라"는 원칙이다. 서브에이전트를 작은 단위로 나눠서 각각 하나의 역할만 맡기는 것이 "작고 집중된 에이전트" 원칙이다.</p>
+<h4>주의할 점</h4><p>12-Factor Agents는 프레임워크나 SDK가 아니라 언어 무관한 설계 원칙이다. 이미 LangChain이나 CrewAI를 쓰고 있다면 프레임워크를 버리라는 뜻이 아니라, 프레임워크 위에서도 이 원칙들을 의식하며 설계하라는 의미다.</p>`,
+   rel:['ai-agent','agent-framework','harness-engineering','context-engineering'],
+   refs:[{"title":"12 Factor Agents — HumanLayer","url":"https://www.humanlayer.dev/12-factor-agents","type":"official"},{"title":"GitHub — humanlayer/12-factor-agents","url":"https://github.com/humanlayer/12-factor-agents","type":"official"}],
+   videos:[{"title":"12-Factor Agents: Patterns of reliable LLM apps — Dex Horthy","id":"8kMaTybvDUw","lang":"en"}],
+   updated:'2026-04-05'},
+
+  {id:'pydantic-ai',t:'Pydantic AI',en:'Pydantic AI',c:'agent',h:0,tags:['Python','타입안전','Pydantic'],
+   sum:'Python의 타입 시스템을 활용해 AI 에이전트를 안전하고 예측 가능하게 만드는 프레임워크. Pydantic 팀이 직접 만들었고, FastAPI처럼 깔끔한 개발 경험을 에이전트 개발에 가져온다.',
+   det:`<h4>Pydantic AI란</h4><p>LLM 에이전트를 만들다 보면 늘 같은 문제에 부딪힌다. 모델이 예상과 다른 형식으로 응답하고, 도구 호출 인자가 틀리고, 런타임에서야 에러를 발견한다. Pydantic AI는 이 문제를 Python의 타입 시스템으로 해결한다. 에이전트의 입력, 출력, 의존성 모두에 타입을 걸어서, 코드를 쓰는 시점에 IDE가 오류를 잡아주고, 실행 시점에는 Pydantic이 자동으로 응답을 검증한다.</p>
+<h4>사용 예시</h4><p>에이전트를 정의할 때 결과 타입을 제네릭으로 지정한다. <code>Agent[MyDeps, MyResult]</code>처럼 선언하면, 도구 함수에서 <code>RunContext[MyDeps]</code>를 통해 의존성에 타입 안전하게 접근하고, 모델 응답은 <code>MyResult</code> 스키마로 자동 검증된다.</p>
+<p>의존성 주입 시스템도 핵심이다. DB 커넥션, API 클라이언트 같은 외부 자원을 데이터클래스로 묶어서 에이전트에 주입하면, 테스트할 때는 목(mock)으로 교체하고 프로덕션에서는 실제 객체를 넣는 식으로 깔끔하게 분리된다.</p>
+<h4>주의할 점</h4><p>타입 안전성이 강점인 만큼 Python 타입 힌팅에 익숙해야 생산성이 나온다. LangGraph처럼 복잡한 상태 머신이 필요한 워크플로우에는 단독으로 부족할 수 있고, LangGraph와 조합하는 패턴이 권장된다.</p>`,
+   rel:['agent-framework','structured-output','ai-agent','langchain'],
+   refs:[{"title":"Pydantic AI — 공식 문서","url":"https://ai.pydantic.dev/","type":"official"},{"title":"GitHub — pydantic/pydantic-ai","url":"https://github.com/pydantic/pydantic-ai","type":"official"},{"title":"Building your own CLI Coding Agent with Pydantic-AI — Martin Fowler","url":"https://martinfowler.com/articles/build-own-coding-agent.html","type":"tutorial"}],
+   videos:[{"title":"Why we built PydanticAI — Samuel Colvin","id":"YRYxsb_VLhI","lang":"en"}],
+   updated:'2026-04-05'},
+
+  {id:'background-agent',t:'백그라운드 에이전트',en:'Background Agent',c:'agent',h:0,tags:['비동기','클라우드샌드박스','병렬실행'],
+   sum:'클라우드 샌드박스에서 비동기로 실행되는 코딩 에이전트. 작업을 던져 놓고 다른 일을 하다가, 끝나면 PR을 리뷰하는 방식으로 개발 생산성을 근본적으로 바꾸는 패턴이다.',
+   det:`<h4>백그라운드 에이전트란</h4><p>기존 AI 코딩 에이전트는 내 터미널이나 IDE에서 동기적으로 돌아갔다. 에이전트가 작업하는 동안 나는 기다려야 했다. 백그라운드 에이전트는 이 제약을 깬다. 작업을 클라우드의 격리된 환경에 던지면, 에이전트가 거기서 독립적으로 코드를 읽고, 수정하고, 테스트를 돌리고, PR까지 만든다. 그동안 나는 다른 작업을 하거나 노트북을 덮어도 된다. 핵심은 <strong>비동기 실행</strong>과 <strong>환경 격리</strong>다.</p>
+<h4>사용 예시</h4><p>Cursor에서는 백그라운드 에이전트를 띄우면 클라우드 VM에서 레포를 클론해 별도 브랜치에서 작업하고, 완료되면 PR을 열어 둔다. 최대 8~20개를 병렬로 돌릴 수 있어서, 각각 다른 기능을 동시에 맡기는 게 가능하다.</p>
+<p>Claude Code에서는 서브에이전트를 백그라운드로 보내고 메인 작업을 계속할 수 있다. Git Worktree와 결합하면 각 백그라운드 에이전트가 코드의 독립된 복사본에서 작업해서 충돌이 생기지 않는다.</p>
+<h4>주의할 점</h4><p>결과를 사후에 리뷰하는 방식이라, 에이전트가 잘못된 방향으로 갔을 때 중간에 잡기 어렵다. 작업 범위를 명확하고 작게 쪼개는 게 중요하다.</p>`,
+   rel:['ai-coding','claude-code','cursor','multi-agent','subagent'],
+   refs:[{"title":"Background Agents — Cursor 공식 문서","url":"https://docs.cursor.com/en/background-agent","type":"official"},{"title":"Cloud Agents — Cursor Blog","url":"https://cursor.com/blog/cloud-agents","type":"official"}],
+   videos:[],
+   updated:'2026-04-05'},
+
+  {id:'spec-driven-dev',t:'스펙 기반 개발',en:'Spec-Driven Development',c:'application',h:0,tags:['SDD','명세','AI코딩'],
+   sum:'코드를 바로 짜는 대신 스펙(명세)을 먼저 정의하고, AI 에이전트가 그 스펙을 기반으로 구현하는 개발 방식. 에이전트가 마음을 읽지 못하는 문제를 구조로 해결한다.',
+   det:`<h4>스펙 기반 개발이란</h4><p>AI 코딩 에이전트에게 "로그인 기능 만들어줘"라고 시키면, 어떤 인증 방식을 쓸지, 에러 처리는 어떻게 할지를 에이전트가 알아서 결정한다. 운이 좋으면 원하는 대로 나오고, 운이 나쁘면 처음부터 다시 해야 한다. 스펙 기반 개발은 이 도박을 없앤다. 코드를 짜기 전에 입출력 매핑, 인터페이스 타입, 제약 사항 같은 <strong>외부 동작 명세</strong>를 먼저 정의하고, 에이전트는 그 명세를 충실히 구현하는 역할만 맡는다.</p>
+<h4>사용 예시</h4><p>GitHub이 공개한 <strong>Spec Kit</strong>은 이 워크플로우를 4단계로 구조화한다. <strong>Specify</strong> 단계에서 무엇을 만들지 설명하면 에이전트가 상세 명세를 생성하고, <strong>Plan</strong>에서 기술 계획서가, <strong>Tasks</strong>에서 작업 단위 분할이, <strong>Implement</strong>에서 코드 구현이 이뤄진다. 각 단계는 검증을 통과해야 다음으로 넘어간다.</p>
+<p>Claude Code에서는 Spec Kit을 스킬로 설치하면 <code>/speckit-specify</code>, <code>/speckit-plan</code> 같은 명령으로 각 단계를 호출할 수 있다. 바이브 코딩이 "느낌대로 짜 봐"라면, 스펙 기반 개발은 "이 계약서대로 짜"에 가깝다.</p>
+<h4>주의할 점</h4><p>명세를 너무 세밀하게 쓰면 직접 코드를 짜는 것과 시간 차이가 없어진다. 외부 동작만 정의하고 내부 구현은 에이전트에게 맡기는 것이 핵심이다.</p>`,
+   rel:['ai-coding','vibe-coding','harness-engineering','ai-agent'],
+   refs:[{"title":"Spec-driven development – Thoughtworks","url":"https://www.thoughtworks.com/en-us/insights/blog/agile-engineering-practices/spec-driven-development-unpacking-2025-new-engineering-practices","type":"blog"},{"title":"Spec-driven development with AI – GitHub Blog","url":"https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/","type":"official"},{"title":"GitHub Spec Kit","url":"https://github.com/github/spec-kit","type":"official"}],
+   videos:[],
+   updated:'2026-04-05'},
+
+  {id:'agent-friendly-cli',t:'에이전트 CLI',en:'Agent-Friendly CLI',c:'tooling',h:0,tags:['CLI','에이전트인터페이스','Unix철학'],
+   sum:'AI 에이전트가 GUI 대신 CLI를 선호하는 현상, 그리고 에이전트가 쓰기 좋게 CLI를 재설계하는 움직임. 구조화된 출력과 조합성이 에이전트 시대에 CLI를 다시 부활시켰다.',
+   det:`<h4>CLI의 귀환</h4><p>GUI는 사람에게 편하지만 AI 에이전트에게는 불편하다. 버튼을 찾아 클릭하고, 화면 상태를 해석해야 한다. 반면 CLI는 텍스트를 입력하면 텍스트가 나온다. LLM이 가장 잘하는 게 텍스트 처리인 만큼, CLI는 에이전트에게 가장 자연스러운 인터페이스다. Claude Code, Codex CLI, Gemini CLI가 연달아 출시되면서 CLI 기반 에이전트 도구가 하나의 카테고리로 자리잡았다.</p>
+<p>에이전트가 CLI를 선호하는 이유는 두 가지다. 첫째, <strong>구조화된 출력</strong>이다. <code>--json</code> 플래그 하나면 에이전트가 파싱하기 쉬운 형태로 결과를 받는다. 둘째, <strong>조합성(composability)</strong>이다. 작은 명령을 파이프로 연결해 복잡한 워크플로우를 만드는 Unix 철학이 에이전트의 작업 방식과 정확히 맞아떨어진다.</p>
+<h4>사용 예시</h4><p>Claude Code에서 에이전트가 <code>git log --oneline</code>, <code>npm test</code>, <code>grep -r "TODO"</code> 같은 CLI 명령을 직접 실행하는 것 자체가 에이전트 CLI의 전형적인 사용이다. MCP 서버 없이도 셸 접근만 있으면 대부분의 로컬 작업을 처리할 수 있는 이유다.</p>
+<p>에이전트용으로 CLI를 새로 설계할 때는 모든 명령에 <code>--json</code> 출력을 지원하고, 에러 메시지를 구조화하고, 명령 하나가 하나의 기능만 담당하게 쪼갠다.</p>
+<h4>주의할 점</h4><p>CLI가 만능은 아니다. OAuth 인증이 필요한 SaaS API나 실시간 양방향 통신이 필요한 경우에는 MCP가 더 적합하다. 로컬=CLI, 원격=MCP 하이브리드가 프로덕션 합의다.</p>`,
+   rel:['claude-code','mcp','tool-use','structured-output'],
+   refs:[{"title":"Why CLI is the New MCP for AI Agents – OneUptime","url":"https://oneuptime.com/blog/post/2026-02-03-cli-is-the-new-mcp/view","type":"blog"},{"title":"AI를 위한 CLI 설계 – Dale Seo","url":"https://daleseo.com/cli-for-ai-agents/","type":"blog"}],
+   videos:[],
+   updated:'2026-04-05'},
+
+  {id:'mastra',t:'Mastra',en:'Mastra',c:'agent',h:0,tags:['TypeScript','에이전트프레임워크','MCP'],
+   sum:'TypeScript로 AI 에이전트를 만드는 오픈소스 프레임워크. Gatsby 팀이 만들었으며, 에이전트·워크플로우·RAG·MCP를 하나의 스택으로 제공한다.',
+   det:`<h4>Mastra란</h4><p>AI 에이전트를 만들려면 보통 Python 생태계의 LangChain이나 CrewAI를 쓴다. 하지만 웹 개발자 대다수는 TypeScript를 쓰고 있고, Next.js 앱에 에이전트를 붙이려면 언어를 바꿔야 하는 문제가 있었다. Mastra는 이 간극을 메운다. Gatsby 웹 프레임워크를 만들었던 팀이 Y Combinator W25 배치를 거쳐 2026년 1월 v1.0을 출시했다.</p>
+<p>핵심은 에이전트 개발에 필요한 모든 요소를 하나의 프레임워크에 담은 것이다. <strong>에이전트</strong>는 LLM과 도구를 연결해 자율적으로 추론하고, <strong>워크플로우</strong>는 멀티스텝 작업을 그래프로 정의하며, <strong>RAG 파이프라인</strong>으로 지식베이스를 붙이고, <strong>Evals</strong>로 품질을 측정한다.</p>
+<h4>사용 예시</h4><p><code>npm create mastra@latest</code>로 프로젝트를 생성하면 에이전트, 도구, 워크플로우를 바로 정의할 수 있다. MCP 지원이 양방향으로 내장되어 있어서, 외부 MCP 서버의 도구를 에이전트에 로드할 수도 있고, 반대로 내가 만든 에이전트를 MCP 서버로 노출해서 Claude Code 같은 클라이언트가 바로 쓸 수 있게 할 수도 있다.</p>
+<h4>주의할 점</h4><p>TypeScript/Node.js 생태계에 최적화되어 있어서, Python 기반 ML 파이프라인과 직접 통합하기는 어렵다. 2026년 1월에 v1.0을 출시한 만큼 프로덕션 사례가 LangChain에 비해 적다.</p>`,
+   rel:['agent-framework','mcp','langchain','multi-agent'],
+   refs:[{"title":"Mastra – Official Site","url":"https://mastra.ai/","type":"official"},{"title":"Mastra GitHub Repository","url":"https://github.com/mastra-ai/mastra","type":"official"},{"title":"Build Your First Agent in TypeScript – Mastra Course","url":"https://mastra.ai/course","type":"tutorial"}],
+   videos:[{"title":"Mastra – Build Your First AI Agent in TypeScript","id":"yR5CYEn6Moo","lang":"en"}],
+   updated:'2026-04-05'},
+
+  {id:'llamafile',t:'llamafile',en:'llamafile',c:'infra',h:0,tags:['로컬AI','Mozilla','단일실행파일'],
+   sum:'LLM 모델과 실행 엔진을 하나의 파일로 패키징해서, 설치 없이 더블클릭만으로 로컬에서 AI를 돌릴 수 있게 만든 Mozilla의 오픈소스 도구.',
+   det:`<h4>llamafile이란</h4><p>보통 로컬에서 LLM을 돌리려면 Python 환경 세팅, 의존성 설치, 모델 다운로드, 설정 파일 수정 같은 과정을 거쳐야 한다. llamafile은 이 모든 걸 하나의 실행 파일로 합쳐 버린다. 모델 가중치와 추론 엔진(llama.cpp)이 하나의 파일 안에 들어 있어서, 다운로드 → 실행 권한 부여 → 실행. 이 세 단계면 끝이다.</p>
+<p>핵심 기술은 <strong>Cosmopolitan Libc</strong>다. 하나의 바이너리가 macOS, Windows, Linux 등 6개 운영체제에서 그대로 실행되는 <strong>Actually Portable Executable(APE)</strong> 포맷을 구현한다.</p>
+<h4>사용 예시</h4><p>Hugging Face에서 원하는 모델의 llamafile을 받아서 터미널에서 <code>chmod +x</code> 후 실행하면, 로컬 웹 서버가 뜨면서 브라우저에서 바로 채팅할 수 있다. GPU를 자동으로 감지해서 가속도 알아서 건다.</p>
+<p>API 서버로도 쓸 수 있다. llamafile을 서버 모드로 띄우면 OpenAI 호환 REST API가 열려서, 기존에 OpenAI API를 쓰던 코드를 엔드포인트만 바꿔서 로컬 모델로 전환할 수 있다. 파일 하나를 USB에 담아서 인터넷 없는 환경에 가져가도 돌아간다.</p>
+<h4>주의할 점</h4><p>모델과 엔진이 하나로 묶여 있어서 파일 크기가 수 GB에 달한다. 모델을 자주 바꾸는 개발 환경이라면 Ollama처럼 모델을 분리 관리하는 도구가 더 편할 수 있다.</p>`,
+   rel:['ollama','on-device-ai','open-source-llm','llama'],
+   refs:[{"title":"llamafile GitHub — mozilla-ai","url":"https://github.com/mozilla-ai/llamafile","type":"official"},{"title":"Introducing llamafile — Mozilla Hacks","url":"https://hacks.mozilla.org/2023/11/introducing-llamafile/","type":"blog"},{"title":"llamafile is the new best way to run an LLM — Simon Willison","url":"https://simonwillison.net/2023/Nov/29/llamafile/","type":"blog"}],
+   videos:[],
+   updated:'2026-04-05'},
+
+  {id:'hermes-agent',t:'Hermes Agent',en:'Hermes Agent',c:'agent',h:0,tags:['자기학습','NousResearch','자율에이전트'],
+   sum:'경험에서 스킬을 자동으로 만들고, 세션을 넘어 기억하며, 쓸수록 더 똑똑해지는 Nous Research의 오픈소스 자율 에이전트.',
+   det:`<h4>Hermes Agent란</h4><p>대부분의 AI 에이전트는 대화가 끝나면 배운 것을 잊는다. 같은 질문을 내일 또 하면 처음부터 다시 시작한다. Hermes Agent는 이 문제를 <strong>닫힌 학습 루프(closed learning loop)</strong>로 해결한다. 에이전트가 작업을 완료하면, 그 과정을 마크다운 스킬 파일로 저장하고, 결과를 영구 메모리에 기록하고, 다음번에는 개선된 방식으로 접근한다.</p>
+<p>Nous Research가 2026년 2월에 MIT 라이선스로 공개했으며, 출시 수 주 만에 GitHub 스타 22,000개를 넘겼다.</p>
+<h4>사용 예시</h4><p>핵심은 <strong>스킬 자동 생성</strong>이다. "이 프로젝트의 테스트를 돌려줘"라고 시켰을 때 에이전트가 처음에는 시행착오를 거치지만, 성공하면 그 과정을 스킬로 저장한다. 다음에 같은 요청이 오면 저장된 스킬을 불러와서 바로 실행한다. 보완 프로젝트인 <strong>hermes-agent-self-evolution</strong>은 실행 트레이스를 분석하고, 왜 실패했는지를 파악해서 스킬과 프롬프트를 자동으로 개선한다.</p>
+<p>메모리 시스템은 SQLite 위에 FTS5 전문 검색을 올리고, LLM 요약을 결합한다. 수 주 전 대화도 검색해서 맥락을 되살릴 수 있다.</p>
+<h4>주의할 점</h4><p>자기학습 에이전트는 잘못된 패턴도 학습할 수 있다. 초기에 잘못된 스킬이 저장되면 이후 작업에도 영향을 미치므로, 생성된 스킬을 주기적으로 리뷰하고 정리하는 과정이 필요하다.</p>`,
+   rel:['self-improving-agent','ai-agent','agent-framework','agent-memory','multi-agent'],
+   refs:[{"title":"Hermes Agent — Official Site","url":"https://hermes-agent.nousresearch.com/","type":"official"},{"title":"Hermes Agent GitHub — NousResearch","url":"https://github.com/nousresearch/hermes-agent","type":"official"}],
+   videos:[],
+   updated:'2026-04-05'},
+
+  {id:'protocol-wars',t:'프로토콜 전쟁',en:'AI Protocol Wars',c:'infra',h:0,tags:['MCP','A2A','표준화','프로토콜'],
+   sum:'AI 에이전트가 도구와 연결되고 서로 대화하는 방식을 두고, MCP·A2A·ACP 세 프로토콜이 표준 자리를 놓고 벌이는 경쟁과 수렴의 과정.',
+   det:`<h4>프로토콜 전쟁이란</h4><p>AI 에이전트 시대가 열리면서, 에이전트가 외부 도구에 접근하고 다른 에이전트와 협업하는 방식을 표준화해야 한다는 요구가 커졌다. 이 자리를 놓고 세 프로토콜이 등장했다. Anthropic의 <strong>MCP(Model Context Protocol)</strong>는 에이전트와 도구를 연결하고, Google의 <strong>A2A(Agent-to-Agent)</strong>는 에이전트끼리 서로 발견하고 대화하게 하고, IBM의 <strong>ACP(Agent Communication Protocol)</strong>도 에이전트 간 통신을 다뤘다.</p>
+<p>불을 붙인 사건이 있다. 한 커뮤니티 기여자가 OpenAI의 Agents SDK에 A2A 지원을 추가하는 1,200줄짜리 PR을 제출했는데, OpenAI가 이를 거부한 것이다. MCP만을 표준으로 밀겠다는 의도로 읽히면서 커뮤니티에서 큰 논란이 됐다.</p>
+<h4>세 프로토콜의 역할</h4><p>핵심은 이 프로토콜들이 서로 다른 계층을 담당한다는 점이다. MCP는 <strong>세로축</strong> — 에이전트가 GitHub, DB, 파일시스템 같은 외부 도구에 접근하는 방식을 통일한다. A2A는 <strong>가로축</strong> — 서로 다른 프레임워크로 만든 에이전트들이 서로를 발견하고, 작업을 위임하고, 결과를 주고받는 통신 규약이다. IBM의 ACP는 A2A와 역할이 겹쳐서, 2025년 8월 Linux Foundation 산하에서 A2A에 공식 합병됐다.</p>
+<h4>전쟁에서 수렴으로</h4><p>2025년 12월, Anthropic이 MCP를 Linux Foundation의 <strong>Agentic AI Foundation(AAIF)</strong>에 기증했다. 공동 설립자에 OpenAI, Google, Microsoft, AWS가 모두 이름을 올렸다. "전쟁"이라고 불렸지만, 결국 MCP(도구 연결) + A2A(에이전트 통신)라는 이중 레이어 구조로 수렴하고 있다.</p>
+<h4>주의할 점</h4><p>프로토콜이 표준화된다고 호환성이 자동으로 보장되지는 않는다. 특히 A2A는 아직 초기 단계라 프로덕션에서 매끄럽지 않을 수 있다.</p>`,
+   rel:['mcp','agent-protocol','multi-agent','ai-agent','orchestration'],
+   refs:[{"title":"MCP vs A2A: Complete Guide 2026 — DEV Community","url":"https://dev.to/pockit_tools/mcp-vs-a2a-the-complete-guide-to-ai-agent-protocols-in-2026-30li","type":"blog"},{"title":"A developer's guide to AI protocols — InfoWorld","url":"https://www.infoworld.com/article/4007686/a-developers-guide-to-ai-protocols-mcp-a2a-and-acp.html","type":"blog"}],
+   videos:[],
+   updated:'2026-04-05'},
+
+  {id:'kokoro-tts',t:'Kokoro TTS',en:'Kokoro Text-to-Speech',c:'model',h:0,tags:['TTS','온디바이스','오픈소스'],
+   sum:'82M 파라미터만으로 대형 모델 수준의 자연스러운 음성을 합성하는 초경량 오픈소스 TTS 모델. 로컬 환경에서도 실시간보다 빠르게 돌아가서, 온디바이스 음성 합성의 가능성을 열었다.',
+   det:`<h4>Kokoro TTS란</h4><p>텍스트를 사람처럼 자연스러운 음성으로 바꿔주는 모델인데, 놀라운 점은 크기다. 파라미터가 8,200만 개밖에 안 된다. MetaVoice 12억, XTTS 4.7억 파라미터인데 Kokoro는 그 모델들보다 자연스러움 평가에서 더 높은 점수를 받았다. TTS Arena 벤치마크에서 1위를 기록했을 정도다. 비결은 <strong>StyleTTS 2</strong>와 <strong>ISTFTNet</strong> 기반의 디코더 전용 아키텍처로, 디퓨전이나 인코더 없이 가볍고 빠른 추론을 가능하게 한 설계에 있다.</p>
+<h4>사용 예시</h4><p>로컬에서 직접 돌리는 게 핵심 사용법이다. <code>pip install kokoro</code>로 설치하고, Hugging Face에서 체크포인트를 받아 Python 몇 줄이면 음성을 생성할 수 있다. GPU에서는 실시간의 약 100배 속도로 생성되고, CPU에서도 실용적인 속도가 나온다.</p>
+<p><code>kokoro-fastapi</code> 프로젝트를 쓰면 OpenAI TTS API와 호환되는 엔드포인트를 로컬에 띄울 수 있다. 기존에 OpenAI TTS를 쓰던 앱에서 엔드포인트만 바꾸면 비용 없이 로컬 TTS로 전환된다. 영어, 프랑스어, 일본어, 한국어 등 8개 언어, 48가지 음성을 지원한다.</p>
+<h4>주의할 점</h4><p>한국어는 아직 영어만큼 완벽하지 않다. 억양이 원어민 수준에는 못 미친다. Apache 2.0 라이선스라 상업적 사용에 제약이 없다.</p>`,
+   rel:['text-to-speech','on-device-ai','open-source-llm'],
+   refs:[{"title":"Kokoro-82M Model Card – Hugging Face","url":"https://huggingface.co/hexgrad/Kokoro-82M","type":"official"},{"title":"Kokoro GitHub Repository","url":"https://github.com/hexgrad/kokoro","type":"official"}],
+   videos:[],
+   updated:'2026-04-05'},
+
+  {id:'open-webui',t:'Open WebUI',en:'Open WebUI',c:'tooling',h:0,tags:['로컬AI','Ollama','셀프호스팅'],
+   sum:'로컬 LLM을 ChatGPT처럼 쓸 수 있게 해주는 오픈소스 웹 인터페이스. Ollama와 함께 로컬 AI 스택의 사실상 표준 프론트엔드로 자리잡았다.',
+   det:`<h4>Open WebUI란</h4><p>Ollama로 로컬에 LLM을 띄우면 터미널에서만 대화할 수 있다. 대화 기록도 안 남고, 모델을 바꾸려면 명령어를 다시 쳐야 한다. Open WebUI는 이 불편함을 해결하는 브라우저 기반 채팅 인터페이스다. ChatGPT 쓰듯이 대화하고, 기록이 남고, 모델을 드롭다운으로 바꾸고, 파일을 업로드해서 질문할 수 있다. 데이터가 외부로 나가지 않아 프라이버시가 보장된다.</p>
+<p>GitHub 스타 9만 개 이상, Docker 풀 수 2.8억 회를 넘기며 로컬 AI의 표준 프론트엔드가 됐다.</p>
+<h4>사용 예시</h4><p>설치는 Docker 한 줄이면 끝난다. <code>docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main</code>을 실행하고 브라우저에서 접속하면 된다. Ollama가 같은 머신에서 돌고 있으면 자동으로 연결된다.</p>
+<p>내장 RAG 엔진으로 문서를 업로드하면 자동 인덱싱되어 모델이 참고해 답변한다. 멀티유저를 지원하기 때문에 팀에서 하나의 인스턴스를 공유할 수 있고, 역할 기반 접근 제어(RBAC)로 관리자와 일반 사용자를 분리한다.</p>
+<h4>주의할 점</h4><p>Open WebUI 자체는 모델을 실행하지 않는다. 반드시 Ollama 같은 백엔드가 별도로 필요하다.</p>`,
+   rel:['ollama','rag','on-device-ai','chatbot'],
+   refs:[{"title":"Open WebUI GitHub Repository","url":"https://github.com/open-webui/open-webui","type":"official"},{"title":"Open WebUI Official Documentation","url":"https://docs.openwebui.com/","type":"official"}],
+   videos:[],
+   updated:'2026-04-05'},
+
+  {id:'time-series-fm',t:'시계열 파운데이션 모델',en:'Time-Series Foundation Model',c:'model',h:0,tags:['시계열','예측','Google'],
+   sum:'대규모 시계열 데이터로 사전 학습해, 별도 훈련 없이 다양한 도메인의 미래 값을 예측하는 특화 파운데이션 모델. LLM이 언어를 범용으로 이해하듯, 시계열의 패턴을 범용으로 이해한다.',
+   det:`<h4>시계열 파운데이션 모델이란</h4><p>주가, 날씨, 서버 트래픽, 재고량 — 시간에 따라 변하는 데이터를 예측하려면 보통 도메인별로 모델을 따로 학습해야 했다. 시계열 파운데이션 모델은 이 접근을 뒤집는다. 수십억~수천억 개의 시계열 데이터 포인트로 사전 학습해서, 처음 보는 도메인의 데이터도 <strong>제로샷</strong>으로 예측한다.</p>
+<p>대표적인 모델이 Google Research의 <strong>TimesFM</strong>이다. 200M 파라미터의 디코더 전용 트랜스포머로, 1,000억 개의 실제 시계열 데이터 포인트로 학습됐다. TimesFM 2.5에서 컨텍스트 길이가 16,384로 8배 늘어나고, 최대 1,000스텝 앞까지 확률적 분위 예측을 지원하게 됐다.</p>
+<h4>사용 예시</h4><p>Python에서 <code>pip install timesfm</code>으로 설치하고, Hugging Face에서 체크포인트를 받아 몇 줄의 코드로 예측을 돌릴 수 있다. 도메인별 파인튜닝 없이 제로샷으로 ARIMA를 15~25% 이상 능가하는 결과를 보인다.</p>
+<p>Google Cloud에서는 BigQuery ML에 TimesFM이 통합되어 있다. <code>AI.FORECAST</code> 함수에 <code>model => "TimesFM 2.5"</code>를 지정하면 SQL만으로 시계열 예측을 실행할 수 있다.</p>
+<h4>심화 내용</h4><p>TimesFM 외에도 Amazon의 <strong>Chronos</strong>, Salesforce의 <strong>Moirai</strong> 등 시계열 파운데이션 모델이 잇달아 등장하고 있다. LLM 분야의 "하나의 모델이 다양한 태스크를 수행" 패러다임이 시계열에도 퍼지고 있다.</p>
+<h4>주의할 점</h4><p>제로샷 성능이 인상적이지만, 도메인 특화 데이터로 파인튜닝한 모델에 항상 이기는 건 아니다. 시계열 파운데이션 모델은 텍스트를 이해하지 못한다 — 숫자 시퀀스의 패턴만 학습한 특화 모델이다.</p>`,
+   rel:['foundation-model','deep-learning','transformer'],
+   refs:[{"title":"A Decoder-Only Foundation Model for Time-Series – Google Research","url":"https://research.google/blog/a-decoder-only-foundation-model-for-time-series-forecasting/","type":"official"},{"title":"TimesFM GitHub Repository","url":"https://github.com/google-research/timesfm","type":"official"},{"title":"TimesFM — arXiv","url":"https://arxiv.org/abs/2310.10688","type":"paper"}],
+   videos:[],
+   updated:'2026-04-05'},
+
+  {id:'goose',t:'Goose',en:'Goose (Block AI Agent)',c:'tooling',h:3,born:'2025-01',tags:['오픈소스','Block','MCP','로컬에이전트'],
+   sum:'Block이 만든 오픈소스 AI 에이전트로, 로컬 머신에서 실행되며 어떤 LLM이든 연결해 코드 작성부터 디버깅, 배포까지 자율적으로 수행한다.',
+   det:'<h4>Goose란</h4><p>AI 코딩 도구 대부분은 코드를 \'제안\'하는 데 그친다. Goose는 다르다. 코드를 제안하는 게 아니라 직접 실행한다. 셸 명령을 돌리고, 파일을 편집하고, 테스트를 실행하고, 에러가 나면 알아서 고친다. Claude Code나 Cursor 같은 도구와 비슷한 역할이지만, Goose는 완전 오픈소스(Apache 2.0)이고 로컬 머신에서 돌아가며, 특정 LLM에 묶이지 않는다는 점이 핵심 차별점이다.</p><p>Block(구 Square)의 오픈소스 프로그램 오피스가 2025년 1월에 공개했다. 1년 만에 GitHub 스타 27,000개, 기여자 350명 이상을 기록했고, Block 내부에서는 12,000명 직원 중 60%가 매주 사용할 정도로 실무에 깊이 들어갔다.</p><h4>사용 예시</h4><p>CLI에서 <code>goose session</code>을 실행하면 대화형 세션이 시작된다. 프로젝트 디렉토리에서 바로 실행하면 Goose가 해당 디렉토리의 파일 구조를 파악하고, "이 함수 리팩토링해줘"라고 말하면 코드를 읽고 수정하고 테스트까지 돌린다. 데스크톱 앱도 있어서 터미널이 익숙하지 않은 사람도 쓸 수 있다.</p><p>Goose의 확장 시스템은 MCP 기반이다. GitHub, Slack, Docker, Kubernetes 등 수천 개의 MCP 서버에 연결할 수 있어서, GitHub MCP를 연결하면 이슈를 읽고 PR을 만들고, Docker MCP를 붙이면 컨테이너를 관리한다. Ollama 같은 로컬 LLM과 연결하면 클라우드 없이 완전 로컬 AI 에이전트 환경을 구축할 수 있다.</p><h4>심화 내용</h4><p>Goose의 내부 구조는 <strong>인터페이스 → 에이전트 → 확장</strong> 세 계층으로 이루어진다. 사용자 입력을 받으면 에이전트가 LLM에 요청을 보내고, LLM이 도구 호출을 반환하면 해당 확장이 실행되는 루프가 반복된다. 2025년 12월에는 Anthropic의 MCP, OpenAI의 AGENTS.md와 함께 Linux Foundation의 <strong>Agentic AI Foundation</strong>에 기부되어 에이전트 AI 생태계의 기반 인프라로 자리잡고 있다.</p><h4>주의할 점</h4><p>로컬에서 자율적으로 실행되는 에이전트인 만큼, 프롬프트 인젝션에 주의해야 한다. Block 보안팀은 유니코드 불가시 문자에 숨긴 프롬프트 인젝션으로 실제 침해에 성공한 레드팀 결과를 공개했다.</p>',
+   rel:['ai-agent','mcp','claude-code','ai-coding','ollama','agent-framework','tool-use','open-source-llm'],
+   refs:[{"title":"block/goose - GitHub","url":"https://github.com/block/goose","type":"official"},{"title":"Goose 공식 문서","url":"https://block.github.io/goose/","type":"official"},{"title":"Block Open Source Introduces codename goose","url":"https://block.xyz/inside/block-open-source-introduces-codename-goose","type":"blog"},{"title":"Goose Quickstart Guide","url":"https://block.github.io/goose/docs/quickstart/","type":"tutorial"},{"title":"Goose 사용법 - Dale Seo","url":"https://daleseo.com/goose/","type":"tutorial"}],
+   videos:[{"title":"Coding With Goose, An AI Agent","id":"NPuxzX5rdjk","lang":"en"},{"title":"Codename Goose: Build Your AI Agents Using This","id":"7NmEKaX44L4","lang":"en"}],
+   updated:'2026-04-05'},
+
+  {id:'emotion-prompting',t:'감정 프롬프팅',en:'Emotion Prompting',c:'prompting',h:2,born:'2023-07',tags:['EmotionPrompt','프롬프트기법','심리학'],
+   sum:'프롬프트에 감정적 표현을 덧붙여 LLM의 응답 품질을 높이는 기법. "이건 내 커리어에 정말 중요해"처럼 감정을 실은 문장을 추가하면 모델이 더 신중하고 정확한 답변을 생성하는 경향이 있다.',
+   det:'<h4>개념 설명</h4><p>감정 프롬프팅은 프롬프트 끝에 감정적 자극 문장을 추가해서 LLM의 응답 품질을 끌어올리는 기법이다. 사람에게 "이거 정말 중요하니까 잘 부탁해"라고 말하면 더 집중하는 것처럼, LLM에게도 비슷한 효과가 나타난다. 2023년 Microsoft Research 팀이 발표한 EmotionPrompt 논문에서 처음 체계적으로 연구되었고, 심리학의 <strong>자기 감시</strong>, <strong>사회인지이론</strong>, <strong>인지적 감정 조절</strong> 세 가지 이론에 기반해 11개의 감정 자극 문장을 설계했다.</p><p>대표적인 감정 자극 문장으로는 "This is very important to my career", "You\'d better be sure", "Believe in your abilities and strive for excellence" 등이 있다. 이런 문장을 원래 프롬프트 뒤에 붙이기만 하면 된다.</p><h4>사용 예시</h4><p>기존 프롬프트 끝에 감정 자극 문장을 한두 줄 덧붙이는 것만으로 충분하다. 코드 리뷰를 요청할 때 "이 코드에서 버그를 찾아줘"만 쓰는 대신 "이 코드에서 버그를 찾아줘. 이건 프로덕션에 바로 배포될 코드라 정말 중요해. 꼼꼼하게 확인해줘"라고 쓰면 모델이 더 세밀하게 분석하는 경향이 있다. 시스템 프롬프트에 "You take pride in your work and always give your best" 같은 문장을 포함시키는 것도 같은 원리다.</p><p>Chain-of-Thought와 결합하면 효과가 더 커진다. "단계별로 생각해봐. 이건 정말 중요한 문제니까 실수하지 않도록 신중하게"처럼 추론 유도와 감정 자극을 함께 쓰는 방식이다.</p><h4>주의할 점</h4><p>감정 프롬프팅은 만능이 아니다. 수학 추론이나 순수 논리적 과제에서는 효과가 거의 없고, 모델과 과제에 따라 효과가 크게 달라진다. 2026년 하버드 연구진의 후속 연구에서는 고정된 감정 문구보다 과제에 맞게 감정을 적응적으로 선택하는 방식이 더 일관된 결과를 냈다.</p>',
+   rel:['prompt-engineering','chain-of-thought','system-prompt','role-prompting','few-shot','zero-shot'],
+   refs:[{"title":"Large Language Models Understand and Can be Enhanced by Emotional Stimuli","url":"https://arxiv.org/abs/2307.11760","type":"paper"},{"title":"Do Emotions in Prompts Matter?","url":"https://arxiv.org/abs/2604.02236","type":"paper"},{"title":"Emotion Prompting - Learn Prompting","url":"https://learnprompting.org/docs/advanced/zero_shot/emotion_prompting","type":"tutorial"},{"title":"Emotional prompts enhance LLMs - TechTalks","url":"https://bdtechtalks.com/2023/11/06/llm-emotion-prompting/","type":"blog"},{"title":"감정 프롬프트를 소개합니다 - Disquiet","url":"https://disquiet.io/@agilegrowth/makerlog/llm-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8-%EB%8C%80%EC%9E%A5%EC%9D%80-%EB%88%84%EA%B5%AC-%EA%B0%90%EC%A0%95-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%EB%A5%BC-%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4","type":"blog"}],
+   videos:[],
+   updated:'2026-04-05'},
+
 ];
 
 const I18N_CONTENT = {en:{
@@ -1851,6 +2059,78 @@ const I18N_CONTENT = {en:{
 <h4>How Developers Actually Use It</h4><p>When building GraphRAG systems, ontologies serve as guardrails for LLM information extraction. Without an ontology, an LLM analyzing medical documents might treat "John Doe, 45" and "John Doe, age 45" as different patients, or "Type 2 Diabetes" and "T2D" as separate conditions. By predefining classes like Patient, Condition, and Medication along with their relationships, the LLM extracts information consistently according to that structure.</p>
 <p>In Python, you can read and write RDF/OWL ontologies with <code>rdflib</code>, and Protégé is the go-to open-source tool for visually designing ontologies. In LLM pipelines, common patterns include embedding the ontology in system prompts or loading it directly as a schema in graph databases like Neo4j.</p>
 <h4>Why Ontologies Are Getting Attention Again in the LLM Era</h4><p>LLMs possess vast knowledge but struggle to maintain consistency in specific domains. Ontologies serve as "structured memory" for LLMs, and they're being used to reduce hallucinations especially in domains where accuracy matters — healthcare, legal, manufacturing. While RAG retrieves documents for the LLM, ontology-based GraphRAG provides relationships between concepts as well, enabling more precise reasoning.</p>`
+  },
+  'agentic-engineering': {
+    sum: 'A software development methodology where AI agents write code while humans own design, verification, and quality. Moving beyond vibe coding\'s "just make it work" approach, it places testing and structured oversight at the core.',
+    det: `<h4>What is Agentic Engineering?</h4><p>In early 2025, Andrej Karpathy coined "vibe coding" — giving natural language instructions, letting AI spit out code, and pasting error messages back without reading the code. A year later, Karpathy declared vibe coding passé and introduced agentic engineering. The key difference is testing: with solid test suites, agents can iteratively fix code until tests pass, producing reliable results.</p><h4>Usage Examples</h4><p>The workflow follows a Plan → Execute → Verify (PEV) loop. Write specs to give agents clear goals and constraints, decompose work into agent-sized tasks, then review generated code like a colleague's PR. In Claude Code, <code>CLAUDE.md</code> conveys project rules, hooks auto-run linting as guardrails, and skills invoke repetitive workflows with a single command.</p><h4>Things to Watch Out For</h4><p>Without structured oversight, technical debt accumulates faster than value. Agentic engineering amplifies existing software engineering capabilities — GitOps, CI/CD, test automation — rather than replacing them.</p>`
+  },
+  'deepseek': {
+    sum: 'An open-source LLM series from a Chinese AI startup. Using Mixture of Experts architecture, it achieved frontier-level reasoning at roughly 1/10 the training cost of GPT-4, proving the potential of open-source LLMs.',
+    det: `<h4>What is DeepSeek?</h4><p>DeepSeek is an open-source LLM series from an AI company founded in Hangzhou, China in 2023. The key is efficiency: with a MoE architecture activating only 37B of 671B total parameters per token, DeepSeek-V3 matched GPT-4 level performance at just $6M in training costs versus GPT-4's $100M+. Fully MIT licensed.</p><h4>Usage Examples</h4><p>The DeepSeek API is OpenAI-compatible — change <code>base_url</code> and API key in existing OpenAI SDK code for a drop-in switch. For local execution, <code>ollama run deepseek-r1</code> runs distilled lightweight versions locally, ideal for air-gapped or privacy-sensitive projects.</p><h4>Things to Watch Out For</h4><p>As a Chinese company, data privacy and censorship concerns exist. For sensitive data, local execution is safer than API calls. Korean language performance lags behind English and Chinese.</p>`
+  },
+  'n8n': {
+    sum: 'An open-source platform for building AI agents and automation workflows visually without code. Offers 400+ integrations and LangChain-based AI nodes, with self-hosting to maintain data control.',
+    det: `<h4>What is n8n?</h4><p>To build workflow automation, you typically write code or depend on SaaS like Zapier. n8n combines the best of both: a node-based visual builder with drag-and-drop, plus the ability to embed JavaScript or Python directly inside nodes. Fair-code licensed and self-hostable, so API keys and data never leave your server.</p><h4>Usage Examples</h4><p>Building an AI agent in n8n is intuitive: connect a Chat Trigger node to an AI Agent node with an LLM (OpenAI, Claude, Gemini), attach tool nodes, and the agent autonomously decides which tools to use. Built-in MCP client node enables direct MCP server connections.</p><h4>Things to Watch Out For</h4><p>Self-hosting gives freedom but requires server management. Start with official templates and expand gradually for complex agent logic.</p>`
+  },
+  'token-economics': {
+    sum: 'An economic framework treating AI tokens as the fundamental unit of cost and productivity. Token prices dropped 280x in two years, but total spending surged 320% as agents consume 5-30x more tokens per task.',
+    det: `<h4>How Tokens Became Currency</h4><p>Tokens were originally just technical units for LLM text processing. As AI evolved into agents that write code, explore files, and call tools, tokens became "the computational cost of AI doing work." Jensen Huang at GTC 2026: "A $500K engineer should spend at least $250K worth of tokens per year."</p><h4>Usage Examples</h4><p>For developers, token economics is most tangible in coding agents like Claude Code. Track per-session consumption with <code>/cost</code>, use tools like ccusage for daily/monthly tracking. In production, <strong>model routing</strong> (simple queries to small models, complex reasoning to frontier) cuts costs 60-80%. <strong>Prompt caching</strong> saves 90% on repeated system prompts.</p><h4>Things to Watch Out For</h4><p>Chasing token costs alone risks sacrificing quality. Routing to cheaper models reduces accuracy; over-compressing prompts loses context.</p>`
+  },
+  '12-factor-agents': {
+    sum: '12 design principles for building production-ready LLM agents. Inspired by Heroku\'s Twelve-Factor App, it starts from the insight that successful agents are well-built traditional software with LLM strategically embedded.',
+    det: `<h4>What are 12-Factor Agents?</h4><p>Agent frameworks get you to 70-80% quickly, then you get stuck. Agents hallucinate steps, enter infinite loops, and never reach production quality. Dex Horthy (HumanLayer) interviewed 100+ AI engineers and distilled what production agents have in common into 12 principles.</p><h4>The 12 Principles</h4><p>They split into three axes. Prompts and tools: convert natural language to structured tool calls, own your prompts directly, tools are just JSON schemas and code. State and execution: manage context windows explicitly, separate business and execution state, make agents stateless reducers. Control flow: own it directly rather than yielding to frameworks, treat human contact as a first-class tool call.</p><h4>Things to Watch Out For</h4><p>These are language-agnostic design principles, not a framework or SDK. If you already use LangChain or CrewAI, the point isn't to abandon them but to design consciously with these principles on top.</p>`
+  },
+  'pydantic-ai': {
+    sum: 'A Python agent framework leveraging type safety to make agents safe and predictable. Built by the Pydantic team, it brings FastAPI-like developer experience to agent development.',
+    det: `<h4>What is Pydantic AI?</h4><p>Building LLM agents means hitting the same problems: models respond in unexpected formats, tool call arguments are wrong, errors only surface at runtime. Pydantic AI solves this with Python's type system — types on agent inputs, outputs, and dependencies so your IDE catches errors at write time and Pydantic auto-validates responses at runtime.</p><h4>Usage Examples</h4><p>Declare agents with generic result types: <code>Agent[MyDeps, MyResult]</code>. Tool functions access dependencies via <code>RunContext[MyDeps]</code> with type safety, and model responses auto-validate against the <code>MyResult</code> schema. Dependency injection cleanly separates test mocks from production objects.</p><h4>Things to Watch Out For</h4><p>Requires familiarity with Python type hints for productivity. For complex state machine workflows, consider combining with LangGraph.</p>`
+  },
+  'background-agent': {
+    sum: 'Coding agents that run asynchronously in cloud sandboxes. Fire off tasks and go do something else — review the PRs when they\'re done. A pattern fundamentally changing development productivity.',
+    det: `<h4>What are Background Agents?</h4><p>Traditional AI coding agents ran synchronously in your terminal or IDE — you had to wait while they worked. Background agents break this constraint: send a task to an isolated cloud environment and the agent independently reads code, makes changes, runs tests, and creates PRs. You can work on something else or close your laptop.</p><h4>Usage Examples</h4><p>In Cursor, background agents clone repos in cloud VMs, work on separate branches, and open PRs when done — up to 8-20 in parallel. In Claude Code, sub-agents can be sent to the background while you continue main work. Combined with Git Worktrees, each background agent works on an independent copy with no conflicts.</p><h4>Things to Watch Out For</h4><p>Since you review results after the fact, it's hard to catch agents going in the wrong direction mid-task. Keep task scopes clear and small.</p>`
+  },
+  'spec-driven-dev': {
+    sum: 'A development approach where you define specs before code and let AI agents implement to those specs. Solves the problem of agents not being able to read your mind, through structure.',
+    det: `<h4>What is Spec-Driven Development?</h4><p>Tell an AI coding agent "build login" and it decides authentication method, error handling, and session storage on its own. Sometimes you get what you want, sometimes you start over. SDD eliminates this gamble: define external behavior specs — I/O mappings, interface types, constraints — before code, and agents implement faithfully to spec.</p><h4>Usage Examples</h4><p>GitHub's Spec Kit structures this into four stages: Specify (generate detailed specs from high-level descriptions), Plan (technical architecture), Tasks (decompose into units), Implement (code each task). Each stage requires validation before proceeding. In Claude Code, install Spec Kit as skills and invoke via <code>/speckit-specify</code>, <code>/speckit-plan</code>, etc.</p><h4>Things to Watch Out For</h4><p>Over-detailed specs take as long as writing code yourself. Define external behavior only; leave internal implementation to the agent.</p>`
+  },
+  'agent-friendly-cli': {
+    sum: 'The phenomenon of AI agents preferring CLI over GUI, and the movement to redesign CLIs for agent use. Structured output and composability have revived CLI in the agent era.',
+    det: `<h4>The Return of CLI</h4><p>GUIs are convenient for humans but awkward for AI agents — finding buttons, interpreting screen state, handling dynamic UIs. CLI is text in, text out — exactly what LLMs do best. Claude Code, Codex CLI, and Gemini CLI launching in succession established CLI-based agent tools as a category.</p><h4>Usage Examples</h4><p>In Claude Code, the agent directly executing <code>git log</code>, <code>npm test</code>, <code>grep -r "TODO"</code> is the quintessential agent CLI usage. When designing CLI for agents: support <code>--json</code> output on every command, structure error messages, and make each command do one thing.</p><h4>Things to Watch Out For</h4><p>CLI isn't universal. For OAuth-requiring SaaS APIs or real-time bidirectional communication, MCP is more suitable. The emerging production consensus is hybrid: local tools via CLI, remote SaaS via MCP.</p>`
+  },
+  'mastra': {
+    sum: 'An open-source TypeScript AI agent framework by the Gatsby team. Provides agents, workflows, RAG, and bidirectional MCP support in a single stack.',
+    det: `<h4>What is Mastra?</h4><p>Most AI agent frameworks are Python-based. But most web developers use TypeScript, creating a language gap when adding agents to Next.js apps. Mastra fills this gap — built by the team behind Gatsby, YC W25 batch, v1.0 released January 2026. Agents, workflows, RAG pipelines, evals, and 40+ LLM providers in one framework.</p><h4>Usage Examples</h4><p><code>npm create mastra@latest</code> scaffolds a project with agents, tools, and workflows ready to define. Bidirectional MCP is built-in: load tools from external MCP servers into agents, or expose your agents as MCP servers for clients like Claude Code to use directly.</p><h4>Things to Watch Out For</h4><p>Optimized for TypeScript/Node.js, making direct integration with Python ML pipelines difficult. Fewer production case studies than LangChain given the January 2026 v1.0 release.</p>`
+  },
+  'llamafile': {
+    sum: 'Mozilla\'s tool that packages LLM model weights and inference engine into a single executable file, enabling local AI with just a double-click — no installation needed.',
+    det: `<h4>What is llamafile?</h4><p>Running LLMs locally usually means Python setup, dependency installation, model downloads, and config editing. llamafile combines everything into one executable. Model weights and llama.cpp inference engine in a single file: download, chmod +x, run. Three steps and done.</p><h4>Usage Examples</h4><p>Download a llamafile from Hugging Face, run it in terminal, and a local web server opens for browser-based chat. GPU auto-detected for acceleration. In server mode, it exposes an OpenAI-compatible REST API — switch existing OpenAI code to local by changing just the endpoint. Put the file on a USB drive and it works offline anywhere.</p><h4>Things to Watch Out For</h4><p>Files are multi-GB since model and engine are bundled. For frequent model switching, Ollama's separate model management may be more convenient. llamafile's strength is the "one file, runs anywhere" deployment scenario.</p>`
+  },
+  'hermes-agent': {
+    sum: 'An open-source autonomous agent by Nous Research that auto-generates skills from experience, persists memory across sessions, and gets smarter the more you use it.',
+    det: `<h4>What is Hermes Agent?</h4><p>Most AI agents forget everything when the conversation ends. Hermes Agent solves this with a closed learning loop: after completing a task, it saves the process as a markdown skill file, records results in persistent memory, and approaches similar tasks better next time. Released MIT-licensed by Nous Research in February 2026, hitting 22K GitHub stars within weeks.</p><h4>Usage Examples</h4><p>The core is automatic skill generation. Ask "run this project's tests" — the agent fumbles through it the first time but saves the successful process as a skill. Next time, it loads the saved skill and executes immediately. The companion project hermes-agent-self-evolution analyzes execution traces to auto-improve skills and prompts.</p><h4>Things to Watch Out For</h4><p>Self-learning agents can also learn bad patterns. If incorrect skills are saved early, they affect subsequent work. Periodic review and cleanup of generated skills is necessary.</p>`
+  },
+  'protocol-wars': {
+    sum: 'The competition and convergence between MCP, A2A, and ACP protocols over how AI agents connect to tools and communicate with each other.',
+    det: `<h4>What are the Protocol Wars?</h4><p>Three protocols emerged to standardize how agents access tools and collaborate: Anthropic's MCP connects agents to tools, Google's A2A enables agent-to-agent discovery and communication, and IBM's ACP also addressed inter-agent communication. A community contributor's 1,200-line A2A support PR being rejected by OpenAI ignited the debate.</p><h4>Different Layers</h4><p>The key insight: these protocols handle different layers. MCP is the vertical axis — unifying how agents access external tools like GitHub, DBs, filesystems. A2A is the horizontal axis — enabling agents built with different frameworks to discover each other, delegate tasks, and exchange results. IBM's ACP merged into A2A under the Linux Foundation in August 2025.</p><h4>From War to Convergence</h4><p>In December 2025, Anthropic donated MCP to the Linux Foundation's Agentic AI Foundation (AAIF), with OpenAI, Google, Microsoft, and AWS as co-founders. Though called "wars," it's converging toward a dual-layer architecture of MCP (tool connection) + A2A (agent communication).</p>`
+  },
+  'kokoro-tts': {
+    sum: 'An ultra-lightweight open-source TTS model that synthesizes natural speech with just 82M parameters, outperforming models 10x its size. Runs faster than real-time locally, opening possibilities for on-device speech synthesis.',
+    det: `<h4>What is Kokoro TTS?</h4><p>A text-to-speech model with surprisingly small 82M parameters. MetaVoice has 1.2B, XTTS has 470M, yet Kokoro scores higher on naturalness. Ranked #1 on TTS Arena. The secret: a decoder-only architecture based on StyleTTS 2 and ISTFTNet — lightweight, fast inference without diffusion or encoder.</p><h4>Usage Examples</h4><p>Install with <code>pip install kokoro</code>, download checkpoints from Hugging Face, and generate speech in a few lines of Python. ~100x real-time on GPU, practical speed on CPU too. The kokoro-fastapi project exposes an OpenAI TTS-compatible endpoint locally — switch existing OpenAI TTS apps to free local TTS by changing the endpoint. Supports 8 languages including English, Japanese, Korean, and Chinese with 48 voices.</p><h4>Things to Watch Out For</h4><p>Korean quality isn't yet on par with English. Apache 2.0 licensed with no commercial use restrictions.</p>`
+  },
+  'open-webui': {
+    sum: 'An open-source web interface that lets you use local LLMs like ChatGPT. The de facto standard frontend for local AI, paired with Ollama.',
+    det: `<h4>What is Open WebUI?</h4><p>Run an LLM locally with Ollama and you can only chat in the terminal — no history, no model switching UI. Open WebUI solves this as a browser-based chat interface: chat like ChatGPT, history saved, model switching via dropdown, file uploads for questions. Data never leaves your machine, fully offline capable. 90K+ GitHub stars, 280M+ Docker pulls.</p><h4>Usage Examples</h4><p>One Docker command to install: <code>docker run -d -p 3000:8080 ...</code> and access in browser. Auto-connects to Ollama on the same machine. Built-in RAG engine auto-indexes uploaded documents for model reference. Multi-user support with RBAC for team sharing.</p><h4>Things to Watch Out For</h4><p>Open WebUI doesn't run models itself — a backend like Ollama is always required separately.</p>`
+  },
+  'time-series-fm': {
+    sum: 'Specialized foundation models pre-trained on massive time-series data that forecast future values across diverse domains without separate training. Just as LLMs understand language universally, these models understand time-series patterns universally.',
+    det: `<h4>What are Time-Series Foundation Models?</h4><p>Predicting stock prices, weather, server traffic, or inventory typically required training separate models per domain. Time-series foundation models flip this: pre-trained on billions of data points, they forecast zero-shot on never-before-seen domains. Google Research's TimesFM (200M parameters, decoder-only transformer) was trained on 100 billion real-world time-series data points.</p><h4>Usage Examples</h4><p>Install with <code>pip install timesfm</code>, download checkpoints from Hugging Face, and run predictions in a few lines. Zero-shot beats ARIMA by 15-25% without domain-specific fine-tuning. On Google Cloud, BigQuery ML integrates TimesFM — specify <code>model => "TimesFM 2.5"</code> in <code>AI.FORECAST</code> to run forecasting with just SQL.</p><h4>Things to Watch Out For</h4><p>Impressive zero-shot performance doesn't always beat domain-specific fine-tuned models. These are specialized numerical pattern models — they don't understand text.</p>`
+  },
+  'goose': {
+    sum: 'An open-source AI agent by Block that runs locally and autonomously handles coding, debugging, and deployment with any LLM. Connects to thousands of external tools via MCP.',
+    det: `<h4>What is Goose</h4><p>Most AI coding tools stop at suggesting code. Goose goes further — it executes shell commands, edits files, runs tests, and fixes errors autonomously. Similar to Claude Code or Cursor, but Goose is fully open-source (Apache 2.0), runs locally, and isn't locked to any specific LLM.</p><p>Released by Block's (formerly Square) Open Source Program Office in January 2025. In one year: 27,000 GitHub stars, 350+ contributors, and 60% of Block's 12,000 employees use it weekly.</p><h4>Usage Examples</h4><p>Run <code>goose session</code> in CLI to start an interactive session. Goose reads the project directory structure and autonomously refactors code, runs tests, and fixes errors. Desktop app available for non-terminal users.</p><p>Extension system is MCP-based — connect to GitHub, Slack, Docker, Kubernetes and thousands more MCP servers. Pair with Ollama for a fully local, cloud-free AI agent setup.</p><h4>Deep Dive</h4><p>Architecture has three layers: <strong>Interface → Agent → Extensions</strong>. User input goes to the agent, which sends requests to the LLM with available tools. The LLM returns tool calls, extensions execute them, results feed back in a loop. Donated to Linux Foundation's <strong>Agentic AI Foundation</strong> in December 2025 alongside MCP and AGENTS.md.</p><h4>Watch Out</h4><p>As a locally-running autonomous agent, prompt injection is a real risk. Block's security team demonstrated successful compromise via Unicode invisible character prompt injection in a red team exercise.</p>`
+  },
+  'emotion-prompting': {
+    sum: 'A technique that adds emotional expressions to prompts to improve LLM response quality. Adding phrases like "This is very important to my career" tends to make models produce more careful and accurate answers.',
+    det: `<h4>Concept</h4><p>Emotion prompting appends emotional stimulus sentences to prompts to boost LLM output quality. Just as telling someone "this is really important, please be careful" makes them focus more, a similar effect appears in LLMs. First systematically studied in the 2023 EmotionPrompt paper by Microsoft Research, based on three psychological theories: <strong>Self-Monitoring</strong>, <strong>Social Cognitive Theory</strong>, and <strong>Cognitive Emotion Regulation</strong>.</p><p>Example stimulus phrases include "This is very important to my career", "You'd better be sure", and "Believe in your abilities and strive for excellence". Simply append these to your existing prompt.</p><h4>Usage Examples</h4><p>Just add one or two emotional stimulus sentences at the end of your prompt. Instead of "Find bugs in this code", write "Find bugs in this code. This is going to production immediately and it's really important. Please check thoroughly." Including "You take pride in your work and always give your best" in system prompts works on the same principle.</p><p>Combining with Chain-of-Thought amplifies the effect: "Think step by step. This is a really important problem, so be careful not to make mistakes."</p><h4>Watch Out</h4><p>Emotion prompting isn't universal. It has little effect on pure logical tasks like math reasoning, and results vary significantly by model and task. A 2026 Harvard follow-up study found that adaptively selecting emotions per task outperforms fixed emotional phrases.</p>`
   }
 },zh:{
   'harness-engineering': {
@@ -2131,6 +2411,78 @@ const I18N_CONTENT = {en:{
 <h4>开发者的实际用法</h4><p>构建GraphRAG系统时，本体充当LLM信息提取的"护栏"。没有本体的话，让LLM分析医疗文档可能会把"John Doe, 45"和"John Doe, age 45"识别为不同患者，或将"2型糖尿病"和"T2D"当作不同疾病。通过预定义Patient、Condition、Medication等类及其关系，LLM会按照该结构一致地提取信息。</p>
 <p>Python环境中可以用<code>rdflib</code>库读写RDF/OWL本体，Protégé是可视化设计本体的代表性开源工具。在LLM管线中，常见模式是将本体嵌入系统提示词，或直接作为图数据库（Neo4j等）的schema加载使用。</p>
 <h4>LLM时代本体重新受到关注的原因</h4><p>LLM拥有海量知识但难以在特定领域保持一致性。本体充当LLM的"结构化记忆"，特别是在医疗、法律、制造等对准确性要求高的领域，被用作减少LLM幻觉的手段。如果说RAG是检索文档提供给LLM，那么基于本体的GraphRAG还能同时提供概念间的关系，实现更精准的推理。</p>`
+  },
+  'agentic-engineering': {
+    sum: 'AI Agent写代码，人负责设计、验证和质量把控的软件开发方法论。从Vibe Coding的"能跑就行"进化而来，将测试和结构化监督置于核心。',
+    det: `<h4>什么是智能体工程</h4><p>2025年初Andrej Karpathy创造了"Vibe Coding"一词。一年后他宣布Vibe Coding已过时，提出了智能体工程。关键区别在于<strong>测试</strong>：有了可靠的测试套件，Agent可以自行反复修改直到测试通过，才能产出可信赖的结果。</p><h4>使用示例</h4><p>工作流遵循Plan → Execute → Verify (PEV)循环。先写规格文档给Agent明确目标和约束，将工作拆分为Agent级任务，Agent生成代码后像审查同事PR一样检查。在Claude Code中，用<code>CLAUDE.md</code>传达项目规则，用钩子自动运行lint作为护栏，用技能一行命令调用重复工作流。</p><h4>注意事项</h4><p>没有结构化监督，技术债务积累速度会超过价值产出。智能体工程放大而非替代现有的软件工程能力——GitOps、CI/CD、测试自动化。</p>`
+  },
+  'deepseek': {
+    sum: '中国AI创业公司打造的开源大语言模型系列。凭借MoE架构，以GPT-4约十分之一的训练成本达到前沿级推理性能，证明了开源LLM的可能性。',
+    det: `<h4>什么是DeepSeek</h4><p>DeepSeek是2023年在中国杭州成立的AI公司打造的开源LLM系列。核心是效率：671B总参数中每个token仅激活37B的<strong>MoE</strong>架构，使DeepSeek-V3以仅600万美元的训练成本达到了GPT-4级性能。MIT许可证，完全开源。</p><h4>使用示例</h4><p>DeepSeek API兼容OpenAI格式，现有OpenAI SDK代码只需改<code>base_url</code>和API密钥即可切换。本地运行方面，<code>ollama run deepseek-r1</code>即可在本地运行蒸馏轻量版本，适合气隔环境或隐私敏感项目。</p><h4>注意事项</h4><p>作为中国公司，存在数据隐私和审查方面的顾虑。敏感数据建议本地运行而非API调用。</p>`
+  },
+  'n8n': {
+    sum: '无需代码即可可视化构建AI Agent和自动化工作流的开源平台。400+集成、LangChain AI节点、可自托管保持数据控制权。',
+    det: `<h4>什么是n8n</h4><p>构建工作流自动化通常需要写代码或依赖Zapier等SaaS。n8n将两者优势结合：节点式可视化构建器拖拽操作，需要时可在节点内直接嵌入JavaScript或Python。fair-code许可证，自托管时API密钥和数据不会离开你的服务器。</p><h4>使用示例</h4><p>在n8n中构建AI Agent很直观：Chat Trigger节点接收用户输入，AI Agent节点连接LLM，附加工具节点。Agent自行判断使用哪个工具并执行。内置MCP客户端节点可直接连接MCP服务器。</p><h4>注意事项</h4><p>自托管自由度高但需要自行管理服务器。建议从官方模板开始，逐步扩展复杂Agent逻辑。</p>`
+  },
+  'token-economics': {
+    sum: '将AI Token作为成本与生产力基本单位进行追踪、优化和预算化的经济框架。Token单价两年内降了280倍，但Agent时代使用量暴增导致总支出反而增长320%。',
+    det: `<h4>Token如何成为货币</h4><p>Token原本只是LLM处理文本的技术单位。随着AI进化为编写代码、探索文件、调用工具的Agent，Token变成了"AI工作的计算成本"单位。黄仁勋在GTC 2026上说："年薪50万美元的工程师至少应该用25万美元的Token。"</p><h4>使用示例</h4><p>开发者在Claude Code等编码Agent中感受最直接。用<code>/cost</code>查看每次会话Token消耗，用ccusage等工具追踪日/月用量。生产环境中<strong>模型路由</strong>最有效——简单查询发给小模型，复杂推理发给前沿模型，可降低60-80%成本。</p><h4>注意事项</h4><p>只追求Token成本可能牺牲质量。路由到便宜模型会降低准确率，过度压缩提示词会丢失上下文。</p>`
+  },
+  '12-factor-agents': {
+    sum: '构建生产级LLM Agent的12条设计原则。受Twelve-Factor App启发，核心洞察是：成功的Agent本质上是精心构建的传统软件中策略性嵌入了LLM。',
+    det: `<h4>什么是12-Factor Agents</h4><p>Agent框架能快速做到70-80%，然后就卡住了。Agent出现幻觉、陷入无限循环、达不到生产品质。Dex Horthy (HumanLayer)采访了100多位AI工程师，将成功投产的Agent的共同点总结为12条原则。</p><h4>12条原则</h4><p>分三个轴：提示词和工具——将自然语言转为结构化工具调用，自己管理提示词，工具就是JSON Schema加代码。状态和执行——显式管理上下文窗口，分离业务状态与执行状态，Agent作为无状态reducer。控制流——自己掌控而非交给框架，将联系人类作为一等工具调用。</p><h4>注意事项</h4><p>这是语言无关的设计原则，不是框架。已经在用LangChain或CrewAI的话，不是要你抛弃它们，而是在框架之上有意识地遵循这些原则。</p>`
+  },
+  'pydantic-ai': {
+    sum: '利用Python类型系统让AI Agent安全可预测的框架。Pydantic团队亲自打造，将FastAPI般的开发体验带入Agent开发。',
+    det: `<h4>什么是Pydantic AI</h4><p>构建LLM Agent总遇到相同问题：模型以意外格式响应、工具调用参数错误、运行时才发现错误。Pydantic AI用Python类型系统解决——Agent的输入、输出、依赖都有类型约束，IDE在编写时就能捕获错误，运行时Pydantic自动验证响应。</p><h4>使用示例</h4><p>用泛型声明Agent：<code>Agent[MyDeps, MyResult]</code>。工具函数通过<code>RunContext[MyDeps]</code>类型安全地访问依赖，模型响应自动按<code>MyResult</code> schema验证。依赖注入系统清晰分离测试mock和生产对象。</p><h4>注意事项</h4><p>需要熟悉Python类型提示才能高效使用。复杂状态机工作流建议与LangGraph结合。</p>`
+  },
+  'background-agent': {
+    sum: '在云沙箱中异步运行的编码Agent。提交任务后去做别的事，完成后审查PR——从根本上改变开发生产力的模式。',
+    det: `<h4>什么是后台Agent</h4><p>传统AI编码Agent在本地终端或IDE同步运行——Agent工作时你只能等。后台Agent打破了这个限制：将任务丢进云端隔离环境，Agent在那里独立读代码、修改、跑测试、创建PR。你可以做别的事甚至合上笔记本。</p><h4>使用示例</h4><p>Cursor中后台Agent在云VM中克隆仓库，在独立分支工作，完成后开PR——最多可并行8-20个。Claude Code中子Agent可发送到后台，同时继续主任务。结合Git Worktree，每个后台Agent在独立代码副本上工作，不会冲突。</p><h4>注意事项</h4><p>事后审查模式使得Agent走错方向时难以中途纠正。保持任务范围明确且小。</p>`
+  },
+  'spec-driven-dev': {
+    sum: '先定义规格再让AI Agent按规格实现的开发方式。用结构解决Agent无法读心的问题。',
+    det: `<h4>什么是规格驱动开发</h4><p>让AI Agent"做个登录功能"，它会自行决定认证方式、错误处理、会话存储。运气好就符合预期，运气差得从头来。SDD消除了这种赌博：写代码前先定义输入输出映射、接口类型、约束条件等外部行为规格，Agent只负责忠实实现。</p><h4>使用示例</h4><p>GitHub的Spec Kit将工作流结构化为四阶段：Specify（生成详细规格）→ Plan（技术架构）→ Tasks（分解为单元）→ Implement（实现代码）。在Claude Code中可作为技能安装，通过<code>/speckit-specify</code>等命令调用。</p><h4>注意事项</h4><p>规格写得太细和直接写代码耗时一样。只定义外部行为，内部实现交给Agent。</p>`
+  },
+  'agent-friendly-cli': {
+    sum: 'AI Agent偏爱CLI胜过GUI的现象，以及为Agent重新设计CLI的运动。结构化输出和可组合性让CLI在Agent时代复兴。',
+    det: `<h4>CLI的回归</h4><p>GUI对人方便但对AI Agent不便——要找按钮、解读屏幕状态。CLI是文本输入文本输出，正是LLM最擅长的。Claude Code、Codex CLI、Gemini CLI接连推出，CLI Agent工具成为一个品类。Agent偏爱CLI的两个原因：<strong>结构化输出</strong>（<code>--json</code>一个参数即可）和<strong>可组合性</strong>（管道连接小命令的Unix哲学）。</p><h4>使用示例</h4><p>Claude Code中Agent直接执行<code>git log</code>、<code>npm test</code>、<code>grep</code>就是典型的Agent CLI使用。为Agent设计CLI时：每个命令支持<code>--json</code>输出，结构化错误信息，每个命令只做一件事。</p><h4>注意事项</h4><p>CLI不是万能的。需要OAuth认证的SaaS API或实时双向通信场景更适合MCP。生产共识是混合架构：本地用CLI，远程用MCP。</p>`
+  },
+  'mastra': {
+    sum: '用TypeScript构建AI Agent的开源框架。Gatsby团队打造，Agent、工作流、RAG、双向MCP一体化。',
+    det: `<h4>什么是Mastra</h4><p>大多数AI Agent框架基于Python，但大多数Web开发者用TypeScript。给Next.js加Agent要换语言。Mastra填补了这个空白——Gatsby团队打造，YC W25，2026年1月发布v1.0。Agent、工作流、RAG管线、评估、40+LLM提供商集于一身。</p><h4>使用示例</h4><p><code>npm create mastra@latest</code>创建项目，立即定义Agent、工具和工作流。双向MCP内置：既可从外部MCP服务器加载工具到Agent，也可将自己的Agent暴露为MCP服务器供Claude Code等客户端使用。</p><h4>注意事项</h4><p>针对TypeScript/Node.js优化，与Python ML管线直接集成困难。v1.0刚发布，生产案例少于LangChain。</p>`
+  },
+  'llamafile': {
+    sum: '将LLM模型权重和推理引擎打包成单个文件，双击即可在本地运行AI的Mozilla开源工具。免安装。',
+    det: `<h4>什么是llamafile</h4><p>本地跑LLM通常需要Python环境、依赖安装、模型下载、配置修改。llamafile把一切合成一个可执行文件。模型权重和llama.cpp推理引擎在一个文件里：下载→赋执行权限→运行，三步搞定。核心技术是<strong>Cosmopolitan Libc</strong>，一个二进制文件可在macOS、Windows、Linux等6个操作系统上直接运行。</p><h4>使用示例</h4><p>从Hugging Face下载llamafile，终端<code>chmod +x</code>后运行，本地Web服务器启动，浏览器直接聊天。自动检测GPU加速。服务器模式下暴露OpenAI兼容REST API——现有代码改个端点就能切到本地模型。</p><h4>注意事项</h4><p>模型和引擎捆绑导致文件数GB。频繁换模型的话Ollama更方便。llamafile的真正优势是"一个文件到处跑"。</p>`
+  },
+  'hermes-agent': {
+    sum: '从经验中自动生成技能、跨会话记忆、越用越聪明的Nous Research开源自主Agent。',
+    det: `<h4>什么是Hermes Agent</h4><p>大多数AI Agent对话结束就忘记一切。Hermes Agent用<strong>闭环学习(closed learning loop)</strong>解决：完成任务后将过程保存为Markdown技能文件，结果记入永久记忆，下次用改进的方式处理。Nous Research 2026年2月MIT许可发布，数周内GitHub星22,000+。</p><h4>使用示例</h4><p>核心是<strong>技能自动生成</strong>。"跑一下这个项目的测试"——Agent第一次摸索着完成，成功后存为技能。下次同样请求直接加载技能执行。配套项目hermes-agent-self-evolution分析执行trace，自动改进技能和提示词。</p><h4>注意事项</h4><p>自学习Agent也可能学到错误模式。定期审查和清理生成的技能很有必要。</p>`
+  },
+  'protocol-wars': {
+    sum: '围绕AI Agent如何连接工具、如何相互通信，MCP·A2A·ACP三大协议争夺标准地位的竞争与收敛过程。',
+    det: `<h4>什么是协议之战</h4><p>三个协议登场：Anthropic的<strong>MCP</strong>连接Agent与工具，Google的<strong>A2A</strong>让Agent相互发现和对话，IBM的<strong>ACP</strong>也处理Agent间通信。一位社区贡献者提交的1,200行A2A支持PR被OpenAI拒绝，引爆了争论。</p><h4>不同层次</h4><p>关键在于这些协议负责不同层。MCP是纵轴——统一Agent访问GitHub、DB、文件系统等外部工具的方式。A2A是横轴——让不同框架构建的Agent相互发现、委托任务、交换结果。IBM的ACP因与A2A重叠，2025年8月在Linux Foundation下并入A2A。</p><h4>从战争到收敛</h4><p>2025年12月Anthropic将MCP捐赠给Linux Foundation的Agentic AI Foundation (AAIF)，OpenAI、Google、Microsoft、AWS均为联合创始人。虽被称为"战争"，实则正收敛为MCP(工具连接) + A2A(Agent通信)的双层架构。</p>`
+  },
+  'kokoro-tts': {
+    sum: '仅82M参数就能合成超越10倍大模型的自然语音的超轻量开源TTS模型。本地可超实时速度运行，开启了端侧语音合成的可能。',
+    det: `<h4>什么是Kokoro TTS</h4><p>82M参数的TTS模型——MetaVoice 12亿、XTTS 4.7亿参数，但Kokoro在自然度评测中分数更高。TTS Arena排名第一。基于<strong>StyleTTS 2</strong>和<strong>ISTFTNet</strong>的纯解码器架构，无需扩散或编码器，轻量且推理快速。</p><h4>使用示例</h4><p><code>pip install kokoro</code>安装，从Hugging Face下载检查点，几行Python即可生成语音。GPU上约100倍实时速度。<code>kokoro-fastapi</code>项目可在本地搭建OpenAI TTS兼容端点——现有OpenAI TTS应用改个端点就能免费切到本地。支持8种语言48种音色。</p><h4>注意事项</h4><p>中文和韩语质量尚不及英语。Apache 2.0许可证，商用无限制。</p>`
+  },
+  'open-webui': {
+    sum: '让本地LLM用起来像ChatGPT的开源Web界面。与Ollama搭配，成为本地AI的事实标准前端。',
+    det: `<h4>什么是Open WebUI</h4><p>用Ollama本地跑LLM只能在终端聊天——没有历史记录，换模型要重新输命令。Open WebUI是浏览器聊天界面：像ChatGPT一样对话、自动保存记录、下拉菜单切模型、上传文件提问。数据不出本机，完全离线可用。GitHub星9万+，Docker拉取2.8亿+次。</p><h4>使用示例</h4><p>一行Docker命令安装，浏览器访问即用。自动连接同机Ollama。内置RAG引擎自动索引上传文档。支持多用户和RBAC角色控制。</p><h4>注意事项</h4><p>Open WebUI本身不运行模型——必须单独配备Ollama等后端。</p>`
+  },
+  'time-series-fm': {
+    sum: '用大规模时序数据预训练，无需单独训练即可预测各领域未来值的特化基础模型。如同LLM通用理解语言，时序基础模型通用理解时序模式。',
+    det: `<h4>什么是时序基础模型</h4><p>预测股价、天气、服务器流量通常需要按领域单独训练模型。时序基础模型反其道而行：用数百亿时序数据点预训练，<strong>零样本</strong>预测从未见过的领域数据。Google Research的<strong>TimesFM</strong>——200M参数解码器Transformer，用1000亿真实时序数据点训练。</p><h4>使用示例</h4><p><code>pip install timesfm</code>安装，Hugging Face下载检查点，几行代码即可预测。零样本超ARIMA 15-25%。Google Cloud BigQuery ML集成了TimesFM，用SQL的<code>AI.FORECAST</code>即可运行时序预测。</p><h4>注意事项</h4><p>零样本性能出色但不一定总赢领域微调模型。这是数值模式特化模型，不理解文本。</p>`
+  },
+  'goose': {
+    sum: 'Block开发的开源AI代理，在本地运行，可连接任何LLM，自主完成从编写代码到调试、部署的全过程。通过MCP可连接数千个外部工具。',
+    det: `<h4>什么是Goose</h4><p>大多数AI编程工具只停留在"建议"代码。Goose不一样——它直接执行shell命令、编辑文件、运行测试，出错了自己修复。功能类似Claude Code或Cursor，但Goose完全开源(Apache 2.0)、在本地运行，且不绑定任何特定LLM。</p><p>Block(原Square)的开源办公室于2025年1月发布。一年内获得27,000 GitHub星、350+贡献者，Block内部12,000名员工中60%每周使用。</p><h4>使用示例</h4><p>CLI中运行<code>goose session</code>开启交互式会话。Goose自动识别项目目录结构，可自主重构代码、运行测试、修复错误。也有桌面应用供不习惯终端的用户使用。</p><p>扩展系统基于MCP——可连接GitHub、Slack、Docker、Kubernetes等数千个MCP服务器。搭配Ollama可构建完全本地、无需云端的AI代理环境。</p><h4>深入了解</h4><p>架构分三层：<strong>接口 → 代理 → 扩展</strong>。用户输入传给代理，代理携带可用工具列表向LLM发起请求，LLM返回工具调用，扩展执行后结果反馈，如此循环。2025年12月与MCP、AGENTS.md一起捐赠给Linux Foundation的<strong>Agentic AI Foundation</strong>。</p><h4>注意事项</h4><p>作为本地自主运行的代理，提示注入是真实风险。Block安全团队在红队测试中用Unicode不可见字符隐藏的提示注入成功实现了入侵。</p>`
+  },
+  'emotion-prompting': {
+    sum: '在提示中添加情感表达来提升LLM回答质量的技巧。加上"这对我的职业生涯非常重要"之类的话，模型往往会生成更谨慎、更准确的回答。',
+    det: `<h4>概念说明</h4><p>情感提示是在提示末尾添加情感刺激语句来提升LLM输出质量的技巧。就像对人说"这真的很重要，拜托认真做"会让人更集中注意力一样，LLM也有类似效果。2023年Microsoft Research团队发表的EmotionPrompt论文首次系统性研究了这一现象，基于心理学三大理论：<strong>自我监控</strong>、<strong>社会认知理论</strong>和<strong>认知情绪调节</strong>。</p><p>代表性的情感刺激语句包括"This is very important to my career"、"You'd better be sure"、"Believe in your abilities and strive for excellence"等。只需将这些附加在原始提示后面即可。</p><h4>使用示例</h4><p>在现有提示末尾加一两句情感刺激语句就够了。请求代码审查时，不是只写"找出这段代码的bug"，而是写"找出这段代码的bug。这是要直接部署到生产环境的代码，非常重要。请仔细检查"。在系统提示中包含"You take pride in your work and always give your best"也是同样的原理。</p><p>与Chain-of-Thought结合效果更好："逐步思考。这是非常重要的问题，请小心不要出错。"</p><h4>注意事项</h4><p>情感提示不是万能的。对数学推理等纯逻辑任务几乎没有效果，且效果因模型和任务而异。2026年哈佛后续研究发现，根据任务自适应选择情感比固定情感短语效果更好。</p>`
   }
 },ja:{
   'harness-engineering': {
@@ -2411,5 +2763,77 @@ const I18N_CONTENT = {en:{
 <h4>開発者の実際の使い方</h4><p>GraphRAGシステムを構築する際、オントロジーはLLMの情報抽出を導くガードレールの役割を果たす。オントロジーなしでLLMに医療文書を分析させると、「John Doe, 45」と「John Doe, age 45」を別の患者として認識したり、「2型糖尿病」と「T2D」を別の疾患として処理するエラーが発生する。Patient、Condition、Medicationなどのクラスとその関係をあらかじめ定義しておけば、LLMはその構造に沿って一貫して情報を抽出する。</p>
 <p>Python環境では<code>rdflib</code>ライブラリでRDF/OWLオントロジーを読み書きでき、Protégéはオントロジーを視覚的に設計する代表的なオープンソースツールだ。LLMパイプラインでは、オントロジーをシステムプロンプトに含めるか、グラフDB（Neo4jなど）のスキーマとして直接ロードして活用するパターンが多い。</p>
 <h4>LLM時代にオントロジーが再注目される理由</h4><p>LLMは膨大な知識を持つが、特定ドメインで一貫性を維持するのが難しい。オントロジーはLLMの「構造化された記憶」の役割を果たし、特に医療・法律・製造のように正確性が重要な分野でLLMの幻覚を減らす手段として活用されている。RAGが文書を検索してLLMに提供するなら、オントロジーベースのGraphRAGは概念間の関係まで一緒に提供し、より精密な推論を可能にする。</p>`
+  },
+  'agentic-engineering': {
+    sum: 'AIエージェントがコードを書き、人間が設計・検証・品質を担うソフトウェア開発方法論。バイブコーディングの「動けばOK」から進化し、テストと構造的監督を核心に据える。',
+    det: `<h4>エージェンティック・エンジニアリングとは</h4><p>2025年初頭、Andrej Karpathyが「バイブコーディング」を生み出した。1年後、彼自身が「バイブコーディングは終わった」と宣言し提唱したのがエージェンティック・エンジニアリングだ。決定的な違いは<strong>テスト</strong>にある。堅牢なテストスイートがあればエージェントはテストが通るまで自ら修正を繰り返し、信頼できる結果を生み出せる。</p><h4>使用例</h4><p>ワークフローはPlan → Execute → Verify (PEV)ループで回る。スペック文書でエージェントに目標と制約を明示し、タスクに分解する。エージェントがコードを生成したら同僚のPRをレビューするように確認する。Claude Codeでは<code>CLAUDE.md</code>でプロジェクトルールを伝え、フックでリント等のガードレールを自動実行し、スキルで繰り返しワークフローを一行で呼び出す。</p><h4>注意点</h4><p>構造的監督なしにエージェントにコードを任せると、技術的負債が価値より速く積み上がる。エージェンティック・エンジニアリングは既存のソフトウェア工学能力を増幅するものであり、代替するものではない。</p>`
+  },
+  'deepseek': {
+    sum: '中国AIスタートアップが作ったオープンソース大規模言語モデル。MoEアーキテクチャでGPT-4の約1/10の学習コストでフロンティア級の推論性能を達成し、オープンソースLLMの可能性を証明した。',
+    det: `<h4>DeepSeekとは</h4><p>2023年に中国・杭州で設立されたAI企業のオープンソースLLMシリーズ。核心は効率性だ。671Bの総パラメータのうちトークンあたり37Bのみを活性化する<strong>MoE</strong>アーキテクチャにより、GPT-4が1億ドル以上かけた学習をわずか600万ドルで同等レベルの性能を達成。MITライセンスで完全公開。</p><h4>使用例</h4><p>DeepSeek APIはOpenAI互換形式なので、既存のOpenAI SDKコードで<code>base_url</code>とAPIキーを変えるだけで切り替えられる。ローカル実行も<code>ollama run deepseek-r1</code>一行で蒸留版を動かせる。</p><h4>注意点</h4><p>中国企業のためデータプライバシーと検閲に関する懸念がある。機密データを扱うならAPIよりローカル実行が安全だ。</p>`
+  },
+  'n8n': {
+    sum: 'コード不要でAIエージェントと自動化ワークフローをビジュアルに構築できるオープンソースプラットフォーム。400以上の連携とLangChainベースAIノードを提供し、セルフホスティングでデータ管理権を維持できる。',
+    det: `<h4>n8nとは</h4><p>ワークフロー自動化を作るには通常コードを書くかZapierのようなSaaSに頼る。n8nは両方の長所を合わせた。ノードベースのビジュアルビルダーでドラッグ＆ドロップしつつ、必要ならJavaScriptやPythonをノード内に直接書ける。fair-codeライセンスでセルフホスティングすればAPIキーとデータがサーバーを出ない。</p><h4>使用例</h4><p>Chat Triggerノードでユーザー入力を受け、AI AgentノードにLLMを接続し、ツールノードを付ける。エージェントが自らどのツールを使うか判断して実行する。内蔵MCPクライアントノードでMCPサーバーに直接接続も可能。</p><h4>注意点</h4><p>セルフホスティングは自由度が高いがサーバー管理が必要。公式テンプレートから始めて段階的に拡張するのが実用的。</p>`
+  },
+  'token-economics': {
+    sum: 'AIモデルが処理するトークンをコスト・生産性の基本単位として追跡・最適化・予算化する経済フレームワーク。トークン単価は2年で280倍下がったが、エージェント時代の使用量爆増で総コストはむしろ急騰している。',
+    det: `<h4>トークンが通貨になるまで</h4><p>トークンは元々LLMがテキストを処理する技術的単位に過ぎなかった。AIがコードを書き、ツールを呼ぶエージェントに進化すると、トークンは「AIが働くための計算コスト」の単位になった。ジェンスン・ファンはGTC 2026で「年収50万ドルのエンジニアなら少なくとも25万ドル分のトークンを使うべきだ」と語った。</p><h4>使用例</h4><p>開発者にとってトークン経済学はClaude Codeのようなコーディングエージェントで最も実感する。<code>/cost</code>でセッションごとのトークン消費を確認し、ccusageで日次・月次使用量を追跡する。本番環境では<strong>モデルルーティング</strong>が最も効果的——単純な質問は小型モデルへ、複雑な推論はフロンティアモデルへ回せばコストを60-80%削減できる。</p><h4>注意点</h4><p>トークンコストだけを追うと品質を犠牲にしかねない。安いモデルへのルーティングは精度を下げ、プロンプトの過度な圧縮はコンテキストを失う。</p>`
+  },
+  '12-factor-agents': {
+    sum: 'プロダクションで実際に動くLLMエージェントを作るための12の設計原則。Herokuの Twelve-Factor Appに着想を得て、エージェントも結局はよく作られたソフトウェアであるべきという視点から出発する。',
+    det: `<h4>12-Factor Agentsとは</h4><p>エージェントフレームワークを使えば最初は70-80%まですぐ到達する。そこで詰まる。エージェントがステップを幻覚し、無限ループに陥り、プロダクション品質に達しない。Dex Horthy (HumanLayer)は100人以上のAIエンジニアにインタビューし、実際にプロダクションに出たエージェントの共通点を12原則にまとめた。</p><h4>12の原則</h4><p>三つの軸に分かれる。プロンプトとツール——自然言語を構造化ツール呼び出しに変換し、プロンプトは自分で管理し、ツールはJSON Schemaとコードに過ぎない。状態と実行——コンテキストウィンドウを明示的に管理し、ビジネス状態と実行状態を分離し、エージェントをステートレスリデューサーにする。制御フロー——フレームワークに委ねず自分で所有し、人間への連絡を一級ツール呼び出しとして扱う。</p><h4>注意点</h4><p>言語非依存の設計原則であり、フレームワークやSDKではない。LangChainやCrewAIを捨てろという意味ではなく、フレームワークの上でもこれらの原則を意識して設計せよということだ。</p>`
+  },
+  'pydantic-ai': {
+    sum: 'Pythonの型システムを活用してAIエージェントを安全で予測可能にするフレームワーク。Pydanticチームが直接作り、FastAPIのような開発体験をエージェント開発に持ち込む。',
+    det: `<h4>Pydantic AIとは</h4><p>LLMエージェントを作ると同じ問題にぶつかる。モデルが予想外の形式で応答し、ツール呼び出しの引数が間違い、ランタイムでやっとエラーに気づく。Pydantic AIはPythonの型システムでこれを解決する。エージェントの入力・出力・依存関係すべてに型を付け、IDEが書く時点でエラーを捕捉し、実行時にはPydanticが自動検証する。</p><h4>使用例</h4><p>ジェネリクスで結果型を指定：<code>Agent[MyDeps, MyResult]</code>。ツール関数は<code>RunContext[MyDeps]</code>で型安全に依存関係にアクセスし、モデル応答は<code>MyResult</code>スキーマで自動検証される。DIシステムでテストのモックとプロダクションオブジェクトをきれいに分離。</p><h4>注意点</h4><p>Pythonの型ヒントに慣れている必要がある。複雑なステートマシンワークフローにはLangGraphとの組み合わせが推奨される。</p>`
+  },
+  'background-agent': {
+    sum: 'クラウドサンドボックスで非同期実行されるコーディングエージェント。タスクを投げて別のことをし、完了したらPRをレビューする——開発の生産性を根本的に変えるパターン。',
+    det: `<h4>バックグラウンドエージェントとは</h4><p>従来のAIコーディングエージェントはターミナルやIDEで同期的に動いた。エージェントが作業中は待つしかなかった。バックグラウンドエージェントはこの制約を破る。クラウドの隔離環境にタスクを投げると、エージェントが独立してコードを読み、修正し、テストを回し、PRを作る。その間、別の作業をしてもノートPCを閉じてもいい。</p><h4>使用例</h4><p>CursorではクラウドVMでレポをクローンし独立ブランチで作業、完了するとPRを開く——最大8〜20個を並列実行できる。Claude Codeではサブエージェントをバックグラウンドに送りメイン作業を続けられる。Git Worktreeと組み合わせれば各エージェントが独立したコードコピーで作業し衝突が起きない。</p><h4>注意点</h4><p>事後レビュー方式なのでエージェントが間違った方向に進んでも途中で止めにくい。タスク範囲を明確かつ小さく保つことが重要。</p>`
+  },
+  'spec-driven-dev': {
+    sum: 'コードを書く前にスペック（仕様）を定義し、AIエージェントがそのスペックに基づいて実装する開発方式。エージェントが心を読めない問題を構造で解決する。',
+    det: `<h4>スペック駆動開発とは</h4><p>AIコーディングエージェントに「ログイン機能を作って」と言えば、認証方式もエラー処理もセッション保存もエージェントが勝手に決める。SDDはこのギャンブルをなくす。コードの前にI/Oマッピング、インターフェース型、制約条件などの<strong>外部動作仕様</strong>を定義し、エージェントはその仕様に忠実に実装するだけの役割を担う。</p><h4>使用例</h4><p>GitHubが公開した<strong>Spec Kit</strong>はワークフローを4段階に構造化する：Specify（詳細仕様を生成）→ Plan（技術計画）→ Tasks（単位に分解）→ Implement（コード実装）。Claude Codeではスキルとしてインストールし<code>/speckit-specify</code>等のコマンドで呼び出せる。</p><h4>注意点</h4><p>仕様を細かく書きすぎると直接コードを書くのと変わらない。外部動作だけ定義し、内部実装はエージェントに任せるのが核心。</p>`
+  },
+  'agent-friendly-cli': {
+    sum: 'AIエージェントがGUIよりCLIを好む現象と、エージェント向けにCLIを再設計する動き。構造化出力と合成可能性がエージェント時代にCLIを復活させた。',
+    det: `<h4>CLIの帰還</h4><p>GUIは人間には便利だがAIエージェントには不便だ。ボタンを探してクリックし、画面状態を解釈しなければならない。CLIはテキスト入力・テキスト出力——LLMが最も得意とすること。Claude Code、Codex CLI、Gemini CLIが相次いで登場し、CLIベースのエージェントツールが一つのカテゴリとなった。</p><h4>使用例</h4><p>Claude Codeでエージェントが<code>git log</code>、<code>npm test</code>、<code>grep</code>を直接実行するのがまさにエージェントCLIの典型的な使い方だ。エージェント向けCLI設計のポイント：全コマンドで<code>--json</code>出力をサポートし、エラーメッセージを構造化し、一つのコマンドは一つの機能だけを担当させる。</p><h4>注意点</h4><p>CLIは万能ではない。OAuth認証が必要なSaaS APIやリアルタイム双方向通信にはMCPが適する。ローカルはCLI、リモートはMCPのハイブリッドがプロダクションのコンセンサスだ。</p>`
+  },
+  'mastra': {
+    sum: 'TypeScriptでAIエージェントを作るオープンソースフレームワーク。Gatsbyチームが開発し、エージェント・ワークフロー・RAG・双方向MCPを一つのスタックで提供する。',
+    det: `<h4>Mastraとは</h4><p>AIエージェントフレームワークの大半はPythonベースだが、Web開発者の多くはTypeScriptを使う。Next.jsアプリにエージェントを追加するなら言語を変えなければならない。MastraはこのギャップをJ埋める——GatsbyのWebフレームワークを作ったチームがYC W25を経て2026年1月にv1.0をリリース。</p><h4>使用例</h4><p><code>npm create mastra@latest</code>でプロジェクトを作成し、すぐにエージェント・ツール・ワークフローを定義できる。双方向MCP内蔵で、外部MCPサーバーのツールをエージェントにロードすることも、自分のエージェントをMCPサーバーとして公開してClaude Code等のクライアントから利用させることもできる。</p><h4>注意点</h4><p>TypeScript/Node.jsに最適化されており、Python MLパイプラインとの直接統合は難しい。v1.0リリース直後のためLangChainと比べプロダクション事例は少ない。</p>`
+  },
+  'llamafile': {
+    sum: 'LLMモデルの重みと推論エンジンを一つのファイルにパッケージし、インストール不要でダブルクリックだけでローカルAIを動かせるMozillaのオープンソースツール。',
+    det: `<h4>llamafileとは</h4><p>ローカルでLLMを動かすには通常Python環境セットアップ、依存関係インストール、モデルダウンロード、設定ファイル修正が必要だ。llamafileはすべてを一つの実行ファイルにまとめる。モデル重みとllama.cpp推論エンジンが一つのファイルに入っている。ダウンロード→実行権限付与→実行。この3ステップで終わり。</p><h4>使用例</h4><p>Hugging Faceからllamafileをダウンロードし、ターミナルで<code>chmod +x</code>後に実行するとローカルWebサーバーが立ち上がりブラウザでチャットできる。GPU自動検出で加速も自動。サーバーモードではOpenAI互換REST APIが開き、既存コードのエンドポイントを変えるだけでローカルモデルに切り替えられる。</p><h4>注意点</h4><p>モデルとエンジンが一体のためファイルサイズが数GB。頻繁にモデルを切り替えるならOllamaの方が便利。llamafileの真の強みは「ファイル一つでどこでも動く」配布シナリオだ。</p>`
+  },
+  'hermes-agent': {
+    sum: '経験からスキルを自動生成し、セッションを越えて記憶し、使うほど賢くなるNous Researchのオープンソース自律エージェント。',
+    det: `<h4>Hermes Agentとは</h4><p>ほとんどのAIエージェントは会話が終わると学んだことを忘れる。Hermes Agentは<strong>閉じた学習ループ</strong>でこの問題を解決する。タスク完了後、その過程をマークダウンスキルファイルとして保存し、結果を永続メモリに記録し、次回は改善されたアプローチで取り組む。Nous Researchが2026年2月にMITライセンスで公開し、数週間でGitHubスター22,000超。</p><h4>使用例</h4><p>核心は<strong>スキル自動生成</strong>だ。「このプロジェクトのテストを実行して」と頼むと、エージェントは最初は試行錯誤するが、成功すればその過程をスキルとして保存。次に同じリクエストが来たら保存済みスキルをロードして即実行する。</p><h4>注意点</h4><p>自己学習エージェントは誤ったパターンも学習しうる。生成されたスキルを定期的にレビュー・整理する必要がある。</p>`
+  },
+  'protocol-wars': {
+    sum: 'AIエージェントがツールに接続し互いに対話する方式を巡って、MCP・A2A・ACPの三つのプロトコルが標準の座を争う競争と収束の過程。',
+    det: `<h4>プロトコル戦争とは</h4><p>三つのプロトコルが登場した。AnthropicのMCPはエージェントとツールを接続し、GoogleのA2Aはエージェント同士の発見と対話を可能にし、IBMのACPもエージェント間通信を扱った。コミュニティの貢献者がOpenAIのAgents SDKにA2Aサポートを追加する1,200行のPRを提出したがOpenAIが拒否し、議論に火がついた。</p><h4>異なるレイヤー</h4><p>核心はこれらのプロトコルが異なるレイヤーを担うことだ。MCPは<strong>縦軸</strong>——エージェントがGitHub、DB、ファイルシステムなど外部ツールにアクセスする方式を統一する。A2Aは<strong>横軸</strong>——異なるフレームワークで作られたエージェント同士が発見し、タスクを委託し、結果をやり取りする通信規約。IBMのACPはA2Aと役割が重なり、2025年8月にLinux Foundation傘下でA2Aに合併された。</p><h4>戦争から収束へ</h4><p>2025年12月、AnthropicがMCPをLinux FoundationのAgentic AI Foundation (AAIF)に寄贈。OpenAI、Google、Microsoft、AWSが共同設立者に名を連ねた。「戦争」と呼ばれたが、結局MCP（ツール接続）+ A2A（エージェント通信）という二層アーキテクチャに収束しつつある。</p>`
+  },
+  'kokoro-tts': {
+    sum: 'わずか82Mパラメータで10倍大きなモデルを超える自然な音声を合成する超軽量オープンソースTTSモデル。ローカルでリアルタイムより速く動作し、オンデバイス音声合成の可能性を開いた。',
+    det: `<h4>Kokoro TTSとは</h4><p>テキストを自然な音声に変換するモデルだが、驚くべきはサイズだ。パラメータがわずか8,200万。MetaVoiceは12億、XTTSは4.7億パラメータだがKokoroの方が自然さ評価で高スコア。TTS Arenaで1位。<strong>StyleTTS 2</strong>と<strong>ISTFTNet</strong>ベースのデコーダー専用アーキテクチャで、拡散やエンコーダーなしに軽量高速推論を実現。</p><h4>使用例</h4><p><code>pip install kokoro</code>でインストール、Hugging Faceからチェックポイントをダウンロードし、数行のPythonで音声生成。GPUで約100倍リアルタイム速度。<code>kokoro-fastapi</code>プロジェクトでOpenAI TTS互換エンドポイントをローカルに立てられる。8言語48音声をサポート。</p><h4>注意点</h4><p>韓国語はまだ英語ほどの品質ではない。Apache 2.0ライセンスで商用制限なし。</p>`
+  },
+  'open-webui': {
+    sum: 'ローカルLLMをChatGPTのように使えるオープンソースWebインターフェース。Ollamaと組み合わせてローカルAIのデファクト標準フロントエンドとなった。',
+    det: `<h4>Open WebUIとは</h4><p>OllamaでローカルにLLMを立ち上げるとターミナルでしか会話できない。履歴も残らず、モデル切り替えもコマンド入力が必要。Open WebUIはこの不便をブラウザベースのチャットインターフェースで解決する。ChatGPTのように会話し、履歴が残り、ドロップダウンでモデルを切り替え、ファイルをアップロードして質問できる。データは外部に出ず完全オフライン動作。GitHubスター9万超、Dockerプル2.8億回超。</p><h4>使用例</h4><p>Dockerコマンド一行でインストールし、ブラウザでアクセスするだけ。同じマシンのOllamaに自動接続。内蔵RAGエンジンでドキュメントをアップロードすれば自動インデックスされモデルが参照して回答する。マルチユーザー対応でRBACによるチーム共有も可能。</p><h4>注意点</h4><p>Open WebUI自体はモデルを実行しない——Ollama等のバックエンドが別途必要。</p>`
+  },
+  'time-series-fm': {
+    sum: '大規模時系列データで事前学習し、別途訓練なしに多様なドメインの将来値を予測する特化ファウンデーションモデル。LLMが言語を汎用的に理解するように、時系列のパターンを汎用的に理解する。',
+    det: `<h4>時系列ファウンデーションモデルとは</h4><p>株価、天気、サーバートラフィック、在庫量——時間とともに変化するデータの予測には通常ドメインごとにモデルを別途学習させる必要があった。時系列ファウンデーションモデルはこのアプローチを逆転させる。数百億〜数千億の時系列データポイントで事前学習し、初めて見るドメインのデータも<strong>ゼロショット</strong>で予測する。Google Researchの<strong>TimesFM</strong>は200Mパラメータのデコーダー専用トランスフォーマーで、1,000億の実時系列データポイントで学習された。</p><h4>使用例</h4><p><code>pip install timesfm</code>でインストールし、Hugging Faceからチェックポイントをダウンロードして数行のコードで予測を実行。ゼロショットでARIMAを15-25%上回る。Google CloudではBigQuery MLにTimesFMが統合されており、<code>AI.FORECAST</code>関数でSQLだけで時系列予測を実行できる。</p><h4>注意点</h4><p>ゼロショット性能は印象的だが、ドメイン特化でファインチューニングしたモデルに常に勝つわけではない。テキストは理解しない——数値シーケンスのパターンだけを学習した特化モデルだ。</p>`
+  },
+  'goose': {
+    sum: 'Blockが開発したオープンソースAIエージェント。ローカルで実行され、任意のLLMと接続してコーディングからデバッグ、デプロイまで自律的に処理する。MCPで数千の外部ツールと連携可能。',
+    det: `<h4>Gooseとは</h4><p>ほとんどのAIコーディングツールはコードを「提案」するだけ。Gooseは違う——シェルコマンドを実行し、ファイルを編集し、テストを走らせ、エラーが出れば自分で修正する。Claude CodeやCursorと似た役割だが、Gooseは完全オープンソース（Apache 2.0）でローカル動作し、特定のLLMに縛られないのが核心的な差別化ポイントだ。</p><p>Block（旧Square）のオープンソースプログラムオフィスが2025年1月に公開。1年でGitHubスター27,000個、350人以上のコントリビューター、Block社内では12,000人の従業員の60%が毎週使用するほど実務に浸透した。</p><h4>使用例</h4><p>CLIで<code>goose session</code>を実行するとインタラクティブセッションが開始。プロジェクトディレクトリで実行すればGooseがファイル構造を把握し、コードのリファクタリング、テスト実行、エラー修正を自律的に行う。デスクトップアプリもあり、ターミナルに慣れていないユーザーでも使える。</p><p>拡張システムはMCPベース——GitHub、Slack、Docker、Kubernetesなど数千のMCPサーバーに接続可能。Ollamaと組み合わせればクラウド不要の完全ローカルAIエージェント環境を構築できる。</p><h4>詳細</h4><p>アーキテクチャは<strong>インターフェース → エージェント → 拡張</strong>の三層構造。ユーザー入力をエージェントが受け取り、利用可能なツールリストとともにLLMにリクエストを送信。LLMがツール呼び出しを返すと拡張が実行され、結果がフィードバックされるループが繰り返される。2025年12月、MCPやAGENTS.mdとともにLinux Foundationの<strong>Agentic AI Foundation</strong>に寄贈された。</p><h4>注意点</h4><p>ローカルで自律的に実行されるエージェントであるため、プロンプトインジェクションに注意が必要。BlockのセキュリティチームはUnicode不可視文字に隠したプロンプトインジェクションで実際に侵害に成功したレッドチーム結果を公開している。</p>`
+  },
+  'emotion-prompting': {
+    sum: 'プロンプトに感情的な表現を付け加えてLLMの回答品質を高める技法。「これは私のキャリアにとって本当に重要です」のような文を追加すると、モデルがより慎重で正確な回答を生成する傾向がある。',
+    det: `<h4>概念説明</h4><p>感情プロンプティングは、プロンプトの末尾に感情的な刺激文を追加してLLMの出力品質を引き上げる技法だ。人に「これ本当に大事だからちゃんとお願い」と言えばより集中するように、LLMにも似たような効果が現れる。2023年のMicrosoft Research EmotionPrompt論文で初めて体系的に研究され、心理学の3つの理論——<strong>自己モニタリング</strong>、<strong>社会的認知理論</strong>、<strong>認知的感情調節</strong>——に基づき11個の感情刺激文が設計された。</p><p>代表的な感情刺激文には「This is very important to my career」「You'd better be sure」「Believe in your abilities and strive for excellence」などがある。元のプロンプトの後に付け足すだけでいい。</p><h4>使用例</h4><p>既存のプロンプトの末尾に感情刺激文を1～2行付け足すだけで十分。コードレビューを依頼する際、「このコードのバグを見つけて」だけでなく「このコードのバグを見つけて。これはすぐ本番にデプロイするコードだから本当に重要。丁寧に確認して」と書けばモデルがより精密に分析する傾向がある。システムプロンプトに「You take pride in your work and always give your best」を含めるのも同じ原理だ。</p><p>Chain-of-Thoughtと組み合わせると効果が大きくなる。「ステップバイステップで考えて。これは本当に重要な問題だからミスしないように慎重に」のように推論誘導と感情刺激を併用する。</p><h4>注意点</h4><p>感情プロンプティングは万能ではない。数学的推論など純粋な論理タスクではほぼ効果がなく、モデルやタスクによって効果が大きく異なる。2026年のハーバード後続研究では、固定の感情フレーズよりタスクに応じて適応的に感情を選択する方式が一貫して良い結果を出した。</p>`
   }
 }};

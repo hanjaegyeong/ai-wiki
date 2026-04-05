@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>에이전트 CLI (Agent-Friendly CLI) — AI Wiki</title>
+<meta name="description" content="AI 에이전트가 GUI 대신 CLI를 선호하는 현상, 그리고 에이전트가 쓰기 좋게 CLI를 재설계하는 움직임. 구조화된 출력과 조합성이 에이전트 시대에 CLI를 다시 부활시켰다.">
+<meta name="keywords" content="CLI, 에이전트인터페이스, Unix철학, AI, 에이전트 CLI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="에이전트 CLI (Agent-Friendly CLI) — AI Wiki">
+<meta property="og:description" content="AI 에이전트가 GUI 대신 CLI를 선호하는 현상, 그리고 에이전트가 쓰기 좋게 CLI를 재설계하는 움직임. 구조화된 출력과 조합성이 에이전트 시대에 CLI를 다시 부활시켰다.">
+<meta property="og:url" content="https://aiword-wiki.github.io/k/agent-friendly-cli.html">
+<meta property="og:site_name" content="AI Wiki">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="에이전트 CLI (Agent-Friendly CLI) — AI Wiki">
+<meta name="twitter:description" content="AI 에이전트가 GUI 대신 CLI를 선호하는 현상, 그리고 에이전트가 쓰기 좋게 CLI를 재설계하는 움직임. 구조화된 출력과 조합성이 에이전트 시대에 CLI를 다시 부활시켰다.">
+<link rel="canonical" href="https://aiword-wiki.github.io/k/agent-friendly-cli.html">
+<link rel="alternate" hreflang="ko" href="https://aiword-wiki.github.io/k/agent-friendly-cli.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "에이전트 CLI",
+  "alternateName": "Agent-Friendly CLI",
+  "description": "AI 에이전트가 GUI 대신 CLI를 선호하는 현상, 그리고 에이전트가 쓰기 좋게 CLI를 재설계하는 움직임. 구조화된 출력과 조합성이 에이전트 시대에 CLI를 다시 부활시켰다.",
+  "url": "https://aiword-wiki.github.io/k/agent-friendly-cli.html",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "AI Wiki",
+    "url": "https://aiword-wiki.github.io/"
+  }
+}
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#F3F0EB;color:#4a4540;min-height:100vh;display:flex;justify-content:center;padding:40px 20px}
+  .wrap{max-width:720px;width:100%;background:#fff;border-radius:16px;padding:48px 40px;border:1px solid #e4dfd8}
+  .cat{font-size:11px;color:#a09888;margin-bottom:8px}
+  .title{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
+  .en{font-size:13px;color:#a09888;margin-bottom:24px}
+  .body{color:#5a5550;line-height:1.8;font-size:15px}
+  .body h4{font-size:16px;font-weight:700;color:#2d2a26;margin:24px 0 8px}
+  .body p{margin-bottom:14px}
+  .body code{background:#F3F0EB;padding:2px 6px;border-radius:4px;font-size:13px;color:#C4613A}
+  .body strong{font-weight:700;color:#2d2a26}
+  .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{background:#F3F0EB;color:#a09888;padding:4px 12px;border-radius:20px;font-size:12px}
+  .back{display:inline-block;margin-top:32px;color:#C4613A;text-decoration:none;font-size:14px;font-weight:700}
+  .back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cat">도구</div>
+  <div class="title">에이전트 CLI</div>
+  <div class="en">Agent-Friendly CLI</div>
+  <div class="body"><p>AI 에이전트가 GUI 대신 CLI를 선호하는 현상, 그리고 에이전트가 쓰기 좋게 CLI를 재설계하는 움직임. 구조화된 출력과 조합성이 에이전트 시대에 CLI를 다시 부활시켰다.</p><h4>CLI의 귀환</h4><p>GUI는 사람에게 편하지만 AI 에이전트에게는 불편하다. 버튼을 찾아 클릭하고, 화면 상태를 해석해야 한다. 반면 CLI는 텍스트를 입력하면 텍스트가 나온다. LLM이 가장 잘하는 게 텍스트 처리인 만큼, CLI는 에이전트에게 가장 자연스러운 인터페이스다. Claude Code, Codex CLI, Gemini CLI가 연달아 출시되면서 CLI 기반 에이전트 도구가 하나의 카테고리로 자리잡았다.</p>
+<p>에이전트가 CLI를 선호하는 이유는 두 가지다. 첫째, <strong>구조화된 출력</strong>이다. <code>--json</code> 플래그 하나면 에이전트가 파싱하기 쉬운 형태로 결과를 받는다. 둘째, <strong>조합성(composability)</strong>이다. 작은 명령을 파이프로 연결해 복잡한 워크플로우를 만드는 Unix 철학이 에이전트의 작업 방식과 정확히 맞아떨어진다.</p>
+<h4>사용 예시</h4><p>Claude Code에서 에이전트가 <code>git log --oneline</code>, <code>npm test</code>, <code>grep -r "TODO"</code> 같은 CLI 명령을 직접 실행하는 것 자체가 에이전트 CLI의 전형적인 사용이다. MCP 서버 없이도 셸 접근만 있으면 대부분의 로컬 작업을 처리할 수 있는 이유다.</p>
+<p>에이전트용으로 CLI를 새로 설계할 때는 모든 명령에 <code>--json</code> 출력을 지원하고, 에러 메시지를 구조화하고, 명령 하나가 하나의 기능만 담당하게 쪼갠다.</p>
+<h4>주의할 점</h4><p>CLI가 만능은 아니다. OAuth 인증이 필요한 SaaS API나 실시간 양방향 통신이 필요한 경우에는 MCP가 더 적합하다. 로컬=CLI, 원격=MCP 하이브리드가 프로덕션 합의다.</p></div>
+  <div class="tags"><span>#CLI</span><span>#에이전트인터페이스</span><span>#Unix철학</span></div>
+  <a class="back" href="https://aiword-wiki.github.io/#agent-friendly-cli">← AI Wiki에서 더 보기</a>
+</div>
+</body>
+</html>

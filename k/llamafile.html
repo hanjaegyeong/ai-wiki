@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>llamafile — AI Wiki</title>
+<meta name="description" content="LLM 모델과 실행 엔진을 하나의 파일로 패키징해서, 설치 없이 더블클릭만으로 로컬에서 AI를 돌릴 수 있게 만든 Mozilla의 오픈소스 도구.">
+<meta name="keywords" content="로컬AI, Mozilla, 단일실행파일, AI, llamafile">
+<meta property="og:type" content="article">
+<meta property="og:title" content="llamafile — AI Wiki">
+<meta property="og:description" content="LLM 모델과 실행 엔진을 하나의 파일로 패키징해서, 설치 없이 더블클릭만으로 로컬에서 AI를 돌릴 수 있게 만든 Mozilla의 오픈소스 도구.">
+<meta property="og:url" content="https://aiword-wiki.github.io/k/llamafile.html">
+<meta property="og:site_name" content="AI Wiki">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="llamafile — AI Wiki">
+<meta name="twitter:description" content="LLM 모델과 실행 엔진을 하나의 파일로 패키징해서, 설치 없이 더블클릭만으로 로컬에서 AI를 돌릴 수 있게 만든 Mozilla의 오픈소스 도구.">
+<link rel="canonical" href="https://aiword-wiki.github.io/k/llamafile.html">
+<link rel="alternate" hreflang="ko" href="https://aiword-wiki.github.io/k/llamafile.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "llamafile",
+  "alternateName": "llamafile",
+  "description": "LLM 모델과 실행 엔진을 하나의 파일로 패키징해서, 설치 없이 더블클릭만으로 로컬에서 AI를 돌릴 수 있게 만든 Mozilla의 오픈소스 도구.",
+  "url": "https://aiword-wiki.github.io/k/llamafile.html",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "AI Wiki",
+    "url": "https://aiword-wiki.github.io/"
+  }
+}
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Noto Sans KR',sans-serif;background:#F3F0EB;color:#4a4540;min-height:100vh;display:flex;justify-content:center;padding:40px 20px}
+  .wrap{max-width:720px;width:100%;background:#fff;border-radius:16px;padding:48px 40px;border:1px solid #e4dfd8}
+  .cat{font-size:11px;color:#a09888;margin-bottom:8px}
+  .title{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
+  .en{font-size:13px;color:#a09888;margin-bottom:24px}
+  .body{color:#5a5550;line-height:1.8;font-size:15px}
+  .body h4{font-size:16px;font-weight:700;color:#2d2a26;margin:24px 0 8px}
+  .body p{margin-bottom:14px}
+  .body code{background:#F3F0EB;padding:2px 6px;border-radius:4px;font-size:13px;color:#C4613A}
+  .body strong{font-weight:700;color:#2d2a26}
+  .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{background:#F3F0EB;color:#a09888;padding:4px 12px;border-radius:20px;font-size:12px}
+  .back{display:inline-block;margin-top:32px;color:#C4613A;text-decoration:none;font-size:14px;font-weight:700}
+  .back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cat">인프라</div>
+  <div class="title">llamafile</div>
+  <div class="en"></div>
+  <div class="body"><p>LLM 모델과 실행 엔진을 하나의 파일로 패키징해서, 설치 없이 더블클릭만으로 로컬에서 AI를 돌릴 수 있게 만든 Mozilla의 오픈소스 도구.</p><h4>llamafile이란</h4><p>보통 로컬에서 LLM을 돌리려면 Python 환경 세팅, 의존성 설치, 모델 다운로드, 설정 파일 수정 같은 과정을 거쳐야 한다. llamafile은 이 모든 걸 하나의 실행 파일로 합쳐 버린다. 모델 가중치와 추론 엔진(llama.cpp)이 하나의 파일 안에 들어 있어서, 다운로드 → 실행 권한 부여 → 실행. 이 세 단계면 끝이다.</p>
+<p>핵심 기술은 <strong>Cosmopolitan Libc</strong>다. 하나의 바이너리가 macOS, Windows, Linux 등 6개 운영체제에서 그대로 실행되는 <strong>Actually Portable Executable(APE)</strong> 포맷을 구현한다.</p>
+<h4>사용 예시</h4><p>Hugging Face에서 원하는 모델의 llamafile을 받아서 터미널에서 <code>chmod +x</code> 후 실행하면, 로컬 웹 서버가 뜨면서 브라우저에서 바로 채팅할 수 있다. GPU를 자동으로 감지해서 가속도 알아서 건다.</p>
+<p>API 서버로도 쓸 수 있다. llamafile을 서버 모드로 띄우면 OpenAI 호환 REST API가 열려서, 기존에 OpenAI API를 쓰던 코드를 엔드포인트만 바꿔서 로컬 모델로 전환할 수 있다. 파일 하나를 USB에 담아서 인터넷 없는 환경에 가져가도 돌아간다.</p>
+<h4>주의할 점</h4><p>모델과 엔진이 하나로 묶여 있어서 파일 크기가 수 GB에 달한다. 모델을 자주 바꾸는 개발 환경이라면 Ollama처럼 모델을 분리 관리하는 도구가 더 편할 수 있다.</p></div>
+  <div class="tags"><span>#로컬AI</span><span>#Mozilla</span><span>#단일실행파일</span></div>
+  <a class="back" href="https://aiword-wiki.github.io/#llamafile">← AI Wiki에서 더 보기</a>
+</div>
+</body>
+</html>
