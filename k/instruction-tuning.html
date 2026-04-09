@@ -3,18 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>인스트럭션 튜닝 (Instruction Tuning) — AI Wiki</title>
-<meta name="description" content="사전학습된 모델이 사람의 지시를 따르도록 (지시문, 답변) 쌍으로 추가 학습시키는 과정. 이 과정 없이는 LLM이 질문에 답하지 않고 텍스트를 그냥 이어쓴다.">
-<meta name="keywords" content="지시따르기, 파인튜닝, 정렬, AI, 인스트럭션 튜닝">
+<title>인스트럭션 튜닝란? (Instruction Tuning) — AI Wiki</title>
+<meta name="description" content="인스트럭션 튜닝란? 사전학습된 모델이 사람의 지시를 따르도록 (지시문, 답변) 쌍으로 추가 학습시키는 과정. 이 과정 없이는 LLM이 질문에 답하지 않고 텍스트를 그냥 이어쓴다.">
+<meta name="keywords" content="지시따르기, 파인튜닝, 정렬, AI, 인스트럭션 튜닝, 인스트럭션 튜닝란, 인스트럭션 튜닝 뜻, 인스트럭션 튜닝 의미, 인스트럭션 튜닝 개념, 인스트럭션 튜닝 설명, 인스트럭션 튜닝 정리, 인스트럭션 튜닝이란">
 <meta property="og:type" content="article">
-<meta property="og:title" content="인스트럭션 튜닝 (Instruction Tuning) — AI Wiki">
-<meta property="og:description" content="사전학습된 모델이 사람의 지시를 따르도록 (지시문, 답변) 쌍으로 추가 학습시키는 과정. 이 과정 없이는 LLM이 질문에 답하지 않고 텍스트를 그냥 이어쓴다.">
+<meta property="og:title" content="인스트럭션 튜닝란? (Instruction Tuning) — AI Wiki">
+<meta property="og:description" content="인스트럭션 튜닝란? 사전학습된 모델이 사람의 지시를 따르도록 (지시문, 답변) 쌍으로 추가 학습시키는 과정. 이 과정 없이는 LLM이 질문에 답하지 않고 텍스트를 그냥 이어쓴다.">
 <meta property="og:url" content="https://aiword-wiki.github.io/k/instruction-tuning.html">
+<meta property="og:image" content="https://aiword-wiki.github.io/og-thumbnail.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
 <meta property="og:site_name" content="AI Wiki">
 <meta property="og:locale" content="ko_KR">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="인스트럭션 튜닝 (Instruction Tuning) — AI Wiki">
-<meta name="twitter:description" content="사전학습된 모델이 사람의 지시를 따르도록 (지시문, 답변) 쌍으로 추가 학습시키는 과정. 이 과정 없이는 LLM이 질문에 답하지 않고 텍스트를 그냥 이어쓴다.">
+<meta property="article:published_time" content="">
+<meta property="article:modified_time" content="2026-04-04">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="인스트럭션 튜닝란? (Instruction Tuning) — AI Wiki">
+<meta name="twitter:description" content="인스트럭션 튜닝란? 사전학습된 모델이 사람의 지시를 따르도록 (지시문, 답변) 쌍으로 추가 학습시키는 과정. 이 과정 없이는 LLM이 질문에 답하지 않고 텍스트를 그냥 이어쓴다.">
+<meta name="twitter:image" content="https://aiword-wiki.github.io/og-thumbnail.png">
 <link rel="canonical" href="https://aiword-wiki.github.io/k/instruction-tuning.html">
 <link rel="alternate" hreflang="ko" href="https://aiword-wiki.github.io/k/instruction-tuning.html">
 <script type="application/ld+json">
@@ -32,13 +38,62 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "AI Wiki",
+      "item": "https://aiword-wiki.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "모델",
+      "item": "https://aiword-wiki.github.io/?cat=model"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "인스트럭션 튜닝",
+      "item": "https://aiword-wiki.github.io/k/instruction-tuning.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "인스트럭션 튜닝 (Instruction Tuning)",
+  "description": "사전학습된 모델이 사람의 지시를 따르도록 (지시문, 답변) 쌍으로 추가 학습시키는 과정. 이 과정 없이는 LLM이 질문에 답하지 않고 텍스트를 그냥 이어쓴다.",
+  "url": "https://aiword-wiki.github.io/k/instruction-tuning.html",
+  "dateModified": "2026-04-04",
+  "author": {
+    "@type": "Organization",
+    "name": "AI Wiki"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Wiki",
+    "url": "https://aiword-wiki.github.io/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://aiword-wiki.github.io/k/instruction-tuning.html"
+  }
+}
+</script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Noto Sans KR',sans-serif;background:#F3F0EB;color:#4a4540;min-height:100vh;display:flex;justify-content:center;padding:40px 20px}
   .wrap{max-width:720px;width:100%;background:#fff;border-radius:16px;padding:48px 40px;border:1px solid #e4dfd8}
   .cat{font-size:11px;color:#a09888;margin-bottom:8px}
-  .title{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
+  h1{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
   .en{font-size:13px;color:#a09888;margin-bottom:24px}
   .body{color:#5a5550;line-height:1.8;font-size:15px}
   .body h4{font-size:16px;font-weight:700;color:#2d2a26;margin:24px 0 8px}
@@ -47,6 +102,10 @@
   .body strong{font-weight:700;color:#2d2a26}
   .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
   .tags span{background:#F3F0EB;color:#a09888;padding:4px 12px;border-radius:20px;font-size:12px}
+  .related{margin-top:36px;padding-top:28px;border-top:1px solid #e4dfd8;font-size:14px;color:#5a5550;line-height:1.8}
+  .related b{color:#2d2a26;font-weight:700}
+  .related a{color:#C4613A;text-decoration:none;font-weight:500}
+  .related a:hover{text-decoration:underline}
   .back{display:inline-block;margin-top:32px;color:#C4613A;text-decoration:none;font-size:14px;font-weight:700}
   .back:hover{text-decoration:underline}
 </style>
@@ -54,10 +113,11 @@
 <body>
 <div class="wrap">
   <div class="cat">모델</div>
-  <div class="title">인스트럭션 튜닝</div>
+  <h1>인스트럭션 튜닝</h1>
   <div class="en">Instruction Tuning</div>
   <div class="body"><p>사전학습된 모델이 사람의 지시를 따르도록 (지시문, 답변) 쌍으로 추가 학습시키는 과정. 이 과정 없이는 LLM이 질문에 답하지 않고 텍스트를 그냥 이어쓴다.</p><h4>개념 설명</h4><p>사전학습만 마친 모델은 "수도는 어디야?"라고 물으면 "수도는 어디야? 수도는 국가의 중심지로..."처럼 텍스트를 이어붙일 뿐이다. <strong>인스트럭션 튜닝</strong>은 "이렇게 물으면 이렇게 답하라"는 수천~수십만 개의 예시로 모델을 학습시켜 지시를 따르게 만든다. ChatGPT가 대화하듯 답하는 것이 가능한 이유다.</p><h4>사용 예시</h4><p>Llama를 베이스로 자체 도메인 지시 데이터셋을 만들어 SFT(지도 학습 파인튜닝)를 돌리면, 사내 전용 어시스턴트를 만들 수 있다. Alpaca, Dolly 같은 오픈소스 instruction 데이터셋을 활용하는 것도 좋은 시작점이다.</p></div>
   <div class="tags"><span>#지시따르기</span><span>#파인튜닝</span><span>#정렬</span></div>
+  <div class="related"><b>관련 키워드</b> <a href="https://aiword-wiki.github.io/k/sft.html">SFT</a>, <a href="https://aiword-wiki.github.io/k/fine-tuning.html">파인튜닝</a>, <a href="https://aiword-wiki.github.io/k/rlhf.html">RLHF</a>, <a href="https://aiword-wiki.github.io/k/dpo.html">DPO</a>, <a href="https://aiword-wiki.github.io/k/pretraining.html">사전학습</a>, <a href="https://aiword-wiki.github.io/k/llm.html">대규모 언어 모델</a></div>
   <a class="back" href="https://aiword-wiki.github.io/#instruction-tuning">← AI Wiki에서 더 보기</a>
 </div>
 </body>

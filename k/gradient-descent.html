@@ -3,18 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>경사 하강법 (Gradient Descent) — AI Wiki</title>
-<meta name="description" content="손실 함수를 최소화하기 위해 기울기(gradient) 반대 방향으로 파라미터를 조금씩 조정하는 최적화 알고리즘. AI 학습의 근본 메커니즘이다.">
-<meta name="keywords" content="최적화, 학습알고리즘, SGD, AI, 경사 하강법">
+<title>경사 하강법란? (Gradient Descent) — AI Wiki</title>
+<meta name="description" content="경사 하강법란? 손실 함수를 최소화하기 위해 기울기(gradient) 반대 방향으로 파라미터를 조금씩 조정하는 최적화 알고리즘. AI 학습의 근본 메커니즘이다.">
+<meta name="keywords" content="최적화, 학습알고리즘, SGD, AI, 경사 하강법, 경사 하강법란, 경사 하강법 뜻, 경사 하강법 의미, 경사 하강법 개념, 경사 하강법 설명, 경사 하강법 정리, 경사 하강법이란">
 <meta property="og:type" content="article">
-<meta property="og:title" content="경사 하강법 (Gradient Descent) — AI Wiki">
-<meta property="og:description" content="손실 함수를 최소화하기 위해 기울기(gradient) 반대 방향으로 파라미터를 조금씩 조정하는 최적화 알고리즘. AI 학습의 근본 메커니즘이다.">
+<meta property="og:title" content="경사 하강법란? (Gradient Descent) — AI Wiki">
+<meta property="og:description" content="경사 하강법란? 손실 함수를 최소화하기 위해 기울기(gradient) 반대 방향으로 파라미터를 조금씩 조정하는 최적화 알고리즘. AI 학습의 근본 메커니즘이다.">
 <meta property="og:url" content="https://aiword-wiki.github.io/k/gradient-descent.html">
+<meta property="og:image" content="https://aiword-wiki.github.io/og-thumbnail.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
 <meta property="og:site_name" content="AI Wiki">
 <meta property="og:locale" content="ko_KR">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="경사 하강법 (Gradient Descent) — AI Wiki">
-<meta name="twitter:description" content="손실 함수를 최소화하기 위해 기울기(gradient) 반대 방향으로 파라미터를 조금씩 조정하는 최적화 알고리즘. AI 학습의 근본 메커니즘이다.">
+<meta property="article:published_time" content="">
+<meta property="article:modified_time" content="2026-04-04">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="경사 하강법란? (Gradient Descent) — AI Wiki">
+<meta name="twitter:description" content="경사 하강법란? 손실 함수를 최소화하기 위해 기울기(gradient) 반대 방향으로 파라미터를 조금씩 조정하는 최적화 알고리즘. AI 학습의 근본 메커니즘이다.">
+<meta name="twitter:image" content="https://aiword-wiki.github.io/og-thumbnail.png">
 <link rel="canonical" href="https://aiword-wiki.github.io/k/gradient-descent.html">
 <link rel="alternate" hreflang="ko" href="https://aiword-wiki.github.io/k/gradient-descent.html">
 <script type="application/ld+json">
@@ -32,13 +38,62 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "AI Wiki",
+      "item": "https://aiword-wiki.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "모델",
+      "item": "https://aiword-wiki.github.io/?cat=model"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "경사 하강법",
+      "item": "https://aiword-wiki.github.io/k/gradient-descent.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "경사 하강법 (Gradient Descent)",
+  "description": "손실 함수를 최소화하기 위해 기울기(gradient) 반대 방향으로 파라미터를 조금씩 조정하는 최적화 알고리즘. AI 학습의 근본 메커니즘이다.",
+  "url": "https://aiword-wiki.github.io/k/gradient-descent.html",
+  "dateModified": "2026-04-04",
+  "author": {
+    "@type": "Organization",
+    "name": "AI Wiki"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Wiki",
+    "url": "https://aiword-wiki.github.io/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://aiword-wiki.github.io/k/gradient-descent.html"
+  }
+}
+</script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Noto Sans KR',sans-serif;background:#F3F0EB;color:#4a4540;min-height:100vh;display:flex;justify-content:center;padding:40px 20px}
   .wrap{max-width:720px;width:100%;background:#fff;border-radius:16px;padding:48px 40px;border:1px solid #e4dfd8}
   .cat{font-size:11px;color:#a09888;margin-bottom:8px}
-  .title{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
+  h1{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
   .en{font-size:13px;color:#a09888;margin-bottom:24px}
   .body{color:#5a5550;line-height:1.8;font-size:15px}
   .body h4{font-size:16px;font-weight:700;color:#2d2a26;margin:24px 0 8px}
@@ -47,6 +102,10 @@
   .body strong{font-weight:700;color:#2d2a26}
   .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
   .tags span{background:#F3F0EB;color:#a09888;padding:4px 12px;border-radius:20px;font-size:12px}
+  .related{margin-top:36px;padding-top:28px;border-top:1px solid #e4dfd8;font-size:14px;color:#5a5550;line-height:1.8}
+  .related b{color:#2d2a26;font-weight:700}
+  .related a{color:#C4613A;text-decoration:none;font-weight:500}
+  .related a:hover{text-decoration:underline}
   .back{display:inline-block;margin-top:32px;color:#C4613A;text-decoration:none;font-size:14px;font-weight:700}
   .back:hover{text-decoration:underline}
 </style>
@@ -54,11 +113,12 @@
 <body>
 <div class="wrap">
   <div class="cat">모델</div>
-  <div class="title">경사 하강법</div>
+  <h1>경사 하강법</h1>
   <div class="en">Gradient Descent</div>
   <div class="body"><p>손실 함수를 최소화하기 위해 기울기(gradient) 반대 방향으로 파라미터를 조금씩 조정하는 최적화 알고리즘. AI 학습의 근본 메커니즘이다.</p><h4>개념 설명</h4><p>산에서 눈을 감고 가장 낮은 곳으로 내려가려면 발밑의 경사를 느끼고 아래 방향으로 걸으면 된다. 경사 하강법이 이와 같다. 손실 함수라는 지형에서 가장 낮은 점(최솟값)을 찾는데, 현재 위치에서 기울기를 계산해 반대 방향으로 조금씩 이동한다. 학습률(learning rate)은 한 번에 이동하는 보폭이다 — 너무 크면 최솟값을 지나치고, 너무 작으면 너무 오래 걸린다.</p>
 <h4>사용 예시</h4><p>PyTorch나 TensorFlow에서 모델을 학습할 때 <code>optimizer.step()</code>을 호출하면 경사 하강법이 실행된다. 실제로는 전체 데이터 대신 미니배치(작은 샘플 묶음)를 쓰는 <strong>미니배치 SGD</strong>가 표준이다. Adam, AdamW, Lion 같은 옵티마이저는 경사 하강법을 개선한 알고리즘으로, 학습률을 적응적으로 조정해서 수렴 속도를 높인다. LLM 파인튜닝에서는 AdamW가 사실상 표준이다.</p></div>
   <div class="tags"><span>#최적화</span><span>#학습알고리즘</span><span>#SGD</span></div>
+  <div class="related"><b>관련 키워드</b> <a href="https://aiword-wiki.github.io/k/loss-function.html">손실 함수</a>, <a href="https://aiword-wiki.github.io/k/backpropagation.html">역전파</a>, <a href="https://aiword-wiki.github.io/k/fine-tuning.html">파인튜닝</a>, <a href="https://aiword-wiki.github.io/k/machine-learning.html">머신러닝</a></div>
   <a class="back" href="https://aiword-wiki.github.io/#gradient-descent">← AI Wiki에서 더 보기</a>
 </div>
 </body>

@@ -3,18 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anthropic SDK — AI Wiki</title>
-<meta name="description" content="Claude API를 Python과 TypeScript에서 편리하게 쓸 수 있도록 Anthropic이 제공하는 공식 라이브러리.">
-<meta name="keywords" content="Anthropic, API, Python, TypeScript, AI, Anthropic SDK">
+<title>Anthropic SDK란? — AI Wiki</title>
+<meta name="description" content="Anthropic SDK란? Claude API를 Python과 TypeScript에서 편리하게 쓸 수 있도록 Anthropic이 제공하는 공식 라이브러리.">
+<meta name="keywords" content="Anthropic, API, Python, TypeScript, AI, Anthropic SDK, Anthropic SDK란, Anthropic SDK 뜻, Anthropic SDK 의미, Anthropic SDK 개념, Anthropic SDK 설명, Anthropic SDK 정리, Anthropic SDK이란">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Anthropic SDK — AI Wiki">
-<meta property="og:description" content="Claude API를 Python과 TypeScript에서 편리하게 쓸 수 있도록 Anthropic이 제공하는 공식 라이브러리.">
+<meta property="og:title" content="Anthropic SDK란? — AI Wiki">
+<meta property="og:description" content="Anthropic SDK란? Claude API를 Python과 TypeScript에서 편리하게 쓸 수 있도록 Anthropic이 제공하는 공식 라이브러리.">
 <meta property="og:url" content="https://aiword-wiki.github.io/k/anthropic-sdk.html">
+<meta property="og:image" content="https://aiword-wiki.github.io/og-thumbnail.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
 <meta property="og:site_name" content="AI Wiki">
 <meta property="og:locale" content="ko_KR">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anthropic SDK — AI Wiki">
-<meta name="twitter:description" content="Claude API를 Python과 TypeScript에서 편리하게 쓸 수 있도록 Anthropic이 제공하는 공식 라이브러리.">
+<meta property="article:published_time" content="">
+<meta property="article:modified_time" content="2026-04-04">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anthropic SDK란? — AI Wiki">
+<meta name="twitter:description" content="Anthropic SDK란? Claude API를 Python과 TypeScript에서 편리하게 쓸 수 있도록 Anthropic이 제공하는 공식 라이브러리.">
+<meta name="twitter:image" content="https://aiword-wiki.github.io/og-thumbnail.png">
 <link rel="canonical" href="https://aiword-wiki.github.io/k/anthropic-sdk.html">
 <link rel="alternate" hreflang="ko" href="https://aiword-wiki.github.io/k/anthropic-sdk.html">
 <script type="application/ld+json">
@@ -32,13 +38,62 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "AI Wiki",
+      "item": "https://aiword-wiki.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "도구",
+      "item": "https://aiword-wiki.github.io/?cat=tooling"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Anthropic SDK",
+      "item": "https://aiword-wiki.github.io/k/anthropic-sdk.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Anthropic SDK",
+  "description": "Claude API를 Python과 TypeScript에서 편리하게 쓸 수 있도록 Anthropic이 제공하는 공식 라이브러리.",
+  "url": "https://aiword-wiki.github.io/k/anthropic-sdk.html",
+  "dateModified": "2026-04-04",
+  "author": {
+    "@type": "Organization",
+    "name": "AI Wiki"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Wiki",
+    "url": "https://aiword-wiki.github.io/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://aiword-wiki.github.io/k/anthropic-sdk.html"
+  }
+}
+</script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Noto Sans KR',sans-serif;background:#F3F0EB;color:#4a4540;min-height:100vh;display:flex;justify-content:center;padding:40px 20px}
   .wrap{max-width:720px;width:100%;background:#fff;border-radius:16px;padding:48px 40px;border:1px solid #e4dfd8}
   .cat{font-size:11px;color:#a09888;margin-bottom:8px}
-  .title{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
+  h1{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
   .en{font-size:13px;color:#a09888;margin-bottom:24px}
   .body{color:#5a5550;line-height:1.8;font-size:15px}
   .body h4{font-size:16px;font-weight:700;color:#2d2a26;margin:24px 0 8px}
@@ -47,6 +102,10 @@
   .body strong{font-weight:700;color:#2d2a26}
   .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
   .tags span{background:#F3F0EB;color:#a09888;padding:4px 12px;border-radius:20px;font-size:12px}
+  .related{margin-top:36px;padding-top:28px;border-top:1px solid #e4dfd8;font-size:14px;color:#5a5550;line-height:1.8}
+  .related b{color:#2d2a26;font-weight:700}
+  .related a{color:#C4613A;text-decoration:none;font-weight:500}
+  .related a:hover{text-decoration:underline}
   .back{display:inline-block;margin-top:32px;color:#C4613A;text-decoration:none;font-size:14px;font-weight:700}
   .back:hover{text-decoration:underline}
 </style>
@@ -54,10 +113,11 @@
 <body>
 <div class="wrap">
   <div class="cat">도구</div>
-  <div class="title">Anthropic SDK</div>
+  <h1>Anthropic SDK</h1>
   <div class="en"></div>
   <div class="body"><p>Claude API를 Python과 TypeScript에서 편리하게 쓸 수 있도록 Anthropic이 제공하는 공식 라이브러리.</p><h4>개념 설명</h4><p>Claude API를 raw HTTP로 호출할 수도 있지만, 인증, 재시도, 스트리밍 처리, 타입 안전성 같은 반복 작업을 직접 처리해야 한다. <strong>Anthropic SDK</strong>는 이런 부분을 모두 추상화해서 Claude 호출에 집중할 수 있게 한다. Python과 TypeScript/JavaScript 버전을 공식 제공하며, 메시지 API, 스트리밍, 툴 사용, 배치 처리를 모두 지원한다.</p><h4>사용 예시</h4><p><code>pip install anthropic</code> 후 <code>client = Anthropic()</code>로 클라이언트를 만들고 <code>client.messages.create(model="claude-opus-4-5", messages=[...])</code>로 바로 호출할 수 있다. 스트리밍은 <code>with client.messages.stream(...) as stream</code> 패턴으로, 툴 사용은 <code>tools</code> 파라미터에 정의를 넘기면 된다.</p></div>
   <div class="tags"><span>#Anthropic</span><span>#API</span><span>#Python</span><span>#TypeScript</span></div>
+  <div class="related"><b>관련 키워드</b> <a href="https://aiword-wiki.github.io/k/llm.html">대규모 언어 모델</a>, <a href="https://aiword-wiki.github.io/k/tool-use.html">도구 사용</a>, <a href="https://aiword-wiki.github.io/k/claude-code.html">Claude Code</a>, <a href="https://aiword-wiki.github.io/k/api-gateway.html">AI API 게이트웨이</a></div>
   <a class="back" href="https://aiword-wiki.github.io/#anthropic-sdk">← AI Wiki에서 더 보기</a>
 </div>
 </body>

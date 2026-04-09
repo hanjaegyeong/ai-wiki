@@ -3,18 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>테스트 생성 (AI Test Generation) — AI Wiki</title>
-<meta name="description" content="AI가 코드를 분석해서 단위 테스트, 통합 테스트, 엣지 케이스 테스트를 자동으로 작성하는 기술. 테스트 커버리지를 높이는 데 드는 시간을 크게 줄여준다.">
-<meta name="keywords" content="TDD, 테스트자동화, 품질, AI, 테스트 생성">
+<title>테스트 생성란? (AI Test Generation) — AI Wiki</title>
+<meta name="description" content="테스트 생성란? AI가 코드를 분석해서 단위 테스트, 통합 테스트, 엣지 케이스 테스트를 자동으로 작성하는 기술. 테스트 커버리지를 높이는 데 드는 시간을 크게 줄여준다.">
+<meta name="keywords" content="TDD, 테스트자동화, 품질, AI, 테스트 생성, 테스트 생성란, 테스트 생성 뜻, 테스트 생성 의미, 테스트 생성 개념, 테스트 생성 설명, 테스트 생성 정리, 테스트 생성이란">
 <meta property="og:type" content="article">
-<meta property="og:title" content="테스트 생성 (AI Test Generation) — AI Wiki">
-<meta property="og:description" content="AI가 코드를 분석해서 단위 테스트, 통합 테스트, 엣지 케이스 테스트를 자동으로 작성하는 기술. 테스트 커버리지를 높이는 데 드는 시간을 크게 줄여준다.">
+<meta property="og:title" content="테스트 생성란? (AI Test Generation) — AI Wiki">
+<meta property="og:description" content="테스트 생성란? AI가 코드를 분석해서 단위 테스트, 통합 테스트, 엣지 케이스 테스트를 자동으로 작성하는 기술. 테스트 커버리지를 높이는 데 드는 시간을 크게 줄여준다.">
 <meta property="og:url" content="https://aiword-wiki.github.io/k/test-generation.html">
+<meta property="og:image" content="https://aiword-wiki.github.io/og-thumbnail.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
 <meta property="og:site_name" content="AI Wiki">
 <meta property="og:locale" content="ko_KR">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="테스트 생성 (AI Test Generation) — AI Wiki">
-<meta name="twitter:description" content="AI가 코드를 분석해서 단위 테스트, 통합 테스트, 엣지 케이스 테스트를 자동으로 작성하는 기술. 테스트 커버리지를 높이는 데 드는 시간을 크게 줄여준다.">
+<meta property="article:published_time" content="">
+<meta property="article:modified_time" content="2026-04-04">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="테스트 생성란? (AI Test Generation) — AI Wiki">
+<meta name="twitter:description" content="테스트 생성란? AI가 코드를 분석해서 단위 테스트, 통합 테스트, 엣지 케이스 테스트를 자동으로 작성하는 기술. 테스트 커버리지를 높이는 데 드는 시간을 크게 줄여준다.">
+<meta name="twitter:image" content="https://aiword-wiki.github.io/og-thumbnail.png">
 <link rel="canonical" href="https://aiword-wiki.github.io/k/test-generation.html">
 <link rel="alternate" hreflang="ko" href="https://aiword-wiki.github.io/k/test-generation.html">
 <script type="application/ld+json">
@@ -32,13 +38,62 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "AI Wiki",
+      "item": "https://aiword-wiki.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "응용",
+      "item": "https://aiword-wiki.github.io/?cat=application"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "테스트 생성",
+      "item": "https://aiword-wiki.github.io/k/test-generation.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "테스트 생성 (AI Test Generation)",
+  "description": "AI가 코드를 분석해서 단위 테스트, 통합 테스트, 엣지 케이스 테스트를 자동으로 작성하는 기술. 테스트 커버리지를 높이는 데 드는 시간을 크게 줄여준다.",
+  "url": "https://aiword-wiki.github.io/k/test-generation.html",
+  "dateModified": "2026-04-04",
+  "author": {
+    "@type": "Organization",
+    "name": "AI Wiki"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Wiki",
+    "url": "https://aiword-wiki.github.io/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://aiword-wiki.github.io/k/test-generation.html"
+  }
+}
+</script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Noto Sans KR',sans-serif;background:#F3F0EB;color:#4a4540;min-height:100vh;display:flex;justify-content:center;padding:40px 20px}
   .wrap{max-width:720px;width:100%;background:#fff;border-radius:16px;padding:48px 40px;border:1px solid #e4dfd8}
   .cat{font-size:11px;color:#a09888;margin-bottom:8px}
-  .title{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
+  h1{font-size:30px;font-weight:900;color:#2d2a26;margin-bottom:4px}
   .en{font-size:13px;color:#a09888;margin-bottom:24px}
   .body{color:#5a5550;line-height:1.8;font-size:15px}
   .body h4{font-size:16px;font-weight:700;color:#2d2a26;margin:24px 0 8px}
@@ -47,6 +102,10 @@
   .body strong{font-weight:700;color:#2d2a26}
   .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
   .tags span{background:#F3F0EB;color:#a09888;padding:4px 12px;border-radius:20px;font-size:12px}
+  .related{margin-top:36px;padding-top:28px;border-top:1px solid #e4dfd8;font-size:14px;color:#5a5550;line-height:1.8}
+  .related b{color:#2d2a26;font-weight:700}
+  .related a{color:#C4613A;text-decoration:none;font-weight:500}
+  .related a:hover{text-decoration:underline}
   .back{display:inline-block;margin-top:32px;color:#C4613A;text-decoration:none;font-size:14px;font-weight:700}
   .back:hover{text-decoration:underline}
 </style>
@@ -54,11 +113,12 @@
 <body>
 <div class="wrap">
   <div class="cat">응용</div>
-  <div class="title">테스트 생성</div>
+  <h1>테스트 생성</h1>
   <div class="en">AI Test Generation</div>
   <div class="body"><p>AI가 코드를 분석해서 단위 테스트, 통합 테스트, 엣지 케이스 테스트를 자동으로 작성하는 기술. 테스트 커버리지를 높이는 데 드는 시간을 크게 줄여준다.</p><h4>개념 설명</h4><p>테스트 작성은 중요하다는 걸 알면서도 자꾸 미루게 되는 작업이다. AI 테스트 생성은 함수나 클래스를 주면 해당 코드의 동작을 분석해서 정상 케이스, 경계값, 예외 처리 등을 커버하는 테스트 코드를 자동으로 작성해준다. TDD 워크플로우에서 테스트 먼저 생성하고 구현을 나중에 하는 방식으로도 활용할 수 있다.</p>
 <h4>사용 예시</h4><p>Claude Code에 기존 함수를 붙여넣고 "Jest 테스트 작성해줘, 엣지 케이스 포함해서"라고 하면 빠르게 테스트 초안이 나온다. Cursor, Copilot 같은 IDE 통합 도구는 함수 위에서 단축키 한 번으로 테스트를 생성한다. 생성된 테스트는 항상 검토가 필요하다 — AI가 그럴듯해 보이지만 실제로 의미 없는 어설션을 작성하는 경우가 있기 때문이다. 생성된 테스트를 실제로 실행해서 실패-통과를 확인하는 것이 필수다.</p></div>
   <div class="tags"><span>#TDD</span><span>#테스트자동화</span><span>#품질</span></div>
+  <div class="related"><b>관련 키워드</b> <a href="https://aiword-wiki.github.io/k/code-generation.html">코드 생성</a>, <a href="https://aiword-wiki.github.io/k/ai-code-review.html">AI 코드 리뷰</a>, <a href="https://aiword-wiki.github.io/k/ai-coding.html">AI 코딩 어시스턴트</a></div>
   <a class="back" href="https://aiword-wiki.github.io/#test-generation">← AI Wiki에서 더 보기</a>
 </div>
 </body>
