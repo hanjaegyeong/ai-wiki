@@ -1,3 +1,7 @@
+## 2026-04-10 22:01
+- 추가: research-driven-agent
+- HOT: (없음)
+
 ## 2026-04-07 19:37
 - 추가: neurosymbolic-ai
 - HOT: neurosymbolic-ai, hermes-agent, goose, gemma, copilot-sdk, ai-supply-chain-attack, emotion-prompting, claude-dispatch, on-device-ai, kv-cache

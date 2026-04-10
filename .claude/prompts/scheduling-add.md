@@ -1,8 +1,39 @@
 AI Wiki 키워드 일일 자동 업데이트. --print 모드 전용 (스킬/서브에이전트 없이 직접 처리).
+API 호출은 전부 스크립트가 처리한다. WebSearch 사용 금지.
 
-## 1단계: 트렌드 수집 (최근 48시간)
+## 실행 로그
 
-GeekNews MCP로 수집한다 (HN/Reddit 핫토픽을 이미 커버):
+매 실행마다 `logs/runs/YYYY-MM-DD_HHMM/` 디렉토리를 생성하고, 각 단계의 원본 데이터와 채택 결과를 모두 저장한다.
+
+```
+logs/runs/2026-04-10_2046/
+├── trends.json                — 1단계: fetch-trends.js 원본 출력
+├── geeknews.json              — 1단계: GeekNews MCP 원본 (사용 가능 시)
+├── keywords-selected.json     — 2단계: 선정된 키워드 목록 + 선정 근거
+├── {keyword-id}/
+│   ├── sources.json           — 3단계: fetch-sources.js 원본 (웹20+영상20)
+│   ├── content.json           — 3단계: 작성된 콘텐츠 (sum, det, tags, rel)
+│   └── refs-videos.json       — 3단계: 채택된 refs + videos (채택 근거 포함)
+└── summary.md                 — 최종 요약 (추가/HOT/보강 키워드)
+```
+
+스크립트 출력(trends.json, sources.json)은 `--save-dir`로 자동 저장된다.
+에이전트 결과(content.json, refs-videos.json, keywords-selected.json, summary.md)는 Bash의 `cat <<'EOF' > 파일`로 저장한다.
+
+## 0단계: 실행 디렉토리 생성
+
+현재 시각 기준으로 `logs/runs/YYYY-MM-DD_HHMM/` 디렉토리를 생성한다.
+이후 모든 단계에서 이 경로를 `RUN_DIR`로 사용한다.
+
+## 1단계: 트렌드 수집
+
+Bash로 `node fetch-trends.js --save-dir $RUN_DIR` 실행하여 결과 JSON을 얻는다.
+→ `$RUN_DIR/trends.json` 자동 저장됨.
+- hackernews: HN API 상위 30개 중 AI 관련 필터링
+- hackernews_tavily: Tavily로 HN AI 뉴스 검색
+- reddit: Tavily로 Reddit AI 뉴스 검색
+
+추가로 GeekNews MCP가 사용 가능하면:
 - get_articles(type:'new', limit:30)
 - get_weekly_news()
 
@@ -22,24 +53,28 @@ GeekNews MCP로 수집한다 (HN/Reddit 핫토픽을 이미 커버):
 - 개수 제한 없음
 - 새 키워드 없으면 기존 항목 중 det이 부실한 것을 보강 (data.js에서 해당 항목만 읽기)
 
-## 3단계: 키워드별 리서치 + 콘텐츠 작성
+## 3단계: 키워드별 자료 수집 + 콘텐츠 작성
 
 선정된 키워드마다:
 
-### 검색 1: 리서치 + 레퍼런스
-- WebSearch로 "{키워드} 공식 문서 설명"을 검색
-- **공식 자료 우선**: 공식 문서 > 공식 블로그 > 논문 > 튜토리얼 (서드파티 블로그는 공식 자료 없을 때만)
+### 자료 수집 (스크립트)
+Bash로 `node fetch-sources.js --keyword "{영문}" --keyword-ko "{한국어}" --en "{English Name}" --save-dir $RUN_DIR/{keyword-id}/` 실행.
+→ `$RUN_DIR/{keyword-id}/sources.json` 자동 저장됨.
+결과 JSON에 web(EN/KO 각 10개) + youtube(EN/KO 각 10개, viewCount 포함)가 담긴다.
+
+### refs 채택 (수집된 web 결과에서)
+- 공식 자료 우선: 공식 문서 > 공식 블로그 > 논문 > 튜토리얼
 - refs 최대 5개, arXiv 논문 최대 2개 (있으면)
 - 기존 항목에 이미 refs가 있으면 누락분만 추가
 
-### 검색 2: YouTube (정확히 3개 = 영어 2 + 한국어 1)
-- WebSearch `site:youtube.com {keyword}` → 영어 영상 2개
-- WebSearch `site:youtube.com {한국어키워드}` → 한국어 영상 1개
-- 한국어 영상 못 찾으면 `{키워드} 한국어 설명 site:youtube.com`으로 재검색
-- YouTube ID는 v= 뒤 11자리만
-- 기존 항목에 이미 videos가 있으면 누락분만 추가 (예: 영어 2개 있으면 한국어 1개만)
+### videos 채택 (수집된 youtube 결과에서)
+- 정확히 3개 = 영어 2 + 한국어 1
+- **조회수(viewCount)를 주요 판단 기준에 포함**
+- 조회수가 높고 콘텐츠 품질이 좋은 영상 우선
+- YouTube ID는 videoId 필드 사용
+- 기존 항목에 이미 videos가 있으면 누락분만 추가
 
-### 콘텐츠 작성
+### 콘텐츠 작성 (수집된 web 결과 기반)
 - **sum**: 1~2문장. 뭔지 + 왜 쓰는지. 수치로 시작 금지.
 - **det**: `<h4>`섹션 + `<p>`문단. 줄글 중심, 글머리표 금지.
   - 순서: 개념 설명 → 사용 예시 → 심화(선택) → 주의점(선택)

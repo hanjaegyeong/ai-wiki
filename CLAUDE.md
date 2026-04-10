@@ -208,21 +208,62 @@ JS 배열 `D`의 각 항목:
 ```
 .claude/
 ├── agents/                        # 서브에이전트 정의
-│   ├── researcher.md              # 키워드 리서치 + 정확도 검증
-│   ├── reference-collector.md     # 레퍼런스, YouTube, 이미지 수집
+│   ├── researcher.md              # 제공된 검색 결과에서 콘텐츠 작성
+│   ├── reference-collector.md     # 제공된 검색 결과에서 refs/videos 채택
 │   └── importance-analyst.md      # (미사용)
 ├── hooks/
 │   ├── sync-claude-md.sh          # Edit/Write 후 CLAUDE.md 동기화 알림
 │   └── check-plan-update.sh       # Stop 시 PLAN-CURRENT.md 업데이트 알림
-├── prompts/                       # (비어 있음 — scheduling-add 스킬로 통합)
 ├── skills/                        # 스킬 (슬래시 커맨드)
 │   ├── add-keyword/SKILL.md       # /add-keyword — 키워드 1개 추가
-│   ├── scheduling-add/SKILL.md     # /scheduling-add — 일일 자동 키워드 업데이트 + HOT 표식 + 로깅
+│   ├── scheduling-add/SKILL.md     # /scheduling-add — 일일 자동 키워드 업데이트
 │   ├── commit/SKILL.md            # /commit — 기능 단위 커밋+푸시
 │   ├── start-phase/SKILL.md       # /start-phase — 플랜 항목 시작
 │   ├── complete-phase/SKILL.md    # /complete-phase — 플랜 항목 완료
 │   └── validate-plan/SKILL.md     # /validate-plan — 현재 플랜 검증
+fetch-sources.js                   # 키워드별 웹+영상 검색 (Tavily + YouTube API)
+fetch-trends.js                    # 트렌드 수집 (HN API + Tavily)
+.env                               # API 키 (TAVILY_API_KEY, YOUTUBE_API_KEY)
 ```
+
+### 데이터 수집 파이프라인
+
+에이전트는 검색(API 호출)을 하지 않는다. 스크립트가 데이터를 수집하고, 에이전트는 수집된 데이터로 글쓰기/채택만 한다.
+
+#### /scheduling-add 전체 흐름
+
+| 단계 | 작업 | 실행 주체 | 비고 |
+|------|------|----------|------|
+| 1 | 트렌드 토픽 수집 | `node fetch-trends.js` | HN API + Tavily (HN/Reddit) |
+| 2 | 긱뉴스 수집 | GeekNews MCP | get_articles + get_weekly_news |
+| 3 | 신규 키워드 선정 | 메인 컨텍스트 | data.js 대조, 중복 제거 |
+| 4 | 키워드별 자료 수집 | `node fetch-sources.js` | Tavily (웹 EN/KO) + YouTube API (EN/KO) |
+| 5 | 콘텐츠 작성 | **에이전트** (researcher) | 수집된 web 결과 기반 sum/det 작성 |
+| 6 | refs/videos 채택 | **에이전트** (reference-collector) | 수집된 web+youtube에서 선정 (조회수 반영) |
+| 7 | 검증 + data.js 반영 | 메인 컨텍스트 | 중복 확인, rel 매칭, HTML 검증 |
+| 8 | 번역 | **에이전트** | EN/ZH/JA 3개 언어 |
+| 9 | HOT_IDS 갱신 | 메인 컨텍스트 | data.js 직접 수정 |
+| 10 | 빌드 | `node build.js` | SEO 페이지 + sitemap |
+| 11 | 로깅 + 커밋 | 메인 컨텍스트 | log.md, git push |
+
+#### /add-keyword 흐름
+
+| 단계 | 작업 | 실행 주체 | 비고 |
+|------|------|----------|------|
+| 1 | 자료 수집 | `node fetch-sources.js` | Tavily (웹 EN/KO) + YouTube API (EN/KO) |
+| 2 | 콘텐츠 작성 | **에이전트** (researcher) | 수집된 web 결과 기반 |
+| 3 | refs/videos 채택 | **에이전트** (reference-collector) | 수집된 web+youtube에서 선정 |
+| 4 | 검증 + data.js 반영 | 메인 컨텍스트 | |
+| 5 | 번역 | **에이전트** | EN/ZH/JA |
+| 6 | 빌드 | `node build.js` | SEO 페이지 + sitemap |
+
+#### API 사용량 (키워드 1개당)
+
+| API | 호출 수 | 무료 한도 |
+|-----|---------|----------|
+| Tavily | 2회 (EN/KO 검색) | 1,000/월 |
+| YouTube search.list | 2회 (EN/KO) | 10,000 units/일 |
+| YouTube videos.list | 1회 (조회수) | (search와 합산) |
 
 ### HOT 키워드 표식
 
@@ -252,10 +293,12 @@ JS 배열 `D`의 각 항목:
 ```
 /add-keyword "Agentic RAG"
   │
-  ├─ [병렬] Agent(researcher.md)          → 정의, 개요, 검증
-  ├─ [병렬] Agent(reference-collector.md) → URL, YouTube, 이미지
+  ├─ [스크립트] node fetch-sources.js     → 웹 20개 + 영상 20개 수집
   │
-  └─ 메인: 결과 종합 → 검증 → index.html 수정
+  ├─ [병렬] Agent(researcher.md)          → 수집 데이터로 콘텐츠 작성
+  ├─ [병렬] Agent(reference-collector.md) → 수집 데이터에서 refs/videos 채택
+  │
+  └─ 메인: 결과 종합 → 검증 → data.js 수정
 ```
 
 ### 플랜 관리 흐름
