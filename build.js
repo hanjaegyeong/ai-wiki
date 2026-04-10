@@ -81,7 +81,7 @@ for (const e of D) {
 <meta property="og:title" content="${escHtml(title)}">
 <meta property="og:description" content="${escHtml(desc)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${BASE}/og-thumbnail.png">
+<meta property="og:image" content="${BASE}/og-thumbnail.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:site_name" content="AI Wiki">
@@ -91,7 +91,7 @@ for (const e of D) {
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${escHtml(title)}">
 <meta name="twitter:description" content="${escHtml(desc)}">
-<meta name="twitter:image" content="${BASE}/og-thumbnail.png">
+<meta name="twitter:image" content="${BASE}/og-thumbnail.png?v=2">
 <link rel="canonical" href="${url}">
 <link rel="alternate" hreflang="ko" href="${url}">
 <script type="application/ld+json">
