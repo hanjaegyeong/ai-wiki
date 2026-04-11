@@ -2,6 +2,33 @@
 
 ---
 
+## 레퍼런스/영상 누락 키워드 일괄 보강 (2026-04-12 완료)
+
+- [x] 누락 키워드 목록 확정 (refs 31개 / videos 45+44개)
+- [x] 배치 수집 스크립트 작성 (batch-fetch-gaps.py + apply-gaps.js)
+- [x] refs 누락 31개 키워드 웹 검색 + 채택 → 전체 적용 완료
+- [ ] videos 완전 누락 45개 → Day 2 (PLAN.md로 이관)
+- [ ] videos 부족 44개 → Day 2 (PLAN.md로 이관)
+- [ ] data.js videos 반영 → Day 2
+- [ ] 빌드 + 검증 → Day 2
+
+### 부수 성과
+- refs 워크플로우 개선: researcher가 det 작성 시 참고한 출처만 refs에 넣도록 전체 파이프라인 수정
+  - researcher.md, reference-collector.md, add-keyword/SKILL.md, content-generate.md, CLAUDE.md 모두 반영
+- YouTube 검색 쿼리 개선: "AI" 접두어 추가로 무관 결과 감소
+
+### 진행 로그
+| 시간 | 작업 내용 |
+|------|----------|
+| 2026-04-12 | 플랜 시작, 현황 분석 완료 |
+| 2026-04-12 | batch-fetch-gaps.py + apply-gaps.js 작성 |
+| 2026-04-12 | Day 1 fetch 71개 키워드 (refs 12개 + videos 59개) |
+| 2026-04-12 | 무관 KO 영상 18개 제거, YouTube 할당량 소진 확인 |
+| 2026-04-12 | refs 워크플로우 개선 (researcher가 refs 직접 출력) |
+| 2026-04-12 | refs 31개 전체 적용 완료 (batch 1: 12개 + batch 2: 19개) |
+
+---
+
 ## 초기 구축 (2026-04-01 완료)
 
 - [x] 단일 HTML 파일 기반 카드 그리드 UI

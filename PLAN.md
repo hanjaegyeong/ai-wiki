@@ -7,4 +7,5 @@
 > `/start-phase` 시 가장 상단의 플랜부터 실행
 
 ## TODO
--  레퍼런스 없거나 영상(영어2,한국어1) 없는 키워드에 추가
+(현재 항목 진행 중 — PLAN-CURRENT.md 참조)
+- YouTube 영상 누락분 수집 (Day 2): KO 재수집 17개 + 나머지 36개 키워드 fetch + apply-gaps.js 적용

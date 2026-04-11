@@ -154,7 +154,7 @@ JS 배열 `D`의 각 항목:
   sum: '한 줄 요약',                    // 요약 (모달 본문 첫 문단)
   det: '<h4>...</h4><ul>...</ul>',     // 상세 HTML (모달 본문)
   rel: ['tool-use', 'claude-code'],    // 관련 항목 ID 배열
-  refs: [                              // 레퍼런스 — 공식 자료 우선 (공식문서 > 공식블로그 > 논문 > 튜토리얼)
+  refs: [                              // 레퍼런스 — det 작성 시 실제 참고한 출처만
     {title: '제목', url: 'https://...', type: 'official|blog|paper|tutorial'}
   ],
   videos: [                            // YouTube 영상 — 정확히 3개: 영어 2개 + 한국어 1개
@@ -170,7 +170,7 @@ JS 배열 `D`의 각 항목:
 - 자동: `/add-keyword` 스킬 사용 (서브에이전트가 리서치+검증+수집 처리)
 - 자동/대량: `/scheduling-add` 스킬 사용
 - **기존 데이터 보존**: 이미 refs/videos가 있으면 누락분만 채운다. 기존 항목을 덮어쓰지 않는다
-- **refs 공식 자료 우선**: 공식 문서 > 공식 블로그 > 논문 > 튜토리얼 순서
+- **refs = det 작성 시 실제 참고한 출처만**: det에서 정보를 가져오지 않은 URL은 넣지 않는다
 - **videos 구성**: 영어 2개 + 한국어 1개 = 총 3개 고정
 
 ---
@@ -181,8 +181,8 @@ JS 배열 `D`의 각 항목:
 
 | 작업 | 사용 에이전트 |
 |------|-------------|
-| 키워드 추가 | researcher + reference-collector |
-| 기존 항목 수정 | researcher(검증) + reference-collector(최신 자료) |
+| 키워드 추가 | researcher(콘텐츠+refs) + reference-collector(videos만) |
+| 기존 항목 수정 | researcher(검증+refs) + reference-collector(videos 보충) |
 | 트렌드 조사 | researcher |
 
 에이전트 실행 후 메인에서 결과를 종합·검증하고 index.html에 반영한다.

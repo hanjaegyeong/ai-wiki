@@ -32,8 +32,8 @@ node fetch-sources.js --keyword "{english}" --keyword-ko "{한국어}" --en "{En
 ### 3단계: 서브에이전트 2개를 **병렬** 실행
 Agent 도구로 2개를 동시에 띄운다:
 
-- **researcher 에이전트**: `researcher.md` 정의를 프롬프트로 전달하고, fetch 결과의 `web` 데이터(검색 결과 텍스트)를 함께 전달한다. 에이전트는 이 데이터를 바탕으로 콘텐츠를 작성한다.
-- **reference-collector 에이전트**: `reference-collector.md` 정의를 프롬프트로 전달하고, fetch 결과 전체(`web` + `youtube`)를 함께 전달한다. 에이전트는 이 데이터에서 refs와 videos를 채택한다.
+- **researcher 에이전트**: `researcher.md` 정의를 프롬프트로 전달하고, fetch 결과의 `web` 데이터(검색 결과 텍스트)를 함께 전달한다. 에이전트는 이 데이터를 바탕으로 콘텐츠를 작성하고, **det 작성 시 실제 참고한 출처를 refs로 직접 출력한다.**
+- **reference-collector 에이전트**: `reference-collector.md` 정의를 프롬프트로 전달하고, fetch 결과의 `youtube` 데이터를 함께 전달한다. 에이전트는 이 데이터에서 **videos만** 채택한다.
 
 ### 4단계: 결과 종합
 2개 에이전트의 결과를 합쳐 하나의 항목 객체로 구성한다:
@@ -60,7 +60,7 @@ Agent 도구로 2개를 동시에 띄운다:
 - `id`가 기존 항목과 중복되지 않는지 확인
 - `rel`에 있는 ID들이 기존 항목에 존재하는지 확인, 없으면 제거
 - `det` HTML이 유효한지 확인
-- `refs`가 공식 자료 위주인지 확인 (공식문서 > 공식블로그 > 논문 > 튜토리얼)
+- `refs`가 det 작성 시 실제 참고한 출처인지 확인
 - `videos`가 정확히 3개(영어 2 + 한국어 1)인지 확인
 
 ### 6단계: 다국어 번역 생성
