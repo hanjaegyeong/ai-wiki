@@ -115,7 +115,13 @@ function insertIntoI18n(src, lang, text) {
   const pos = src.indexOf(closingMarker);
   if (pos === -1) throw new Error(`Could not find closing marker for I18N_CONTENT.${lang}: "${closingMarker}"`);
 
-  return src.slice(0, pos + 1) + '\n' + text + src.slice(pos + 1);
+  // 마지막 기존 항목 뒤에 쉼표가 없으면 추가
+  const before = src.slice(0, pos + 1);
+  const trimmed = before.trimEnd();
+  const needsComma = trimmed.endsWith('}') && !trimmed.endsWith('},');
+  const prefix = needsComma ? before.slice(0, -1) + ',\n' : before;
+
+  return prefix + '\n' + text + src.slice(pos + 1);
 }
 
 /**

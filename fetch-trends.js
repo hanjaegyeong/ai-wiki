@@ -35,6 +35,75 @@ function loadEnv(envPath) {
 }
 
 // ---------------------------------------------------------------------------
+// GeekNews (news.hada.io) — HTML scraping
+// ---------------------------------------------------------------------------
+const GN_BASE = 'https://news.hada.io';
+const GN_HEADERS = { 'User-Agent': 'AI-Wiki-Bot/1.0' };
+
+async function fetchGeekNews() {
+  const res = await fetch(GN_BASE + '/new', { headers: GN_HEADERS });
+  if (!res.ok) throw new Error(`GeekNews error (${res.status})`);
+  const html = await res.text();
+
+  const articles = [];
+  // Split by topic_row boundaries
+  const parts = html.split(/class='topic_row'/);
+  for (let i = 1; i < parts.length && articles.length < 10; i++) {
+    const block = parts[i];
+
+    // Title + URL: <a href='topic?id=NNN' ...><h1>Title</h1></a>
+    const linkMatch = block.match(/class=topictitle>[\s\S]*?<a[^>]+href='([^']+)'[^>]*>([\s\S]*?)<\/a>/);
+    if (!linkMatch) continue;
+
+    let url = linkMatch[1];
+    const title = linkMatch[2].replace(/<[^>]+>/g, '').trim();
+    if (!url.startsWith('http')) url = GN_BASE + '/' + url;
+
+    // Points: <span id='tpNNN'>NN</span>
+    const ptsMatch = block.match(/<span id='tp\d+'>(\d+)<\/span>/);
+    const points = ptsMatch ? parseInt(ptsMatch[1]) : 0;
+
+    articles.push({ title, url, points });
+  }
+  return articles;
+}
+
+async function fetchGeekNewsWeekly() {
+  // 1. Find latest weekly ID
+  const listRes = await fetch(GN_BASE + '/weekly', { headers: GN_HEADERS });
+  if (!listRes.ok) throw new Error(`GeekNews weekly list error (${listRes.status})`);
+  const listHtml = await listRes.text();
+
+  const idMatch = listHtml.match(/<a href='\/weekly\/(\d+)' class='u'>/);
+  if (!idMatch) throw new Error('GeekNews: 최신 주간뉴스 ID를 찾을 수 없음');
+  const weeklyId = idMatch[1];
+
+  // 2. Fetch weekly detail
+  const detailRes = await fetch(`${GN_BASE}/weekly/${weeklyId}`, { headers: GN_HEADERS });
+  if (!detailRes.ok) throw new Error(`GeekNews weekly detail error (${detailRes.status})`);
+  const detailHtml = await detailRes.text();
+
+  // 3. Extract items from desc div
+  const items = [];
+  const descMatch = detailHtml.match(/class=['"]desc['"]>([\s\S]*?)<\/div>/);
+  if (descMatch) {
+    const linkRegex = /<a[^>]+href=['"]([^'"]+)['"][^>]*>([^<]+)<\/a>/g;
+    let m;
+    while ((m = linkRegex.exec(descMatch[1])) !== null) {
+      let linkUrl = m[1];
+      const linkTitle = m[2].trim();
+      if (!linkTitle || !linkUrl) continue;
+      if (!linkUrl.startsWith('http')) linkUrl = GN_BASE + linkUrl;
+      if (!items.some(it => it.url === linkUrl)) {
+        items.push({ title: linkTitle, url: linkUrl });
+      }
+    }
+  }
+
+  return { id: weeklyId, items };
+}
+
+// ---------------------------------------------------------------------------
 // Hacker News
 // ---------------------------------------------------------------------------
 const HN_AI_KEYWORDS = [
@@ -121,19 +190,20 @@ async function main() {
     process.exit(1);
   }
 
-  const hnTavilyQuery = 'AI OR LLM OR machine learning new 2026 site:news.ycombinator.com';
   const redditQuery = 'AI OR LLM OR machine learning new 2026 site:reddit.com';
 
-  const [hackernews, hackernews_tavily, reddit] = await Promise.all([
+  const [hackernews, reddit, geeknews, geeknews_weekly] = await Promise.all([
     fetchHackerNews(),
-    tavilySearch(hnTavilyQuery, TAVILY_API_KEY, 10),
     tavilySearch(redditQuery, TAVILY_API_KEY, 10),
+    fetchGeekNews().catch(err => { console.error('GeekNews fetch failed:', err.message); return []; }),
+    fetchGeekNewsWeekly().catch(err => { console.error('GeekNews weekly failed:', err.message); return { id: '', items: [] }; }),
   ]);
 
   const result = {
     hackernews,
-    hackernews_tavily,
     reddit,
+    geeknews,
+    geeknews_weekly,
   };
 
   const json = JSON.stringify(result, null, 2);

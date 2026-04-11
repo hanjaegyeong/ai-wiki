@@ -274,20 +274,36 @@ fetch-trends.js                    # 트렌드 수집 (HN API + Tavily)
 - **갱신 규칙**: 매 실행 시 HOT_IDS를 **전체 비우고** 해당 배치 기준으로 재설정
 - **대상**: 해당 배치에서 트렌딩으로 식별된 키워드 (신규 + 기존 모두)
 
-### 로컬 스케줄러 (launchd)
+### 로컬 스케줄러 (launchd + pmset)
 
 - **스케줄**: 매일 09:00 KST
-- **방식**: macOS launchd (crontab 대체 — Desktop 폴더 TCC 권한 문제로 전환)
+- **자동 기상**: `pmset repeat wakeorpoweron MTWRFSU 08:59:00` — 잠자기 상태에서 08:59에 자동 wake
+- **방식**: macOS launchd → `~/run-daily.sh` → 6-stage 파이프라인
 - **plist**: `~/Library/LaunchAgents/com.aiwiki.daily.plist`
-- **스크립트**: `~/run-daily.sh` (홈 디렉토리에 위치 — Desktop 접근 전 실행 가능해야 함)
-- **동작**: `/scheduling-add` 스킬 실행 (트렌드 수집 → 키워드 추가 → HOT 갱신 → 빌드 → log.md 로깅 → 커밋)
-- **로그**: `logs/daily.log` (디버그 포함), `/tmp/aiwiki-launchd.log` (launchd stderr)
-- **실행 기록**: `log.md` (날짜+시간별 추가/HOT/보강 키워드 기록)
-- **전제**: 맥북이 켜져 있어야 함
+- **스크립트**: `~/run-daily.sh` (6-stage 파이프라인)
+
+#### 파이프라인 구조 (run-daily.sh)
+
+| Stage | 실행 주체 | 동작 | timeout |
+|-------|----------|------|---------|
+| 1 | `node fetch-trends.js` | HN API + Tavily 트렌드 수집 | - |
+| 2 | Claude `--print` | 키워드 선정 (JSON 출력) | 10분 |
+| 3 | `node fetch-sources.js` | 키워드별 Tavily + YouTube API | - |
+| 4 | Claude `--print` | 콘텐츠 작성 + refs/videos 채택 (JSON 출력) | 10분 |
+| 5 | `node apply-entries.js` | data.js에 반영 | - |
+| 6 | 쉘 | build.js + log.md + git commit/push | - |
+
+- **전체 timeout**: 20분
+- **로그**: `logs/daily.log`, `logs/daily-err.log`
+- **실행 기록**: `logs/runs/YYYY-MM-DD_HHMM/` (단계별 원본 데이터 + 결과)
+- **실행 기록 요약**: `log.md` (날짜+시간별 추가/HOT/보강 키워드)
+- **전제**: 맥북 잠자기 OK (pmset이 깨움), 전원 꺼짐은 불가
 - **관리 명령**:
   - 등록 확인: `launchctl list com.aiwiki.daily`
   - 수동 실행: `launchctl start com.aiwiki.daily`
   - 시간 변경: plist의 `Hour`/`Minute` 수정 후 unload → load
+  - wake 확인: `pmset -g sched`
+  - wake 변경: `sudo pmset repeat wakeorpoweron MTWRFSU HH:MM:00`
 
 ### 키워드 추가 흐름
 ```

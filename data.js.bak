@@ -1,5 +1,5 @@
-const HOT_IDS = ['skills','agentic-engineering','orchestration','knowledge-base','claude-code'];
-const LAST_UPDATED = '2026-04-10T06:00:00Z';
+const HOT_IDS = ['research-driven-agent'];
+const LAST_UPDATED = '2026-04-10T13:01:16Z';
 
 const D = [
   {id:'harness-engineering',t:'하네스 엔지니어링',en:'Harness Engineering',c:'prompting',h:4,born:'2026-02',tags:['시스템설계','오케스트레이션'],
@@ -38,7 +38,7 @@ const D = [
    det:`<h4>에이전트란</h4><p>일반적인 AI는 질문하면 답하고 끝이다. 에이전트는 다르다. 목표를 주면 그걸 달성하기 위해 스스로 계획을 세우고, 필요한 도구를 골라 실행하고, 결과를 관찰해서 다음 행동을 조정한다. 이 <strong>인식 → 추론 → 행동 → 관찰</strong>의 루프가 핵심이다.</p>
 <h4>사용 예시</h4><p>Claude Code 자체가 대표적인 AI 에이전트다. "이 버그 고쳐줘"라고 시키면 코드를 탐색하고, 원인을 추론하고, 파일을 수정하고, 테스트를 돌려서 확인한다. 이 과정에서 사람이 각 단계를 지시할 필요가 없다.</p>
 <p>직접 에이전트를 만들 수도 있다. Claude API에 도구(Tool Use)를 정의해서 연결하면, 모델이 상황에 맞는 도구를 골라 호출하고 결과를 다음 추론에 활용한다. 예를 들어 웹 검색, 코드 실행, DB 조회 도구를 묶어 두면 복합적인 요청을 스스로 단계별로 처리하는 에이전트가 된다.</p>`,
-   rel:['multi-agent','agent-framework','tool-use'],
+   rel:['multi-agent','agent-framework','tool-use','research-driven-agent'],
    refs:[{"title": "Building Effective Agents – Anthropic Research", "url": "https://www.anthropic.com/research/building-effective-agents", "type": "official"}, {"title": "A Practical Guide to Building Agents – OpenAI", "url": "https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf", "type": "official"}, {"title": "Introduction to AI Agents – Prompt Engineering Guide", "url": "https://www.promptingguide.ai/agents/introduction", "type": "tutorial"}],
    videos:[{"title": "How We Build Effective Agents – Barry Zhang, Anthropic", "id": "D7_ipDqhtwk", "lang": "en"},{title:'Building and evaluating AI Agents',id:'d5EltXhbcfA',lang:'en'},{title:'Stanford Webinar Agentic AI',id:'kJLiOGle3Lw',lang:'en'}],
    added:'2026-03-30',updated:'2025-12-01'},
@@ -105,7 +105,7 @@ const D = [
 <h4>사용 예시</h4><p>Claude API에서 도구를 정의할 때 이름, 설명, 입력 스키마를 JSON으로 전달한다. 모델이 사용자 요청을 보고 적절한 도구를 골라 호출하면, 개발자 코드가 실행 결과를 다시 모델에 전달하는 루프를 반복한다.</p>
 <p>예를 들어 웹 검색, DB 조회, 코드 실행 도구를 묶어 두면 "지난달 매출 추이를 분석해줘"라는 요청에 모델이 DB 조회 → 데이터 정리 → 분석 코드 실행을 스스로 이어간다. Claude Code에서 파일 읽기, 편집, 셸 실행, 검색이 모두 도구로 구현되어 있어서, 에이전트가 코드베이스를 자율적으로 다룰 수 있는 것도 이 메커니즘 덕분이다.</p>
 <p>MCP는 이 도구 연결을 표준화한 것이다. 도구를 하나하나 코드로 정의하는 대신, MCP 서버를 연결하면 해당 서비스의 기능이 도구로 자동 등록된다.</p>`,
-   rel:['mcp','agent-framework','harness-engineering'],
+   rel:['mcp','agent-framework','harness-engineering','research-driven-agent'],
    refs:[{"title": "Tool use with Claude – API Docs", "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview", "type": "official"}, {"title": "Advanced tool use – Anthropic Engineering", "url": "https://www.anthropic.com/engineering/advanced-tool-use", "type": "official"}, {"title": "Writing effective tools for AI agents – Anthropic", "url": "https://www.anthropic.com/engineering/writing-tools-for-agents", "type": "official"}],
    videos:[{"title": "MCP Workshop – Mahesh Murag, Anthropic", "id": "kQmXtrmQ5Zg", "lang": "en"},{title:'Building Agents with MCP - Anthropic',id:'kQmXtrmQ5Zg',lang:'en'},{title:'Build Anything with Claude Agents',id:'5CmAKm1wWW0',lang:'en'}],
    added:'2026-03-30',updated:'2025-12-01'},
@@ -116,7 +116,7 @@ const D = [
 <h4>사용 예시</h4><p>가장 흔한 활용은 자체 문서 기반 Q&A다. 사내 위키, API 문서, 매뉴얼을 임베딩해서 벡터 DB에 넣어 두면, "배포 절차가 어떻게 돼?"라고 물었을 때 실제 문서에서 관련 부분을 찾아 답변한다.</p>
 <p>구축 파이프라인은 문서 수집 → 청킹(작은 단위로 분할) → 임베딩(벡터 변환) → 벡터 DB 저장 → 검색 → LLM 생성의 6단계다. LangChain이나 LlamaIndex 같은 프레임워크로 이 파이프라인을 빠르게 구성할 수 있다.</p>
 <p>기본 RAG 외에도 Graph RAG(지식 그래프 기반 검색), Agentic RAG(에이전트가 검색 전략을 스스로 결정), Hybrid RAG(키워드 + 시맨틱 검색 결합) 등으로 진화하고 있다.</p>`,
-   rel:['embedding','vector-db','chunking'],
+   rel:['embedding','vector-db','chunking','research-driven-agent'],
    refs:[{"title": "What is RAG? – Google Cloud", "url": "https://cloud.google.com/use-cases/retrieval-augmented-generation", "type": "official"}, {"title": "RAG in Azure AI Search – Microsoft", "url": "https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview", "type": "official"}, {"title": "RAG – Cohere Docs", "url": "https://docs.cohere.com/docs/retrieval-augmented-generation-rag", "type": "official"}],
    videos:[{"title": "Learn RAG From Scratch – freeCodeCamp", "id": "sVcwVQRHIc8", "lang": "en"},{title:'Beginners Guide to RAG',id:'PrYuqtT43BE',lang:'en'},{title:'Enhancing RAG with Knowledge Graphs',id:'PxcOIINgiaA',lang:'en'}],
    added:'2026-03-30',updated:'2025-12-01'},
@@ -269,7 +269,7 @@ const D = [
    det:`<h4>환각이란</h4><p>LLM에게 모르는 걸 물으면 "모릅니다"가 아니라 그럴듯한 답을 만들어 낸다. 존재하지 않는 논문을 인용하고, 없는 API를 코드에 쓰고, 틀린 사실을 자신 있게 말한다. 모델이 다음 토큰을 확률적으로 예측하는 방식으로 텍스트를 생성하기 때문에, 사실 여부를 실시간으로 검증하지 못하는 구조적 한계다.</p>
 <h4>사용 예시</h4><p>개발할 때 가장 흔히 마주치는 환각은 존재하지 않는 라이브러리나 함수를 쓰는 것이다. AI가 생성한 코드가 타입 에러 없이 깔끔해 보이는데, 실제로 돌리면 "module not found"가 뜬다.</p>
 <p>대응 방법은 여러 겹으로 쌓는다. RAG로 실제 문서를 참조하게 하고, 시스템 프롬프트에 "확실하지 않으면 모른다고 해"를 넣고, 가드레일로 출력을 검증하고, 중요한 정보는 사람이 최종 확인한다. 완전히 없앨 수는 없지만 발생 확률을 크게 줄일 수 있다.</p>`,
-   rel:['rag','guardrail'],
+   rel:['rag','guardrail','research-driven-agent'],
    refs:[{"title": "What Are AI Hallucinations? – IBM", "url": "https://www.ibm.com/think/topics/ai-hallucinations", "type": "official"}, {"title": "Hallucination Detection in LLMs – arXiv", "url": "https://arxiv.org/html/2601.09929v1", "type": "paper"}],
    videos:[{"title": "Deep Dive into LLMs – Andrej Karpathy", "id": "7xTGNNLPyMI", "lang": "en"},{title:'Why LLMs Hallucinate - IBM Technology',id:'cfqtFvWOfg0',lang:'en'}],
    added:'2026-03-30',updated:'2025-12-01'},
@@ -330,7 +330,7 @@ const D = [
    det:`<h4>ReAct 패턴이란</h4><p>에이전트가 문제를 풀 때 머릿속으로 생각만 하는 것도 아니고, 생각 없이 행동만 하는 것도 아닌, 둘을 번갈아 하는 패턴이다. Thought(이 문제를 풀려면 먼저 ~를 확인해야겠다) → Action(검색 도구 호출) → Observation(검색 결과 확인) → Thought(이 결과를 보면 ~인 것 같다) → Action(다음 도구 호출)... 이 루프가 답에 도달할 때까지 반복된다.</p>
 <h4>사용 예시</h4><p>Claude의 도구 사용이 이 패턴으로 동작한다. "이 프로젝트의 테스트 커버리지를 확인해줘"라고 시키면, 먼저 프로젝트 구조를 탐색하고(Action), 테스트 파일들을 확인하고(Observation), 커버리지 도구를 실행하고(Action), 결과를 분석해서(Observation) 보고한다.</p>
 <p>추론 과정이 명시적으로 기록되기 때문에 에이전트가 왜 그런 행동을 했는지 추적하고 디버깅할 수 있다. 에이전트가 이상하게 동작하면 Thought 로그를 확인해서 어디서 판단이 잘못됐는지 찾을 수 있다.</p>`,
-   rel:['ai-agent','chain-of-thought'],
+   rel:['ai-agent','chain-of-thought','research-driven-agent'],
    refs:[{"title": "ReAct: Synergizing Reasoning and Acting (원 논문) – arXiv", "url": "https://arxiv.org/abs/2210.03629", "type": "paper"}, {"title": "ReAct Prompting – Prompt Engineering Guide", "url": "https://www.promptingguide.ai/techniques/react", "type": "tutorial"}, {"title": "What is a ReAct Agent? – IBM", "url": "https://www.ibm.com/think/topics/react-agent", "type": "blog"}],
    videos:[{"title": "Deep Dive into LLMs – Andrej Karpathy", "id": "7xTGNNLPyMI", "lang": "en"},{title:'Understanding ReACT with LangChain',id:'Eug2clsLtFs',lang:'en'}],
    added:'2026-03-30',updated:'2025-12-01'},
@@ -784,7 +784,7 @@ refs:[],videos:[{title:'How We Build Effective Agents (Anthropic)',id:'D7_ipDqht
   {id:'agentic-rag',t:'에이전틱 RAG',en:'Agentic RAG',c:'agent',h:3,born:'2024-03',tags:['RAG','에이전트','검색'],
 sum:'단순 검색-생성 파이프라인을 넘어, AI 에이전트가 검색 전략을 스스로 결정하고 반복·검증하는 고급 RAG 방식. 복잡한 질문에도 정확한 답을 찾아낸다.',
 det:`<h4>개념 설명</h4><p>기본 RAG는 질문 → 검색 → 생성의 단순한 흐름이다. 에이전틱 RAG는 여기에 에이전트의 판단력을 더한다. 검색 결과가 불충분하면 다시 검색하고, 여러 소스를 비교하고, 필요하면 질문 자체를 바꿔가며 탐색한다. \"한 번의 검색으로 못 찾으면 포기\"하는 것이 아니라, 사람처럼 끈질기게 정보를 찾아가는 방식이다.</p><h4>사용 예시</h4><p>법률 문서 검색 시스템에서 사용자가 복잡한 법적 질문을 하면, 에이전틱 RAG는 먼저 관련 조항을 찾고, 결과가 부족하면 관련 판례로 검색을 확장하고, 두 소스를 비교해 모순이 있으면 추가 검증을 거치는 식으로 동작한다. LlamaIndex의 <code>RouterQueryEngine</code>이나 LangChain의 <code>AgentExecutor</code>로 구현할 수 있다.</p>`,
-rel:['rag','ai-agent','tool-use','embedding','vector-db','react-pattern'],
+rel:['rag','ai-agent','tool-use','embedding','vector-db','react-pattern','research-driven-agent'],
 refs:[],videos:[{title:'Stanford Webinar — Agentic AI: A Progression of Language Model Usage',id:'kJLiOGle3Lw',lang:'en'},{title:'Building and Evaluating AI Agents',id:'d5EltXhbcfA',lang:'en'},{title:'Agentic RAG 구현 - 테디노트',id:'mFBaEZ4VAGI',lang:'ko'}],updated:'2026-04-04'},
 
   {id:'computer-use',t:'컴퓨터 사용',en:'Computer Use',c:'agent',h:3,born:'2024-10',tags:['Anthropic','GUI','자동화'],
@@ -802,25 +802,25 @@ refs:[{title:'Introducing Operator - OpenAI',url:'https://openai.com/index/intro
   {id:'task-decomposition',t:'태스크 분해',en:'Task Decomposition',c:'agent',h:3,born:'2023-03',tags:['계획','분할정복','LLM'],
 sum:'복잡한 목표를 AI가 처리할 수 있는 작은 단계들로 나누는 기술. 에이전트가 큰 작업을 실패 없이 완수하기 위한 핵심 전략이다.',
 det:`<h4>개념 설명</h4><p>LLM에게 \"신제품 출시 마케팅 계획 세워줘\"처럼 큰 작업을 한번에 주면 어디서부터 시작해야 할지 막막하다. 태스크 분해는 이 큰 작업을 \"시장 분석 → 타겟 정의 → 채널 선정 → 콘텐츠 기획 → 타임라인 작성\"처럼 순서 있는 하위 작업들로 쪼개는 것이다. 각 단계가 명확해지면 에이전트가 하나씩 수행하고 결과를 누적해 최종 목표에 도달할 수 있다.</p><h4>사용 예시</h4><p>Claude Code에서 대형 기능 개발을 할 때 먼저 태스크 분해를 요청하면, 에이전트가 스펙 분석, 데이터 모델 설계, API 구현, 테스트 작성 순의 체크리스트를 만들고 하나씩 실행한다. <strong>계층적 분해</strong>를 쓰면 큰 단계 안에 세부 단계를 중첩해서 더 복잡한 작업도 다룰 수 있다.</p>`,
-rel:['ai-agent','planning','orchestration','react-pattern','chain-of-thought','multi-agent'],
+rel:['ai-agent','planning','orchestration','react-pattern','chain-of-thought','multi-agent','research-driven-agent'],
 refs:[{title:'Task Decomposition - AutoGen 0.2 Documentation',url:'https://microsoft.github.io/autogen/0.2/docs/topics/task_decomposition/',type:'official'},{title:'Understanding the planning of LLM agents: A survey',url:'https://arxiv.org/abs/2402.02716',type:'paper'}],videos:[{title:'LLM Powered Autonomous Agents - Task Decomposition',id:'sal78ACtGTc',lang:'en'},{title:'Building AI Agents: Planning and Task Decomposition',id:'ot7uXNQskhs',lang:'en'},{title:'AI 에이전트의 태스크 분해 원리와 활용',id:'SEFJB5mESAg',lang:'ko'}],updated:'2026-04-04'},
 
   {id:'autonomous-agent',t:'자율 에이전트',en:'Autonomous Agent',c:'agent',h:3,born:'2023-03',tags:['자율성','장기실행','목표지향'],
 sum:'사람의 개입 없이 스스로 계획하고 도구를 사용해 목표를 달성하는 AI 에이전트. 지시만 주면 나머지는 알아서 처리한다.',
 det:`<h4>개념 설명</h4><p>자율 에이전트는 목표를 받으면 어떻게 달성할지 스스로 계획하고, 필요한 도구를 골라 쓰고, 중간 결과를 보며 방향을 조정하면서 최종 목표에 도달한다. 사람이 매 단계마다 지시하는 \"반자율\" 방식과 달리, 한 번 목표를 주면 완료될 때까지 독립적으로 실행된다. 높은 자율성은 효율적이지만, 잘못된 방향으로 가도 중간에 잡기 어렵다는 트레이드오프가 있다.</p><h4>사용 예시</h4><p>Claude Code를 자율 에이전트로 사용할 때 \"이 레포의 테스트 커버리지를 80%로 올려줘\"라고 지시하면, 에이전트가 현재 커버리지를 분석하고, 미커버 코드를 파악하고, 테스트를 작성하고, 실행해서 확인하는 전 과정을 사람 개입 없이 처리한다. 중요한 작업에는 <strong>human-in-the-loop</strong>를 함께 설계하는 것이 안전하다.</p>`,
-rel:['ai-agent','human-in-the-loop','planning','tool-use','agent-loop','react-pattern'],
+rel:['ai-agent','human-in-the-loop','planning','tool-use','agent-loop','react-pattern','research-driven-agent'],
 refs:[{title:'What are AI agents? - AWS',url:'https://aws.amazon.com/what-is/ai-agents/',type:'official'},{title:'What are AI agents? - Google Cloud',url:'https://cloud.google.com/discover/what-are-ai-agents',type:'official'}],videos:[{title:'What are AI Agents? Explained Simply',id:'F8NKVhkZZWI',lang:'en'},{title:'Build an Autonomous AI Agent From Scratch',id:'MlK6SIjcjE8',lang:'en'},{title:'자율 AI 에이전트란? 완벽 정리',id:'8Qbs2d9P8Gk',lang:'ko'}],updated:'2026-04-04'},
 
   {id:'human-in-the-loop',t:'휴먼 인 더 루프',en:'Human-in-the-Loop',c:'agent',h:3,born:'2023-06',tags:['안전','검수','감독'],
 sum:'AI 에이전트의 실행 과정에 사람의 판단과 승인을 개입시키는 설계 패턴. 자율성과 안전성 사이의 균형을 맞추는 핵심 전략이다.',
 det:`<h4>개념 설명</h4><p>완전 자율 에이전트는 빠르지만 위험할 수 있다. 잘못된 판단으로 데이터를 삭제하거나, 의도치 않은 API를 호출하거나, 돌이킬 수 없는 행동을 할 수 있다. 휴먼 인 더 루프는 에이전트가 중요한 결정을 내리기 전에 사람에게 확인을 받는 체크포인트를 두는 방식이다. 위험도가 낮은 작업은 자동화하고, 중요한 순간에만 사람이 개입하는 하이브리드 구조가 현실적이다.</p><h4>사용 예시</h4><p>배포 자동화 파이프라인에서 코드 분석과 테스트는 자동으로 수행하되, 프로덕션 배포 직전에는 사람의 승인을 기다리는 식으로 설계한다. Claude Code에서는 민감한 작업(파일 삭제, 외부 API 호출)에 <code>--permission-mode</code>를 설정해 자동으로 확인을 요청하게 할 수 있다.</p>`,
-rel:['ai-agent','autonomous-agent','guardrail','agent-eval','sandboxing'],
+rel:['ai-agent','autonomous-agent','guardrail','agent-eval','sandboxing','research-driven-agent'],
 refs:[{title:'What Is HITL? - IBM',url:'https://www.ibm.com/think/topics/human-in-the-loop',type:'official'},{title:'What is HITL? - Google Cloud',url:'https://cloud.google.com/discover/human-in-the-loop',type:'official'},{title:'HITL Workflows - CrewAI Docs',url:'https://docs.crewai.com/en/learn/human-in-the-loop',type:'official'}],videos:[{title:'Human-in-the-Loop AI Systems Explained',id:'jQLFnp6aMPE',lang:'en'},{title:'Building HITL Agents with LangGraph',id:'9BPCV5TYPmg',lang:'en'},{title:'AI 에이전트 HITL 패턴',id:'TlgT33rPiOg',lang:'ko'}],updated:'2026-04-04'},
 
   {id:'tool-calling',t:'툴 콜링',en:'Tool Calling',c:'agent',h:3,born:'2023-06',tags:['함수호출','도구사용','API'],
 sum:'LLM이 외부 함수나 API를 직접 호출할 수 있게 하는 기능. AI가 검색, 계산, DB 조회 같은 실제 작업을 수행하는 방법이다.',
 det:`<h4>개념 설명</h4><p>툴 콜링(또는 함수 호출)은 LLM이 \"이 작업은 내가 직접 처리할 수 없으니 외부 도구를 써야겠다\"고 판단하고, 적절한 함수를 골라 필요한 인자를 채워 호출하는 과정이다. AI가 텍스트 생성만 하던 시대에서 실제 세계와 상호작용할 수 있게 된 핵심 전환점이다. 날씨 조회, 코드 실행, 데이터베이스 검색 등 LLM이 혼자 할 수 없는 모든 것을 툴로 연결할 수 있다.</p><h4>사용 예시</h4><p>Anthropic API에서 <code>tools</code> 파라미터로 사용 가능한 함수 목록과 JSON Schema를 정의하면, Claude가 대화 중 필요할 때 해당 함수를 자동으로 선택하고 인자를 채워 반환한다. 개발자는 반환된 툴 호출을 실행하고 결과를 다시 Claude에게 전달하면 된다. MCP는 이 툴 콜링을 표준화하고 생태계를 확장한 것이다.</p>`,
-rel:['tool-use','mcp','ai-agent','react-pattern','function-calling','api-gateway'],
+rel:['tool-use','mcp','ai-agent','react-pattern','function-calling','api-gateway','research-driven-agent'],
 refs:[{title:'Function calling - OpenAI API Docs',url:'https://platform.openai.com/docs/guides/function-calling',type:'official'},{title:'Tool use with Claude - Anthropic API Docs',url:'https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview',type:'official'}],videos:[{title:'OpenAI Function Calling Explained',id:'0lOSvOoF2to',lang:'en'},{title:'Tool Use with Claude: Build AI That Takes Action',id:'kSbVCSD8gDc',lang:'en'},{title:'LLM Function Calling 완벽 가이드',id:'PmSfLNxoIbg',lang:'ko'}],updated:'2026-04-04'},
 
   {id:'agent-eval',t:'에이전트 평가',en:'Agent Evaluation',c:'agent',h:3,born:'2024-01',tags:['평가','벤치마크','품질'],
@@ -832,7 +832,7 @@ refs:[{title:'Evaluation of LLM-based Agents Survey',url:'https://arxiv.org/abs/
   {id:'reflection-pattern',t:'리플렉션 패턴',en:'Reflection Pattern',c:'agent',h:3,born:'2023-09',tags:['자기검토','반복개선','품질'],
 sum:'에이전트가 자신의 출력을 스스로 검토하고 비판하며 개선하는 패턴. 초안을 내놓고 그것의 문제점을 찾아 수정하는 과정을 반복해 품질을 높인다.',
 det:`<h4>개념 설명</h4><p>리플렉션 패턴은 에이전트를 \"작성자\"와 \"비평가\"로 분리하는 아이디어에서 출발한다. 한 번에 완벽한 결과를 내려는 대신, 일단 초안을 만들고, 그 초안에서 문제점을 찾고, 수정하고, 다시 검토하는 루프를 돈다. 같은 LLM이 두 역할을 번갈아 할 수도 있고, 별도의 비평 에이전트를 두는 방식도 있다. 복잡한 코드 작성이나 긴 문서 작성에서 품질 차이가 크다.</p><h4>사용 예시</h4><p>코드 생성 에이전트에서 리플렉션 패턴을 적용하면, 에이전트가 코드를 작성한 뒤 \"이 코드에서 보안 취약점, 엣지 케이스 누락, 성능 문제가 있는지 검토해\"라고 자기 자신에게 물어보고 수정한다. Claude Code에서 <code>--think</code> 옵션이나 별도 검토 에이전트를 활용하면 이 패턴을 구현할 수 있다.</p>`,
-rel:['ai-agent','multi-agent','react-pattern','agent-loop','planning'],
+rel:['ai-agent','multi-agent','react-pattern','agent-loop','planning','research-driven-agent'],
 refs:[{title:'Agentic Design Patterns Part 2: Reflection - DeepLearning.AI',url:'https://www.deeplearning.ai/the-batch/agentic-design-patterns-part-2-reflection/',type:'blog'},{title:'Reflexion: Language Agents with Verbal Reinforcement Learning',url:'https://arxiv.org/abs/2303.11366',type:'paper'}],videos:[{title:'Agentic AI: The Reflection Pattern Explained',id:'UqMnkfCi-8o',lang:'en'},{title:'Build a Self-Reflecting AI Agent from Scratch',id:'5SgJKZLBrmg',lang:'en'},{title:'AI 에이전트 리플렉션 패턴',id:'vdGKxibhIFo',lang:'ko'}],updated:'2026-04-04'},
 
   {id:'swarm',t:'스웜',en:'Agent Swarm',c:'agent',h:3,born:'2024-10',tags:['OpenAI','분산처리','집단지성'],
@@ -862,7 +862,7 @@ refs:[{title:'E2B Documentation - Secure Sandboxes for AI',url:'https://e2b.dev/
   {id:'planning',t:'플래닝',en:'LLM Planning',c:'agent',h:3,born:'2023-03',tags:['계획수립','목표분해','추론'],
 sum:'LLM이 최종 목표를 달성하기 위한 단계별 계획을 스스로 수립하는 능력. 에이전트가 장기 작업을 처리할 수 있게 하는 핵심이다.',
 det:`<h4>개념 설명</h4><p>단순한 질문에 답하는 것과 달리, 복잡한 목표를 달성하려면 어떤 순서로 무엇을 해야 할지 먼저 계획해야 한다. <strong>LLM 플래닝</strong>은 모델이 목표를 받으면 이를 달성하기 위한 하위 작업 목록을 생성하고, 의존성을 파악하고, 실행 순서를 결정하는 과정이다. ReAct, Tree of Thought, Plan-and-Execute 같은 방식이 플래닝을 구현하는 대표 패턴이다.</p><h4>사용 예시</h4><p>\"마케팅 캠페인 기획서를 만들어줘\"라는 요청에 에이전트가 \"시장 조사 → 경쟁사 분석 → 타깃 정의 → 전략 수립 → 문서 작성\" 계획을 먼저 세우고, 각 단계를 순서대로 실행하는 방식이다. Claude에 <code>&lt;antml:thinking&gt;</code> 모드를 활성화하거나 프롬프트에 \"먼저 계획을 세우고 실행하라\"고 명시하면 플래닝 품질이 크게 올라간다.</p>`,
-rel:['task-decomposition','react-pattern','tree-of-thought','ai-agent','reasoning-model'],
+rel:['task-decomposition','react-pattern','tree-of-thought','ai-agent','reasoning-model','research-driven-agent'],
 refs:[{title:'Understanding the planning of LLM agents: A survey',url:'https://arxiv.org/abs/2402.02716',type:'paper'},{title:'Agentic AI - Architectures and Taxonomies',url:'https://arxiv.org/html/2601.12560v1',type:'paper'}],videos:[{title:'AI Agent Planning: How LLMs Think Step by Step',id:'ot7uXNQskhs',lang:'en'},{title:'Agentic AI Workflows: Planning and Execution',id:'sal78ACtGTc',lang:'en'},{title:'AI 에이전트 플래닝 원리',id:'SEFJB5mESAg',lang:'ko'}],updated:'2026-04-04'},
 
   {id:'code-interpreter',t:'코드 인터프리터',en:'Code Interpreter',c:'agent',h:3,born:'2023-07',tags:['코드실행','데이터분석','Python'],
@@ -1807,7 +1807,12 @@ refs:[
    videos:[{title:'MIT 6.S191: Neurosymbolic AI – David Cox',id:'4PuuziOgSU4',lang:'en'},{title:'The Third AI Summer – Henry Kautz, AAAI 2020',id:'_cQITY0SPiw',lang:'en'}],
    added:'2026-04-07',updated:'2026-04-07'},
 
-];
+
+  {id:'research-driven-agent',t:'리서치 기반 에이전트',en:'Research-Driven Agent',c:'agent',h:0,born:'2023-07',tags:['딥리서치','자율조사','멀티스텝','GPT Researcher'],
+   sum:'정보 수집, 분석, 보고서 작성까지 여러 단계의 조사 작업을 스스로 계획하고 실행하는 AI 에이전트. 사람이 수일 걸리던 리서치를 자동화해 수분 안에 결과물을 만들어낸다.',det:`<h4>개념 설명</h4><p>논문 조사를 맡겼더니 AI가 검색 쿼리를 만들고, 소스를 수집하고, 내용을 분석하고, 최종 보고서까지 작성해서 돌아온다 — 이게 <strong>리서치 기반 에이전트</strong>가 하는 일이다. 단순히 질문에 답하는 챗봇과 달리, 조사 목표를 받으면 스스로 하위 태스크로 분해하고, 웹이나 내부 데이터를 탐색하고, 수집한 정보를 종합해 구조화된 결과를 만들어낸다.</p><p>핵심은 <strong>멀티스텝 계획 실행</strong>이다. 단일 프롬프트 → 단일 응답이 아니라, "어떤 정보가 필요한가" → "어디서 찾을 것인가" → "결과를 어떻게 합칠 것인가"를 루프로 반복하며 점진적으로 답을 완성한다. AWS Bedrock AgentCore 같은 플랫폼이 최대 8시간 실행을 지원하는 것도 이 때문이다.</p><h4>사용 예시</h4><p>GPT Researcher 같은 오픈소스 도구를 쓰면, 조사 주제를 입력하는 것만으로 웹 검색 → 소스 필터링 → 팩트 정리 → 보고서 생성 파이프라인이 자동으로 돌아간다. 로컬 문서와 웹을 함께 탐색할 수 있어서, 내부 위키와 외부 최신 자료를 한 번에 조합한 리서치가 가능하다.</p><p>Microsoft의 RD-Agent는 이 패턴을 R&D 자동화에 적용한 사례다. 데이터 기반 실험 설계부터 결과 분석까지 LLM이 반복적으로 가설을 세우고 검증하는 사이클을 돌린다. 개발자 입장에서는 LangChain이나 LangGraph로 검색 도구, 요약 단계, 보고서 생성 노드를 연결해 직접 파이프라인을 구성하는 식으로 활용한다.</p><h4>심화 내용</h4><p>리서치 에이전트는 대부분 <strong>ReAct 패턴</strong>(추론 → 행동 → 관찰 반복)을 기반으로 동작한다. 검색 결과를 보고 다음 쿼리를 조정하거나, 정보가 부족하면 다른 경로를 시도하는 방식이다. 여기에 <strong>Reflection 패턴</strong>을 더하면 초안 보고서를 스스로 비판하고 재조사하는 루프까지 가능해진다. RAG와의 차이는 단순 검색-생성이 아니라 조사 과정 자체를 에이전트가 능동적으로 제어한다는 점이다.</p><h4>주의할 점</h4><p>실행 시간이 길어질수록 중간 단계에서 방향이 틀어지거나 불필요한 소스에 과도하게 집중하는 문제가 생긴다. 조사 범위를 명확하게 지정하고, 핵심 단계마다 사람이 방향을 확인하는 <strong>Human-in-the-Loop</strong> 체크포인트를 두는 것이 실제 운용에서 중요하다. 또한 수집한 정보를 그대로 신뢰하면 환각이 보고서에 섞여 들어올 수 있으므로, 소스 출처를 항상 함께 반환하도록 설계해야 한다.</p>`,rel:['ai-agent','autonomous-agent','task-decomposition','rag','agentic-rag','react-pattern','reflection-pattern','tool-use','planning','human-in-the-loop','hallucination','tool-calling'],
+   refs:[{title:'RD-Agent: An open-source solution for smarter R&D',url:'https://www.microsoft.com/en-us/research/articles/rd-agent-an-open-source-solution-for-smarter-rd/',type:'official'},{title:'assafelovic/gpt-researcher',url:'https://github.com/assafelovic/gpt-researcher',type:'official'},{title:'Running deep research AI agents on Amazon Bedrock AgentCore',url:'https://aws.amazon.com/blogs/machine-learning/running-deep-research-ai-agents-on-amazon-bedrock-agentcore/',type:'blog'},{title:'How AI agents will change research: a scientist\'s guide',url:'https://www.nature.com/articles/d41586-025-03246-7',type:'blog'},{title:'How Deep Industry Research Agents Can Change Your Organization',url:'https://hbr.org/2026/03/how-deep-industry-research-agents-can-change-your-organization',type:'blog'}],
+   videos:[{title:'Building a Research Agent with Gemini 3 + Deep Agents',id:'39mZvpN0k-Q',lang:'en'},{title:'AI Agents in Action: How Research Agents Solve Complex Problems',id:'j_Q1cL6Cog4',lang:'en'},{title:'AI Research Agents in Action',id:'PZ5Q-OKOMX4',lang:'en'}],
+   added:'2026-04-10',updated:'2026-04-10'},];
 
 const I18N_CONTENT = {en:{
   'harness-engineering': {
@@ -2172,8 +2177,11 @@ const I18N_CONTENT = {en:{
   'neurosymbolic-ai': {
     sum: 'An AI approach combining neural networks\' learning ability with symbolic logic\'s reasoning ability. Merges deep learning\'s pattern recognition with rule-based reasoning to create more accurate and explainable AI.',
     det: `<h4>Why Neural Networks Alone Aren't Enough</h4><p>LLMs produce remarkable results by learning patterns from vast text, but often fail at logical reasoning. Even simple syllogisms like "If A then B, if B then C, so if A then...?" can get wrong answers depending on context. Conversely, traditional symbolic AI follows logic rules perfectly but can't discover patterns in complex real-world data on its own. Neurosymbolic AI combines both worlds — neural networks extract concepts from data, and symbolic systems logically reason about relationships between those concepts.</p><h4>Usage Examples</h4><p>Amazon's warehouse robot Vulcan uses a neurosymbolic approach in production. Neural networks handle object recognition from cameras, while symbolic rules handle judgments like "this item is fragile, so don't stack heavy things on top." Neural networks alone occasionally make mistakes like placing a brick on a glass cup, but adding a rule layer prevents such logical errors entirely.</p><p>It's also used to reduce hallucination. When an LLM generates answers, verifying factual relationships through symbolic systems like knowledge graphs filters out "plausible but wrong answers." Research published in April 2026 showed neurosymbolic methods reducing energy consumption by up to 100x while actually improving accuracy — by using logical reasoning to narrow the search space instead of brute-forcing with massive models.</p><h4>Deep Dive</h4><p>Henry Kautz classified neurosymbolic integration into 6 types. Type 1 simply uses neural and symbolic systems separately, while Type 6 has symbolic reasoning fully embedded within neural networks. Most practical systems today are at Type 2-3 level — pipeline architectures where neural networks extract patterns and symbolic systems reason on top.</p><h4>Watch Out</h4><p>Integrating the two systems isn't as easy as it sounds. Designing the interface between neural networks' continuous numerical space and symbolic systems' discrete logical space is challenging, and information loss can occur at this junction. Symbolic rules often need to be manually defined, so it's not a "just add data and go" approach like pure deep learning.</p>`
-  }
-},zh:{
+  },
+  'research-driven-agent':{
+    sum: 'An AI agent that autonomously searches for sources, analyzes data, and synthesizes findings — compressing research that would take a person days into a matter of hours.',
+    det: `<h4>Concept</h4><p>A research-driven agent handles the entire research process on its own: formulating search queries, collecting information from multiple sources, cross-referencing contradictory findings, and producing structured reports. It doesn't just answer a single question — it reasons across multiple steps, examining initial results and generating follow-up queries to dig deeper, much like a skilled researcher following a trail of clues.</p><p>The key distinction from a chatbot is persistence. A chatbot responds and stops. A research agent keeps going — revisiting sources, refining its understanding, and building toward a coherent synthesis before it's done.</p><h4>Usage Examples</h4><p><strong>GPT Researcher</strong> is an open-source tool that takes a research topic, explores the web, collects documents, and generates factual, unbiased reports. It's a practical starting point for anyone building research automation on top of web search.</p><p><strong>Microsoft RD-Agent</strong> goes further, automating data analysis and model development. It can discover patterns in financial data, build prediction models, and validate them — treating the entire analytical workflow as something an agent can own end-to-end.</p><p>Building your own research agent typically follows a <strong>plan-execute-synthesize</strong> pattern. An LLM creates a research plan, uses tools for search and scraping, then synthesizes the collected information into a final output. Frameworks like LangChain and LlamaIndex make this easier by providing connectors for search tools, web scrapers, and document analyzers.</p><p>In scientific research, agents are increasingly used where researchers describe a goal — "search the literature for these compounds, run ADMET analysis" — and the agent executes the tools in isolated containers and summarizes the results. Combining this with Docker for reproducible research workflows is a growing trend.</p><h4>Cautions</h4><p>Don't blindly trust research agent outputs. Search results themselves may be inaccurate, and hallucinations can occur during synthesis. Temporal confusion is also common when the agent mixes recent and outdated information without clearly distinguishing them.</p><p>A human-in-the-loop verification step matters here. Treat the agent's output as a well-researched draft, not a finished product — review key claims against primary sources before acting on the findings.</p>`
+  },},zh:{
   'harness-engineering': {
     sum: '不是AI模型本身，而是设计模型周围结构的学科。同一个模型，周围的harness怎么搭，直接决定了产出质量的高低。',
     det: `<h4>什么是Harness Engineering</h4><p>让AI agent干活时会发现，明明是同一个模型，在有些项目里表现很好，在有些项目里却一塌糊涂。差别不在模型，而在模型周围的结构——给它什么上下文、让它用哪些工具、出错了怎么恢复。系统性地设计这些"包裹结构"，就是Harness Engineering。</p>
@@ -2536,8 +2544,11 @@ const I18N_CONTENT = {en:{
   'neurosymbolic-ai': {
     sum: '将神经网络的学习能力与符号逻辑的推理能力结合的AI方法。把深度学习擅长的模式识别与规则系统擅长的逻辑推理合二为一，打造更精准、更可解释的AI。',
     det: `<h4>为什么光靠神经网络不够</h4><p>LLM从海量文本中学习模式，能产生惊人的结果，但在逻辑推理上经常出错。即使是"如果A则B，如果B则C，那么A则？"这样简单的三段论，也会因上下文不同给出错误答案。相反，传统符号AI完美遵循逻辑规则，但无法自行从复杂的现实数据中发现模式。神经符号AI把两个世界结合起来——神经网络从数据中提取概念，符号系统对这些概念之间的关系进行逻辑推理。</p><h4>使用示例</h4><p>Amazon的仓库机器人Vulcan实际使用了神经符号方法。摄像头识别物体由神经网络完成，而"这个物品易碎，不能在上面放重物"的判断由符号规则完成。单用神经网络偶尔会犯把砖头放在玻璃杯上的错误，加上规则层就能从根本上杜绝这类逻辑错误。</p><p>也被用于减少幻觉问题。当LLM生成回答时，通过知识图谱等符号体系验证事实关系，就能过滤掉"听起来对但实际错误的回答"。2026年4月发表的研究显示，神经符号方法在将能耗降低最多100倍的同时反而提高了准确率——因为用逻辑推理缩小了搜索空间，而不是暴力运行巨大模型。</p><h4>注意事项</h4><p>整合两个系统并不像说起来那么容易。设计神经网络的连续数值空间与符号系统的离散逻辑空间之间的接口很有挑战性，在这个接合点可能产生信息损失。而且符号规则通常需要人工定义，所以不像纯深度学习那样"只管喂数据就行"。</p>`
-  }
-},ja:{
+  },
+  'research-driven-agent':{
+    sum: '一种能够自主检索资料、分析数据并综合归纳的 AI 智能体，可将人工需要数天完成的调研工作压缩至数小时内完成。',
+    det: `<h4>概念说明</h4><p>研究驱动型智能体能够独立完成整个调研流程：制定搜索策略、从多个来源收集信息、交叉核验相互矛盾的内容，并生成结构化报告。它不只是回答一个问题，而是进行多步推理——审视初步搜索结果，再生成深入挖掘的追问，就像一位经验丰富的研究员顺着线索层层追查。</p><p>与聊天机器人的本质区别在于持续性。聊天机器人回答后即停止，而研究型智能体会持续运转——反复审阅资料、不断精炼理解，直到形成连贯的综合性结论。</p><h4>使用示例</h4><p><strong>GPT Researcher</strong> 是一款开源工具，接收一个研究主题后，自动搜索网页、收集文档并生成真实、客观的报告。对于想在网络搜索之上构建研究自动化的开发者来说，这是一个实用的起点。</p><p><strong>Microsoft RD-Agent</strong> 则更进一步，将数据分析与模型开发也纳入自动化范畴。它能够在金融数据中发现规律、构建预测模型并完成验证，将整个分析工作流交由智能体端到端处理。</p><p>自行构建研究智能体通常遵循<strong>计划-执行-综合</strong>的模式：LLM 制定研究计划，通过工具执行搜索和抓取，最终将收集到的信息综合为输出结果。LangChain 和 LlamaIndex 等框架内置了搜索工具、网页爬虫和文档分析器的连接器，大幅降低了开发门槛。</p><p>在科学研究领域，智能体的应用也在快速扩展——研究人员描述目标（如"检索这些化合物的文献，进行 ADMET 分析"），智能体在隔离容器中调用工具并汇总结果。结合 Docker 实现可复现的研究工作流，是当前的新兴趋势。</p><h4>注意事项</h4><p>不要盲目信任研究型智能体的输出结果。搜索来源本身可能存在错误，综合过程中也可能产生幻觉。当智能体混合使用新旧信息而未加区分时，时间维度的混乱也是常见问题。</p><p>引入人工验证环节至关重要。应将智能体的输出视为经过初步整理的草稿，而非最终成果——在据此行动之前，务必对关键结论与一手来源进行核实。</p>`
+  },},ja:{
   'harness-engineering': {
     sum: 'AIモデルそのものではなく、モデルを包む構造を設計する規律。同じモデルでも、周囲のハーネスをどう組むかによって成果物の品質が大きく変わる。',
     det: `<h4>ハーネスエンジニアリングとは</h4><p>AIエージェントに仕事を任せてみると、同じモデルなのにあるプロジェクトではうまくいき、別のプロジェクトではめちゃくちゃになることがある。違いはモデルではなく、モデルの周りの構造――どんなコンテキストを与えるか、どんなツールを使えるようにするか、エラーが起きたらどう復旧するか――にある。この「包む構造」を体系的に設計するのがハーネスエンジニアリングだ。</p>
@@ -2900,5 +2911,8 @@ const I18N_CONTENT = {en:{
   'neurosymbolic-ai': {
     sum: 'ニューラルネットワークの学習能力とシンボリックロジックの推論能力を組み合わせたAIアプローチ。ディープラーニングが得意なパターン認識とルールベースの論理推論を一つに統合し、より正確で説明可能なAIを実現する。',
     det: `<h4>なぜニューラルネットワークだけでは不十分なのか</h4><p>LLMは膨大なテキストからパターンを学習して驚くべき結果を出すが、論理的推論ではしばしば間違える。「AならばB、BならばC、ではAならば？」という単純な三段論法でも、文脈によっては的外れな答えを出す。一方、伝統的なシンボリックAIは論理規則を完璧に守るが、複雑な現実世界のデータからパターンを自ら発見することはできない。ニューロシンボリックAIはこの二つの世界を結合する。ニューラルネットワークがデータから概念を抽出し、シンボリックシステムがそれらの概念間の関係を論理的に推論する構造だ。</p><h4>使用例</h4><p>Amazonの倉庫ロボットVulcanは、ニューロシンボリックアプローチを実際に使っている。カメラからの物体認識はニューラルネットワークが担当し、「この品物は壊れやすいから上に重いものを置いてはいけない」という判断はシンボリックルールが担当する。ニューラルネットワークだけだとガラスのコップの上にレンガを置くミスがたまに起きるが、ルールレイヤーを追加すればそういった論理エラーを根本的に防げる。</p><p>ハルシネーションの削減にも使われる。LLMが回答を生成する際、知識グラフなどのシンボリック体系で事実関係を検証すれば、「もっともらしいが間違った答え」を除外できる。2026年4月に発表された研究では、ニューロシンボリック方式がエネルギー消費を最大100倍削減しながら精度はむしろ向上させた結果も出ている。</p><h4>注意点</h4><p>二つのシステムの統合は言うほど簡単ではない。ニューラルネットワークの連続的な数値空間とシンボリックシステムの離散的な論理空間を接続するインターフェース設計が難しく、この接合点で情報損失が生じる可能性がある。またシンボリックルールを人が直接定義する必要がある場合が多く、純粋なディープラーニングのように「データを入れるだけで完了」とはいかない。</p>`
-  }
-}};
+  },
+  'research-driven-agent':{
+    sum: 'AI が自律的に資料を探し、分析し、知見を統合するエージェント。人間が数日かけて行うリサーチを、数時間で処理できる。',
+    det: `<h4>コンセプト</h4><p>リサーチ駆動型エージェントは、調査プロセス全体を自律的に処理する。検索クエリの設計、複数ソースからの情報収集、矛盾する内容の突き合わせ、そして構造化されたレポートの生成まで、一貫して担う。単一の質問に答えて終わりではなく、最初の検索結果を見て追加の問いを立て、より深く掘り下げていく多段階の推論を行う——経験豊富なリサーチャーが手がかりを追って調査を深めていくのと同じ要領だ。</p><p>チャットボットとの決定的な違いは、処理の継続性にある。チャットボットは回答して止まる。リサーチエージェントは止まらない——ソースを読み返し、理解を精緻化し、一貫した統合的な結論にたどり着くまで動き続ける。</p><h4>使用例</h4><p><strong>GPT Researcher</strong> は、リサーチトピックを受け取り、ウェブを探索してドキュメントを収集し、事実に基づいた客観的なレポートを生成するオープンソースツールだ。ウェブ検索を活用したリサーチ自動化を構築したい場合の、実践的な出発点となる。</p><p><strong>Microsoft RD-Agent</strong> はさらに踏み込み、データ分析とモデル開発まで自動化する。金融データからパターンを発見し、予測モデルを構築して検証するまでの分析ワークフロー全体を、エージェントがエンドツーエンドで担う設計だ。</p><p>独自のリサーチエージェントを構築する場合、一般的には<strong>計画-実行-統合</strong>というパターンに従う。LLM がリサーチ計画を立案し、ツールを使って検索・スクレイピングを行い、収集した情報を最終的なアウトプットに統合する。LangChain や LlamaIndex といったフレームワークは、検索ツール・スクレイパー・ドキュメントアナライザーへのコネクタを提供しており、この流れをスムーズに実装できる。</p><p>科学研究の領域でも活用が進んでいる。研究者が「この化合物に関する文献を収集し、ADMET 分析を実行してほしい」といった目標を記述すると、エージェントが隔離されたコンテナでツールを実行して結果を要約する。Docker と組み合わせて再現性のある研究ワークフローを実現するアプローチは、最近注目されているトレンドだ。</p><h4>注意点</h4><p>リサーチエージェントの出力を盲目的に信頼してはいけない。検索結果自体が不正確な場合もあるし、統合の過程でハルシネーションが生じることもある。新しい情報と古い情報が混在して時系列の混乱が起きるケースも多い。</p><p>人間による確認ステップを設けることが重要だ。エージェントの出力はよく調べられた草稿と捉え、完成品とは見なさない。調査結果を行動に移す前に、一次ソースと照合して重要な主張を必ず検証するべきだ。</p>`
+  },}};

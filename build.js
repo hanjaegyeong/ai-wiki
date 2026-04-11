@@ -136,6 +136,7 @@ ${JSON.stringify(article, null, 2)}
   .related a:hover{text-decoration:underline}
   .back{display:inline-block;margin-top:32px;color:#C4613A;text-decoration:none;font-size:14px;font-weight:700}
   .back:hover{text-decoration:underline}
+  .added-date{margin-top:20px;text-align:right;font-size:11px;color:#a09888}
 </style>
 </head>
 <body>
@@ -147,6 +148,7 @@ ${JSON.stringify(article, null, 2)}
   ${e.tags.length ? `<div class="tags">${e.tags.map(t=>`<span>#${escHtml(t)}</span>`).join('')}</div>` : ''}
   ${relLinks ? `<div class="related"><b>관련 키워드</b> ${relLinks}</div>` : ''}
   <a class="back" href="${BASE}/#${e.id}">← AI Wiki에서 더 보기</a>
+  ${e.added ? `<div class="added-date">updated at ${e.updated||e.added}</div>` : ''}
 </div>
 </body>
 </html>`;
