@@ -581,8 +581,10 @@ function render() {
   pg.innerHTML = btns.join('');
 }
 
+function _syncPageUrl(){const u=new URL(location);if(page>1)u.searchParams.set('p',page);else u.searchParams.delete('p');history.replaceState({},'',u)}
 function goPage(n) {
   page = n;
+  _syncPageUrl();
   render();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -601,7 +603,7 @@ function goPage(n) {
     document.getElementById('new7-btn').classList.remove('on');
     document.getElementById('bm-btn').classList.remove('on');
     cat = b.dataset.c;
-    page = 1;
+    page = 1; _syncPageUrl();
     render();
   });
 })();
@@ -621,7 +623,7 @@ function goPage(n) {
     new7.classList.toggle('on', mode === 'new7');
     bmBtn.classList.toggle('on', mode === 'bm');
     document.querySelectorAll('.f').forEach(x => x.classList.toggle('on', mode === 'newest' && x.dataset.c === 'all'));
-    page = 1;
+    page = 1; _syncPageUrl();
     render();
   }
   newest.addEventListener('click', () => toggle('newest'));
@@ -634,7 +636,7 @@ function goPage(n) {
 let _dt;
 document.getElementById('q').addEventListener('input', e => {
   clearTimeout(_dt);
-  _dt = setTimeout(() => { q = e.target.value.trim(); page = 1; render(); }, 150);
+  _dt = setTimeout(() => { q = e.target.value.trim(); page = 1; _syncPageUrl(); render(); }, 150);
 });
 
 // View helpers
@@ -765,12 +767,15 @@ window.addEventListener('popstate', () => {
   const hash = location.hash.slice(1);
   _hideAll();
   if (hash && D.find(x=>x.id===hash)) open_m(hash, false);
-  else { _showGrid(); window.scrollTo({top:_scrollY}); }
+  else { _showGrid(); render(); window.scrollTo({top:_scrollY}); }
 });
 
-// URL ?q= 파라미터 검색
-const _qq = new URLSearchParams(location.search).get('q');
+// URL ?q= / ?p= 파라미터 복원
+const _sp = new URLSearchParams(location.search);
+const _qq = _sp.get('q');
 if (_qq) { q = _qq; document.getElementById('q').value = _qq; }
+const _pp = parseInt(_sp.get('p'));
+if (_pp > 1) page = _pp;
 
 render();
 
