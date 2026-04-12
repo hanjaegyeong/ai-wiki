@@ -1,0 +1,496 @@
+[
+  {
+    "id": "zero-shot",
+    "refs": [
+      {
+        "title": "3.1 제로샷(zero-shot): 간단하지만 강력하게 - 위키독스",
+        "url": "https://wikidocs.net/280323",
+        "type": "official"
+      },
+      {
+        "title": "제로샷(zero-shot) 이미지 분류 - Hugging Face",
+        "url": "https://huggingface.co/docs/transformers/ko/tasks/zero_shot_image_classification",
+        "type": "official"
+      },
+      {
+        "title": "A Beginner's Guide to Zero-Shot Prompting in Generative AI - Medium",
+        "url": "https://medium.com/@zeusorion/a-beginners-guide-to-zero-shot-prompting-in-generative-ai-176a0b5bac4d",
+        "type": "blog"
+      },
+      {
+        "title": "How to Choose Your GenAI Prompting Strategy: Zero Shot vs. Few Shot…",
+        "url": "https://www.matillion.com/blog/gen-ai-prompt-strategy-zero-shot-few-shot-prompt",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "tree-of-thought",
+    "refs": [
+      {
+        "title": "How Tree of Thoughts Prompting Works - PromptHub",
+        "url": "https://www.prompthub.us/blog/how-tree-of-thoughts-prompting-works",
+        "type": "blog"
+      },
+      {
+        "title": "Tree Of Thoughts Prompting (ToT) - Cobus Greyling - Medium",
+        "url": "https://cobusgreyling.medium.com/tree-of-thoughts-prompting-tot-08555b04123e",
+        "type": "blog"
+      },
+      {
+        "title": "<지식 사전> 프롬프트 엔지니어링이란 ③ - 고급 기법 (CoT, ToT, ReAct)",
+        "url": "https://blog.kakaocloud.com/87",
+        "type": "blog"
+      },
+      {
+        "title": "Tree of Thoughts 추론 프레임워크 - 네이버 블로그",
+        "url": "https://m.blog.naver.com/simula/224071471997",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "self-consistency",
+    "refs": [
+      {
+        "title": "Self-Consistency and Universal Self-Consistency Prompting | by Dan Cleary | Medium",
+        "url": "https://medium.com/@dan_43009/self-consistency-and-universal-self-consistency-prompting-00b14f2d1992",
+        "type": "blog"
+      },
+      {
+        "title": "일관성 있는 AI, self-consistency 프롬프팅 기법 - 나두AI 블로그",
+        "url": "https://blog.nadoo.ai/self-consistency/",
+        "type": "blog"
+      },
+      {
+        "title": "LLM 추론력 향상을 위한 Self-Discover 방법론",
+        "url": "https://blog.sionic.ai/self-discover",
+        "type": "blog"
+      },
+      {
+        "title": "[PDF] Self-Consistency Improves Chain of Thought Reasoning in ... - arXiv",
+        "url": "https://arxiv.org/pdf/2203.11171",
+        "type": "paper"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "meta-prompt",
+    "refs": [
+      {
+        "title": "MetaPrompt - AI Prompt Engineer & Optimizer for ChatGPT & Claude",
+        "url": "https://chromewebstore.google.com/detail/metaprompt-ai-prompt-engi/glkfhecdpcmaclfkhkibmoijipnnjkbf",
+        "type": "official"
+      },
+      {
+        "title": "02. 사용자 요구사항 기반 메타 프롬프트 생성 에이전트",
+        "url": "https://wikidocs.net/267817",
+        "type": "official"
+      },
+      {
+        "title": "A Complete Guide to Meta Prompting",
+        "url": "https://www.prompthub.us/blog/a-complete-guide-to-meta-prompting",
+        "type": "blog"
+      },
+      {
+        "title": "Meta-prompt To Improve Your Prompt Engineering Practices.",
+        "url": "https://medium.com/@mosquera/meta-prompt-to-improve-your-prompt-engineering-practices-de5616adfb40",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "prompt-chaining",
+    "refs": [
+      {
+        "title": "Prompt Chaining for the AI Agents: Modular, Reliable, and Scalable ...",
+        "url": "https://medium.com/@nivalabs.ai/prompt-chaining-for-the-ai-agents-modular-reliable-and-scalable-workflows-a22d15fd5d33",
+        "type": "blog"
+      },
+      {
+        "title": "Prompt Chaining Guide - PromptHub",
+        "url": "https://www.prompthub.us/blog/prompt-chaining-guide",
+        "type": "blog"
+      },
+      {
+        "title": "Prompt Chaining Masterclass: How to Orchestrate Multiple AI ...",
+        "url": "https://natesnewsletter.substack.com/p/prompt-chaining-masterclass-how-to",
+        "type": "blog"
+      },
+      {
+        "title": "AI 프롬프트 체이닝이란 무엇인가요? - Botpress",
+        "url": "https://botpress.com/ko/blog/what-is-ai-prompt-chaining",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "role-prompting",
+    "refs": [
+      {
+        "title": "AI를 위한 프롬프트 엔지니어링 가이드 - Google Cloud",
+        "url": "https://cloud.google.com/discover/what-is-prompt-engineering?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "프롬프트 엔지니어링이란 무엇인가요? - AWS",
+        "url": "https://aws.amazon.com/ko/what-is/prompt-engineering/",
+        "type": "official"
+      },
+      {
+        "title": "5 Essential Tips for Successful Role Prompting - Dr. Matt Bergman",
+        "url": "https://drmattbergman.com/blog/f/5-essential-tips-for-successful-role-prompting",
+        "type": "blog"
+      },
+      {
+        "title": "Role-Prompting: Does Adding Personas to Your Prompts Really Make a Difference?",
+        "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "xml-prompting",
+    "refs": [
+      {
+        "title": "Use XML tags to structure my prompts - Prompting - OpenAI Developer Community",
+        "url": "https://community.openai.com/t/use-xml-tags-to-structure-my-prompts/1068871",
+        "type": "official"
+      },
+      {
+        "title": "프롬프트 작성 전략 개요  |  Generative AI on Vertex AI  |  Google Cloud Documentation",
+        "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/prompt-design-strategies?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "Structured Prompting Techniques: XML & JSON Prompting Guide",
+        "url": "https://codeconductor.ai/blog/structured-prompting-techniques-xml-json/",
+        "type": "blog"
+      },
+      {
+        "title": "Effective Prompt Engineering: Mastering XML Tags for ...",
+        "url": "https://medium.com/@TechforHumans/effective-prompt-engineering-mastering-xml-tags-for-clarity-precision-and-security-in-llms-992cae203fdc",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "context-stuffing",
+    "refs": [
+      {
+        "title": "Context Stuffing - by Vipul Kumar",
+        "url": "https://medium.com/@vipulkc/context-stuffing-e904b8aa5264",
+        "type": "blog"
+      },
+      {
+        "title": "The Context Stuffing Antipattern: Why More Context Makes ...",
+        "url": "https://tianpan.co/blog/2026-04-09-context-stuffing-antipattern-llm-production",
+        "type": "blog"
+      },
+      {
+        "title": "RAG vs. Prompt Stuffing: Overcoming Context Window Limits for Large, Information-Dense Documents",
+        "url": "https://www.spyglassmtg.com/blog/rag-vs.-prompt-stuffing-overcoming-context-window-limits-for-large-information-dense-documents",
+        "type": "blog"
+      },
+      {
+        "title": "Context engineering: How to give AI exactly what it needs | Thoughtworks United States",
+        "url": "https://www.thoughtworks.com/en-us/insights/blog/generative-ai/context-engineering-give-ai-what-needs",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "auto-prompt",
+    "refs": [
+      {
+        "title": "How we built open-source automated prompt optimization",
+        "url": "https://www.evidentlyai.com/blog/automated-prompt-optimization",
+        "type": "blog"
+      },
+      {
+        "title": "Automatic Prompt Optimization - by Cameron R. Wolfe, Ph.D.",
+        "url": "https://cameronrwolfe.substack.com/p/automatic-prompt-optimization",
+        "type": "blog"
+      },
+      {
+        "title": "Prompt Optimization Using Few-Shot Prompting: Proven Tactics",
+        "url": "https://arize.com/blog/prompt-optimization-few-shot-prompting/",
+        "type": "blog"
+      },
+      {
+        "title": "챗GPT 공부할 필요 없어질 듯! 어설픈 질문을 바꿔주는 자동 프롬프트 ...",
+        "url": "https://m.blog.naver.com/bonamy/223104081661",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "output-formatting",
+    "refs": [
+      {
+        "title": "Formatting Numeric Print Output (The Java™ Tutorials > Learning ...",
+        "url": "https://docs.oracle.com/javase/tutorial/java/data/numberformat.html",
+        "type": "official"
+      },
+      {
+        "title": "7. Input and Output — Python 3.14.4 documentation",
+        "url": "https://docs.python.org/3/tutorial/inputoutput.html",
+        "type": "official"
+      },
+      {
+        "title": "04) 기본 출력 print 함수, format 함수, f문자열 - 파이썬 입문 - 위키독스",
+        "url": "https://wikidocs.net/164969",
+        "type": "official"
+      },
+      {
+        "title": "[C-언어] printf( )의 포맷(format) 지정자 - 네이버 블로그",
+        "url": "https://m.blog.naver.com/kaiserkhan21/220961278882",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "data-curation",
+    "refs": [
+      {
+        "title": "Transforming Research with Data Curation Practices",
+        "url": "https://www.cos.io/blog/data-curation",
+        "type": "blog"
+      },
+      {
+        "title": "What Is Data Curation? Real-World Examples",
+        "url": "https://www.acceldata.io/blog/data-curation",
+        "type": "blog"
+      },
+      {
+        "title": "What is data curation?",
+        "url": "https://www.ataccama.com/blog/what-is-data-curation",
+        "type": "blog"
+      },
+      {
+        "title": "What Is Data Curation? Why Is It Important? | Alation",
+        "url": "https://www.alation.com/blog/what-is-data-curation/",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "data-augmentation",
+    "refs": [
+      {
+        "title": "What is Data Augmentation? - Data Augmentation Techniques Explained - AWS",
+        "url": "https://aws.amazon.com/what-is/data-augmentation/",
+        "type": "official"
+      },
+      {
+        "title": "Data augmentation  |  TensorFlow Core",
+        "url": "https://www.tensorflow.org/tutorials/images/data_augmentation",
+        "type": "official"
+      },
+      {
+        "title": "Data Augmentation: From Basics to Super-Advanced Concepts",
+        "url": "https://medium.com/@adnan.mazraeh1993/data-augmentation-from-basics-to-super-advanced-concepts-2a366c17489e",
+        "type": "blog"
+      },
+      {
+        "title": "The Ultimate Guide to Data Augmentation in Computer Vision | Encord",
+        "url": "https://encord.com/blog/data-augmentation-guide/",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "context-compression",
+    "refs": [
+      {
+        "title": "Context Compression - Agno",
+        "url": "https://docs.agno.com/compression/overview",
+        "type": "official"
+      },
+      {
+        "title": "2-6-2. Contextual Compression - 랭체인(LangChain) 입문 ... - 위키독스",
+        "url": "https://wikidocs.net/231608",
+        "type": "official"
+      },
+      {
+        "title": "Autonomous context compression - LangChain Blog",
+        "url": "https://blog.langchain.com/autonomous-context-compression/",
+        "type": "blog"
+      },
+      {
+        "title": "Automatic Context Compression in LLM Agents: Why Agents Need ...",
+        "url": "https://medium.com/the-ai-forum/automatic-context-compression-in-llm-agents-why-agents-need-to-forget-and-how-to-help-them-do-it-43bff14c341d",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "semantic-cache",
+    "refs": [
+      {
+        "title": "Semantic Cache for Large Language Models - Azure Cosmos DB | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/semantic-cache",
+        "type": "official"
+      },
+      {
+        "title": "Semantic Caching: What it is & Why You Need it - Zuplo",
+        "url": "https://zuplo.com/blog/what-is-semantic-caching/",
+        "type": "blog"
+      },
+      {
+        "title": "What is semantic caching? Guide to faster, smarter LLM apps",
+        "url": "https://redis.io/blog/what-is-semantic-caching/",
+        "type": "blog"
+      },
+      {
+        "title": "Semantic Caching: What We Measured, Why It Matters - Catchpoint",
+        "url": "https://www.catchpoint.com/blog/semantic-caching-what-we-measured-why-it-matters",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "red-teaming",
+    "refs": [
+      {
+        "title": "Sprocket Security | Red Teaming: History, Methodology, and 4 Critical Best Practices",
+        "url": "https://www.sprocketsecurity.com/blog/red-teaming-best-practices",
+        "type": "blog"
+      },
+      {
+        "title": "[KOR] 정보보안에서 레드팀이란",
+        "url": "https://blog.sunggwanchoi.com/kor-what-is-red-team-in-infosec/",
+        "type": "blog"
+      },
+      {
+        "title": "블루팀 vs 레드팀 vs 퍼플팀 - 주요 목표, 도구 및 기술의 차이점",
+        "url": "https://blog.naver.com/softwidesec/223506530867",
+        "type": "blog"
+      },
+      {
+        "title": "What is Red Teaming? Simulated Cyberattack Testing - Rapid7",
+        "url": "https://www.rapid7.com/fundamentals/what-is-a-red-team/",
+        "type": "tutorial"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "alignment",
+    "refs": [
+      {
+        "title": "What is AI Alignment? Ensuring AI Works for Humanity - DataCamp",
+        "url": "https://www.datacamp.com/fr/blog/ai-alignment",
+        "type": "blog"
+      },
+      {
+        "title": "[2310.19852] AI Alignment: A Comprehensive Survey - arXiv",
+        "url": "https://arxiv.org/abs/2310.19852",
+        "type": "paper"
+      },
+      {
+        "title": "AI alignment - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/AI_alignment",
+        "type": "tutorial"
+      },
+      {
+        "title": "AI alignment — LessWrong",
+        "url": "https://www.lesswrong.com/w/ai-alignment",
+        "type": "tutorial"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "constitutional-ai",
+    "refs": [
+      {
+        "title": "Constitutional AI: Harmlessness from AI Feedback",
+        "url": "https://docs.nvidia.com/nemo-framework/user-guide/24.09/modelalignment/cai.html",
+        "type": "official"
+      },
+      {
+        "title": "Claude's Constitution - Anthropic",
+        "url": "https://www.anthropic.com/news/claudes-constitution",
+        "type": "official"
+      },
+      {
+        "title": "Constitutional AI explained",
+        "url": "https://toloka.ai/blog/constitutional-ai-explained/",
+        "type": "blog"
+      },
+      {
+        "title": "What is Constitutional AI and Why Does it Matter for International Arbitration? | Kluwer Arbitration Blog",
+        "url": "https://legalblogs.wolterskluwer.com/arbitration-blog/what-is-constitutional-ai-and-why-does-it-matter-for-international-arbitration/",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "jailbreak",
+    "refs": [
+      {
+        "title": "탈옥 - Google Play 영화",
+        "url": "https://play.google.com/store/movies/details/%ED%83%88%EC%98%A5?id=GqusT-HJWXA.P&hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "JAILBREAK Definition & Meaning - Merriam-Webster",
+        "url": "https://www.merriam-webster.com/dictionary/jailbreak",
+        "type": "tutorial"
+      },
+      {
+        "title": "Jailbreak - YouTube",
+        "url": "https://www.youtube.com/playlist?list=PLhYV96hJwkJZ4dL6UjoEhqn7UVdAq03-O",
+        "type": "tutorial"
+      },
+      {
+        "title": "JAILBREAK",
+        "url": "https://www.roblox.com/games/606849621/JAILBREAK",
+        "type": "tutorial"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "bias",
+    "refs": [
+      {
+        "title": "Machine Learning - 공정성: 편향의 유형",
+        "url": "https://developers.google.com/machine-learning/crash-course/fairness/types-of-bias?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "AI Bias: 16 Real AI Bias Examples & Mitigation Guide",
+        "url": "https://www.crescendo.ai/blog/ai-bias-examples-mitigation-guide",
+        "type": "blog"
+      },
+      {
+        "title": "인지적 편향의 종류 - 확증 편향, 생존자 편향 등 : 네이버 블로그",
+        "url": "https://m.blog.naver.com/angryking/222353029428",
+        "type": "blog"
+      },
+      {
+        "title": "Biases in AI: acknowledging and addressing the inevitable ethical ...",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12405166/",
+        "type": "tutorial"
+      }
+    ],
+    "videos": []
+  }
+]

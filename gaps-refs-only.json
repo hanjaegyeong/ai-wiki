@@ -1,0 +1,314 @@
+[
+  {
+    "id": "multimodal-rag",
+    "refs": [
+      {
+        "title": "Multimodal Retrieval-Augmented Generation (RAG) with Document Retrieval (ColPali) and Vision Language Models (VLMs) · Hugging Face",
+        "url": "https://huggingface.co/learn/cookbook/multimodal_rag_using_document_retrieval_and_vlms",
+        "type": "official"
+      },
+      {
+        "title": "Gemini Pro를 사용해 멀티모달 RAG를 기반으로 한 Q&A 앱 빌드하기",
+        "url": "https://codelabs.developers.google.com/multimodal-rag-gemini?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "Multimodal RAG: What It Is & How It Works in 2026",
+        "url": "https://kanerika.com/blogs/multimodal-rag/",
+        "type": "blog"
+      },
+      {
+        "title": "Multimodal RAG: Building a multimodal RAG system with Elastic - Elasticsearch Labs",
+        "url": "https://www.elastic.co/search-labs/blog/building-multimodal-rag-system",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "agent-protocol",
+    "refs": [
+      {
+        "title": "Agent2Agent (A2A) 프로토콜 시작하기: Cloud Run 및 Agent Engine ...",
+        "url": "https://codelabs.developers.google.com/intro-a2a-purchasing-concierge?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "Agent Protocol: Interoperability for LLM agents - LangChain Blog",
+        "url": "https://blog.langchain.com/agent-protocol-interoperability-for-llm-agents/",
+        "type": "blog"
+      },
+      {
+        "title": "Agentic AI Protocols: MCP, A2A, and ACP | by Manav Gupta",
+        "url": "https://medium.com/@manavg/agentic-ai-protocols-mcp-a2a-and-acp-ea0200eac18b",
+        "type": "blog"
+      },
+      {
+        "title": "Announcing the Agent2Agent Protocol (A2A)",
+        "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "a2a",
+    "refs": [
+      {
+        "title": "Getting Started with Agent2Agent (A2A) Protocol: A Purchasing Concierge and Remote Seller Agent Interactions on Cloud Run and Agent Engine | Google Codelabs",
+        "url": "https://codelabs.developers.google.com/intro-a2a-purchasing-concierge",
+        "type": "official"
+      },
+      {
+        "title": "Agent to Agent (A2A)protocol ! what and why! How they compliment ...",
+        "url": "https://medium.com/data-and-beyond/agent-to-agent-a2a-protocol-what-and-why-how-they-compliment-with-mcps-a0c26a07465e",
+        "type": "blog"
+      },
+      {
+        "title": "Announcing the Agent2Agent Protocol (A2A)",
+        "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+        "type": "blog"
+      },
+      {
+        "title": "MCP vs A2A: A Guide to AI Agent Communication Protocols - Auth0",
+        "url": "https://auth0.com/blog/mcp-vs-a2a/",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "orchestration",
+    "refs": [
+      {
+        "title": "Guidance for Multi-Agent Orchestration on AWS",
+        "url": "https://aws.amazon.com/solutions/guidance/multi-agent-orchestration-on-aws/",
+        "type": "official"
+      },
+      {
+        "title": "AI Agent Orchestration Patterns - Azure Architecture Center",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns",
+        "type": "official"
+      },
+      {
+        "title": "Agent Orchestration 101: Making Multiple AI Agents Work as One",
+        "url": "https://www.lyzr.ai/blog/agent-orchestration/",
+        "type": "blog"
+      },
+      {
+        "title": "Agent Orchestration: When to Use LangChain, LangGraph, AutoGen — or Build an Agentic RAG System | by Akanksha Sinha | Medium",
+        "url": "https://medium.com/@akankshasinha247/agent-orchestration-when-to-use-langchain-langgraph-autogen-or-build-an-agentic-rag-system-cc298f785ea4",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "subagent",
+    "refs": [
+      {
+        "title": "Subagents - Augment",
+        "url": "https://docs.augmentcode.com/cli/subagents",
+        "type": "official"
+      },
+      {
+        "title": "Subagents - Docs by LangChain",
+        "url": "https://docs.langchain.com/oss/python/deepagents/subagents",
+        "type": "official"
+      },
+      {
+        "title": "Subagents – Codex | OpenAI Developers",
+        "url": "https://developers.openai.com/codex/subagents",
+        "type": "official"
+      },
+      {
+        "title": "Subagents: When and How to Use Them - Builder.io",
+        "url": "https://www.builder.io/blog/subagents",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "agentic-rag",
+    "refs": [
+      {
+        "title": "Agentic RAG: turbocharge your RAG with query reformulation and self-query! 🚀 · Hugging Face",
+        "url": "https://huggingface.co/learn/cookbook/en/agent_rag",
+        "type": "official"
+      },
+      {
+        "title": "5-6) Agentic RAG - AI 에이전트는 이렇게 만든다 (랭체인 ... - 위키독스",
+        "url": "https://wikidocs.net/331290",
+        "type": "official"
+      },
+      {
+        "title": "What Is Agentic RAG: Next-Gen AI Retrieval | Progress",
+        "url": "https://www.progress.com/blogs/what-is-agentic-rag",
+        "type": "blog"
+      },
+      {
+        "title": "How Agentic RAG Works? - ByteByteGo Newsletter",
+        "url": "https://blog.bytebytego.com/p/how-agentic-rag-works",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "langsmith",
+    "refs": [
+      {
+        "title": "AWS Marketplace: LangSmith Agent Engineering Platform",
+        "url": "https://aws.amazon.com/marketplace/pp/prodview-vmzygmggk4gms",
+        "type": "official"
+      },
+      {
+        "title": "LangSmith docs - Docs by LangChain",
+        "url": "https://docs.langchain.com/langsmith/home",
+        "type": "official"
+      },
+      {
+        "title": "What is LangSmith and why should I care as a developer? - Medium",
+        "url": "https://medium.com/around-the-prompt/what-is-langsmith-and-why-should-i-care-as-a-developer-e5921deb54b5",
+        "type": "blog"
+      },
+      {
+        "title": "LangSmith: AI Agent & LLM Observability and Evals Platform",
+        "url": "https://www.langchain.com/langsmith-platform",
+        "type": "tutorial"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "tracing",
+    "refs": [
+      {
+        "title": "7 best free and open source LLM observability tools - PostHog",
+        "url": "https://posthog.com/blog/best-open-source-llm-observability-tools",
+        "type": "blog"
+      },
+      {
+        "title": "트레이싱으로 인물화 쉽게 그리기 가능? 트레이싱으로 캐리커쳐 ...",
+        "url": "https://m.blog.naver.com/eol_grim/221874356064",
+        "type": "blog"
+      },
+      {
+        "title": "LLM Tracing - Arize AI",
+        "url": "https://arize.com/resource/llm-tracing/",
+        "type": "tutorial"
+      },
+      {
+        "title": "LLM Tracing and Agent Observability | MLflow AI Platform | MLflow",
+        "url": "https://mlflow.org/docs/latest/genai/tracing/",
+        "type": "tutorial"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "model-router",
+    "refs": [
+      {
+        "title": "Model router for Microsoft Foundry concepts - Microsoft Foundry | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-router",
+        "type": "official"
+      },
+      {
+        "title": "How to Set Up an AI Model Router for Your LLM Stack",
+        "url": "https://www.mindstudio.ai/blog/set-up-ai-model-router-llm-stack/",
+        "type": "blog"
+      },
+      {
+        "title": "Model Router: local Running Team of small LLMs over One Big",
+        "url": "https://medium.com/@michael.hannecke/the-model-router-running-a-team-of-local-llms-instead-of-one-big-one-fd75eeec9d39",
+        "type": "blog"
+      },
+      {
+        "title": "What is LLM Router? - TrueFoundry",
+        "url": "https://www.truefoundry.com/blog/what-is-llm-router",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "context-caching",
+    "refs": [
+      {
+        "title": "Context caching overview  |  Generative AI on Vertex AI  |  Google Cloud Documentation",
+        "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview",
+        "type": "official"
+      },
+      {
+        "title": "Context Caching | DeepSeek API Docs",
+        "url": "https://api-docs.deepseek.com/guides/kv_cache",
+        "type": "official"
+      },
+      {
+        "title": "Context Caching - Overview - Z.AI DEVELOPER DOCUMENT",
+        "url": "https://docs.z.ai/guides/capabilities/cache",
+        "type": "official"
+      },
+      {
+        "title": "Understanding the difference between context caching or prompt ...",
+        "url": "https://medium.com/@wael-saideni/understanding-the-difference-between-context-caching-and-semantic-caching-a-step-toward-optimizing-1a2b44d25c12",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "agents-md",
+    "refs": [
+      {
+        "title": "Custom instructions with AGENTS.md – Codex | OpenAI Developers",
+        "url": "https://developers.openai.com/codex/guides/agents-md",
+        "type": "official"
+      },
+      {
+        "title": "One AGENTS.md to Rule Them All - Pascal Heus - Medium",
+        "url": "https://plgah.medium.com/one-agents-md-to-rule-them-all-70e6dc87a05f",
+        "type": "blog"
+      },
+      {
+        "title": "How to write a great agents.md: Lessons from over 2,500 repositories",
+        "url": "https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/",
+        "type": "blog"
+      },
+      {
+        "title": "AGENTS.md",
+        "url": "https://agents.md/",
+        "type": "tutorial"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "prompt-management",
+    "refs": [
+      {
+        "title": "prompt-management",
+        "url": "https://aws.amazon.com/bedrock/prompt-management/",
+        "type": "official"
+      },
+      {
+        "title": "프롬프트 관리 | Generative AI on Vertex AI",
+        "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/prompt-classes?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "AI를 위한 프롬프트 엔지니어링 가이드 - Google Cloud",
+        "url": "https://cloud.google.com/discover/what-is-prompt-engineering?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "What is Prompt Management?",
+        "url": "https://humanloop.com/blog/prompt-management",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  }
+]

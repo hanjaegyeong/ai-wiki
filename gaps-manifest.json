@@ -1,0 +1,858 @@
+[
+  {
+    "id": "harness-engineering",
+    "t": "하네스 엔지니어링",
+    "en": "Harness Engineering",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "mcp",
+    "t": "MCP",
+    "en": "Model Context Protocol",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "claude-code",
+    "t": "Claude Code",
+    "en": "Claude Code CLI",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "ai-agent",
+    "t": "AI 에이전트",
+    "en": "AI Agent",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "ai-coding",
+    "t": "AI 코딩 어시스턴트",
+    "en": "AI Coding Assistant",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "skills",
+    "t": "스킬",
+    "en": "Skills / Slash Commands",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "hooks",
+    "t": "훅",
+    "en": "Hooks",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "claude-md",
+    "t": "CLAUDE.md",
+    "en": "CLAUDE.md",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "tool-use",
+    "t": "도구 사용",
+    "en": "Tool Use / Function Calling",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "rag",
+    "t": "RAG",
+    "en": "Retrieval-Augmented Generation",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "context-window",
+    "t": "컨텍스트 윈도우",
+    "en": "Context Window",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "ai-workflow",
+    "t": "AI 워크플로우",
+    "en": "AI Workflow Automation",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "system-prompt",
+    "t": "시스템 프롬프트",
+    "en": "System Prompt",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "chain-of-thought",
+    "t": "사고의 사슬",
+    "en": "Chain-of-Thought",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "llm",
+    "t": "대규모 언어 모델",
+    "en": "Large Language Model",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "fine-tuning",
+    "t": "파인튜닝",
+    "en": "Fine-Tuning",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "multimodal",
+    "t": "멀티모달",
+    "en": "Multimodal AI",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "embedding",
+    "t": "임베딩",
+    "en": "Embedding",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "vector-db",
+    "t": "벡터 DB",
+    "en": "Vector Database",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "chunking",
+    "t": "청킹",
+    "en": "Chunking",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "eval",
+    "t": "AI 평가",
+    "en": "Evaluation",
+    "need_refs": false,
+    "need_en": 1,
+    "need_ko": 1
+  },
+  {
+    "id": "hallucination",
+    "t": "환각",
+    "en": "Hallucination",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "guardrail",
+    "t": "가드레일",
+    "en": "Guardrail",
+    "need_refs": false,
+    "need_en": 1,
+    "need_ko": 1
+  },
+  {
+    "id": "prompt-injection",
+    "t": "프롬프트 인젝션",
+    "en": "Prompt Injection",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "chatbot",
+    "t": "챗봇",
+    "en": "Conversational AI",
+    "need_refs": false,
+    "need_en": 1,
+    "need_ko": 0
+  },
+  {
+    "id": "ai-search",
+    "t": "AI 검색",
+    "en": "AI-Powered Search",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "structured-output",
+    "t": "구조화된 출력",
+    "en": "Structured Output",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "react-pattern",
+    "t": "ReAct 패턴",
+    "en": "ReAct",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "few-shot",
+    "t": "퓨샷",
+    "en": "Few-Shot Prompting",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "transformer",
+    "t": "트랜스포머",
+    "en": "Transformer",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "tokenization",
+    "t": "토큰화",
+    "en": "Tokenization",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "rlhf",
+    "t": "RLHF",
+    "en": "RL from Human Feedback",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "in-context-learning",
+    "t": "인컨텍스트 러닝",
+    "en": "In-Context Learning",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "vibe-coding",
+    "t": "바이브 코딩",
+    "en": "Vibe Coding",
+    "need_refs": false,
+    "need_en": 1,
+    "need_ko": 1
+  },
+  {
+    "id": "synthetic-data",
+    "t": "합성 데이터",
+    "en": "Synthetic Data",
+    "need_refs": false,
+    "need_en": 1,
+    "need_ko": 0
+  },
+  {
+    "id": "inference-optimization",
+    "t": "추론 최적화",
+    "en": "Inference Optimization",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "moe",
+    "t": "MoE",
+    "en": "Mixture of Experts",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "reasoning-model",
+    "t": "추론 모델",
+    "en": "Reasoning Model",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "self-supervised-learning",
+    "t": "자기 지도 학습",
+    "en": "Self-Supervised Learning",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "reinforcement-learning",
+    "t": "강화학습",
+    "en": "Reinforcement Learning",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "reward-model",
+    "t": "보상 모델",
+    "en": "Reward Model",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "grpo",
+    "t": "GRPO",
+    "en": "Group Relative Policy Optimization",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "quantization",
+    "t": "양자화",
+    "en": "Quantization",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "pruning",
+    "t": "프루닝",
+    "en": "Pruning",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "sft",
+    "t": "SFT",
+    "en": "Supervised Fine-Tuning",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "foundation-model",
+    "t": "파운데이션 모델",
+    "en": "Foundation Model",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "small-language-model",
+    "t": "소형 언어 모델",
+    "en": "Small Language Model",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "ssm",
+    "t": "상태 공간 모델",
+    "en": "State Space Model",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "temperature",
+    "t": "온도",
+    "en": "Temperature",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "frontier-model",
+    "t": "프론티어 모델",
+    "en": "Frontier Model",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "vision-language-model",
+    "t": "비전-언어 모델",
+    "en": "Vision-Language Model",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "benchmark",
+    "t": "벤치마크",
+    "en": "Benchmark",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "model-serving",
+    "t": "모델 서빙",
+    "en": "Model Serving",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "continuous-batching",
+    "t": "연속 배칭",
+    "en": "Continuous Batching",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "gpu-cluster",
+    "t": "GPU 클러스터",
+    "en": "GPU Cluster",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "tensor-parallelism",
+    "t": "텐서 병렬화",
+    "en": "Tensor Parallelism",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "vllm",
+    "t": "vLLM",
+    "en": "vLLM",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "mlops",
+    "t": "MLOps",
+    "en": "MLOps",
+    "need_refs": false,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "multimodal-rag",
+    "t": "멀티모달 RAG",
+    "en": "Multimodal RAG",
+    "need_refs": true,
+    "need_en": 0,
+    "need_ko": 0
+  },
+  {
+    "id": "agent-protocol",
+    "t": "에이전트 프로토콜",
+    "en": "Agent Protocol",
+    "need_refs": true,
+    "need_en": 0,
+    "need_ko": 0
+  },
+  {
+    "id": "a2a",
+    "t": "A2A",
+    "en": "Agent-to-Agent Protocol",
+    "need_refs": true,
+    "need_en": 0,
+    "need_ko": 0
+  },
+  {
+    "id": "orchestration",
+    "t": "오케스트레이션",
+    "en": "Agent Orchestration",
+    "need_refs": true,
+    "need_en": 0,
+    "need_ko": 0
+  },
+  {
+    "id": "subagent",
+    "t": "서브에이전트",
+    "en": "Subagent",
+    "need_refs": true,
+    "need_en": 0,
+    "need_ko": 0
+  },
+  {
+    "id": "agentic-rag",
+    "t": "에이전틱 RAG",
+    "en": "Agentic RAG",
+    "need_refs": true,
+    "need_en": 0,
+    "need_ko": 0
+  },
+  {
+    "id": "langsmith",
+    "t": "LangSmith",
+    "en": "LangSmith",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "tracing",
+    "t": "트레이싱",
+    "en": "LLM Tracing",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "playground",
+    "t": "플레이그라운드",
+    "en": "AI Playground",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "model-router",
+    "t": "모델 라우터",
+    "en": "Model Router",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "context-caching",
+    "t": "컨텍스트 캐싱",
+    "en": "Context Caching",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "agents-md",
+    "t": "AGENTS.md",
+    "en": "AGENTS.md",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "prompt-management",
+    "t": "프롬프트 관리",
+    "en": "Prompt Management",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "zero-shot",
+    "t": "제로샷",
+    "en": "Zero-Shot Prompting",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "tree-of-thought",
+    "t": "트리 오브 쏘트",
+    "en": "Tree of Thought",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "self-consistency",
+    "t": "셀프 컨시스턴시",
+    "en": "Self-Consistency",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "meta-prompt",
+    "t": "메타 프롬프트",
+    "en": "Meta-Prompt",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "prompt-chaining",
+    "t": "프롬프트 체이닝",
+    "en": "Prompt Chaining",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "role-prompting",
+    "t": "역할 프롬프팅",
+    "en": "Role Prompting",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "xml-prompting",
+    "t": "XML 프롬프팅",
+    "en": "XML Prompting",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "context-stuffing",
+    "t": "컨텍스트 스터핑",
+    "en": "Context Stuffing",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "auto-prompt",
+    "t": "자동 프롬프트 최적화",
+    "en": "Automatic Prompt Optimization",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "output-formatting",
+    "t": "출력 포맷팅",
+    "en": "Output Formatting",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "data-curation",
+    "t": "데이터 큐레이션",
+    "en": "Data Curation",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "data-augmentation",
+    "t": "데이터 증강",
+    "en": "Data Augmentation",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "context-compression",
+    "t": "컨텍스트 압축",
+    "en": "Context Compression",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "semantic-cache",
+    "t": "시맨틱 캐시",
+    "en": "Semantic Cache",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "red-teaming",
+    "t": "레드팀",
+    "en": "Red Teaming",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "alignment",
+    "t": "AI 정렬",
+    "en": "AI Alignment",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "constitutional-ai",
+    "t": "헌법적 AI",
+    "en": "Constitutional AI",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "jailbreak",
+    "t": "탈옥",
+    "en": "Jailbreak",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "bias",
+    "t": "편향",
+    "en": "AI Bias",
+    "need_refs": true,
+    "need_en": 2,
+    "need_ko": 1
+  },
+  {
+    "id": "ontology",
+    "t": "온톨로지",
+    "en": "Ontology",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "deepseek",
+    "t": "DeepSeek",
+    "en": "DeepSeek",
+    "need_refs": false,
+    "need_en": 1,
+    "need_ko": 1
+  },
+  {
+    "id": "n8n",
+    "t": "n8n",
+    "en": "n8n (nodemation)",
+    "need_refs": false,
+    "need_en": 1,
+    "need_ko": 1
+  },
+  {
+    "id": "12-factor-agents",
+    "t": "12-Factor Agents",
+    "en": "Twelve-Factor Agents",
+    "need_refs": false,
+    "need_en": 1,
+    "need_ko": 1
+  },
+  {
+    "id": "pydantic-ai",
+    "t": "Pydantic AI",
+    "en": "Pydantic AI",
+    "need_refs": false,
+    "need_en": 1,
+    "need_ko": 1
+  },
+  {
+    "id": "mastra",
+    "t": "Mastra",
+    "en": "Mastra",
+    "need_refs": false,
+    "need_en": 1,
+    "need_ko": 1
+  },
+  {
+    "id": "hermes-agent",
+    "t": "Hermes Agent",
+    "en": "Hermes Agent",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "protocol-wars",
+    "t": "프로토콜 전쟁",
+    "en": "AI Protocol Wars",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "kokoro-tts",
+    "t": "Kokoro TTS",
+    "en": "Kokoro Text-to-Speech",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "open-webui",
+    "t": "Open WebUI",
+    "en": "Open WebUI",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "time-series-fm",
+    "t": "시계열 파운데이션 모델",
+    "en": "Time-Series Foundation Model",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "goose",
+    "t": "Goose",
+    "en": "Goose (Block AI Agent)",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "emotion-prompting",
+    "t": "감정 프롬프팅",
+    "en": "Emotion Prompting",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "mechanistic-interpretability",
+    "t": "메커니스틱 해석 가능성",
+    "en": "Mechanistic Interpretability",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "ai-vulnerability-discovery",
+    "t": "AI 취약점 발견",
+    "en": "AI Vulnerability Discovery",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "neurosymbolic-ai",
+    "t": "뉴로심볼릭 AI",
+    "en": "Neurosymbolic AI",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  },
+  {
+    "id": "research-driven-agent",
+    "t": "리서치 기반 에이전트",
+    "en": "Research-Driven Agent",
+    "need_refs": false,
+    "need_en": 0,
+    "need_ko": 1
+  }
+]

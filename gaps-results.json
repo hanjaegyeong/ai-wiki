@@ -1,0 +1,1657 @@
+[
+  {
+    "id": "harness-engineering",
+    "refs": [],
+    "videos": [
+      {
+        "title": "상위 1% AI 네이티브들은 프롬프트 안쓰고 &#39;하네스 깎기&#39;에 수백시간 투자합니다. (DIO FDE 김지운님)",
+        "id": "A8PMyC7W_vg",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "mcp",
+    "refs": [],
+    "videos": [
+      {
+        "title": "AI 시대의 필수 지식 MCP 이 영상 하나로 끝내세요!",
+        "id": "46HxP7kO9oY",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "claude-code",
+    "refs": [],
+    "videos": []
+  },
+  {
+    "id": "ai-agent",
+    "refs": [],
+    "videos": [
+      {
+        "title": "AI 에이전트 이거 하나면 충분합니다! Genspark 실전 활용법 20가지 (최신 가이드)",
+        "id": "p2jP5-r07CI",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "ai-coding",
+    "refs": [],
+    "videos": [
+      {
+        "title": "(구글 AI 코딩 신 등극) 제미나이가 미쳐 날뛰는 MCP 세팅법, 안티그래비티 업그레이드",
+        "id": "2epU-ZBTZX8",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "skills",
+    "refs": [],
+    "videos": []
+  },
+  {
+    "id": "hooks",
+    "refs": [],
+    "videos": []
+  },
+  {
+    "id": "claude-md",
+    "refs": [],
+    "videos": [
+      {
+        "title": "찐 개발자의 바이브 코딩은 다릅니다 - 클로드코드 바이브코딩 실전 워크플로우 모두 공개",
+        "id": "6Z6Le3Xwqdg",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "tool-use",
+    "refs": [],
+    "videos": []
+  },
+  {
+    "id": "rag",
+    "refs": [],
+    "videos": [
+      {
+        "title": "EP01. #RAG 의 동작 과정 쉽게 이해하기!",
+        "id": "zybyszetEcE",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "context-window",
+    "refs": [],
+    "videos": [
+      {
+        "title": "Why LLMs get dumb (Context Windows Explained)",
+        "id": "TeQDr4DkLYo",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "ai-workflow",
+    "refs": [],
+    "videos": [
+      {
+        "title": "모든 업무는 이거 하나로 전부 다 가능합니다. 해외에서 난리난 AI 자동화 끝판왕 &#39;젠스파크&#39; 활용법",
+        "id": "obhyzqJQd9k",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "system-prompt",
+    "refs": [],
+    "videos": [
+      {
+        "title": "상위 0.1%들의 챗GPT 미친 사용법",
+        "id": "TIr6_Bo8zfg",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "chain-of-thought",
+    "refs": [],
+    "videos": []
+  },
+  {
+    "id": "llm",
+    "refs": [],
+    "videos": [
+      {
+        "title": "LLM 설명 (요약버전)",
+        "id": "HnvitMTkXro",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "fine-tuning",
+    "refs": [],
+    "videos": [
+      {
+        "title": "LLM 흐름 총정리",
+        "id": "YL9QoOJMHl4",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "multimodal",
+    "refs": [],
+    "videos": [
+      {
+        "title": "전공생이 알려주는 AI(인공지능) 필수지식, 누구든 10분이면 이해 끝 | [허성범의 AI학개론]  -1강",
+        "id": "OIY2tWT3HHI",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "embedding",
+    "refs": [],
+    "videos": [
+      {
+        "title": "RAG 핵심 기술, &#39;벡터 데이터베이스&#39; 정리",
+        "id": "FRMGGtlToJ8",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "vector-db",
+    "refs": [],
+    "videos": [
+      {
+        "title": "AI 이미지 검색 엔진 만들기 - 벡터 데이터베이스 설명과 Chroma DB 튜토리얼",
+        "id": "7WCRhW1Z8NI",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "chunking",
+    "refs": [],
+    "videos": [
+      {
+        "title": "EP01. #RAG 의 동작 과정 쉽게 이해하기!",
+        "id": "zybyszetEcE",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "eval",
+    "refs": [],
+    "videos": [
+      {
+        "title": "What is Impact Evaluation?",
+        "id": "HEJlT8t5ezU",
+        "lang": "en"
+      },
+      {
+        "title": "Ai 와 대화하다 소름돋는 상황, 이건 선넘었지… #소름 #김지석#챗지피티 #ai논란 #ai무서워 #챗gpt #chatgpt #내안의보석",
+        "id": "aAr6LsCezj8",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "hallucination",
+    "refs": [],
+    "videos": [
+      {
+        "title": "환각을 보는 소년이 뇌수술을 한 이유",
+        "id": "lq_dKXfgS3Q",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "guardrail",
+    "refs": [],
+    "videos": [
+      {
+        "title": "7 Guardrails ($35K) with a LETHAL Installation Defect",
+        "id": "RPLcjHeROq8",
+        "lang": "en"
+      },
+      {
+        "title": "&quot;콘크리트 몰드 가드레일 제작 현장! 정밀한 주조 기술의 모든 것&quot;",
+        "id": "QczWqHdtvvM",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "prompt-injection",
+    "refs": [],
+    "videos": [
+      {
+        "title": "챗GPT에게 원하는 답변 받는 프롬프트",
+        "id": "GX5B6EhUw8Q",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "chatbot",
+    "refs": [],
+    "videos": [
+      {
+        "title": "AI Agents, Clearly Explained",
+        "id": "FwOTs4UxQS4",
+        "lang": "en"
+      }
+    ]
+  },
+  {
+    "id": "ai-search",
+    "refs": [],
+    "videos": [
+      {
+        "title": "이 기능 갤럭시에만 있습니다! 삼성폰 쓴다면 꼭 알아야 할 AI 꿀팁 7가지",
+        "id": "dxz3VRvkm9w",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "structured-output",
+    "refs": [],
+    "videos": [
+      {
+        "title": "엑셀 데이터 입력, 10초 안에 끝내세요! ChatGPT 꿀팁 대공개⚡#shorts",
+        "id": "aGMS6j8kFrA",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "react-pattern",
+    "refs": [],
+    "videos": [
+      {
+        "title": "Every React Concept Explained in 12 Minutes",
+        "id": "wIyHSOugGGw",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "few-shot",
+    "refs": [],
+    "videos": [
+      {
+        "title": "딥러닝이란? #shorts",
+        "id": "zfPlKKxShpU",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "transformer",
+    "refs": [],
+    "videos": [
+      {
+        "title": "[딥러닝 기계 번역] Transformer: Attention Is All You Need (꼼꼼한 딥러닝 논문 리뷰와 코드 실습)",
+        "id": "AA621UofTUA",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "tokenization",
+    "refs": [],
+    "videos": [
+      {
+        "title": "10만 달러 무너진 비트코인…토큰화 시대, 기회일까? / 오태민 교수",
+        "id": "dNAtpLW16Xc",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "rlhf",
+    "refs": [],
+    "videos": [
+      {
+        "title": "😎ChatGPT 핵심기술 RLHF 코드리뷰 feat  ChatLLaMA😎",
+        "id": "T1XadeiKl1M",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "in-context-learning",
+    "refs": [],
+    "videos": [
+      {
+        "title": "프롬프트 엔지니어링 상위 1%는 &#39;설계&#39;를 합니다 | 컨텍스트 엔지니어링",
+        "id": "0OXCyl5Rai4",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "vibe-coding",
+    "refs": [],
+    "videos": [
+      {
+        "title": "The &quot;vibe coding&quot; mind virus explained…",
+        "id": "Tw18-4U7mts",
+        "lang": "en"
+      },
+      {
+        "title": "솔직히 바이브코딩 좋은듯",
+        "id": "tuH1ZTl9s9Q",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "synthetic-data",
+    "refs": [],
+    "videos": [
+      {
+        "title": "What is Synthetic Data? No, It&#39;s Not &quot;Fake&quot; Data",
+        "id": "HIusawrGBN4",
+        "lang": "en"
+      }
+    ]
+  },
+  {
+    "id": "inference-optimization",
+    "refs": [],
+    "videos": [
+      {
+        "title": "AI 초고수들이 지금 쓰는 툴 3가지",
+        "id": "Z5xxQSrn1v8",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "moe",
+    "refs": [],
+    "videos": [
+      {
+        "title": "트랜스포머를 넘어 MoE와 SSM까지, 미래 AI의 방향은? | AGI 구현 위한 요구 컴퓨팅 량 너무 높아 | MoE, Mamba, Jamba 등 AI 아키텍처 등장",
+        "id": "NSt259rpsKM",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "reasoning-model",
+    "refs": [],
+    "videos": [
+      {
+        "title": "전공생이 알려주는 AI(인공지능) 필수지식, 누구든 10분이면 이해 끝 | [허성범의 AI학개론]  -1강",
+        "id": "OIY2tWT3HHI",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "self-supervised-learning",
+    "refs": [],
+    "videos": [
+      {
+        "title": "Supervised vs. Unsupervised Learning",
+        "id": "W01tIRP_Rqs",
+        "lang": "en"
+      },
+      {
+        "title": "How AI Taught Itself to See [DINOv3]",
+        "id": "oGTasd3cliM",
+        "lang": "en"
+      },
+      {
+        "title": "[Easy! 딥러닝] 1-3강. 자기 지도 학습 (Self-Supervised Learning) | 딱 10분만 투자해보세요!",
+        "id": "MNa62h4lacA",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "reinforcement-learning",
+    "refs": [],
+    "videos": [
+      {
+        "title": "The FASTEST introduction to Reinforcement Learning on the internet",
+        "id": "VnpRp7ZglfA",
+        "lang": "en"
+      },
+      {
+        "title": "Reinforcement Learning from scratch",
+        "id": "vXtfdGphr3c",
+        "lang": "en"
+      },
+      {
+        "title": "[강화학습] 1-1강. 혁펜하임의 “트이는” 강화 학습 (Reinforcement learning)",
+        "id": "cvctS4xWSaU",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "reward-model",
+    "refs": [],
+    "videos": [
+      {
+        "title": "2-Minute Neuroscience: Reward System",
+        "id": "f7E0mTJQ2KM",
+        "lang": "en"
+      },
+      {
+        "title": "Training AI Without Writing A Reward Function, with Reward Modelling",
+        "id": "PYylPRX6z4Q",
+        "lang": "en"
+      }
+    ]
+  },
+  {
+    "id": "grpo",
+    "refs": [],
+    "videos": [
+      {
+        "title": "[GRPO Explained] DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+        "id": "bAWV_yrqx4w",
+        "lang": "en"
+      },
+      {
+        "title": "DeepSeek&#39;s GRPO (Group Relative Policy Optimization) | Reinforcement Learning for LLMs",
+        "id": "xT4jxQUl0X8",
+        "lang": "en"
+      },
+      {
+        "title": "DeepSeek&#39;s GRPO (Group Relative Policy Optimization) | Reinforcement Learning for LLMs",
+        "id": "xT4jxQUl0X8",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "quantization",
+    "refs": [],
+    "videos": [
+      {
+        "title": "Optimize Your AI - Quantization Explained",
+        "id": "K75j8MkwgJ0",
+        "lang": "en"
+      },
+      {
+        "title": "Quantization Explained | Perimeter Institute for Theoretical Physics",
+        "id": "bChNhy1prD4",
+        "lang": "en"
+      }
+    ]
+  },
+  {
+    "id": "pruning",
+    "refs": [],
+    "videos": [
+      {
+        "title": "This Method of Pruning Trees will Simplify Everything!",
+        "id": "aCBBptEgXKA",
+        "lang": "en"
+      },
+      {
+        "title": "🌹 How to Prune Roses Like a Pro | Perfect Cuts &amp; Yearly Pruning Guide ✂️🌿",
+        "id": "TGbyXJ8nGA8",
+        "lang": "en"
+      },
+      {
+        "title": "Alpha beta pruning in artificial intelligence with example.",
+        "id": "_i-lZcbWkps",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "sft",
+    "refs": [],
+    "videos": [
+      {
+        "title": "RAG vs Fine-Tuning vs Prompt Engineering: Optimizing AI Models",
+        "id": "zYGDpG-pTho",
+        "lang": "en"
+      },
+      {
+        "title": "Fine-tuning Large Language Models (LLMs) | w/ Example Code",
+        "id": "eC6Hd1hFvos",
+        "lang": "en"
+      },
+      {
+        "title": "바닥부터 LLM 굽기. pretrain해서 베이스모델  만드는 법. LLM DeepDive 1편",
+        "id": "QQ5PMNnlA1U",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "foundation-model",
+    "refs": [],
+    "videos": [
+      {
+        "title": "AI, Machine Learning, Deep Learning and Generative AI Explained",
+        "id": "qYNweeDHiyU",
+        "lang": "en"
+      },
+      {
+        "title": "How Large Language Models Work",
+        "id": "5sLYAQS9sWQ",
+        "lang": "en"
+      },
+      {
+        "title": "&#39;Robot Foundation Model&#39; 로봇개발자라면 이제 반드시 이 내용 알아야 합니다 l Physical AI, 핵심 논문 리뷰",
+        "id": "YUN-ajOxS_o",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "small-language-model",
+    "refs": [],
+    "videos": [
+      {
+        "title": "Large Language Models explained briefly",
+        "id": "LPZh9BOjkQs",
+        "lang": "en"
+      },
+      {
+        "title": "How Large Language Models Work",
+        "id": "5sLYAQS9sWQ",
+        "lang": "en"
+      },
+      {
+        "title": "전공생이 알려주는 AI(인공지능) 필수지식, 누구든 10분이면 이해 끝 | [허성범의 AI학개론]  -1강",
+        "id": "OIY2tWT3HHI",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "ssm",
+    "refs": [],
+    "videos": [
+      {
+        "title": "Intro to Control - 6.1 State-Space Model Basics",
+        "id": "g9G8b7FxEHc",
+        "lang": "en"
+      }
+    ]
+  },
+  {
+    "id": "temperature",
+    "refs": [],
+    "videos": [
+      {
+        "title": "What Are the Temperatures of the Planets?",
+        "id": "InkR-oTNZ9c",
+        "lang": "en"
+      },
+      {
+        "title": "Heat and Temperature",
+        "id": "LL54E5CzQ-A",
+        "lang": "en"
+      }
+    ]
+  },
+  {
+    "id": "frontier-model",
+    "refs": [],
+    "videos": [
+      {
+        "title": "The efficient compute frontier.",
+        "id": "35IpOK-WaNA",
+        "lang": "en"
+      },
+      {
+        "title": "Production possibilities frontier | Microeconomics | Khan Academy",
+        "id": "_7VHfuWV-Qg",
+        "lang": "en"
+      }
+    ]
+  },
+  {
+    "id": "vision-language-model",
+    "refs": [],
+    "videos": [
+      {
+        "title": "Large Language Models explained briefly",
+        "id": "LPZh9BOjkQs",
+        "lang": "en"
+      },
+      {
+        "title": "What Are Vision Language Models? How AI Sees &amp; Understands Images",
+        "id": "lOD_EE96jhM",
+        "lang": "en"
+      },
+      {
+        "title": "이 영상 하나면 &#39;인공지능&#39;, &#39;머신러닝&#39;, &#39;딥러닝&#39; 이해가 됩니다ㅣ서울대 AI박사 6분 개념정리",
+        "id": "jPs3n9Vou9c",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "benchmark",
+    "refs": [],
+    "videos": [
+      {
+        "title": "Best Benchmarks and Stress Tests for a Gaming PC",
+        "id": "foxUBYkbyVU",
+        "lang": "en"
+      },
+      {
+        "title": "What is Benchmarking ? 𝐁𝐄𝐍𝐂𝐇𝐌𝐀𝐑𝐊𝐈𝐍𝐆 Analysis | Benchmarking in Strategic management",
+        "id": "SRx1pq2ky6A",
+        "lang": "en"
+      }
+    ]
+  },
+  {
+    "id": "model-serving",
+    "refs": [],
+    "videos": [
+      {
+        "title": "Deploy ML model in 10 minutes. Explained",
+        "id": "vA0C0k72-b4",
+        "lang": "en"
+      },
+      {
+        "title": "Explained Model Serving (creating Endpoints for custom models) in Databricks",
+        "id": "N1t9Hq-2AZU",
+        "lang": "en"
+      },
+      {
+        "title": "LLM 설명 (요약버전)",
+        "id": "HnvitMTkXro",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "continuous-batching",
+    "refs": [],
+    "videos": [
+      {
+        "title": "Deep Dive: Optimizing LLM inference",
+        "id": "hMs8VNRy5Ys",
+        "lang": "en"
+      },
+      {
+        "title": "Faster LLMs: Accelerate Inference with Speculative Decoding",
+        "id": "VkWlLSTdHs8",
+        "lang": "en"
+      }
+    ]
+  },
+  {
+    "id": "gpu-cluster",
+    "refs": [],
+    "videos": [
+      {
+        "title": "How do Graphics Cards Work?  Exploring GPU Architecture",
+        "id": "h9Z4oGN89MU",
+        "lang": "en"
+      },
+      {
+        "title": "엔비디아 GPU, 뭐가 그렇게 중요하다는 걸까… 50초 안에 설명하기",
+        "id": "8vI6Eu8kMAM",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "tensor-parallelism",
+    "refs": [],
+    "videos": [
+      {
+        "title": "Tensors for Neural Networks, Clearly Explained!!!",
+        "id": "L35fFDpwIM4",
+        "lang": "en"
+      },
+      {
+        "title": "AI칩이 쏟아져도... NVIDIA 무기 CUDA가 무엇이길래 압도적인가 | 다른 GPU/AI가속기 성능 좋아도 대체가 불가능한 현 상황",
+        "id": "sdjeSBye9sY",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "vllm",
+    "refs": [],
+    "videos": [
+      {
+        "title": "How vLLM Became the Standard for Fast AI Inference | Simon Mo, Inferact",
+        "id": "AGGPX11g3j0",
+        "lang": "en"
+      },
+      {
+        "title": "What is vLLM? Efficient AI Inference for Large Language Models",
+        "id": "McLdlg5Gc9s",
+        "lang": "en"
+      },
+      {
+        "title": "LLM 설명 (요약버전)",
+        "id": "HnvitMTkXro",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "mlops",
+    "refs": [],
+    "videos": [
+      {
+        "title": "MLOps explained | Machine Learning Essentials",
+        "id": "ZVWg18AXXuE",
+        "lang": "en"
+      },
+      {
+        "title": "What is MLOps?",
+        "id": "OejCJL2EC3k",
+        "lang": "en"
+      },
+      {
+        "title": "What is MLOps?",
+        "id": "OejCJL2EC3k",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "multimodal-rag",
+    "refs": [
+      {
+        "title": "Multimodal Retrieval-Augmented Generation (RAG) with Document Retrieval (ColPali) and Vision Language Models (VLMs) · Hugging Face",
+        "url": "https://huggingface.co/learn/cookbook/multimodal_rag_using_document_retrieval_and_vlms",
+        "type": "official"
+      },
+      {
+        "title": "Gemini Pro를 사용해 멀티모달 RAG를 기반으로 한 Q&A 앱 빌드하기",
+        "url": "https://codelabs.developers.google.com/multimodal-rag-gemini?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "Multimodal RAG: What It Is & How It Works in 2026",
+        "url": "https://kanerika.com/blogs/multimodal-rag/",
+        "type": "blog"
+      },
+      {
+        "title": "Multimodal RAG: Building a multimodal RAG system with Elastic - Elasticsearch Labs",
+        "url": "https://www.elastic.co/search-labs/blog/building-multimodal-rag-system",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "agent-protocol",
+    "refs": [
+      {
+        "title": "Agent2Agent (A2A) 프로토콜 시작하기: Cloud Run 및 Agent Engine ...",
+        "url": "https://codelabs.developers.google.com/intro-a2a-purchasing-concierge?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "Agent Protocol: Interoperability for LLM agents - LangChain Blog",
+        "url": "https://blog.langchain.com/agent-protocol-interoperability-for-llm-agents/",
+        "type": "blog"
+      },
+      {
+        "title": "Agentic AI Protocols: MCP, A2A, and ACP | by Manav Gupta",
+        "url": "https://medium.com/@manavg/agentic-ai-protocols-mcp-a2a-and-acp-ea0200eac18b",
+        "type": "blog"
+      },
+      {
+        "title": "Announcing the Agent2Agent Protocol (A2A)",
+        "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "a2a",
+    "refs": [
+      {
+        "title": "Getting Started with Agent2Agent (A2A) Protocol: A Purchasing Concierge and Remote Seller Agent Interactions on Cloud Run and Agent Engine | Google Codelabs",
+        "url": "https://codelabs.developers.google.com/intro-a2a-purchasing-concierge",
+        "type": "official"
+      },
+      {
+        "title": "Agent to Agent (A2A)protocol ! what and why! How they compliment ...",
+        "url": "https://medium.com/data-and-beyond/agent-to-agent-a2a-protocol-what-and-why-how-they-compliment-with-mcps-a0c26a07465e",
+        "type": "blog"
+      },
+      {
+        "title": "Announcing the Agent2Agent Protocol (A2A)",
+        "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+        "type": "blog"
+      },
+      {
+        "title": "MCP vs A2A: A Guide to AI Agent Communication Protocols - Auth0",
+        "url": "https://auth0.com/blog/mcp-vs-a2a/",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "orchestration",
+    "refs": [
+      {
+        "title": "Guidance for Multi-Agent Orchestration on AWS",
+        "url": "https://aws.amazon.com/solutions/guidance/multi-agent-orchestration-on-aws/",
+        "type": "official"
+      },
+      {
+        "title": "AI Agent Orchestration Patterns - Azure Architecture Center",
+        "url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns",
+        "type": "official"
+      },
+      {
+        "title": "Agent Orchestration 101: Making Multiple AI Agents Work as One",
+        "url": "https://www.lyzr.ai/blog/agent-orchestration/",
+        "type": "blog"
+      },
+      {
+        "title": "Agent Orchestration: When to Use LangChain, LangGraph, AutoGen — or Build an Agentic RAG System | by Akanksha Sinha | Medium",
+        "url": "https://medium.com/@akankshasinha247/agent-orchestration-when-to-use-langchain-langgraph-autogen-or-build-an-agentic-rag-system-cc298f785ea4",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "subagent",
+    "refs": [
+      {
+        "title": "Subagents - Augment",
+        "url": "https://docs.augmentcode.com/cli/subagents",
+        "type": "official"
+      },
+      {
+        "title": "Subagents - Docs by LangChain",
+        "url": "https://docs.langchain.com/oss/python/deepagents/subagents",
+        "type": "official"
+      },
+      {
+        "title": "Subagents – Codex | OpenAI Developers",
+        "url": "https://developers.openai.com/codex/subagents",
+        "type": "official"
+      },
+      {
+        "title": "Subagents: When and How to Use Them - Builder.io",
+        "url": "https://www.builder.io/blog/subagents",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "agentic-rag",
+    "refs": [
+      {
+        "title": "Agentic RAG: turbocharge your RAG with query reformulation and self-query! 🚀 · Hugging Face",
+        "url": "https://huggingface.co/learn/cookbook/en/agent_rag",
+        "type": "official"
+      },
+      {
+        "title": "5-6) Agentic RAG - AI 에이전트는 이렇게 만든다 (랭체인 ... - 위키독스",
+        "url": "https://wikidocs.net/331290",
+        "type": "official"
+      },
+      {
+        "title": "What Is Agentic RAG: Next-Gen AI Retrieval | Progress",
+        "url": "https://www.progress.com/blogs/what-is-agentic-rag",
+        "type": "blog"
+      },
+      {
+        "title": "How Agentic RAG Works? - ByteByteGo Newsletter",
+        "url": "https://blog.bytebytego.com/p/how-agentic-rag-works",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "langsmith",
+    "refs": [
+      {
+        "title": "AWS Marketplace: LangSmith Agent Engineering Platform",
+        "url": "https://aws.amazon.com/marketplace/pp/prodview-vmzygmggk4gms",
+        "type": "official"
+      },
+      {
+        "title": "LangSmith docs - Docs by LangChain",
+        "url": "https://docs.langchain.com/langsmith/home",
+        "type": "official"
+      },
+      {
+        "title": "What is LangSmith and why should I care as a developer? - Medium",
+        "url": "https://medium.com/around-the-prompt/what-is-langsmith-and-why-should-i-care-as-a-developer-e5921deb54b5",
+        "type": "blog"
+      },
+      {
+        "title": "LangSmith: AI Agent & LLM Observability and Evals Platform",
+        "url": "https://www.langchain.com/langsmith-platform",
+        "type": "tutorial"
+      }
+    ],
+    "videos": [
+      {
+        "title": "LangChain vs LangGraph vs LangSmith",
+        "id": "vJOGC8QJZJQ",
+        "lang": "en"
+      },
+      {
+        "title": "LangGraph vs LangChain vs LangFlow vs LangSmith : Which One To Use &amp; Why?",
+        "id": "ldBsvhjEREc",
+        "lang": "en"
+      },
+      {
+        "title": "LangGraph vs LangChain vs LangFlow vs LangSmith : Which One To Use &amp; Why?",
+        "id": "ldBsvhjEREc",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "tracing",
+    "refs": [
+      {
+        "title": "7 best free and open source LLM observability tools - PostHog",
+        "url": "https://posthog.com/blog/best-open-source-llm-observability-tools",
+        "type": "blog"
+      },
+      {
+        "title": "트레이싱으로 인물화 쉽게 그리기 가능? 트레이싱으로 캐리커쳐 ...",
+        "url": "https://m.blog.naver.com/eol_grim/221874356064",
+        "type": "blog"
+      },
+      {
+        "title": "LLM Tracing - Arize AI",
+        "url": "https://arize.com/resource/llm-tracing/",
+        "type": "tutorial"
+      },
+      {
+        "title": "LLM Tracing and Agent Observability | MLflow AI Platform | MLflow",
+        "url": "https://mlflow.org/docs/latest/genai/tracing/",
+        "type": "tutorial"
+      }
+    ],
+    "videos": [
+      {
+        "title": "What is Retrieval Augmented Generation (RAG) ? Simplified Explanation",
+        "id": "CbAQUqnrDcA",
+        "lang": "en"
+      },
+      {
+        "title": "How Does Rag Work? - Vector Database and LLMs #datascience #naturallanguageprocessing #llm #gpt",
+        "id": "xS55duPS-Pw",
+        "lang": "en"
+      }
+    ]
+  },
+  {
+    "id": "playground",
+    "refs": [],
+    "videos": [
+      {
+        "title": "Apple Intelligence Image Playground is here! iOS 18.2 Beta 1 🔥",
+        "id": "27qbeiKX2Bs",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "model-router",
+    "refs": [
+      {
+        "title": "Model router for Microsoft Foundry concepts - Microsoft Foundry | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-router",
+        "type": "official"
+      },
+      {
+        "title": "How to Set Up an AI Model Router for Your LLM Stack",
+        "url": "https://www.mindstudio.ai/blog/set-up-ai-model-router-llm-stack/",
+        "type": "blog"
+      },
+      {
+        "title": "Model Router: local Running Team of small LLMs over One Big",
+        "url": "https://medium.com/@michael.hannecke/the-model-router-running-a-team-of-local-llms-instead-of-one-big-one-fd75eeec9d39",
+        "type": "blog"
+      },
+      {
+        "title": "What is LLM Router? - TrueFoundry",
+        "url": "https://www.truefoundry.com/blog/what-is-llm-router",
+        "type": "blog"
+      }
+    ],
+    "videos": [
+      {
+        "title": "Modem vs Router - What&#39;s the difference?",
+        "id": "Mad4kQ5835Y",
+        "lang": "en"
+      },
+      {
+        "title": "Hub, Switch, &amp; Router Explained - What&#39;s the difference?",
+        "id": "1z0ULvg_pW8",
+        "lang": "en"
+      }
+    ]
+  },
+  {
+    "id": "context-caching",
+    "refs": [
+      {
+        "title": "Context caching overview  |  Generative AI on Vertex AI  |  Google Cloud Documentation",
+        "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview",
+        "type": "official"
+      },
+      {
+        "title": "Context Caching | DeepSeek API Docs",
+        "url": "https://api-docs.deepseek.com/guides/kv_cache",
+        "type": "official"
+      },
+      {
+        "title": "Context Caching - Overview - Z.AI DEVELOPER DOCUMENT",
+        "url": "https://docs.z.ai/guides/capabilities/cache",
+        "type": "official"
+      },
+      {
+        "title": "Understanding the difference between context caching or prompt ...",
+        "url": "https://medium.com/@wael-saideni/understanding-the-difference-between-context-caching-and-semantic-caching-a-step-toward-optimizing-1a2b44d25c12",
+        "type": "blog"
+      }
+    ],
+    "videos": [
+      {
+        "title": "The KV Cache: Memory Usage in Transformers",
+        "id": "80bIUggRJf4",
+        "lang": "en"
+      },
+      {
+        "title": "The KV Cache: Memory Usage in Transformers",
+        "id": "80bIUggRJf4",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "agents-md",
+    "refs": [
+      {
+        "title": "Custom instructions with AGENTS.md – Codex | OpenAI Developers",
+        "url": "https://developers.openai.com/codex/guides/agents-md",
+        "type": "official"
+      },
+      {
+        "title": "One AGENTS.md to Rule Them All - Pascal Heus - Medium",
+        "url": "https://plgah.medium.com/one-agents-md-to-rule-them-all-70e6dc87a05f",
+        "type": "blog"
+      },
+      {
+        "title": "How to write a great agents.md: Lessons from over 2,500 repositories",
+        "url": "https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/",
+        "type": "blog"
+      },
+      {
+        "title": "AGENTS.md",
+        "url": "https://agents.md/",
+        "type": "tutorial"
+      }
+    ],
+    "videos": [
+      {
+        "title": "Claude Agent Skills Explained",
+        "id": "fOxC44g8vig",
+        "lang": "en"
+      },
+      {
+        "title": "Create Your First SKILL.md File (Make AI Agents Do Exactly What You Want) | #claude #antigravity",
+        "id": "Fh-aBKrG5CI",
+        "lang": "en"
+      },
+      {
+        "title": "AI 에이전트 100개를 한 번에 관리하는 1인 유니콘 개발자 (커서맛피아 최수민님)",
+        "id": "GL3LXWBZfy0",
+        "lang": "ko"
+      }
+    ]
+  },
+  {
+    "id": "prompt-management",
+    "refs": [
+      {
+        "title": "prompt-management",
+        "url": "https://aws.amazon.com/bedrock/prompt-management/",
+        "type": "official"
+      },
+      {
+        "title": "프롬프트 관리 | Generative AI on Vertex AI",
+        "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/prompt-classes?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "AI를 위한 프롬프트 엔지니어링 가이드 - Google Cloud",
+        "url": "https://cloud.google.com/discover/what-is-prompt-engineering?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "What is Prompt Management?",
+        "url": "https://humanloop.com/blog/prompt-management",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "zero-shot",
+    "refs": [
+      {
+        "title": "3.1 제로샷(zero-shot): 간단하지만 강력하게 - 위키독스",
+        "url": "https://wikidocs.net/280323",
+        "type": "official"
+      },
+      {
+        "title": "제로샷(zero-shot) 이미지 분류 - Hugging Face",
+        "url": "https://huggingface.co/docs/transformers/ko/tasks/zero_shot_image_classification",
+        "type": "official"
+      },
+      {
+        "title": "A Beginner's Guide to Zero-Shot Prompting in Generative AI - Medium",
+        "url": "https://medium.com/@zeusorion/a-beginners-guide-to-zero-shot-prompting-in-generative-ai-176a0b5bac4d",
+        "type": "blog"
+      },
+      {
+        "title": "How to Choose Your GenAI Prompting Strategy: Zero Shot vs. Few Shot…",
+        "url": "https://www.matillion.com/blog/gen-ai-prompt-strategy-zero-shot-few-shot-prompt",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "tree-of-thought",
+    "refs": [
+      {
+        "title": "How Tree of Thoughts Prompting Works - PromptHub",
+        "url": "https://www.prompthub.us/blog/how-tree-of-thoughts-prompting-works",
+        "type": "blog"
+      },
+      {
+        "title": "Tree Of Thoughts Prompting (ToT) - Cobus Greyling - Medium",
+        "url": "https://cobusgreyling.medium.com/tree-of-thoughts-prompting-tot-08555b04123e",
+        "type": "blog"
+      },
+      {
+        "title": "<지식 사전> 프롬프트 엔지니어링이란 ③ - 고급 기법 (CoT, ToT, ReAct)",
+        "url": "https://blog.kakaocloud.com/87",
+        "type": "blog"
+      },
+      {
+        "title": "Tree of Thoughts 추론 프레임워크 - 네이버 블로그",
+        "url": "https://m.blog.naver.com/simula/224071471997",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "self-consistency",
+    "refs": [
+      {
+        "title": "Self-Consistency and Universal Self-Consistency Prompting | by Dan Cleary | Medium",
+        "url": "https://medium.com/@dan_43009/self-consistency-and-universal-self-consistency-prompting-00b14f2d1992",
+        "type": "blog"
+      },
+      {
+        "title": "일관성 있는 AI, self-consistency 프롬프팅 기법 - 나두AI 블로그",
+        "url": "https://blog.nadoo.ai/self-consistency/",
+        "type": "blog"
+      },
+      {
+        "title": "LLM 추론력 향상을 위한 Self-Discover 방법론",
+        "url": "https://blog.sionic.ai/self-discover",
+        "type": "blog"
+      },
+      {
+        "title": "[PDF] Self-Consistency Improves Chain of Thought Reasoning in ... - arXiv",
+        "url": "https://arxiv.org/pdf/2203.11171",
+        "type": "paper"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "meta-prompt",
+    "refs": [
+      {
+        "title": "MetaPrompt - AI Prompt Engineer & Optimizer for ChatGPT & Claude",
+        "url": "https://chromewebstore.google.com/detail/metaprompt-ai-prompt-engi/glkfhecdpcmaclfkhkibmoijipnnjkbf",
+        "type": "official"
+      },
+      {
+        "title": "02. 사용자 요구사항 기반 메타 프롬프트 생성 에이전트",
+        "url": "https://wikidocs.net/267817",
+        "type": "official"
+      },
+      {
+        "title": "A Complete Guide to Meta Prompting",
+        "url": "https://www.prompthub.us/blog/a-complete-guide-to-meta-prompting",
+        "type": "blog"
+      },
+      {
+        "title": "Meta-prompt To Improve Your Prompt Engineering Practices.",
+        "url": "https://medium.com/@mosquera/meta-prompt-to-improve-your-prompt-engineering-practices-de5616adfb40",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "prompt-chaining",
+    "refs": [
+      {
+        "title": "Prompt Chaining for the AI Agents: Modular, Reliable, and Scalable ...",
+        "url": "https://medium.com/@nivalabs.ai/prompt-chaining-for-the-ai-agents-modular-reliable-and-scalable-workflows-a22d15fd5d33",
+        "type": "blog"
+      },
+      {
+        "title": "Prompt Chaining Guide - PromptHub",
+        "url": "https://www.prompthub.us/blog/prompt-chaining-guide",
+        "type": "blog"
+      },
+      {
+        "title": "Prompt Chaining Masterclass: How to Orchestrate Multiple AI ...",
+        "url": "https://natesnewsletter.substack.com/p/prompt-chaining-masterclass-how-to",
+        "type": "blog"
+      },
+      {
+        "title": "AI 프롬프트 체이닝이란 무엇인가요? - Botpress",
+        "url": "https://botpress.com/ko/blog/what-is-ai-prompt-chaining",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "role-prompting",
+    "refs": [
+      {
+        "title": "AI를 위한 프롬프트 엔지니어링 가이드 - Google Cloud",
+        "url": "https://cloud.google.com/discover/what-is-prompt-engineering?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "프롬프트 엔지니어링이란 무엇인가요? - AWS",
+        "url": "https://aws.amazon.com/ko/what-is/prompt-engineering/",
+        "type": "official"
+      },
+      {
+        "title": "5 Essential Tips for Successful Role Prompting - Dr. Matt Bergman",
+        "url": "https://drmattbergman.com/blog/f/5-essential-tips-for-successful-role-prompting",
+        "type": "blog"
+      },
+      {
+        "title": "Role-Prompting: Does Adding Personas to Your Prompts Really Make a Difference?",
+        "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "xml-prompting",
+    "refs": [
+      {
+        "title": "Use XML tags to structure my prompts - Prompting - OpenAI Developer Community",
+        "url": "https://community.openai.com/t/use-xml-tags-to-structure-my-prompts/1068871",
+        "type": "official"
+      },
+      {
+        "title": "프롬프트 작성 전략 개요  |  Generative AI on Vertex AI  |  Google Cloud Documentation",
+        "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/prompt-design-strategies?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "Structured Prompting Techniques: XML & JSON Prompting Guide",
+        "url": "https://codeconductor.ai/blog/structured-prompting-techniques-xml-json/",
+        "type": "blog"
+      },
+      {
+        "title": "Effective Prompt Engineering: Mastering XML Tags for ...",
+        "url": "https://medium.com/@TechforHumans/effective-prompt-engineering-mastering-xml-tags-for-clarity-precision-and-security-in-llms-992cae203fdc",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "context-stuffing",
+    "refs": [
+      {
+        "title": "Context Stuffing - by Vipul Kumar",
+        "url": "https://medium.com/@vipulkc/context-stuffing-e904b8aa5264",
+        "type": "blog"
+      },
+      {
+        "title": "The Context Stuffing Antipattern: Why More Context Makes ...",
+        "url": "https://tianpan.co/blog/2026-04-09-context-stuffing-antipattern-llm-production",
+        "type": "blog"
+      },
+      {
+        "title": "RAG vs. Prompt Stuffing: Overcoming Context Window Limits for Large, Information-Dense Documents",
+        "url": "https://www.spyglassmtg.com/blog/rag-vs.-prompt-stuffing-overcoming-context-window-limits-for-large-information-dense-documents",
+        "type": "blog"
+      },
+      {
+        "title": "Context engineering: How to give AI exactly what it needs | Thoughtworks United States",
+        "url": "https://www.thoughtworks.com/en-us/insights/blog/generative-ai/context-engineering-give-ai-what-needs",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "auto-prompt",
+    "refs": [
+      {
+        "title": "How we built open-source automated prompt optimization",
+        "url": "https://www.evidentlyai.com/blog/automated-prompt-optimization",
+        "type": "blog"
+      },
+      {
+        "title": "Automatic Prompt Optimization - by Cameron R. Wolfe, Ph.D.",
+        "url": "https://cameronrwolfe.substack.com/p/automatic-prompt-optimization",
+        "type": "blog"
+      },
+      {
+        "title": "Prompt Optimization Using Few-Shot Prompting: Proven Tactics",
+        "url": "https://arize.com/blog/prompt-optimization-few-shot-prompting/",
+        "type": "blog"
+      },
+      {
+        "title": "챗GPT 공부할 필요 없어질 듯! 어설픈 질문을 바꿔주는 자동 프롬프트 ...",
+        "url": "https://m.blog.naver.com/bonamy/223104081661",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "output-formatting",
+    "refs": [
+      {
+        "title": "Formatting Numeric Print Output (The Java™ Tutorials > Learning ...",
+        "url": "https://docs.oracle.com/javase/tutorial/java/data/numberformat.html",
+        "type": "official"
+      },
+      {
+        "title": "7. Input and Output — Python 3.14.4 documentation",
+        "url": "https://docs.python.org/3/tutorial/inputoutput.html",
+        "type": "official"
+      },
+      {
+        "title": "04) 기본 출력 print 함수, format 함수, f문자열 - 파이썬 입문 - 위키독스",
+        "url": "https://wikidocs.net/164969",
+        "type": "official"
+      },
+      {
+        "title": "[C-언어] printf( )의 포맷(format) 지정자 - 네이버 블로그",
+        "url": "https://m.blog.naver.com/kaiserkhan21/220961278882",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "data-curation",
+    "refs": [
+      {
+        "title": "Transforming Research with Data Curation Practices",
+        "url": "https://www.cos.io/blog/data-curation",
+        "type": "blog"
+      },
+      {
+        "title": "What Is Data Curation? Real-World Examples",
+        "url": "https://www.acceldata.io/blog/data-curation",
+        "type": "blog"
+      },
+      {
+        "title": "What is data curation?",
+        "url": "https://www.ataccama.com/blog/what-is-data-curation",
+        "type": "blog"
+      },
+      {
+        "title": "What Is Data Curation? Why Is It Important? | Alation",
+        "url": "https://www.alation.com/blog/what-is-data-curation/",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "data-augmentation",
+    "refs": [
+      {
+        "title": "What is Data Augmentation? - Data Augmentation Techniques Explained - AWS",
+        "url": "https://aws.amazon.com/what-is/data-augmentation/",
+        "type": "official"
+      },
+      {
+        "title": "Data augmentation  |  TensorFlow Core",
+        "url": "https://www.tensorflow.org/tutorials/images/data_augmentation",
+        "type": "official"
+      },
+      {
+        "title": "Data Augmentation: From Basics to Super-Advanced Concepts",
+        "url": "https://medium.com/@adnan.mazraeh1993/data-augmentation-from-basics-to-super-advanced-concepts-2a366c17489e",
+        "type": "blog"
+      },
+      {
+        "title": "The Ultimate Guide to Data Augmentation in Computer Vision | Encord",
+        "url": "https://encord.com/blog/data-augmentation-guide/",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "context-compression",
+    "refs": [
+      {
+        "title": "Context Compression - Agno",
+        "url": "https://docs.agno.com/compression/overview",
+        "type": "official"
+      },
+      {
+        "title": "2-6-2. Contextual Compression - 랭체인(LangChain) 입문 ... - 위키독스",
+        "url": "https://wikidocs.net/231608",
+        "type": "official"
+      },
+      {
+        "title": "Autonomous context compression - LangChain Blog",
+        "url": "https://blog.langchain.com/autonomous-context-compression/",
+        "type": "blog"
+      },
+      {
+        "title": "Automatic Context Compression in LLM Agents: Why Agents Need ...",
+        "url": "https://medium.com/the-ai-forum/automatic-context-compression-in-llm-agents-why-agents-need-to-forget-and-how-to-help-them-do-it-43bff14c341d",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "semantic-cache",
+    "refs": [
+      {
+        "title": "Semantic Cache for Large Language Models - Azure Cosmos DB | Microsoft Learn",
+        "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/semantic-cache",
+        "type": "official"
+      },
+      {
+        "title": "Semantic Caching: What it is & Why You Need it - Zuplo",
+        "url": "https://zuplo.com/blog/what-is-semantic-caching/",
+        "type": "blog"
+      },
+      {
+        "title": "What is semantic caching? Guide to faster, smarter LLM apps",
+        "url": "https://redis.io/blog/what-is-semantic-caching/",
+        "type": "blog"
+      },
+      {
+        "title": "Semantic Caching: What We Measured, Why It Matters - Catchpoint",
+        "url": "https://www.catchpoint.com/blog/semantic-caching-what-we-measured-why-it-matters",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "red-teaming",
+    "refs": [
+      {
+        "title": "Sprocket Security | Red Teaming: History, Methodology, and 4 Critical Best Practices",
+        "url": "https://www.sprocketsecurity.com/blog/red-teaming-best-practices",
+        "type": "blog"
+      },
+      {
+        "title": "[KOR] 정보보안에서 레드팀이란",
+        "url": "https://blog.sunggwanchoi.com/kor-what-is-red-team-in-infosec/",
+        "type": "blog"
+      },
+      {
+        "title": "블루팀 vs 레드팀 vs 퍼플팀 - 주요 목표, 도구 및 기술의 차이점",
+        "url": "https://blog.naver.com/softwidesec/223506530867",
+        "type": "blog"
+      },
+      {
+        "title": "What is Red Teaming? Simulated Cyberattack Testing - Rapid7",
+        "url": "https://www.rapid7.com/fundamentals/what-is-a-red-team/",
+        "type": "tutorial"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "alignment",
+    "refs": [
+      {
+        "title": "What is AI Alignment? Ensuring AI Works for Humanity - DataCamp",
+        "url": "https://www.datacamp.com/fr/blog/ai-alignment",
+        "type": "blog"
+      },
+      {
+        "title": "[2310.19852] AI Alignment: A Comprehensive Survey - arXiv",
+        "url": "https://arxiv.org/abs/2310.19852",
+        "type": "paper"
+      },
+      {
+        "title": "AI alignment - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/AI_alignment",
+        "type": "tutorial"
+      },
+      {
+        "title": "AI alignment — LessWrong",
+        "url": "https://www.lesswrong.com/w/ai-alignment",
+        "type": "tutorial"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "constitutional-ai",
+    "refs": [
+      {
+        "title": "Constitutional AI: Harmlessness from AI Feedback",
+        "url": "https://docs.nvidia.com/nemo-framework/user-guide/24.09/modelalignment/cai.html",
+        "type": "official"
+      },
+      {
+        "title": "Claude's Constitution - Anthropic",
+        "url": "https://www.anthropic.com/news/claudes-constitution",
+        "type": "official"
+      },
+      {
+        "title": "Constitutional AI explained",
+        "url": "https://toloka.ai/blog/constitutional-ai-explained/",
+        "type": "blog"
+      },
+      {
+        "title": "What is Constitutional AI and Why Does it Matter for International Arbitration? | Kluwer Arbitration Blog",
+        "url": "https://legalblogs.wolterskluwer.com/arbitration-blog/what-is-constitutional-ai-and-why-does-it-matter-for-international-arbitration/",
+        "type": "blog"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "jailbreak",
+    "refs": [
+      {
+        "title": "탈옥 - Google Play 영화",
+        "url": "https://play.google.com/store/movies/details/%ED%83%88%EC%98%A5?id=GqusT-HJWXA.P&hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "JAILBREAK Definition & Meaning - Merriam-Webster",
+        "url": "https://www.merriam-webster.com/dictionary/jailbreak",
+        "type": "tutorial"
+      },
+      {
+        "title": "Jailbreak - YouTube",
+        "url": "https://www.youtube.com/playlist?list=PLhYV96hJwkJZ4dL6UjoEhqn7UVdAq03-O",
+        "type": "tutorial"
+      },
+      {
+        "title": "JAILBREAK",
+        "url": "https://www.roblox.com/games/606849621/JAILBREAK",
+        "type": "tutorial"
+      }
+    ],
+    "videos": []
+  },
+  {
+    "id": "bias",
+    "refs": [
+      {
+        "title": "Machine Learning - 공정성: 편향의 유형",
+        "url": "https://developers.google.com/machine-learning/crash-course/fairness/types-of-bias?hl=ko",
+        "type": "official"
+      },
+      {
+        "title": "AI Bias: 16 Real AI Bias Examples & Mitigation Guide",
+        "url": "https://www.crescendo.ai/blog/ai-bias-examples-mitigation-guide",
+        "type": "blog"
+      },
+      {
+        "title": "인지적 편향의 종류 - 확증 편향, 생존자 편향 등 : 네이버 블로그",
+        "url": "https://m.blog.naver.com/angryking/222353029428",
+        "type": "blog"
+      },
+      {
+        "title": "Biases in AI: acknowledging and addressing the inevitable ethical ...",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12405166/",
+        "type": "tutorial"
+      }
+    ],
+    "videos": []
+  }
+]
