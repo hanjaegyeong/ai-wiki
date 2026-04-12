@@ -9,3 +9,4 @@
 ## TODO
 (현재 항목 진행 중 — PLAN-CURRENT.md 참조)
 - YouTube 영상 누락분 수집 (Day 2): KO 재수집 17개 + 나머지 36개 키워드 fetch + apply-gaps.js 적용
+- 크리틱·서머라이저 등 신규 키워드 YouTube 영상 3개씩 보충 (YouTube API 할당량 리셋 후)

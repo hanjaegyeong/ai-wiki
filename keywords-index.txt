@@ -97,7 +97,7 @@ graph-rag	그래프 RAG	Graph RAG	data
 multimodal-rag	멀티모달 RAG	Multimodal RAG	data
 agent-protocol	에이전트 프로토콜	Agent Protocol	agent
 a2a	A2A	Agent-to-Agent Protocol	agent
-orchestration	오케스트레이션	Agent Orchestration	agent
+orchestration-pattern	오케스트레이션 패턴	Orchestration Pattern	agent
 subagent	서브에이전트	Subagent	agent
 agentic-rag	에이전틱 RAG	Agentic RAG	agent
 computer-use	컴퓨터 사용	Computer Use	agent
@@ -112,7 +112,7 @@ swarm	스웜	Agent Swarm	agent
 langgraph	랭그래프	LangGraph	agent
 crewai	CrewAI	CrewAI	agent
 sandboxing	샌드박싱	Code Sandboxing	agent
-planning	플래닝	LLM Planning	agent
+planning-pattern	플래닝 패턴	Planning Pattern	agent
 code-interpreter	코드 인터프리터	Code Interpreter	agent
 ai-ide	AI IDE	AI-Powered IDE	tooling
 cursor	Cursor	Cursor	tooling
@@ -128,7 +128,7 @@ langfuse	Langfuse	Langfuse	tooling
 langsmith	LangSmith	LangSmith	tooling
 tracing	트레이싱	LLM Tracing	tooling
 playground	플레이그라운드	AI Playground	tooling
-model-router	모델 라우터	Model Router	tooling
+routing-pattern	라우팅 패턴	Routing Pattern	tooling
 context-caching	컨텍스트 캐싱	Context Caching	tooling
 agents-md	AGENTS.md	AGENTS.md	tooling
 prompt-management	프롬프트 관리	Prompt Management	tooling
@@ -246,3 +246,5 @@ research-driven-agent	리서치 기반 에이전트	Research-Driven Agent	agent
 agi	인공 일반 지능	Artificial General Intelligence	model
 scaling-law	스케일링 법칙	Scaling Law	model
 gan	GAN	Generative Adversarial Network	model
+critic-pattern	크리틱 패턴	Critic Pattern	agent
+summarizer	서머라이저	Summarizer	agent
