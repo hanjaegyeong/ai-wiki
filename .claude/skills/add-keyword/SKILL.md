@@ -32,7 +32,7 @@ node fetch-sources.js --keyword "{english}" --keyword-ko "{한국어}" --en "{En
 ### 3단계: 서브에이전트 2개를 **병렬** 실행
 Agent 도구로 2개를 동시에 띄운다:
 
-- **researcher 에이전트**: `researcher.md` 정의를 프롬프트로 전달하고, fetch 결과의 `web` 데이터(검색 결과 텍스트)를 함께 전달한다. 에이전트는 이 데이터를 바탕으로 콘텐츠를 작성하고, **det 작성 시 실제 참고한 출처를 refs로 직접 출력한다.**
+- **researcher 에이전트**: `researcher.md` 정의를 프롬프트로 전달하고, fetch 결과의 `web` 데이터(검색 결과 텍스트)를 함께 전달한다. **같은 카테고리(`c` 값)의 기존 키워드 ID 전체 목록**도 함께 전달한다 (rel 누락 방지). 에이전트는 이 데이터를 바탕으로 콘텐츠를 작성하고, **det 작성 시 실제 참고한 출처를 refs로 직접 출력한다.**
 - **reference-collector 에이전트**: `reference-collector.md` 정의를 프롬프트로 전달하고, fetch 결과의 `youtube` 데이터를 함께 전달한다. 에이전트는 이 데이터에서 **videos만** 채택한다.
 
 ### 4단계: 결과 종합
