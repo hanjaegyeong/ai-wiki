@@ -246,6 +246,8 @@ fetch-sources.js                   # 키워드별 웹+영상 검색 (Tavily + Yo
 | 5 | data.js 반영 | `node apply-entries.js` | 중복 확인, 항목 추가 |
 | 6 | 빌드 + 커밋 | `node build.js` + git | SEO 페이지 + sitemap + log.md + git push |
 
+**build.js 품질 게이트 (AdSense 대응)**: 본문(det) 텍스트 1000자 미만 페이지는 `noindex,follow` + sitemap 제외 + AdSense 광고 코드 미삽입. 새 키워드는 det 1000자 이상으로 작성해야 색인·광고 대상이 된다.
+
 - GeekNews /new는 10개만 수집 (하루 게시글 2~3건 수준의 소규모 커뮤니티)
 - 키워드 0개 선정 시 Stage 3~5 건너뛰고 Stage 6으로 점프
 - Stage 2, 4에서 Claude 프로세스가 출력 완료 후 hang 시 JSON 완성 감지 → 즉시 kill 후 진행
@@ -282,6 +284,11 @@ fetch-sources.js                   # 키워드별 웹+영상 검색 (Tavily + Yo
 - **대상**: 해당 배치에서 트렌딩으로 식별된 키워드 (신규 + 기존 모두)
 
 ### 로컬 스케줄러 (launchd + pmset)
+
+> **⚠️ 현재 상태 (2026-08-30): AdSense 재심사 기간 동안 비활성화됨.**
+> `launchctl bootout` + `launchctl disable`로 영구 중단 (재부팅해도 안 살아남). 자동 발행은 "scaled content abuse" 신호라 심사에 불리.
+> 재개: `launchctl enable gui/$UID/com.aiwiki.daily && launchctl bootstrap gui/$UID ~/Library/LaunchAgents/com.aiwiki.daily.plist`
+> 재개 시 Stage 4 뒤에 발행 전 인간 검토 단계를 넣을 것 (AdSense Replicated content 정책: "수동 검토 없는 자동 생성 콘텐츠" 금지).
 
 - **스케줄**: 매일 08:00 KST (plist `Hour`/`Minute`로 조정)
 - **자동 기상**: `pmset repeat wakeorpoweron MTWRFSU 07:59:00` — 잠자기 상태에서 스케줄 1분 전 자동 wake

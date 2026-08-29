@@ -38,6 +38,31 @@ function replaceDet(src, entryStart, entryEnd, newDet) {
   return src.slice(0, k) + newLit + src.slice(cEnd + 1);
 }
 
+// refs:[...] 배열 리터럴의 끝을 찾는다 (문자열·이스케이프·중첩 브래킷 인식)
+function findArrayEnd(s, openBracket) {
+  let depth = 0, inStr = false;
+  for (let i = openBracket; i < s.length; i++) {
+    const ch = s[i];
+    if (inStr) {
+      if (ch === '\\') { i++; continue; }
+      if (ch === '"') inStr = false;
+      continue;
+    }
+    if (ch === '"') { inStr = true; continue; }
+    if (ch === '[' || ch === '{') depth++;
+    else if (ch === ']' || ch === '}') { depth--; if (depth === 0) return i; }
+  }
+  return -1;
+}
+
+function replaceRefs(src, entryStart, entryEnd, newRefs) {
+  const k = src.indexOf('refs:[', entryStart);
+  if (k < 0 || k > entryEnd) return null;
+  const aEnd = findArrayEnd(src, k + 5);
+  if (aEnd < 0 || aEnd > entryEnd + 20000) return null;
+  return src.slice(0, k) + 'refs:' + JSON.stringify(newRefs) + src.slice(aEnd + 1);
+}
+
 function replaceUpdated(src, entryStart, entryEnd) {
   // 엔트리 블록 내 updated:'...' 교체 (있을 때만)
   const block = src.slice(entryStart, entryEnd);
@@ -72,6 +97,17 @@ for (const f of files) {
   const replaced = replaceDet(src, entryStart, entryEnd, u.det);
   if (!replaced) { failed.push(`${u.id} (det 치환 실패)`); continue; }
   src = replaced;
+
+  // refs 교체 (updates JSON에 refs가 있을 때만, 형식 검증 후)
+  if (Array.isArray(u.refs) && u.refs.length && u.refs.every(r => r && r.title && r.url)) {
+    const eS = src.indexOf(idMarker, src.indexOf('const D = ['));
+    let eE = src.indexOf('\n  {id:', eS + 1);
+    const i18nB = src.indexOf('const I18N_CONTENT');
+    if (eE < 0 || eE > i18nB) eE = i18nB;
+    const withRefs = replaceRefs(src, eS, eE, u.refs);
+    if (withRefs) src = withRefs;
+    else console.log(`  ! ${u.id}: refs 치환 실패 (기존 refs 유지)`);
+  }
 
   // updated 갱신 (경계 재계산 후)
   const eStart2 = src.indexOf(idMarker, src.indexOf('const D = ['));

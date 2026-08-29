@@ -20,14 +20,14 @@ if (!fs.existsSync(OUTC)) fs.mkdirSync(OUTC);
 
 // 카테고리 허브 소개문 (토픽 클러스터 페이지용 — 각기 다른 고유 줄글)
 const CAT_INTRO = {
-  prompting: 'AI에게 원하는 답을 얻으려면 "무엇을 묻느냐"만큼 "어떻게 묻느냐"가 중요합니다. 프롬프트 엔지니어링, 사고의 사슬(CoT), 시스템 프롬프트처럼 모델을 정확하게 다루기 위한 기법들을 모았습니다.',
-  model: 'GPT·Claude·Gemini 같은 대규모 언어 모델은 AI의 "두뇌"에 해당합니다. 모델이 어떻게 학습되고 작동하는지, 파인튜닝·양자화·멀티모달처럼 모델 자체를 이해하는 데 필요한 개념들을 모았습니다.',
-  tooling: 'AI를 실제 개발과 업무에 활용하게 해주는 도구와 표준입니다. MCP, Claude Code, LangChain, 스킬·훅처럼 모델과 외부 세계를 잇는 기술들을 모았습니다.',
-  data: 'AI가 최신 정보나 내 문서를 근거로 답하려면 데이터를 잘 다뤄야 합니다. RAG, 임베딩, 벡터 DB, 청킹처럼 검색과 지식 연결에 관한 개념들을 모았습니다.',
-  agent: '스스로 판단하고 도구를 써서 일을 끝까지 처리하는 것이 AI 에이전트입니다. 멀티에이전트, ReAct, 에이전트 프레임워크·메모리처럼 "알아서 일하는 AI"를 이해하는 키워드를 모았습니다.',
-  infra: 'AI 시스템을 실제로 안정적으로 굴리려면 뒷단의 기반이 필요합니다. 컨텍스트 윈도우, API 게이트웨이, 평가(Eval)처럼 운영과 확장에 관한 개념들을 모았습니다.',
-  safety: 'AI를 안전하고 믿을 수 있게 쓰기 위한 개념입니다. 환각, 가드레일, 프롬프트 인젝션처럼 위험을 이해하고 막는 기술들을 모았습니다.',
-  application: 'AI가 실제 제품과 현장에서 어떻게 쓰이는지에 관한 개념입니다. AI 코딩, 챗봇, AI 검색, 워크플로우처럼 응용 분야의 키워드를 모았습니다.'
+  prompting: 'AI에게 원하는 답을 얻으려면 "무엇을 묻느냐"만큼 "어떻게 묻느냐"가 중요합니다. 같은 모델이라도 질문을 어떻게 설계하느냐에 따라 결과물의 품질이 몇 배씩 갈리기 때문에, 프롬프트를 다루는 기술은 하나의 독립된 분야가 됐습니다. 처음이라면 프롬프트 엔지니어링에서 전체 그림을 잡고, 모델이 단계적으로 생각하게 만드는 사고의 사슬(CoT), 모델의 기본 성격을 정하는 시스템 프롬프트로 넓혀가는 순서를 권합니다. 퓨샷·제로샷 같은 예시 제공 전략, XML 프롬프팅 같은 구조화 기법, 프롬프트를 코드처럼 버전 관리하는 프롬프트 매니지먼트까지 — 모델을 정확하게 다루기 위한 기법들을 모았습니다.',
+  model: 'GPT·Claude·Gemini 같은 대규모 언어 모델은 AI의 "두뇌"에 해당합니다. 이 분야의 용어는 크게 세 갈래입니다. 모델이 글을 이해하고 생성하는 원리(트랜스포머, 어텐션, 토큰), 모델을 만들고 다듬는 과정(사전학습, 파인튜닝, RLHF, LoRA), 그리고 모델을 가볍고 빠르게 만드는 기술(양자화, 증류, MoE)입니다. LLM 항목에서 출발해 트랜스포머로 내려가면 뉴스에서 스치던 용어들이 하나의 이야기로 연결됩니다. 멀티모달·추론 모델처럼 최근 모델들이 어디로 진화하고 있는지 보여주는 키워드도 함께 모았습니다.',
+  tooling: 'AI를 실제 개발과 업무에 활용하게 해주는 도구와 표준입니다. 모델 자체는 텍스트를 주고받는 것밖에 못 하기 때문에, 파일을 읽고 명령을 실행하고 외부 서비스에 연결하는 일은 전부 도구 계층이 담당합니다. 터미널에서 코드를 짜주는 Claude Code, 모델과 외부 시스템을 잇는 표준 프로토콜 MCP, 에이전트 애플리케이션을 조립하는 LangChain이 대표적입니다. 도구를 확장하는 방식인 스킬과 훅, 프로젝트 규칙을 심는 CLAUDE.md처럼 실무에서 매일 마주치는 설정 개념들도 함께 다룹니다. AI 코딩을 시작했다면 이 카테고리의 용어부터 부딪히게 됩니다.',
+  data: 'AI가 최신 정보나 내 문서를 근거로 답하려면 데이터를 잘 다뤄야 합니다. 모델은 학습 시점 이후의 일을 모르고 회사 내부 문서도 본 적이 없기 때문에, 필요한 지식을 검색해서 모델에게 건네주는 파이프라인이 필요합니다. 그 뼈대가 RAG이고, 문서를 검색 가능한 형태로 바꾸는 임베딩, 그것을 저장·검색하는 벡터 DB, 문서를 적절한 크기로 자르는 청킹이 각 단계를 담당합니다. 검색 품질을 끌어올리는 리랭킹·하이브리드 검색, 지식을 그래프로 연결하는 GraphRAG까지 — 검색과 지식 연결에 관한 개념들을 순서대로 모았습니다.',
+  agent: '스스로 판단하고 도구를 써서 일을 끝까지 처리하는 것이 AI 에이전트입니다. 한 번 묻고 한 번 답하는 챗봇과 달리, 에이전트는 목표를 받으면 계획을 세우고 도구를 골라 쓰고 결과를 확인하며 여러 단계를 돌립니다. AI 에이전트 항목에서 기본 그림을 잡은 뒤, 생각과 행동을 번갈아 반복하는 ReAct 패턴, 여러 에이전트가 역할을 나누는 멀티에이전트, 작업 기억을 유지하는 에이전트 메모리로 확장해보세요. 에이전트끼리 통신하는 A2A 같은 프로토콜, 브라우저를 조작하는 컴퓨터 유즈, 에이전트를 평가하는 방법론까지 — "알아서 일하는 AI"를 이해하는 키워드를 모았습니다.',
+  infra: 'AI 시스템을 실제로 안정적으로 굴리려면 뒷단의 기반이 필요합니다. 데모에서는 잘 되던 것이 실서비스에서 무너지는 이유는 대부분 이 계층에 있습니다. 모델이 한 번에 기억할 수 있는 양을 정하는 컨텍스트 윈도우, 응답 품질을 수치로 검증하는 평가(Eval), 같은 질문에 대한 비용을 아끼는 프롬프트 캐싱, 여러 모델을 하나의 창구로 묶는 LLM 게이트웨이가 대표 개념입니다. GPU 클러스터·배치 추론·레이턴시 최적화처럼 서빙 성능에 관한 용어, 관측가능성·트레이싱처럼 운영 품질에 관한 용어까지, 운영과 확장에 관한 개념들을 모았습니다.',
+  safety: 'AI를 안전하고 믿을 수 있게 쓰기 위한 개념입니다. 모델은 모르는 것도 그럴듯하게 지어내고(환각), 악의적인 입력에 속아 하지 말아야 할 일을 하기도 합니다(프롬프트 인젝션, 탈옥). 이런 위험을 이해하는 것이 첫걸음이고, 출력을 걸러내는 가드레일, 모델 스스로 원칙을 지키게 하는 정렬과 헌법적 AI, 워터마킹·딥페이크 탐지 같은 기술이 방어선을 이룹니다. AI 서비스를 만들거나 도입하는 입장이라면 환각과 프롬프트 인젝션 두 항목만은 꼭 읽어두시길 권합니다. 위험을 이해하고 막는 기술들을 모았습니다.',
+  application: 'AI가 실제 제품과 현장에서 어떻게 쓰이는지에 관한 개념입니다. 모델과 기법이 재료라면 이 카테고리는 완성된 요리에 해당합니다. 개발 현장을 바꾸고 있는 AI 코딩과 바이브 코딩, 검색의 판도를 흔드는 AI 검색, 가장 오래된 응용인 챗봇, 반복 업무를 자동화하는 AI 워크플로우가 큰 줄기입니다. 텍스트를 넘어 이미지·영상·음성을 만드는 생성 기술, 문서를 읽고 처리하는 문서 AI, 코드 리뷰·테스트 생성처럼 개발 파이프라인 곳곳에 스며든 세부 응용까지 — 기술이 실제 가치로 바뀌는 지점의 키워드를 모았습니다.'
 };
 
 function escHtml(s) {
@@ -52,6 +52,17 @@ function ranSuffix(word) {
 // D를 id로 빠르게 조회할 수 있도록 맵 생성
 const DMap = {};
 for (const e of D) DMap[e.id] = e;
+
+// 색인 품질 게이트: 본문(det) 텍스트가 이 길이 미만이면 noindex + sitemap 제외 + 광고 미게재
+const THIN_THRESHOLD = 1000;
+const indexableIds = new Set();
+
+// dateModified가 datePublished보다 과거인 데이터 모순 방지 (updated < added인 항목 존재)
+function modifiedDate(e) {
+  const a = e.added || '';
+  const u = e.updated || '';
+  return (u && u >= a) ? u : a;
+}
 
 for (const e of D) {
   // 1. 검색 의도 반영 타이틀: "MCP란? (Model Context Protocol) — AI Wiki"
@@ -87,10 +98,13 @@ for (const e of D) {
     .join('');
   const videosBlock = vidItems ? `<div class="videos"><b>관련 영상</b><div class="video-list">${vidItems}</div></div>` : '';
 
-  // 얇은 페이지 noindex: 본문이 매우 짧고 출처도 없는 경우만 (색인 품질 방어)
+  // 얇은 페이지 품질 게이트: 본문 1000자 미만은 noindex + sitemap 제외 + 광고 미게재
+  // (AdSense "Low value content" 대응 — 심사·색인 대상을 충분한 분량의 페이지로 한정)
   const detLen = stripTags(e.det || '').length;
-  const robotsMeta = (detLen < 400 && (!e.refs || !e.refs.length))
-    ? '\n<meta name="robots" content="noindex,follow">' : '';
+  const isThin = detLen < THIN_THRESHOLD;
+  if (!isThin) indexableIds.add(e.id);
+  const robotsMeta = isThin ? '\n<meta name="robots" content="noindex,follow">' : '';
+  const adsenseTag = isThin ? '' : `\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7817461938422229" crossorigin="anonymous"></script>`;
 
   // 3. BreadcrumbList JSON-LD
   const breadcrumb = {
@@ -111,7 +125,7 @@ for (const e of D) {
     "description": rawDesc.slice(0, 160),
     "url": url,
     "datePublished": e.added || undefined,
-    "dateModified": e.updated || e.added || undefined,
+    "dateModified": modifiedDate(e) || undefined,
     "author":{"@type":"Organization","name":"AI Wiki"},
     "publisher":{"@type":"Organization","name":"AI Wiki","url":BASE+"/"},
     "mainEntityOfPage":{"@type":"WebPage","@id":url}
@@ -121,12 +135,11 @@ for (const e of D) {
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">${robotsMeta}
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7817461938422229" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">${robotsMeta}${adsenseTag}
 <meta name="google-adsense-account" content="ca-pub-7817461938422229">
 <title>${escHtml(title)}</title>
 <meta name="description" content="${escHtml(desc)}">
-<meta name="keywords" content="${escHtml(e.tags.join(', '))}, AI, ${escHtml(e.t)}, ${escHtml(e.t)}란, ${escHtml(e.t)} 뜻, ${escHtml(e.t)} 의미, ${escHtml(e.t)} 개념, ${escHtml(e.t)} 설명, ${escHtml(e.t)} 정리, ${escHtml(e.t)}이란">
+<meta name="keywords" content="${escHtml(e.t)}${e.en && e.en !== e.t ? `, ${escHtml(e.en)}` : ''}, ${escHtml(e.tags.join(', '))}, AI 용어">
 <meta property="og:type" content="article">
 <meta property="og:title" content="${escHtml(title)}">
 <meta property="og:description" content="${escHtml(desc)}">
@@ -137,7 +150,7 @@ for (const e of D) {
 <meta property="og:site_name" content="AI Wiki">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="${e.added || ''}">
-<meta property="article:modified_time" content="${e.updated || e.added || ''}">
+<meta property="article:modified_time" content="${modifiedDate(e) || ''}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${escHtml(title)}">
 <meta name="twitter:description" content="${escHtml(desc)}">
@@ -232,7 +245,7 @@ ${JSON.stringify(article, null, 2)}
   ${refsBlock}
   ${videosBlock}
   <a class="back" href="${BASE}/#${e.id}">← AI Wiki에서 더 보기</a>
-  ${e.added ? `<div class="added-date">updated at ${e.updated||e.added}</div>` : ''}
+  ${e.added ? `<div class="added-date">updated at ${modifiedDate(e)}</div>` : ''}
 </div>
 <footer class="site-footer">
   <a href="${BASE}/">홈</a> · <a href="${BASE}/about.html">소개</a> · <a href="${BASE}/privacy.html">개인정보처리방침</a> · <a href="${BASE}/contact.html">문의</a>
@@ -361,9 +374,12 @@ for (const p of ['about.html', 'privacy.html', 'contact.html']) {
 for (const cat of hubBuilt) {
   urls.push(`  <url>\n    <loc>${BASE}/c/${cat}.html</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`);
 }
+let thinCount = 0;
 for (const e of D) {
-  urls.push(`  <url>\n    <loc>${BASE}/k/${e.id}.html</loc>\n    <lastmod>${e.updated || today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`);
+  if (!indexableIds.has(e.id)) { thinCount++; continue; } // noindex 페이지는 sitemap 제외
+  urls.push(`  <url>\n    <loc>${BASE}/k/${e.id}.html</loc>\n    <lastmod>${modifiedDate(e) || today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`);
 }
+console.log(`✓ 색인 대상 ${indexableIds.size}개 / noindex(본문 ${THIN_THRESHOLD}자 미만) ${thinCount}개`);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`;
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemap);
 
